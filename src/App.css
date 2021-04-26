@@ -2,11 +2,13 @@
 
 * {
   margin: 0;
+  box-sizing: border-box;
 }
 
 .App {
   background-image: url(./images/bottle-background.png);
   background-size: cover;
+  background-position: 5%;
   background-color: var(--color-one);
   height: 100vh;
   overflow-x: hidden;
