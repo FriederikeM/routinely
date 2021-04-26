@@ -1,10 +1,13 @@
+@import "color.css";
+
 * {
   margin: 0;
 }
 
 .App {
-  text-align: center;
   background-image: url(./images/bottle-background.png);
   background-size: cover;
+  background-color: var(--color-one);
   height: 100vh;
+  overflow-x: hidden;
 }
