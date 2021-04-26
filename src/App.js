@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -7,7 +8,7 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <h1>Hello from the home</h1>
+            <Home />
           </Route>
           <Route exact path="/weekly-routine">
             <h1>Hello from the weekly routine</h1>
