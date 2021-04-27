@@ -1,6 +1,6 @@
-import "./Filter.css";
+import "./NameFilter.css";
 
-export default function Filter() {
+export default function NameFilter() {
   return (
     <div className="Filter">
       <form className="filter-form">
