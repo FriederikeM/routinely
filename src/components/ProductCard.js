@@ -5,7 +5,11 @@ export default function ProductCard() {
   return (
     <div className="ProductCard">
       <h5 className="ProductCard__headline">Niacinamide 10% + Zinc 1%</h5>
-      <img src={Niacinamide} alt="product bottle" className="bottle-image" />
+      <img
+        src={Niacinamide}
+        alt="white product bottle of Niacinamide"
+        className="bottle-image"
+      />
       <a
         href="https://theordinary.deciem.com/de/rdn-niacinamide-10pct-zinc-1pct-30ml.html"
         className="details-link"
