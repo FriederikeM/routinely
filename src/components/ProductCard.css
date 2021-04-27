@@ -26,10 +26,24 @@
 .bottle-image {
   position: absolute;
   left: -160px;
-  width: 370px;
   bottom: -5px;
+  width: 370px;
   transform: rotate(-15deg);
   z-index: 0;
+}
+
+.smaller-image {
+  position: absolute;
+  left: -100px;
+  bottom: -5px;
+  width: 270px;
+}
+
+.powder {
+  position: absolute;
+  left: -100px;
+  bottom: -15px;
+  width: 270px;
 }
 
 .details-link {
