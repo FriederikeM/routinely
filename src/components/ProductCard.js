@@ -1,21 +1,15 @@
 import "./ProductCard.css";
-import Niacinamide from "../images/niacinamide-bottle.png";
 
-export default function ProductCard() {
+export default function ProductCard({ name, image, url }) {
   return (
     <div className="ProductCard">
-      <h5 className="ProductCard__headline">Niacinamide 10% + Zinc 1%</h5>
+      <h5 className="ProductCard__headline">{name}</h5>
       <img
-        src={Niacinamide}
-        alt="white product bottle of Niacinamide"
+        src={image}
+        alt={`white product bottle of ${name}`}
         className="bottle-image"
       />
-      <a
-        href="https://theordinary.deciem.com/de/rdn-niacinamide-10pct-zinc-1pct-30ml.html"
-        className="details-link"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a href={url} className="details-link" target="_blank" rel="noreferrer">
         details
       </a>
       <button className="add-to-routine-button">+</button>

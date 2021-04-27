@@ -3,22 +3,34 @@ import CalendarButton from "./CalendarButton";
 import ProductCard from "./ProductCard";
 import CategoryFilter from "./CategoryFilter";
 import "./ProductList.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function ProductList() {
-  const getData = () => {
-    fetch("products.json")
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (myJson) {
-        console.log(myJson);
-      });
-  };
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    getData();
+    const fetchProducts = () => {
+      return fetch("products.json")
+        .then((response) => response.json())
+        .then((productData) => {
+          setProducts(productData);
+          console.log(products);
+        });
+    };
+    fetchProducts();
   }, []);
+
+  function renderProducts() {
+    return products.map((product) => {
+      const { id, name, image, url } = product;
+      return (
+        <li key={id}>
+          <ProductCard name={name} image={image} url={url} />
+        </li>
+      );
+    });
+  }
+
   return (
     <div className="ProductList">
       <header className="header">
@@ -29,10 +41,7 @@ export default function ProductList() {
         <CalendarButton />
       </header>
       <main className="main">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        <ul className="product-list">{renderProducts()}</ul>
       </main>
     </div>
   );
