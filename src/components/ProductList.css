@@ -1,0 +1,15 @@
+.ProductList {
+  display: grid;
+  grid-template-rows: [header] 100px [main] calc(100vh - 100px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.main {
+  padding: 0 10px;
+}
