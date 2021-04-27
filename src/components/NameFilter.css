@@ -6,7 +6,7 @@
 .name-search-bar {
   border-radius: 30px;
   border: none;
-  background-color: var(--color-two);
+  background-color: var(--color-three);
   color: var(--color-seven);
   font-weight: bold;
   padding-left: 45px;
@@ -17,7 +17,7 @@
 .name-search-button {
   border-radius: 50%;
   background-color: var(--color-one);
-  border: 2px solid var(--color-two);
+  border: 2px solid var(--color-three);
   color: var(--color-two);
   backdrop-filter: blur(8px);
   padding: 7px 9px 5px;
@@ -25,4 +25,5 @@
   position: absolute;
   top: -3px;
   left: -3px;
+  cursor: pointer;
 }
