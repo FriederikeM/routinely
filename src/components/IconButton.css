@@ -1,0 +1,14 @@
+.calendar {
+  font-size: 50px;
+  border: 1px solid var(--color-two);
+  border-radius: 5px;
+  padding: 5px 5px 5px 7px;
+  background-color: #e4bcbc7a;
+  backdrop-filter: blur(2px);
+}
+
+.weekly-routine-link {
+  text-decoration: none;
+  color: var(--color-two);
+  margin-right: 15px;
+}
