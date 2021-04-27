@@ -1,10 +1,11 @@
 :root {
   --color-one: #fff7fc;
+  --color-one-opaque: #fff7fcb9;
   --color-two: #691643;
   --color-two-opaque: #691644a8;
   --color-three: #a26769;
   --color-four: #e0c2c0;
-  --color-four-opaque: #e0c2c0c5;
+  --color-four-opaque: #e0c2c07c;
   --color-five: #57394a;
   --color-five-opaque: #57394a50;
   --color-six: #9a9a9a;
