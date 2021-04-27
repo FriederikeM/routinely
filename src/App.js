@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
+import ProductList from "./components/ProductList";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
             <h1>Hello from the weekly routine</h1>
           </Route>
           <Route exact path="/products">
-            <h1>Hello from the product list</h1>
+            <ProductList />
           </Route>
         </Switch>
       </div>

@@ -1,0 +1,15 @@
+.label {
+  display: none;
+}
+
+.category-search-bar {
+  width: 200px;
+  font-size: 1.3rem;
+  border: 2px solid var(--color-three);
+  border-radius: 5px;
+  color: var(--color-two);
+  padding-bottom: 2px;
+  background: var(--color-one-opaque);
+  backdrop-filter: blur(1px);
+  cursor: pointer;
+}

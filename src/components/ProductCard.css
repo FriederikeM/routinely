@@ -1,0 +1,64 @@
+.ProductCard {
+  width: 250px;
+  height: 200px;
+  background: linear-gradient(
+    145deg,
+    var(--color-two-opaque) 40%,
+    var(--color-two)
+  );
+  backdrop-filter: blur(3px);
+  border-radius: 35px;
+  margin: 0 15px 80px 15px;
+  padding-right: 30px;
+  position: relative;
+  border: 1px solid var(--color-two-opaque);
+}
+
+.ProductCard__headline {
+  position: absolute;
+  right: 15px;
+  top: 25px;
+  width: 15ch;
+  color: var(--color-seven);
+  font-size: 0.9rem;
+}
+
+.bottle-image {
+  position: absolute;
+  left: -160px;
+  width: 370px;
+  bottom: -5px;
+  transform: rotate(-15deg);
+  z-index: 0;
+}
+
+.details-link {
+  position: absolute;
+  bottom: 80px;
+  right: 50px;
+  text-decoration: none;
+  color: var(--color-seven);
+  border: 2px solid var(--color-seven);
+  padding: 3px 5px;
+  border-radius: 5px;
+  background-color: var(--color-four-opaque);
+  backdrop-filter: blur(1px);
+  background: linear-gradient(145deg, #946c7dd0, #af8095d0);
+  box-shadow: 4px 4px 18px #8b6676, -4px -4px 18px #bd8aa0;
+}
+
+.add-to-routine-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: var(--color-two-opaque);
+  background: linear-gradient(145deg, #ffffff, #c5bfc2);
+  box-shadow: 3px 3px 9px var(--color-two-opaque),
+    -3px -3px 9px var(--color-one-opaque);
+  border: none;
+  border-radius: 10px;
+  font-size: 3rem;
+  line-height: 2rem;
+  padding: 0 5px 10px 6px;
+  cursor: pointer;
+}
