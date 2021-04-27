@@ -16,6 +16,9 @@ export default function ProductList() {
       </header>
       <main className="main">
         <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
       </main>
     </div>
   );

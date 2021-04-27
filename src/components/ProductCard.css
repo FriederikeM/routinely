@@ -1,0 +1,52 @@
+.ProductCard {
+  width: 250px;
+  height: 200px;
+  background-color: var(--color-two-opaque);
+  backdrop-filter: blur(3px);
+  border-radius: 35px;
+  margin: 0 15px 80px 15px;
+  padding-right: 30px;
+  position: relative;
+  border: 1px solid var(--color-two-opaque);
+}
+
+.ProductCard__headline {
+  position: absolute;
+  right: 15px;
+  top: 25px;
+  width: 15ch;
+  color: var(--color-seven);
+  font-size: 0.9rem;
+}
+
+.bottle-image {
+  position: absolute;
+  left: -160px;
+  width: 370px;
+  bottom: -5px;
+  transform: rotate(-15deg);
+}
+
+.details-link {
+  position: absolute;
+  bottom: 80px;
+  right: 50px;
+  text-decoration: none;
+  color: var(--color-seven);
+  border: 2px solid var(--color-seven);
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+
+.add-to-routine-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: var(--color-two-opaque);
+  background-color: var(--color-one);
+  border: none;
+  border-radius: 10px;
+  font-size: 3rem;
+  line-height: 2rem;
+  padding: 0 5px 10px 6px;
+}
