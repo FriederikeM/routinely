@@ -10,7 +10,6 @@
   padding-bottom: 5px;
   width: 185px;
   background-color: rgba(204, 168, 169, 0.116);
-  background-blend-mode: hard-light;
   backdrop-filter: blur(5px);
 }
 
