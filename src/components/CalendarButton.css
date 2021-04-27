@@ -3,7 +3,7 @@
   border: 1px solid var(--color-two);
   border-radius: 5px;
   padding: 5px 5px 5px 7px;
-  background-color: var(--color-four-opaque);
+  background-color: var(--color-five-opaque);
   backdrop-filter: blur(2px);
 }
 
