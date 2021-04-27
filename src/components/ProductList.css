@@ -8,11 +8,18 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 10px;
+  z-index: 1;
 }
 
 .main {
-  padding: 80px 10px;
+  padding: 100px 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
 }

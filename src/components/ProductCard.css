@@ -25,6 +25,7 @@
   width: 370px;
   bottom: -5px;
   transform: rotate(-15deg);
+  z-index: 0;
 }
 
 .details-link {

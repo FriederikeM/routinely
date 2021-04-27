@@ -1,8 +1,9 @@
 import "./NameFilter.css";
+import { FaSearch } from "react-icons/fa";
 
 export default function NameFilter() {
   return (
-    <div className="Filter">
+    <div className="NameFilter">
       <form className="filter-form">
         <input
           type="text"
@@ -17,7 +18,7 @@ export default function NameFilter() {
           aria-label="name search submit"
           className="name-search-button"
         >
-          Go
+          <FaSearch />
         </button>
       </form>
     </div>
