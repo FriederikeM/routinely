@@ -6,8 +6,8 @@
 .name-search-bar {
   border-radius: 30px;
   border: none;
-  background-color: var(--color-three);
-  color: var(--color-seven);
+  background-color: var(--color-three-opaque);
+  color: var(--color-eight);
   font-weight: bold;
   padding-left: 45px;
   line-height: 2.4rem;
