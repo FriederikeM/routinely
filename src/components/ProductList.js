@@ -3,8 +3,22 @@ import CalendarButton from "./CalendarButton";
 import ProductCard from "./ProductCard";
 import CategoryFilter from "./CategoryFilter";
 import "./ProductList.css";
+import { useEffect } from "react";
 
 export default function ProductList() {
+  const getData = () => {
+    fetch("products.json")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (myJson) {
+        console.log(myJson);
+      });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <div className="ProductList">
       <header className="header">
