@@ -13,9 +13,6 @@
 
 .main {
   padding: 100px 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .filter-wrapper {
@@ -25,6 +22,10 @@
 }
 
 .product-ul {
+  padding: 100px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   list-style: none;
   padding: 0;
 }
