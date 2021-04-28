@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);
+  const [categoryFilter, setCategoryFilter] = useState("All");
+  const [nameFilter, setNameFilter] = useState("");
 
   useEffect(() => {
     const fetchProducts = () => {
@@ -19,20 +21,28 @@ export default function ProductList() {
     fetchProducts();
   }, []);
 
+  function handleCategoryFilterChange(categorySelected) {
+    setCategoryFilter(categorySelected);
+  }
+
   function renderProducts() {
-    return products.map((product) => {
-      const { id, name, image, url, packaging } = product;
-      return (
-        <li key={id}>
-          <ProductCard
-            name={name}
-            image={image}
-            url={url}
-            packaging={packaging}
-          />
-        </li>
-      );
-    });
+    return products
+      .filter((product) => {
+        return product.category === categoryFilter || categoryFilter === "all";
+      })
+      .map((product) => {
+        const { id, name, image, url, packaging } = product;
+        return (
+          <li key={id}>
+            <ProductCard
+              name={name}
+              image={image}
+              url={url}
+              packaging={packaging}
+            />
+          </li>
+        );
+      });
   }
 
   return (
@@ -40,7 +50,7 @@ export default function ProductList() {
       <header className="header">
         <div className="filter-wrapper">
           <NameFilter />
-          <CategoryFilter />
+          <CategoryFilter onCategoryFilterChange={handleCategoryFilterChange} />
         </div>
         <CalendarButton />
       </header>
