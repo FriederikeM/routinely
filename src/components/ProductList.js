@@ -41,7 +41,7 @@ export default function ProductList() {
         <CalendarButton />
       </header>
       <main className="main">
-        <ul className="product-list">{renderProducts()}</ul>
+        <ul className="product-ul">{renderProducts()}</ul>
       </main>
     </div>
   );

@@ -23,3 +23,8 @@
   flex-direction: column;
   margin-top: 25px;
 }
+
+.product-ul {
+  list-style: none;
+  padding: 0;
+}
