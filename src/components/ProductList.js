@@ -21,7 +21,7 @@ export default function ProductList() {
 
   function renderProducts() {
     return products.map((product) => {
-      const { id, name, image, url } = product;
+      const { id, name, image, url, packaging } = product;
       return (
         <li key={id}>
           <ProductCard name={name} image={image} url={url} />

@@ -35,7 +35,8 @@
     "expiration-period": "12 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-aha-30pct-bha-2pct-peeling-solution-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 2,
@@ -91,7 +92,8 @@
     "expiration-period": "12 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-glycolic-acid-7pct-toning-solution-240ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "not glass bottle"
   },
   {
     "id": 3,
@@ -120,7 +122,8 @@
     "expiration-period": "12 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-lactic-acid-10pct-ha-2pct-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 4,
@@ -149,7 +152,8 @@
     "expiration-period": "12 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-lactic-acid-5pct-ha-2pct-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 5,
@@ -176,7 +180,8 @@
     "expiration-period": "12 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-mandelic-acid-10pct-ha-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 6,
@@ -202,7 +207,8 @@
     "expiration-period": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-alpha-arbutin-2pct-ha-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 7,
@@ -215,7 +221,8 @@
     "expiration-period": "6 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-ascorbic-acid-8pct-alpha-arbutin-2pct-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 8,
@@ -246,7 +253,8 @@
     "expiration-period": "12 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-azelaic-acid-suspension-10pct-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "not glass bottle"
   },
   {
     "id": 9,
@@ -322,7 +330,8 @@
     "expiration-period": "12 months",
     "time": ["am"],
     "url": "https://theordinary.deciem.com/de/rdn-mineral-uv-filters-spf-30-with-antioxidants-50ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "not glass bottle"
   },
   {
     "id": 10,
@@ -335,7 +344,8 @@
     "expiration-period": "12 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-100pct-organic-cold-pressed-rose-hip-seed-oil-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 11,
@@ -364,7 +374,8 @@
     "expiration-period": "12 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-vitamin-c-suspension-23pct-ha-spheres-2pct-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "not glass bottle"
   },
   {
     "id": 12,
@@ -390,7 +401,8 @@
     "expiration-period": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-ascorbyl-glucoside-solution-12pct-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 13,
@@ -408,7 +420,8 @@
     "expiration-period": "12 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-vitamin-c-suspension-30pct-in-silicone-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "not glass bottle"
   },
   {
     "id": 14,
@@ -417,19 +430,6 @@
     "category": "Serums",
     "tags": ["Antioxidants", "Oil", "Vitamin C"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw928850a8/Images/products/The%20Ordinary/rdn-ascorbyl-tetraisopalmitate-solution-20pct-in-vitamin-f-30ml.png?sw=800&sh=800&sm=fit",
-    "ingredients": [],
-    "expiration-period": "6 months",
-    "time": [],
-    "url": "",
-    "refrigeration": false
-  },
-  {
-    "id": 15,
-    "name": "Mineral UV Filters SPF 15 with Antioxidants",
-    "contraindications": [],
-    "category": "Suncare",
-    "tags": ["Antioxidants", "SPF"],
-    "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwe162a56e/Images/products/The%20Ordinary/rdn-mineral-uv-filters-spf-15-with-antioxidants-50ml.png?sw=800&sh=800&sm=fit",
     "ingredients": [
       "Coconut Alkanes",
       "Tetrahexyldecyl Ascorbate",
@@ -439,10 +439,88 @@
       "Solanum Lycopersicum (Tomato) Fruit Extract",
       "Squalane"
     ],
+    "expiration-period": "6 months",
+    "time": [],
+    "url": "",
+    "refrigeration": false,
+    "packaging": "glass bottle"
+  },
+  {
+    "id": 15,
+    "name": "Mineral UV Filters SPF 15 with Antioxidants",
+    "contraindications": [],
+    "category": "Suncare",
+    "tags": ["Antioxidants", "SPF"],
+    "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwe162a56e/Images/products/The%20Ordinary/rdn-mineral-uv-filters-spf-15-with-antioxidants-50ml.png?sw=800&sh=800&sm=fit",
+    "ingredients": [
+      "Aqua (Water)",
+      "Cyclopentasiloxane",
+      "Zinc Oxide",
+      2,
+      "Glycerin",
+      "PEG-10 Dimethicone",
+      "Helianthus Annuus Seed Oil",
+      "PEG-9 Polydimethylsiloxyethyl Dimethicone",
+      "Caprylic/Capric Triglyceride",
+      "Hexyl Laurate",
+      "Dimethicone/PEG-10/15 Crosspolymer",
+      "Polyglyceryl-4 Isostearate",
+      "Astaxanthin",
+      "Disodium Uridine Phosphate",
+      "Ethyl Ferulate",
+      "Rosmarinus Officinalis Leaf Extract",
+      "Tasmannia Lanceolata Fruit/Leaf Extract",
+      "Haematococcus Pluvialis Extract",
+      "Picea Mariana Bark Extract",
+      "Arginine",
+      "Aspartic Acid",
+      "Glycine",
+      "Alanine",
+      "Serine",
+      "Valine",
+      "Isoleucine",
+      "Proline",
+      "Threonine",
+      "Histidine",
+      "Phenylalanine",
+      "Sodium PCA",
+      "PCA",
+      "Sodium Lactate",
+      "Glucose",
+      "Maltose",
+      "Fructose",
+      "Trehalose",
+      "Urea",
+      "Allantoin",
+      "Sodium Hyaluronate",
+      "Linoleic Acid",
+      "Oleic Acid",
+      "Phytosteryl Canola Glycerides",
+      "Palmitic Acid",
+      "Stearic Acid",
+      "Isochrysis Galbana Extract",
+      "Lysolecithin",
+      "Lecithin",
+      "Triolein",
+      "Pentylene Glycol",
+      "Dipropylene Glycol",
+      "Polyglyceryl-10 Oleate",
+      "Polyglyceryl-5 Trioleate",
+      "Polyglyceryl-10 Stearate",
+      "Tocopherol",
+      "Alumina",
+      "Citric Acid",
+      "Trisodium Ethylenediamine Disuccinate",
+      "Sodium Chloride",
+      "Sodium Hydroxide",
+      "Phenoxyethanol",
+      "Chlorphenesin"
+    ],
     "expiration-period": "12 months ?",
     "time": ["am", "pm"],
-    "url": "https://theordinary.deciem.com/de/rdn-ascorbyl-tetraisopalmitate-solution-20pct-in-vitamin-f-30ml.html",
-    "refrigeration": false
+    "url": "https://theordinary.deciem.com/de/rdn-mineral-uv-filters-spf-15-with-antioxidants-50ml.html",
+    "refrigeration": false,
+    "packaging": "not glass bottle"
   },
   {
     "id": 16,
@@ -455,7 +533,8 @@
     "expiration-period": "6 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-100pct-cold-pressed-virgin-marula-oil-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 17,
@@ -468,7 +547,8 @@
     "expiration-period": "6 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-resveratrol-3pct-ferulic-acid-3pct-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 18,
@@ -481,7 +561,8 @@
     "expiration-period": "6 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-100pct-l-ascorbic-acid-powder-20g.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass container"
   },
   {
     "id": 19,
@@ -494,7 +575,8 @@
     "expiration-period": "6 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-pycnogenol-5pct-15ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 20,
@@ -510,7 +592,8 @@
     "expiration-period": "6 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-euk-134-01pct-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 21,
@@ -523,7 +606,8 @@
     "expiration-period": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-ethylated-ascorbic-acid-15pct-solution-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 22,
@@ -536,7 +620,8 @@
     "expiration-period": "6 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-100pct-organic-virgin-chia-seed-oil-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 23,
@@ -549,7 +634,8 @@
     "expiration-period": "6 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-100pct-organic-virgin-sea-buckthorn-fruit-oil-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 24,
@@ -582,7 +668,8 @@
     "expiration-period": "6 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-b-oil-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 25,
@@ -612,7 +699,8 @@
     "expiration-period": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-magnesium-ascorbyl-phosphate-10pct-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "not ‚glass bottle"
   },
   {
     "id": 26,
@@ -675,7 +763,8 @@
     "expiration-period": "?",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-buffet-copper-peptides-1pct-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 27,
@@ -708,7 +797,8 @@
     "expiration-period": "6 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-salicylic-acid-2pct-masque-50ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "not glass bottle"
   },
   {
     "id": 28,
@@ -736,7 +826,8 @@
     "expiration-period": "?",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-salicylic-acid-2pct-solution-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 29,
@@ -796,7 +887,8 @@
     "expiration-period": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-natural-moisturizing-factors-ha-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "not glass bottle"
   },
   {
     "id": 30,
@@ -827,7 +919,8 @@
     "expiration-period": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-hyaluronic-acid-2pct-b5-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 31,
@@ -840,7 +933,8 @@
     "expiration-period": "6 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-100pct-plant-derived-squalane-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 32,
@@ -887,7 +981,8 @@
     "expiration-period": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-marine-hyaluronics-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 33,
@@ -900,7 +995,8 @@
     "expiration-period": "12 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-100pct-organic-cold-pressed-moroccan-argan-oil-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 34,
@@ -913,7 +1009,8 @@
     "expiration-period": "6 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-100pct-organic-cold-pressed-borage-seed-oil-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 35,
@@ -953,7 +1050,8 @@
     "expiration-period": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-amino-acids-b5-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 36,
@@ -966,7 +1064,8 @@
     "expiration-period": "6 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-100pct-plant-derived-hemi-squalane-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 37,
@@ -991,7 +1090,8 @@
     "expiration-period": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-niacinamide-10pct-zinc-1pct-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 38,
@@ -1004,7 +1104,8 @@
     "expiration-period": "? no expiration?",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-100pct-niacinamide-powder-20g.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass container"
   },
   {
     "id": 39,
@@ -1069,7 +1170,8 @@
     "expiration-period": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-buffet-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 40,
@@ -1094,7 +1196,8 @@
     "expiration-period": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-argireline-solution-10pct-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 41,
@@ -1125,7 +1228,8 @@
     "expiration-period": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-matrixyl-10pct-ha-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   },
   {
     "id": 42,
@@ -1149,7 +1253,8 @@
     "expiration-period": "3 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-granactive-retinoid-5pct-in-squalane-30ml.html",
-    "refrigeration": true
+    "refrigeration": true,
+    "packaging": "glass bottle"
   },
   {
     "id": 43,
@@ -1196,7 +1301,8 @@
     "expiration-period": "3 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-advanced-retinoid-2pct-30ml.html",
-    "refrigeration": true
+    "refrigeration": true,
+    "packaging": "glass bottle"
   },
   {
     "id": 44,
@@ -1218,7 +1324,8 @@
     "expiration-period": "3 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-retinol-05pct-in-squalane-30ml.html",
-    "refrigeration": true
+    "refrigeration": true,
+    "packaging": "glass bottle"
   },
   {
     "id": 45,
@@ -1242,7 +1349,8 @@
     "expiration-period": "6 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-granactive-retinoid-2pct-in-squalane-30ml.html",
-    "refrigeration": true
+    "refrigeration": true,
+    "packaging": "glass bottle"
   },
   {
     "id": 46,
@@ -1264,7 +1372,8 @@
     "expiration-period": "3 months ?",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-retinol-1pct-in-squalane-30ml.html",
-    "refrigeration": true
+    "refrigeration": true,
+    "packaging": "glass bottle"
   },
   {
     "id": 47,
@@ -1286,7 +1395,8 @@
     "expiration-period": "3 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-retinol-02pct-in-squalane-30ml.html",
-    "refrigeration": true
+    "refrigeration": true,
+    "packaging": "glass bottle"
   },
   {
     "id": 48,
@@ -1320,7 +1430,8 @@
     "expiration-period": "6 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-squalane-cleanser-150ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "not glass bottle"
   },
   {
     "id": 49,
@@ -1359,6 +1470,7 @@
     "expiration-period": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-caffeine-solution-5pct-egcg-30ml.html",
-    "refrigeration": false
+    "refrigeration": false,
+    "packaging": "glass bottle"
   }
 ]
