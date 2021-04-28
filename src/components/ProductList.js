@@ -24,7 +24,12 @@ export default function ProductList() {
       const { id, name, image, url, packaging } = product;
       return (
         <li key={id}>
-          <ProductCard name={name} image={image} url={url} />
+          <ProductCard
+            name={name}
+            image={image}
+            url={url}
+            packaging={packaging}
+          />
         </li>
       );
     });
