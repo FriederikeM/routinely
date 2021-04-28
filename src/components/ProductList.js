@@ -14,7 +14,6 @@ export default function ProductList() {
         .then((response) => response.json())
         .then((productData) => {
           setProducts(productData);
-          console.log(products);
         });
     };
     fetchProducts();
