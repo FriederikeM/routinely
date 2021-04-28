@@ -14,13 +14,26 @@
   height: 85vh;
   max-height: 600px;
   background-color: var(--color-one-opaque);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(15px);
   flex-grow: 1;
   z-index: 10;
   border-radius: 30px;
   box-shadow: 0px 20px 50px 5px #00000081;
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--color-one);
+  animation: move-up 1s ease-in-out 1;
+}
+
+@keyframes move-up {
+  from {
+    transform: translateY(650px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .routine-info-form {
