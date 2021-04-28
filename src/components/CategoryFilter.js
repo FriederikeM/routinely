@@ -1,12 +1,23 @@
 import "./CategoryFilter.css";
 
-export default function CategoryFilter() {
+export default function CategoryFilter({ onCategoryFilterChange }) {
+  function handleCategoryFilterClick(event) {
+    const categoryFilterValue = event.target.value;
+    onCategoryFilterChange(categoryFilterValue);
+  }
+
   return (
     <div className="CategoryFilter">
-      <select name="category" id="category" className="category-search-bar">
-        <option disabled="disabled" selected="selected" className="label">
+      <select
+        name="category"
+        id="category"
+        className="category-search-bar"
+        onClick={handleCategoryFilterClick}
+      >
+        <option disabled selected className="label" value="All">
           Categories
         </option>
+        <option value="All">All</option>
         <option value="Exfoliators">Exfoliators</option>
         <option value="Toners">Toners</option>
         <option value="Serums">Serums</option>

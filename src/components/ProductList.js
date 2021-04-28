@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);
+  const [categoryFilter, setCategoryFilter] = useState("All");
+  const [nameFilter, setNameFilter] = useState("");
 
   useEffect(() => {
     const fetchProducts = () => {
@@ -19,28 +21,47 @@ export default function ProductList() {
     fetchProducts();
   }, []);
 
+  function handleCategoryFilterChange(categorySelected) {
+    setCategoryFilter(categorySelected);
+  }
+
+  function handleNameFilterChange(nameInput) {
+    setNameFilter(nameInput);
+  }
+
   function renderProducts() {
-    return products.map((product) => {
-      const { id, name, image, url, packaging } = product;
-      return (
-        <li key={id}>
-          <ProductCard
-            name={name}
-            image={image}
-            url={url}
-            packaging={packaging}
-          />
-        </li>
-      );
-    });
+    return products
+      .filter((product) => {
+        return product.category === categoryFilter || categoryFilter === "All";
+      })
+      .filter((product) => {
+        if (nameFilter) {
+          return product.name.toLowerCase().includes(nameFilter.toLowerCase());
+        } else {
+          return true;
+        }
+      })
+      .map((product) => {
+        const { id, name, image, url, packaging } = product;
+        return (
+          <li key={id}>
+            <ProductCard
+              name={name}
+              image={image}
+              url={url}
+              packaging={packaging}
+            />
+          </li>
+        );
+      });
   }
 
   return (
     <div className="ProductList">
       <header className="header">
         <div className="filter-wrapper">
-          <NameFilter />
-          <CategoryFilter />
+          <NameFilter onNameFilterChange={handleNameFilterChange} />
+          <CategoryFilter onCategoryFilterChange={handleCategoryFilterChange} />
         </div>
         <CalendarButton />
       </header>
