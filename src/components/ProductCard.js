@@ -1,21 +1,26 @@
 import "./ProductCard.css";
-import Niacinamide from "../images/niacinamide-bottle.png";
+import { useEffect, useState } from "react";
 
-export default function ProductCard() {
+export default function ProductCard({ name, image, url, packaging }) {
+  const [classForImage, setClassForImage] = useState("");
+
+  useEffect(() => {
+    if (packaging === "not glass bottle") {
+      setClassForImage("smaller-image");
+    } else if (packaging === "glass container") {
+      setClassForImage("powder");
+    }
+  }, [classForImage, packaging]);
+
   return (
     <div className="ProductCard">
-      <h5 className="ProductCard__headline">Niacinamide 10% + Zinc 1%</h5>
+      <h5 className="ProductCard__headline">{name}</h5>
       <img
-        src={Niacinamide}
-        alt="white product bottle of Niacinamide"
-        className="bottle-image"
+        src={image}
+        alt={`white product bottle of ${name}`}
+        className={`bottle-image ${classForImage}`}
       />
-      <a
-        href="https://theordinary.deciem.com/de/rdn-niacinamide-10pct-zinc-1pct-30ml.html"
-        className="details-link"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a href={url} className="details-link" target="_blank" rel="noreferrer">
         details
       </a>
       <button className="add-to-routine-button">+</button>
