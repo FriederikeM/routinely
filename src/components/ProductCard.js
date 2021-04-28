@@ -1,7 +1,13 @@
 import "./ProductCard.css";
 import { useEffect, useState } from "react";
 
-export default function ProductCard({ name, image, url, packaging }) {
+export default function ProductCard({
+  name,
+  image,
+  url,
+  packaging,
+  onAddToRoutine,
+}) {
   const [classForImage, setClassForImage] = useState("");
 
   useEffect(() => {
@@ -23,7 +29,9 @@ export default function ProductCard({ name, image, url, packaging }) {
       <a href={url} className="details-link" target="_blank" rel="noreferrer">
         details
       </a>
-      <button className="add-to-routine-button">+</button>
+      <button className="add-to-routine-button" onClick={onAddToRoutine}>
+        +
+      </button>
     </div>
   );
 }
