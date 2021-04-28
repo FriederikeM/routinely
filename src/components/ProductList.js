@@ -33,7 +33,6 @@ export default function ProductList() {
 
   function handleAddToRoutine(id) {
     setShowModal(true);
-    console.log(id);
   }
 
   function renderProducts() {
