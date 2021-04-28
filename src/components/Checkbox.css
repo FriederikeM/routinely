@@ -1,0 +1,37 @@
+.Checkbox {
+  padding: 10px 0;
+}
+
+.time-of-day {
+  padding-top: 5px;
+}
+
+.weekday-checkbox,
+.morning-checkbox,
+.evening-checkbox {
+  cursor: pointer;
+}
+
+.weekday-label,
+.morning-label,
+.evening-label {
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+.morning,
+.evening {
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.morning {
+  padding-right: 15px;
+}
+
+.morning-label,
+.evening-label {
+  margin-top: 2px;
+  position: relative;
+  top: 2px;
+}
