@@ -35,6 +35,10 @@ export default function ProductList() {
     setShowModal(true);
   }
 
+  function handleCancelAddToRoutine() {
+    setShowModal(false);
+  }
+
   function renderProducts() {
     return products
       .filter((product) => {
@@ -65,7 +69,7 @@ export default function ProductList() {
 
   return (
     <div className="ProductList">
-      {showModal && <FormModal />}
+      {showModal && <FormModal onCancelAdding={handleCancelAddToRoutine} />}
       <header className="header">
         <div className="filter-wrapper">
           <NameFilter onNameFilterChange={handleNameFilterChange} />

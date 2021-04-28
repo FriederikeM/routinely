@@ -1,7 +1,7 @@
 import "./FormModal.css";
 import Checkbox from "./Checkbox.js";
 
-export default function FormModal() {
+export default function FormModal({ onCancelAdding }) {
   return (
     <div className="FormModal">
       <article className="modal">
@@ -30,7 +30,9 @@ export default function FormModal() {
             ></input>
           </div>
           <div className="finish-buttons">
-            <button className="quit-modal">cancel</button>
+            <button className="quit-modal" onClick={onCancelAdding}>
+              cancel
+            </button>
             <button type="submit" className="add-product">
               add
             </button>
