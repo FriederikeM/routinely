@@ -25,10 +25,21 @@ export default function ProductList() {
     setCategoryFilter(categorySelected);
   }
 
+  function handleNameFilterChange(nameInput) {
+    setNameFilter(nameInput);
+  }
+
   function renderProducts() {
     return products
       .filter((product) => {
-        return product.category === categoryFilter || categoryFilter === "all";
+        return product.category === categoryFilter || categoryFilter === "All";
+      })
+      .filter((product) => {
+        if (nameFilter) {
+          return product.name.toLowerCase().includes(nameFilter.toLowerCase());
+        } else {
+          return true;
+        }
       })
       .map((product) => {
         const { id, name, image, url, packaging } = product;
@@ -49,7 +60,7 @@ export default function ProductList() {
     <div className="ProductList">
       <header className="header">
         <div className="filter-wrapper">
-          <NameFilter />
+          <NameFilter onNameFilterChange={handleNameFilterChange} />
           <CategoryFilter onCategoryFilterChange={handleCategoryFilterChange} />
         </div>
         <CalendarButton />
