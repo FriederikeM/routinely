@@ -1,6 +1,7 @@
 .ProductList {
   display: grid;
   grid-template-rows: [header] 100px [main] calc(100vh - 100px);
+  position: relative;
 }
 
 .header {
