@@ -12,7 +12,7 @@ export default function CategoryFilter({ onCategoryFilterChange }) {
         name="category"
         id="category"
         className="category-search-bar"
-        onClick={handleCategoryFilterClick}
+        onChange={handleCategoryFilterClick}
       >
         <option disabled selected className="label" value="All">
           Categories

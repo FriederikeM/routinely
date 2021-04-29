@@ -11,6 +11,20 @@
   margin: 0 15px 80px 15px;
   position: relative;
   border: 1px solid var(--color-two-opaque);
+  animation: fade-in 1s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    width: 210px;
+    height: 160px;
+    opacity: 0.2;
+  }
+  to {
+    width: 250px;
+    height: 200px;
+    opacity: 1;
+  }
 }
 
 .ProductCard__headline {
@@ -30,6 +44,16 @@
   transform: rotate(-15deg);
   z-index: 0;
   pointer-events: none;
+  animation: rotate 1s ease-in-out;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(-30deg);
+  }
+  to {
+    transform: rotate(-15deg);
+  }
 }
 
 .smaller-image {
