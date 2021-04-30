@@ -2,7 +2,7 @@ import "./Checkbox.css";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { useState } from "react";
 
-export default function Checkbox({ name }) {
+export default function Checkbox({ name, onChangeMorning, onChangeEvening }) {
   const [daySelected, setDaySelected] = useState(false);
 
   function onAddDay() {
@@ -17,7 +17,8 @@ export default function Checkbox({ name }) {
           id={name}
           name={name}
           className="weekday-checkbox"
-          onChange={onAddDay}
+          onInput={onAddDay}
+          value={name}
         />
         <label htmlFor={name} className="weekday-label">
           {name}
@@ -32,6 +33,7 @@ export default function Checkbox({ name }) {
               id="morning"
               name="morning"
               className="morning-checkbox"
+              onChange={onChangeMorning}
             />
             <label htmlFor="morning" className="morning-label">
               <FiSun />
@@ -43,6 +45,7 @@ export default function Checkbox({ name }) {
               id="evening"
               name="evening"
               className="evening-checkbox"
+              onChange={onChangeEvening}
             />
             <label htmlFor="evening" className="evening-label">
               <FiMoon />
