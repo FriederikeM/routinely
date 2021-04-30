@@ -4,26 +4,73 @@ import { useState } from "react";
 import { sendDataToLocalStorage } from "../utility/localStorage";
 
 export default function FormModal({ onCancelAdding, id }) {
-  const [mondayMorningChecked, setMondayMorningChecked] = useState(false);
-  const [mondayEveningChecked, setMondayEveningChecked] = useState(false);
+  // const [mondayMorningChecked, setMondayMorningChecked] = useState(false);
+  // const [mondayEveningChecked, setMondayEveningChecked] = useState(false);
 
-  const [tuesdayMorningChecked, setTuesdayMorningChecked] = useState(false);
-  const [tuesdayEveningChecked, setTuesdayEveningChecked] = useState(false);
+  // const [tuesdayMorningChecked, setTuesdayMorningChecked] = useState(false);
+  // const [tuesdayEveningChecked, setTuesdayEveningChecked] = useState(false);
 
-  const [wednesdayMorningChecked, setWednesdayMorningChecked] = useState(false);
-  const [wednesdayEveningChecked, setWednesdayEveningChecked] = useState(false);
+  // const [wednesdayMorningChecked, setWednesdayMorningChecked] = useState(false);
+  // const [wednesdayEveningChecked, setWednesdayEveningChecked] = useState(false);
 
-  const [thursdayMorningChecked, setThursdayMorningChecked] = useState(false);
-  const [thursdayEveningChecked, setThursdayEveningChecked] = useState(false);
+  // const [thursdayMorningChecked, setThursdayMorningChecked] = useState(false);
+  // const [thursdayEveningChecked, setThursdayEveningChecked] = useState(false);
 
-  const [fridayMorningChecked, setFridayMorningChecked] = useState(false);
-  const [fridayEveningChecked, setFridayEveningChecked] = useState(false);
+  // const [fridayMorningChecked, setFridayMorningChecked] = useState(false);
+  // const [fridayEveningChecked, setFridayEveningChecked] = useState(false);
 
-  const [saturdayMorningChecked, setSaturdayMorningChecked] = useState(false);
-  const [saturdayEveningChecked, setSaturdayEveningChecked] = useState(false);
+  // const [saturdayMorningChecked, setSaturdayMorningChecked] = useState(false);
+  // const [saturdayEveningChecked, setSaturdayEveningChecked] = useState(false);
 
-  const [sundayMorningChecked, setSundayMorningChecked] = useState(false);
-  const [sundayEveningChecked, setSundayEveningChecked] = useState(false);
+  // const [sundayMorningChecked, setSundayMorningChecked] = useState(false);
+  // const [sundayEveningChecked, setSundayEveningChecked] = useState(false);
+
+  const [weekRoutine, setWeekRoutine] = useState({
+    days: [
+      {
+        weekDay: "Monday",
+        isChecked: false,
+        morning: false,
+        evening: false,
+      },
+      {
+        weekDay: "Tuesday",
+        isChecked: false,
+        morning: false,
+        evening: false,
+      },
+      {
+        weekDay: "Wednesday",
+        isChecked: false,
+        morning: false,
+        evening: false,
+      },
+      {
+        weekDay: "Thursday",
+        isChecked: false,
+        morning: false,
+        evening: false,
+      },
+      {
+        weekDay: "Friday",
+        isChecked: false,
+        morning: false,
+        evening: false,
+      },
+      {
+        weekDay: "Saturday",
+        isChecked: false,
+        morning: false,
+        evening: false,
+      },
+      {
+        weekDay: "Sunday",
+        isChecked: false,
+        morning: false,
+        evening: false,
+      },
+    ],
+  });
 
   const [openingDate, setOpeningDate] = useState("");
 
@@ -34,39 +81,45 @@ export default function FormModal({ onCancelAdding, id }) {
 
   function handleModalFormSubmit(event) {
     event.preventDefault();
-    sendDataToLocalStorage(id, {
-      monday: {
-        mondayMorning: mondayMorningChecked,
-        mondayEvening: mondayEveningChecked,
-      },
-      tuesday: {
-        tuesdayMorning: tuesdayMorningChecked,
-        tuesdayEvening: tuesdayEveningChecked,
-      },
-      wednesday: {
-        wednesdayMorning: wednesdayMorningChecked,
-        wednesdayEvening: wednesdayEveningChecked,
-      },
-      thursday: {
-        thursdayMorning: thursdayMorningChecked,
-        thursdayEvening: thursdayEveningChecked,
-      },
-      friday: {
-        fridayMorning: fridayMorningChecked,
-        fridayEvening: fridayEveningChecked,
-      },
-      saturday: {
-        saturdayMorning: saturdayMorningChecked,
-        saturdayEvening: saturdayEveningChecked,
-      },
-      sunday: {
-        sundayMorning: sundayMorningChecked,
-        sundayEvening: sundayEveningChecked,
-      },
-      opened: openingDate,
-    });
+    sendDataToLocalStorage(weekRoutine);
   }
 
+  function handleDayClicked(name) {
+    const newCheckedDays = weekRoutine.days.map((day) => {
+      if (day.weekDay === name) {
+        day.isChecked = !day.isChecked;
+        return day;
+      } else {
+        return day;
+      }
+    });
+    setWeekRoutine({ id: id, days: newCheckedDays, openingDate });
+  }
+
+  function handleMorningClicked(name) {
+    const newMorningChecked = weekRoutine.days.map((day) => {
+      if (day.weekDay === name) {
+        day.morning = !day.morning;
+        return day;
+      } else {
+        return day;
+      }
+    });
+    setWeekRoutine({ id: id, days: newMorningChecked, openingDate });
+  }
+
+  function handleEveningClicked(name) {
+    const newEveningChecked = weekRoutine.days.map((day) => {
+      if (day.weekDay === name) {
+        day.evening = !day.evening;
+        return day;
+      } else {
+        return day;
+      }
+    });
+    setWeekRoutine({ id: id, days: newEveningChecked, openingDate });
+  }
+  console.log(weekRoutine);
   return (
     <div className="FormModal">
       <article className="modal">
@@ -75,16 +128,27 @@ export default function FormModal({ onCancelAdding, id }) {
             Which days would you like to add this product to?
           </p>
           <div className="mon-thurs">
-            <Checkbox
-              name="Monday"
-              onChangeMorning={(e) => {
-                setMondayMorningChecked(!mondayMorningChecked);
-              }}
-              onChangeEvening={(e) => {
-                setMondayEveningChecked(!mondayEveningChecked);
-              }}
-            />
-            <Checkbox
+            {" "}
+            {weekRoutine.days.map((day) => {
+              return (
+                <Checkbox
+                  name={day.weekDay}
+                  handleDayClicked={handleDayClicked}
+                  // onChangeMorning={(e) => {
+                  //   setMondayMorningChecked(!mondayMorningChecked);
+                  // }}
+                  // onChangeEvening={(e) => {
+                  //   setMondayEveningChecked(!mondayEveningChecked);
+                  // }}
+                  isChecked={day.isChecked}
+                  morning={day.morning}
+                  evening={day.evening}
+                  handleMorningClicked={handleMorningClicked}
+                  handleEveningClicked={handleEveningClicked}
+                />
+              );
+            })}
+            {/* <Checkbox
               name="Tuesday"
               onChangeMorning={(e) => {
                 setTuesdayMorningChecked(!tuesdayMorningChecked);
@@ -139,7 +203,7 @@ export default function FormModal({ onCancelAdding, id }) {
               onChangeEvening={(e) => {
                 setSundayEveningChecked(!sundayEveningChecked);
               }}
-            />
+            /> */}
           </div>
           <div className="date-choice">
             <label htmlFor="date">When did you open this product?</label>

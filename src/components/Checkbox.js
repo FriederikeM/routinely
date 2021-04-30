@@ -1,24 +1,29 @@
 import "./Checkbox.css";
 import { FiMoon, FiSun } from "react-icons/fi";
-import { useState } from "react";
 
-export default function Checkbox({ name, onChangeMorning, onChangeEvening }) {
-  const [daySelected, setDaySelected] = useState(false);
-
-  function onAddDay() {
-    setDaySelected(!daySelected);
-  }
+export default function Checkbox({
+  name,
+  onChangeMorning,
+  onChangeEvening,
+  isChecked,
+  handleDayClicked,
+  handleMorningClicked,
+  handleEveningClicked,
+  morning,
+  evening,
+}) {
+  const daySelected = isChecked;
 
   return (
     <div className="Checkbox">
       <div className="weekday">
         <input
+          onClick={() => handleDayClicked(name)}
           type="checkbox"
-          id={name}
           name={name}
           className="weekday-checkbox"
-          onInput={onAddDay}
           value={name}
+          checked={isChecked}
         />
         <label htmlFor={name} className="weekday-label">
           {name}
@@ -29,11 +34,12 @@ export default function Checkbox({ name, onChangeMorning, onChangeEvening }) {
         <div className="time-of-day">
           <span className="morning">
             <input
+              onClick={() => handleMorningClicked(name)}
               type="checkbox"
-              id="morning"
               name="morning"
               className="morning-checkbox"
               onChange={onChangeMorning}
+              checked={morning}
             />
             <label htmlFor="morning" className="morning-label">
               <FiSun />
@@ -41,11 +47,12 @@ export default function Checkbox({ name, onChangeMorning, onChangeEvening }) {
           </span>
           <span className="evening">
             <input
+              onClick={() => handleEveningClicked(name)}
               type="checkbox"
-              id="evening"
               name="evening"
               className="evening-checkbox"
               onChange={onChangeEvening}
+              checked={evening}
             />
             <label htmlFor="evening" className="evening-label">
               <FiMoon />
