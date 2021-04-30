@@ -2,11 +2,11 @@ import "./WeekDayCard.css";
 import { HiSun } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
 
-export default function WeekDayCard() {
+export default function WeekDayCard({ name }) {
   return (
     <div className="WeekDayCard">
       <div className="weekday">
-        <h4 className="weekday-headline">monday</h4>
+        <h4 className="weekday-headline">{name}</h4>
         <div className="weekday-box">
           <div className="weekday-box-header">
             <HiSun className="sun" />

@@ -1,13 +1,13 @@
 export function getDataFromLocalStorage() {
-  const data = JSON.parse(localStorage.getItem("productData")) || [];
+  const data = JSON.parse(localStorage.getItem("routine")) || [];
 
   return data;
 }
 
-export function sendDataToLocalStorage(id, items) {
+export function sendDataToLocalStorage(items) {
   const data = getDataFromLocalStorage();
 
   data.push(items);
 
-  localStorage.setItem(id, JSON.stringify(data));
+  localStorage.setItem("routine", JSON.stringify(data));
 }
