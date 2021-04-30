@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import ProductList from "./components/ProductList";
+import WeeklyRoutine from "./components/WeeklyRoutine";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/weekly-routine">
-            <h1>Hello from the weekly routine</h1>
+            <WeeklyRoutine />
           </Route>
           <Route exact path="/products">
             <ProductList />
