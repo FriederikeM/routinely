@@ -61,6 +61,7 @@ export default function WeeklyRoutine() {
     ids.map((id) => {
       const productData = getDataFromLocalStorage(id);
       console.log(productData);
+      return productData;
     });
   }, []);
 
