@@ -11,6 +11,7 @@ export default function ProductList() {
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [nameFilter, setNameFilter] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [id, setId] = useState();
 
   useEffect(() => {
     const fetchProducts = () => {
@@ -33,6 +34,7 @@ export default function ProductList() {
 
   function handleAddToRoutine(id) {
     setShowModal(true);
+    setId(id);
   }
 
   function handleCancelAddToRoutine() {
@@ -69,7 +71,9 @@ export default function ProductList() {
 
   return (
     <div className="ProductList">
-      {showModal && <FormModal onCancelAdding={handleCancelAddToRoutine} />}
+      {showModal && (
+        <FormModal id={id} onCancelAdding={handleCancelAddToRoutine} />
+      )}
       <header className="header">
         <div className="filter-wrapper">
           <NameFilter onNameFilterChange={handleNameFilterChange} />
