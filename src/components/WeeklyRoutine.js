@@ -18,6 +18,10 @@ export default function WeeklyRoutine() {
     };
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    const routine = getDataFromLocalStorage();
+    setAllItems(routine);
   }, []);
 
   return (
