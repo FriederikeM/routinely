@@ -33,6 +33,38 @@ export default function WeekDayCard({ name, data, products }) {
       return sunday.days[6].morning;
     });
   }
+
+  let evenings;
+  if (name === "Monday") {
+    evenings = data.filter((monday) => {
+      return monday.days[0].evening;
+    });
+  } else if (name === "Tuesday") {
+    evenings = data.filter((tuesday) => {
+      return tuesday.days[1].evening;
+    });
+  } else if (name === "Wednesday") {
+    evenings = data.filter((wednesday) => {
+      return wednesday.days[2].evening;
+    });
+  } else if (name === "Thursday") {
+    evenings = data.filter((thursday) => {
+      return thursday.days[3].evening;
+    });
+  } else if (name === "Friday") {
+    evenings = data.filter((friday) => {
+      return friday.days[4].evening;
+    });
+  } else if (name === "Saturday") {
+    evenings = data.filter((saturday) => {
+      return saturday.days[5].evening;
+    });
+  } else if (name === "Sunday") {
+    evenings = data.filter((sunday) => {
+      return sunday.days[6].evening;
+    });
+  }
+
   return (
     <div className="WeekDayCard">
       <div className="weekday">
