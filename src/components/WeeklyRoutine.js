@@ -60,13 +60,43 @@ export default function WeeklyRoutine() {
         </div>
       </header>
       <main className="weekly-main">
-        <WeekDayCard name="monday" />
-        <WeekDayCard name="tuesday" />
-        <WeekDayCard name="wednesday" />
-        <WeekDayCard name="thursday" />
-        <WeekDayCard name="friday" />
-        <WeekDayCard name="saturday" />
-        <WeekDayCard name="sunday" />
+        {products.length > 0 && (
+          <div>
+            {mondays.length > 0 && (
+              <WeekDayCard name="Monday" data={mondays} products={products} />
+            )}
+            {tuesdays.length > 0 && (
+              <WeekDayCard name="Tuesday" data={tuesdays} products={products} />
+            )}
+            {wednesdays.length > 0 && (
+              <WeekDayCard
+                name="Wednesday"
+                data={wednesdays}
+                products={products}
+              />
+            )}
+            {thursdays.length > 0 && (
+              <WeekDayCard
+                name="Thursday"
+                data={thursdays}
+                products={products}
+              />
+            )}
+            {fridays.length > 0 && (
+              <WeekDayCard name="Friday" data={fridays} products={products} />
+            )}
+            {saturdays.length > 0 && (
+              <WeekDayCard
+                name="Saturday"
+                data={saturdays}
+                products={products}
+              />
+            )}
+            {sundays.length > 0 && (
+              <WeekDayCard name="Sunday" data={sundays} products={products} />
+            )}
+          </div>
+        )}
         <NavLink to="/products" className="add-button-weekly">
           +
         </NavLink>
