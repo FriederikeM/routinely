@@ -65,6 +65,7 @@ export default function FormModal({ onCancelAdding, id }) {
   function handleModalFormSubmit(event) {
     event.preventDefault();
     sendDataToLocalStorage(weekRoutine);
+    onCancelAdding();
   }
 
   function handleDayClicked(name) {
