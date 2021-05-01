@@ -3,8 +3,6 @@ import { FiMoon, FiSun } from "react-icons/fi";
 
 export default function Checkbox({
   name,
-  onChangeMorning,
-  onChangeEvening,
   isChecked,
   handleDayClicked,
   handleMorningClicked,
@@ -18,7 +16,7 @@ export default function Checkbox({
     <div className="Checkbox">
       <div className="weekday">
         <input
-          onClick={() => handleDayClicked(name)}
+          onChange={() => handleDayClicked(name)}
           type="checkbox"
           name={name}
           className="weekday-checkbox"
@@ -34,11 +32,10 @@ export default function Checkbox({
         <div className="time-of-day">
           <span className="morning">
             <input
-              onClick={() => handleMorningClicked(name)}
+              onChange={() => handleMorningClicked(name)}
               type="checkbox"
               name="morning"
               className="morning-checkbox"
-              onChange={onChangeMorning}
               checked={morning}
             />
             <label htmlFor="morning" className="morning-label">
@@ -47,11 +44,10 @@ export default function Checkbox({
           </span>
           <span className="evening">
             <input
-              onClick={() => handleEveningClicked(name)}
+              onChange={() => handleEveningClicked(name)}
               type="checkbox"
               name="evening"
               className="evening-checkbox"
-              onChange={onChangeEvening}
               checked={evening}
             />
             <label htmlFor="evening" className="evening-label">
