@@ -69,6 +69,10 @@
   text-align: center;
 }
 
+.optional {
+  font-size: 0.6rem;
+}
+
 .date-input {
   margin-top: 15px;
 }

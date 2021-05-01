@@ -129,7 +129,10 @@ export default function FormModal({ onCancelAdding, id }) {
             })}
           </div>
           <div className="date-choice">
-            <label htmlFor="date">When did you open this product?</label>
+            <label htmlFor="date">
+              When did you open this product?{" "}
+              <span className="optional">(optional)</span>
+            </label>
             <input
               type="date"
               id="date"
