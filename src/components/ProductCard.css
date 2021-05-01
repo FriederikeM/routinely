@@ -65,9 +65,10 @@
 
 .powder {
   position: absolute;
-  left: -100px;
-  bottom: -15px;
-  width: 270px;
+  left: -75px;
+  bottom: -5px;
+  width: 250px;
+  transform: rotate(-10deg);
 }
 
 .details-link {
