@@ -24,6 +24,34 @@ export default function WeeklyRoutine() {
     setAllItems(routine);
   }, []);
 
+  const mondays = allItems.filter((item) => {
+    return item.days[0].isChecked;
+  });
+
+  const tuesdays = allItems.filter((item) => {
+    return item.days[1].isChecked;
+  });
+
+  const wednesdays = allItems.filter((item) => {
+    return item.days[2].isChecked;
+  });
+
+  const thursdays = allItems.filter((item) => {
+    return item.days[3].isChecked;
+  });
+
+  const fridays = allItems.filter((item) => {
+    return item.days[4].isChecked;
+  });
+
+  const saturdays = allItems.filter((item) => {
+    return item.days[5].isChecked;
+  });
+
+  const sundays = allItems.filter((item) => {
+    return item.days[6].isChecked;
+  });
+
   return (
     <div className="WeeklyRoutine">
       <header>
