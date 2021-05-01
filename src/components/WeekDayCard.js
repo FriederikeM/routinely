@@ -3,6 +3,36 @@ import { HiSun } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
 
 export default function WeekDayCard({ name, data, products }) {
+  let mornings;
+  if (name === "Monday") {
+    mornings = data.filter((monday) => {
+      return monday.days[0].morning;
+    });
+  } else if (name === "Tuesday") {
+    mornings = data.filter((tuesday) => {
+      return tuesday.days[1].morning;
+    });
+  } else if (name === "Wednesday") {
+    mornings = data.filter((wednesday) => {
+      return wednesday.days[2].morning;
+    });
+  } else if (name === "Thursday") {
+    mornings = data.filter((thursday) => {
+      return thursday.days[3].morning;
+    });
+  } else if (name === "Friday") {
+    mornings = data.filter((friday) => {
+      return friday.days[4].morning;
+    });
+  } else if (name === "Saturday") {
+    mornings = data.filter((saturday) => {
+      return saturday.days[5].morning;
+    });
+  } else if (name === "Sunday") {
+    mornings = data.filter((sunday) => {
+      return sunday.days[6].morning;
+    });
+  }
   return (
     <div className="WeekDayCard">
       <div className="weekday">
