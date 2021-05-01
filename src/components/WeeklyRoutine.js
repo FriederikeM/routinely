@@ -1,6 +1,7 @@
 import "./WeeklyRoutine.css";
 import WeekDayCard from "./WeekDayCard";
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { getDataFromLocalStorage } from "../utility/localStorage";
 import { useEffect } from "react";
 
