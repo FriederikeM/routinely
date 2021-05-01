@@ -6,6 +6,7 @@ import { getDataFromLocalStorage } from "../utility/localStorage";
 import { useEffect } from "react";
 
 export default function WeeklyRoutine() {
+  const [allItems, setAllItems] = useState([]);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
