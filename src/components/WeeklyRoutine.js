@@ -3,7 +3,6 @@ import WeekDayCard from "./WeekDayCard";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getDataFromLocalStorage } from "../utility/localStorage";
-import { useEffect } from "react";
 
 export default function WeeklyRoutine() {
   const [allItems, setAllItems] = useState([]);
@@ -15,7 +14,7 @@ export default function WeeklyRoutine() {
         .then((response) => response.json())
         .then((productData) => {
           setProducts(productData);
-    });
+        });
     };
     fetchProducts();
   }, []);
