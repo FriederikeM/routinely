@@ -16,13 +16,13 @@
   text-decoration: none;
   position: fixed;
   bottom: 20px;
-  padding: 0px 19px 8px;
+  padding: 0px 16px 8px;
   border-radius: 50%;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
-  border: 7px solid var(--color-two);
+  border: 5px solid var(--color-two);
   color: var(--color-two);
-  background-color: var(--color-one-opaque);
+  background-color: var(--color-thirteen-opaque);
   backdrop-filter: blur(2px);
   cursor: pointer;
 }
