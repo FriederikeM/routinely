@@ -65,6 +65,13 @@ export default function WeekDayCard({ name, data, products }) {
     });
   }
 
+  function getProductsById(id) {
+    const foundProduct = products.filter((product) => {
+      return product.id === id;
+    });
+    return foundProduct[0].name;
+  }
+
   return (
     <div className="WeekDayCard">
       <div className="weekday">
