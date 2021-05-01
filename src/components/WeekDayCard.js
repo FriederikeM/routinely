@@ -83,15 +83,13 @@ export default function WeekDayCard({ name, data, products }) {
           </div>
           <section className="morning">
             <ul className="product-name-list">
-              <li className="product-name-left">Niacinamide 10% + Zinc 1%</li>
-              <li className="product-name-left">Azelaic Acid Suspension 10%</li>
-              <li className="product-name-left">Hyaluronic Acid 2% + B5</li>
+              {mornings.map((morning) => {
+                return (
               <li className="product-name-left">
-                Natural Moisturizing Factors + HA
+                    {getProductsById(morning.id)}
               </li>
-              <li className="product-name-left">
-                Mineral UV Filters SPF 30 with Antioxidants
-              </li>
+                );
+              })}
             </ul>
           </section>
           <section className="evening">
