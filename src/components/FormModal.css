@@ -45,7 +45,7 @@
 
 .day-question {
   grid-column-start: 2;
-  grid-column-end: 4;
+  grid-column-end: 3;
   grid-row: 2;
 }
 
@@ -64,8 +64,9 @@
 
 .date-choice {
   grid-column-start: 2;
-  grid-column-end: 4;
+  grid-column-end: 3;
   grid-row: 4;
+  font-size: 0.9rem;
   text-align: center;
 }
 
@@ -79,7 +80,7 @@
 
 .finish-buttons {
   grid-column-start: 2;
-  grid-column-end: 4;
+  grid-column-end: 3;
   grid-row: 5;
   align-self: center;
   display: flex;
