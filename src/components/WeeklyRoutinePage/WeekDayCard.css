@@ -35,7 +35,7 @@
       360px
     );
   grid-template-rows: auto, auto auto;
-  animation: entrance 1s ease-in-out;
+  animation: entrance 800ms ease-in-out;
 }
 
 @keyframes entrance {
