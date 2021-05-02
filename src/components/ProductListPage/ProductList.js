@@ -2,7 +2,7 @@ import NameFilter from "./NameFilter";
 import CalendarButton from "./CalendarButton";
 import ProductCard from "./ProductCard";
 import CategoryFilter from "./CategoryFilter";
-import FormModal from "./FormModal";
+import FormModal from "../FormModal/FormModal";
 import "./ProductList.css";
 import { useEffect, useState } from "react";
 

@@ -1,7 +1,7 @@
 import "./FormModal.css";
 import Checkbox from "./Checkbox.js";
 import { useState } from "react";
-import { sendDataToLocalStorage } from "../utility/localStorage";
+import { sendDataToLocalStorage } from "../../utility/localStorage";
 
 export default function FormModal({ onCancelAdding, id }) {
   const [openingDate, setOpeningDate] = useState("");
