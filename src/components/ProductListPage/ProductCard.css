@@ -1,5 +1,5 @@
 .ProductCard {
-  width: 250px;
+  width: 270px;
   height: 200px;
   background: linear-gradient(
     145deg,
@@ -12,6 +12,10 @@
   position: relative;
   border: 1px solid var(--color-two-opaque);
   animation: fade-in 1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
 }
 
 @keyframes fade-in {
@@ -28,9 +32,8 @@
 }
 
 .ProductCard__headline {
-  position: absolute;
-  right: 15px;
-  top: 25px;
+  position: relative;
+  right: 10%;
   width: 15ch;
   color: var(--color-seven);
   font-size: 0.9rem;
@@ -38,9 +41,9 @@
 
 .bottle-image {
   position: absolute;
-  left: -160px;
-  bottom: -5px;
-  width: 370px;
+  left: -165px;
+  bottom: -15px;
+  width: 380px;
   transform: rotate(-15deg);
   z-index: 0;
   pointer-events: none;
@@ -58,23 +61,22 @@
 
 .smaller-image {
   position: absolute;
-  left: -100px;
+  left: -110px;
   bottom: -5px;
-  width: 270px;
+  width: 290px;
 }
 
 .powder {
   position: absolute;
-  left: -75px;
+  left: -85px;
   bottom: -5px;
   width: 250px;
   transform: rotate(-10deg);
 }
 
 .details-link {
-  position: absolute;
-  bottom: 80px;
-  right: 50px;
+  position: relative;
+  right: 25%;
   text-decoration: none;
   color: var(--color-seven);
   border: 2px solid var(--color-seven);
@@ -87,9 +89,24 @@
 }
 
 .add-to-routine-button {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+  position: relative;
+  right: 5%;
+  color: var(--color-two-opaque);
+  background: linear-gradient(145deg, #ffffff, #c5bfc2);
+  box-shadow: 3px 3px 9px var(--color-two-opaque),
+    -3px -3px 9px var(--color-one-opaque);
+  border: none;
+  border-radius: 10px;
+  font-size: 3rem;
+  line-height: 2rem;
+  padding: 0 5px 10px 6px;
+  cursor: pointer;
+}
+
+.long-name {
+  position: relative;
+  right: 5%;
+  bottom: 2%;
   color: var(--color-two-opaque);
   background: linear-gradient(145deg, #ffffff, #c5bfc2);
   box-shadow: 3px 3px 9px var(--color-two-opaque),
