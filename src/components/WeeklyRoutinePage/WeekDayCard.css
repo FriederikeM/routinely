@@ -62,7 +62,7 @@
 .product-name-right {
   margin-bottom: 10px;
   font-size: 0.8rem;
-  background-color: var(--color-eleven);
+  background-color: var(--color-eleven-opaque);
   border-radius: 5px;
   text-align: end;
   margin-right: 15px;
@@ -73,7 +73,7 @@
 .product-name-left {
   margin-bottom: 10px;
   font-size: 0.8rem;
-  background-color: var(--color-twelve);
+  background-color: var(--color-twelve-opaque);
   border-radius: 5px;
   padding: 3px;
   box-shadow: inset 4px 4px 8px #9d8585, inset -4px -4px 8px #d5b3b5;
