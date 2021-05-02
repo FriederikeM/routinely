@@ -11,7 +11,7 @@
   margin: 0 15px 80px 15px;
   position: relative;
   border: 1px solid var(--color-two-opaque);
-  animation: fade-in 1s ease-in-out;
+  animation: fade-in 1s ease-in-out backwards;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -20,12 +20,12 @@
 
 @keyframes fade-in {
   from {
-    width: 210px;
+    width: 230px;
     height: 160px;
-    opacity: 0.2;
+    opacity: 0;
   }
   to {
-    width: 250px;
+    width: 270px;
     height: 200px;
     opacity: 1;
   }
@@ -47,7 +47,7 @@
   transform: rotate(-15deg);
   z-index: 0;
   pointer-events: none;
-  animation: rotate 1s ease-in-out;
+  animation: rotate 1s ease-in-out backwards;
 }
 
 @keyframes rotate {
@@ -71,7 +71,6 @@
   left: -85px;
   bottom: -5px;
   width: 250px;
-  transform: rotate(-10deg);
 }
 
 .details-link {

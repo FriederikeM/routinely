@@ -10,14 +10,28 @@
   justify-content: space-between;
   padding: 0 0px 10px 15px;
   z-index: 1;
-  position: fixed;
+  position: sticky;
+  top: 0;
   width: 100vw;
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--color-one-opaque);
+  border-radius: 0 0 35px 35px;
+  animation: drop-in 800ms ease-in-out;
+}
+
+@keyframes drop-in {
+  from {
+    position: relative;
+    top: -200px;
+  }
+  to {
+    position: relative;
+    top: 0;
+  }
 }
 
 .main {
-  padding: 200px 10px;
+  padding: 110px 10px;
 }
 
 .filter-wrapper {
