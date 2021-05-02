@@ -39,20 +39,22 @@
 .routine-info-form {
   display: grid;
   grid-template-columns: 20px auto 20px;
-  grid-template-rows: 5px 40px 280px 90px 100px;
+  grid-template-rows: 50px 280px 90px 100px;
   grid-row-gap: 10px;
 }
 
 .day-question {
   grid-column-start: 2;
   grid-column-end: 3;
-  grid-row: 2;
+  grid-row: 1;
+  padding-top: 5%;
+  font-size: 0.9rem;
 }
 
 .weekday-checkboxes {
   grid-column-start: 2;
   grid-column-end: 3;
-  grid-row: 3;
+  grid-row: 2;
   padding-top: 10px;
   position: relative;
   left: 9%;
@@ -65,7 +67,7 @@
 .date-choice {
   grid-column-start: 2;
   grid-column-end: 3;
-  grid-row: 4;
+  grid-row: 3;
   font-size: 0.9rem;
   text-align: center;
 }
@@ -81,7 +83,7 @@
 .finish-buttons {
   grid-column-start: 2;
   grid-column-end: 3;
-  grid-row: 5;
+  grid-row: 4;
   align-self: center;
   display: flex;
   justify-content: space-around;
