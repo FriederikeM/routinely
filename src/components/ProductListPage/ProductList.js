@@ -12,6 +12,7 @@ export default function ProductList() {
   const [nameFilter, setNameFilter] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [id, setId] = useState();
+  const [productName, setProductName] = useState("");
 
   useEffect(() => {
     const fetchProducts = () => {
@@ -32,9 +33,10 @@ export default function ProductList() {
     setNameFilter(nameInput);
   }
 
-  function handleAddToRoutine(id) {
+  function handleAddToRoutine(id, name) {
     setShowModal(true);
     setId(id);
+    setProductName(name);
   }
 
   function handleCancelAddToRoutine() {
@@ -62,7 +64,7 @@ export default function ProductList() {
               image={image}
               url={url}
               packaging={packaging}
-              onAddToRoutine={() => handleAddToRoutine(id)}
+              onAddToRoutine={() => handleAddToRoutine(id, name)}
             />
           </li>
         );
@@ -72,7 +74,11 @@ export default function ProductList() {
   return (
     <div className="ProductList">
       {showModal && (
-        <FormModal id={id} onCancelAdding={handleCancelAddToRoutine} />
+        <FormModal
+          id={id}
+          name={productName}
+          onCancelAdding={handleCancelAddToRoutine}
+        />
       )}
       <header className="header">
         <div className="filter-wrapper">

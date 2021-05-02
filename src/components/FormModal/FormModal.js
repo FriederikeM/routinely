@@ -3,7 +3,7 @@ import Checkbox from "./Checkbox.js";
 import { useState } from "react";
 import { sendDataToLocalStorage } from "../../utility/localStorage";
 
-export default function FormModal({ onCancelAdding, id }) {
+export default function FormModal({ onCancelAdding, id, name }) {
   const [openingDate, setOpeningDate] = useState("");
   const [weekRoutine, setWeekRoutine] = useState({
     id: id,
@@ -109,7 +109,7 @@ export default function FormModal({ onCancelAdding, id }) {
       <article className="modal">
         <form className="routine-info-form" onSubmit={handleModalFormSubmit}>
           <p className="day-question">
-            Which days would you like to add this product to?
+            Which days would you like to add {name} to?
           </p>
           <div className="weekday-checkboxes">
             {" "}
