@@ -12,8 +12,16 @@ export default function Checkbox({
 }) {
   const daySelected = isChecked;
 
+  const classForCheckboxAlignment =
+    name === "Friday"
+      ? "right"
+      : name === "Saturday"
+      ? "right"
+      : name === "Sunday"
+      ? "right"
+      : "left";
   return (
-    <div className="Checkbox">
+    <div className={`Checkbox ${classForCheckboxAlignment}`}>
       <div className="weekday">
         <input
           onChange={() => handleDayClicked(name)}

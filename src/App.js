@@ -1,8 +1,8 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
-import ProductList from "./components/ProductList";
-import WeeklyRoutine from "./components/WeeklyRoutine";
+import ProductList from "./components/ProductListPage/ProductList";
+import WeeklyRoutine from "./components/WeeklyRoutinePage/WeeklyRoutine.js";
 
 function App() {
   return (

@@ -29,7 +29,10 @@ export default function ProductCard({
       <a href={url} className="details-link" target="_blank" rel="noreferrer">
         details
       </a>
-      <button className="add-to-routine-button" onClick={onAddToRoutine}>
+      <button
+        className={name.length > 45 ? "long-name" : "add-to-routine-button"}
+        onClick={onAddToRoutine}
+      >
         +
       </button>
     </div>
