@@ -7,6 +7,10 @@
   color: var(--color-eight);
 }
 
+.WeekDayCard:last-child {
+  margin-bottom: 70px;
+}
+
 .weekday-headline {
   margin: 0 0 10px 10px;
   font-size: 1.2rem;
@@ -26,6 +30,20 @@
   display: grid;
   grid-template-columns: [left] 47.5vw [right] 47.5vw;
   grid-template-rows: 20vw auto 20vw;
+  animation: entrance 1s ease-in-out;
+}
+
+@keyframes entrance {
+  from {
+    transform: scale(0);
+    opacity: 0;
+    z-index: -1;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+    z-index: 2;
+  }
 }
 
 .weekday-box::before {
