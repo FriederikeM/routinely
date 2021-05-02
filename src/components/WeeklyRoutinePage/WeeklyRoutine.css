@@ -25,15 +25,16 @@
   background-color: var(--color-thirteen-opaque);
   backdrop-filter: blur(2px);
   cursor: pointer;
-  animation: button-up 900ms cubic-bezier(0.8, 0.02, 0.54, 1.53) 300ms backwards;
+  animation: button-up 800ms cubic-bezier(0.8, 0.02, 0.54, 1.83) 800ms backwards;
 }
 
 @keyframes button-up {
   from {
-    position: relative;
+    opacity: 0;
     bottom: 100px;
   }
   to {
+    opacity: 1;
     bottom: 20px;
   }
 }
