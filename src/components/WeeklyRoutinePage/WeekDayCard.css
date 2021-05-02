@@ -1,5 +1,6 @@
 .WeekDayCard {
   width: 95vw;
+  max-width: 730px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -20,6 +21,7 @@
 .weekday-box {
   height: auto;
   width: 95vw;
+  max-width: 730px;
   background-color: var(--color-four-opaque-dark);
   backdrop-filter: blur(5px);
   border-radius: 30px;
@@ -28,8 +30,11 @@
   position: relative;
   box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
   display: grid;
-  grid-template-columns: [left] 47.5vw [right] 47.5vw;
-  grid-template-rows: 20vw auto 20vw;
+  grid-template-columns: [left] minmax(178.125px, 360px) [right] minmax(
+      178.125px,
+      360px
+    );
+  grid-template-rows: auto, auto auto;
   animation: entrance 1s ease-in-out;
 }
 
@@ -66,6 +71,7 @@
   padding: 5px 25px 0;
   color: var(--color-ten);
   font-size: 1.5rem;
+  margin: 10px 0 15px;
 }
 
 .sun {
@@ -75,11 +81,11 @@
 .product-name-list {
   list-style: none;
   padding-left: 15px;
+  font-size: 0.8rem;
 }
 
 .product-name-right {
   margin-bottom: 10px;
-  font-size: 0.8rem;
   background-color: var(--color-eleven-opaque);
   border-radius: 5px;
   text-align: end;
@@ -90,7 +96,6 @@
 
 .product-name-left {
   margin-bottom: 10px;
-  font-size: 0.8rem;
   background-color: var(--color-twelve-opaque);
   border-radius: 5px;
   padding: 3px;
@@ -102,6 +107,7 @@
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
+  max-width: 285px;
 }
 
 .evening {
@@ -109,6 +115,8 @@
   grid-column-end: 3;
   grid-row-start: 2;
   grid-row-end: 3;
+  max-width: 285px;
+  justify-self: end;
 }
 
 .see-details-button-wrapper {
@@ -118,6 +126,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 20px 0;
 }
 
 .see-details-button {
