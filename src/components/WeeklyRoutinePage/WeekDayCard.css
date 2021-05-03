@@ -127,6 +127,7 @@
   justify-content: center;
   align-items: center;
   margin: 20px 0;
+  z-index: 5;
 }
 
 .see-details-button {
@@ -134,7 +135,6 @@
   border-radius: 15px;
   border: none;
   background: linear-gradient(145deg, #c28585, #8b5f5f);
-  z-index: 5;
   color: var(--color-one);
   font-weight: bold;
   font-size: 0.9rem;
