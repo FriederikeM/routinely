@@ -71,8 +71,24 @@ export default function ProductList() {
       });
   }
 
+  const modalShown = showModal ? "not-modal" : "";
+
   return (
     <div className="ProductList">
+      <div className={`wrapper ${modalShown}`}>
+        <header className="header">
+          <div className="filter-wrapper">
+            <NameFilter onNameFilterChange={handleNameFilterChange} />
+            <CategoryFilter
+              onCategoryFilterChange={handleCategoryFilterChange}
+            />
+          </div>
+          <CalendarButton />
+        </header>
+        <main className="main">
+          <ul className="product-ul">{renderProducts()}</ul>
+        </main>
+      </div>
       {showModal && (
         <FormModal
           id={id}
@@ -80,16 +96,6 @@ export default function ProductList() {
           onCancelAdding={handleCancelAddToRoutine}
         />
       )}
-      <header className="header">
-        <div className="filter-wrapper">
-          <NameFilter onNameFilterChange={handleNameFilterChange} />
-          <CategoryFilter onCategoryFilterChange={handleCategoryFilterChange} />
-        </div>
-        <CalendarButton />
-      </header>
-      <main className="main">
-        <ul className="product-ul">{renderProducts()}</ul>
-      </main>
     </div>
   );
 }
