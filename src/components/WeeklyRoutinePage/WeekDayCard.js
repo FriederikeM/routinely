@@ -1,6 +1,7 @@
 import "./WeekDayCard.css";
 import { HiSun } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 export default function WeekDayCard({ name, data, products }) {
   let mornings;
@@ -104,7 +105,12 @@ export default function WeekDayCard({ name, data, products }) {
             </ul>
           </section>
           <div className="see-details-button-wrapper">
-            <button className="see-details-button">See Details</button>
+            <NavLink
+              to={`/weekly-routine/${name}`}
+              className="see-details-button-link"
+            >
+              <button className="see-details-button">See Details</button>
+            </NavLink>
           </div>
         </div>
       </div>
