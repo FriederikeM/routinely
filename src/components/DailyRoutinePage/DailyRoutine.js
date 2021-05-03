@@ -6,7 +6,9 @@ export default function DailyRoutine() {
   return (
     <div className="DailyRoutine">
       <header className="daily-header">
-        <h1 className="daily-headline">monday</h1>
+        <div className="daily-headline-wrapper">
+          <h1 className="daily-headline">monday</h1>
+        </div>
         <button className="history-back">
           <FaArrowLeft />
         </button>
@@ -14,17 +16,21 @@ export default function DailyRoutine() {
       <main className="daily-main">
         <section className="morning-products-display">
           <h2 className="daytime-headline">morning</h2>
-          <AddedProductCard />
-          <AddedProductCard />
-          <AddedProductCard />
-          <AddedProductCard />
+          <article className="morning-products-list">
+            <AddedProductCard />
+            <AddedProductCard />
+            <AddedProductCard />
+            <AddedProductCard />
+          </article>
         </section>
         <section className="evening-products-display">
           <h2 className="daytime-headline">evening</h2>
-          <AddedProductCard />
-          <AddedProductCard />
-          <AddedProductCard />
-          <AddedProductCard />
+          <article className="evening-products-list">
+            <AddedProductCard />
+            <AddedProductCard />
+            <AddedProductCard />
+            <AddedProductCard />
+          </article>
         </section>
       </main>
     </div>
