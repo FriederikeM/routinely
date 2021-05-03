@@ -1,0 +1,29 @@
+.DailyRoutine {
+  display: grid;
+  grid-template-rows: [header] 100px [main] calc(100vh - 100px);
+  position: relative;
+}
+
+.morning-products-display,
+.evening-products-display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100vw;
+}
+
+.daily-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.daily-headline {
+  background-image: linear-gradient(
+    0deg,
+    rgba(204, 168, 169, 0.116),
+    rgba(204, 168, 169, 0.781)
+  );
+  backdrop-filter: blur(5px);
+}
