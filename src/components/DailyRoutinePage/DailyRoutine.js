@@ -1,15 +1,19 @@
 import "./DailyRoutine.css";
 import AddedProductCard from "./AddedProductCard.js";
 import { FaArrowLeft } from "react-icons/fa";
+import { useParams, useHistory } from "react-router-dom";
 
 export default function DailyRoutine() {
+  const { name } = useParams();
+  const history = useHistory();
+
   return (
     <div className="DailyRoutine">
       <header className="daily-header">
         <div className="daily-headline-wrapper">
           <h1 className="daily-headline">monday</h1>
         </div>
-        <button className="history-back">
+        <button className="history-back" onClick={() => history.goBack()}>
           <FaArrowLeft />
         </button>
       </header>
