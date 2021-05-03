@@ -4,11 +4,11 @@ import { FaArrowLeft } from "react-icons/fa";
 import { useParams, useHistory } from "react-router-dom";
 
 export default function DailyRoutine() {
-  const { name } = useParams();
+  const { weekday } = useParams();
   const history = useHistory();
 
   return (
-    <div className="DailyRoutine">
+    <div className="DailyRoutine" key={weekday}>
       <header className="daily-header">
         <div className="daily-headline-wrapper">
           <h1 className="daily-headline">monday</h1>
