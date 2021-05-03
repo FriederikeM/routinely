@@ -1,0 +1,60 @@
+.DailyRoutine {
+  display: grid;
+  grid-template-rows: [header] 100px [main] auto;
+  position: relative;
+}
+
+.daily-headline-wrapper {
+  width: auto;
+}
+
+.daily-headline {
+  background-image: linear-gradient(
+    0deg,
+    rgba(204, 168, 169, 0.116),
+    rgba(204, 168, 169, 0.781)
+  );
+  backdrop-filter: blur(5px);
+  text-align: center;
+  padding: 8px 0 15px;
+  color: var(--color-two);
+  width: 140px;
+  margin-left: 20px;
+}
+
+.history-back {
+  color: var(--color-two);
+  border: 2px solid var(--color-two);
+  border-radius: 6px;
+  margin-right: 25px;
+  font-size: 1.2rem;
+  padding: 8px 8px 3px 8px;
+  background-color: var(--color-one-opaque);
+  backdrop-filter: blur(3px);
+  position: fixed;
+  right: -15px;
+  top: 10px;
+  z-index: 1;
+  box-shadow: 0 5px 20px 1px var(--color-five-opaque-dark);
+}
+
+.daily-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.morning-products-display,
+.evening-products-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
+.morning-products-list,
+.evening-products-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

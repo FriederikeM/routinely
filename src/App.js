@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import ProductList from "./components/ProductListPage/ProductList";
 import WeeklyRoutine from "./components/WeeklyRoutinePage/WeeklyRoutine.js";
+import DailyRoutine from "./components/DailyRoutinePage/DailyRoutine.js";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
           </Route>
           <Route exact path="/weekly-routine">
             <WeeklyRoutine />
+          </Route>
+          <Route exact path="/daily-routine">
+            <DailyRoutine />
           </Route>
           <Route exact path="/products">
             <ProductList />
