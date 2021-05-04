@@ -24,6 +24,14 @@ export default function AddedProductCard({ info, products, name, time }) {
     return product.days[i][time];
   });
 
+  function getClassForPackaging(packaging) {
+    if (packaging === "not glass bottle") {
+      return "smaller-added-image";
+    } else if (packaging === "glass container") {
+      return "added-powder-image";
+    }
+  }
+
   return (
     products.length > 0 &&
     weekdayTime.map((product) => {
