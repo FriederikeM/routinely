@@ -28,15 +28,14 @@ export default function AddedProductCard({ info, products, name, time }) {
 
   return (
     products.length > 0 &&
-    weekdayTime.map((time) => {
+    weekdayTime.map((product) => {
+      const productData = getProductsById(product.id, products);
       return (
         <div className="AddedProductCard">
-          <h5 className="added-product-name">
-            {getProductsById(time.id, products).name}
-          </h5>
+          <h5 className="added-product-name">{productData.name}</h5>
           <div className="time-details">
-            {time.date !== "" && <p>opened: {time.date}</p>}
-            <p>lasts: {getProductsById(time.id, products).expirationPeriod}</p>
+            {product.date !== "" && <p>opened: {product.date}</p>}
+            <p>lasts: {productData.expirationPeriod}</p>
           </div>
           <p className="restock">
             running low?{" "}
@@ -51,9 +50,11 @@ export default function AddedProductCard({ info, products, name, time }) {
           </p>
           <button className="edit-button">edit</button>
           <img
-            src={bottleimg}
+            src={productData.image}
             alt="product bottle"
-            className="added-bottle-image"
+            className={`added-bottle-image ${getClassForPackaging(
+              productData.packaging
+            )}`}
           ></img>
         </div>
       );
