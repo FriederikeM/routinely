@@ -1,7 +1,5 @@
 import "./AddedProductCard.css";
 import { TiShoppingCart } from "react-icons/ti";
-import bottleimg from "../../images/niacinamide-bottle.png";
-
 import getProductsById from "../../utility/getProductsById";
 
 export default function AddedProductCard({ info, products, name, time }) {
