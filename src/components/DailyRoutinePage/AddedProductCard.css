@@ -25,10 +25,25 @@
 }
 
 .added-bottle-image {
-  width: 230px;
+  width: 250px;
   position: absolute;
-  right: -85px;
+  right: -93px;
   bottom: -3px;
+}
+
+.smaller-added-image {
+  width: 200px;
+  position: absolute;
+  right: -63px;
+  bottom: -3px;
+}
+
+.added-powder-image {
+  width: 180px;
+  position: absolute;
+  right: -60px;
+  bottom: 50px;
+  transform: rotate(20deg);
 }
 
 .time-details {
@@ -45,7 +60,7 @@
 
 .edit-button {
   position: absolute;
-  bottom: 26%;
+  bottom: 15%;
   right: 80px;
   border: 2px solid var(--color-one);
   background-color: transparent;
