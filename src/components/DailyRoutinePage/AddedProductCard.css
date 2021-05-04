@@ -1,5 +1,6 @@
 .AddedProductCard {
   width: 270px;
+  min-height: 130px;
   height: auto;
   background: linear-gradient(
     145deg,
@@ -20,6 +21,7 @@
 
 .added-product-name {
   margin-top: 5px;
+  width: 18ch;
 }
 
 .added-bottle-image {
@@ -30,11 +32,15 @@
 }
 
 .time-details {
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .restock {
   margin-bottom: 5px;
+}
+
+.shopping-link {
+  color: var(--color-one);
 }
 
 .edit-button {
