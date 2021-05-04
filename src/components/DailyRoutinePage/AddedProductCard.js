@@ -39,7 +39,15 @@ export default function AddedProductCard({ info, products, name, time }) {
             <p>lasts: {getProductsById(time.id, products).expirationPeriod}</p>
           </div>
           <p className="restock">
-            running low? <TiShoppingCart className="shopping-cart-icon" />{" "}
+            running low?{" "}
+            <a
+              href={productData.url}
+              target="_blank"
+              rel="noreferrer"
+              className="shopping-link"
+            >
+              <TiShoppingCart className="shopping-cart-icon" />{" "}
+            </a>
           </p>
           <button className="edit-button">edit</button>
           <img
