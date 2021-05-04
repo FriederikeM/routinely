@@ -4,6 +4,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { useParams, useHistory } from "react-router-dom";
 import { getDataFromLocalStorage } from "../../utility/localStorage.js";
 import { useEffect, useState } from "react";
+import getIndexForWeekday from "../../utility/getIndexForWeekday";
 
 export default function DailyRoutine() {
   const { weekday } = useParams();
@@ -27,22 +28,7 @@ export default function DailyRoutine() {
     setAllItems(routine);
   }, [weekday]);
 
-  let i;
-  if (weekday === "Monday") {
-    i = 0;
-  } else if (weekday === "Tuesday") {
-    i = 1;
-  } else if (weekday === "Wednesday") {
-    i = 2;
-  } else if (weekday === "Thursday") {
-    i = 3;
-  } else if (weekday === "Friday") {
-    i = 4;
-  } else if (weekday === "Saturday") {
-    i = 5;
-  } else if (weekday === "Sunday") {
-    i = 6;
-  }
+  const i = getIndexForWeekday(weekday);
 
   const weekdayArray = allItems.filter((item) => {
     return item.days[i].isChecked;

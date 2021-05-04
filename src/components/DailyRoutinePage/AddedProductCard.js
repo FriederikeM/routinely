@@ -1,6 +1,7 @@
 import "./AddedProductCard.css";
 import { TiShoppingCart } from "react-icons/ti";
 import getProductsById from "../../utility/getProductsById";
+import getIndexForWeekday from "../../utility/getIndexForWeekday";
 
 export default function AddedProductCard({
   productsOfTheDay,
@@ -8,22 +9,7 @@ export default function AddedProductCard({
   nameOfTheWeekday,
   timeOfTheDay,
 }) {
-  let i;
-  if (nameOfTheWeekday === "Monday") {
-    i = 0;
-  } else if (nameOfTheWeekday === "Tuesday") {
-    i = 1;
-  } else if (nameOfTheWeekday === "Wednesday") {
-    i = 2;
-  } else if (nameOfTheWeekday === "Thursday") {
-    i = 3;
-  } else if (nameOfTheWeekday === "Friday") {
-    i = 4;
-  } else if (nameOfTheWeekday === "Saturday") {
-    i = 5;
-  } else if (nameOfTheWeekday === "Sunday") {
-    i = 6;
-  }
+  const i = getIndexForWeekday(nameOfTheWeekday);
 
   const productsOfTimeOfDay = productsOfTheDay.filter((product) => {
     return product.days[i][timeOfTheDay];
