@@ -2,7 +2,7 @@ import "./WeekDayCard.css";
 import { HiSun } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import getProductsById from "../../utility/getProductsById";
+import getProductById from "../../utility/getProductById.js";
 
 export default function WeekDayCard({ name, data, products }) {
   let mornings;
@@ -81,7 +81,7 @@ export default function WeekDayCard({ name, data, products }) {
               {mornings.map((morning) => {
                 return (
                   <li className="product-name-left">
-                    {getProductsById(morning.id, products).name}
+                    {getProductById(morning.id, products).name}
                   </li>
                 );
               })}
@@ -92,7 +92,7 @@ export default function WeekDayCard({ name, data, products }) {
               {evenings.map((evening) => {
                 return (
                   <li className="product-name-right">
-                    {getProductsById(evening.id, products).name}
+                    {getProductById(evening.id, products).name}
                   </li>
                 );
               })}

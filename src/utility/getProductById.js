@@ -1,4 +1,4 @@
-export default function getProductsById(id, products) {
+export default function getProductById(id, products) {
   const foundProduct = products.filter((product) => {
     return product.id === id;
   });
