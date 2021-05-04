@@ -9,7 +9,7 @@ import getIndexForWeekday from "../../utility/getIndexForWeekday";
 export default function DailyRoutine() {
   const { weekday } = useParams();
   const history = useHistory();
-  const [allItems, setAllItems] = useState([]);
+  const [allRoutineItems, setAllRoutineItems] = useState([]);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -25,12 +25,12 @@ export default function DailyRoutine() {
 
   useEffect(() => {
     const routine = getDataFromLocalStorage();
-    setAllItems(routine);
+    setAllRoutineItems(routine);
   }, [weekday]);
 
   const i = getIndexForWeekday(weekday);
 
-  const weekdayArray = allItems.filter((item) => {
+  const weekdayArray = allRoutineItems.filter((item) => {
     return item.days[i].isChecked;
   });
 
