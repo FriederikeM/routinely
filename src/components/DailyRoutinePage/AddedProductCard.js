@@ -26,12 +26,6 @@ export default function AddedProductCard({ info, products, name, time }) {
     return product.days[i][time];
   });
 
-  const openingDate = info.filter((product) => {
-    return product.date;
-  });
-
-  console.log(products);
-
   return (
     products.length > 0 &&
     weekdayTime.map((time) => {
@@ -41,7 +35,7 @@ export default function AddedProductCard({ info, products, name, time }) {
             {getProductsById(time.id, products).name}
           </h5>
           <div className="time-details">
-            {openingDate !== "" && <p>opened: {openingDate}</p>}
+            {time.date !== "" && <p>opened: {time.date}</p>}
             <p>lasts: {getProductsById(time.id, products).expirationPeriod}</p>
           </div>
           <p className="restock">
