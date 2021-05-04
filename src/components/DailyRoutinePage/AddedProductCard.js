@@ -2,26 +2,31 @@ import "./AddedProductCard.css";
 import { TiShoppingCart } from "react-icons/ti";
 import getProductsById from "../../utility/getProductsById";
 
-export default function AddedProductCard({ info, products, name, time }) {
+export default function AddedProductCard({
+  productsOfTheDay,
+  products,
+  nameOfTheWeekday,
+  timeOfTheDay,
+}) {
   let i;
-  if (name === "Monday") {
+  if (nameOfTheWeekday === "Monday") {
     i = 0;
-  } else if (name === "Tuesday") {
+  } else if (nameOfTheWeekday === "Tuesday") {
     i = 1;
-  } else if (name === "Wednesday") {
+  } else if (nameOfTheWeekday === "Wednesday") {
     i = 2;
-  } else if (name === "Thursday") {
+  } else if (nameOfTheWeekday === "Thursday") {
     i = 3;
-  } else if (name === "Friday") {
+  } else if (nameOfTheWeekday === "Friday") {
     i = 4;
-  } else if (name === "Saturday") {
+  } else if (nameOfTheWeekday === "Saturday") {
     i = 5;
-  } else if (name === "Sunday") {
+  } else if (nameOfTheWeekday === "Sunday") {
     i = 6;
   }
 
-  const weekdayTime = info.filter((product) => {
-    return product.days[i][time];
+  const productsOfTimeOfDay = productsOfTheDay.filter((product) => {
+    return product.days[i][timeOfTheDay];
   });
 
   function getClassForPackaging(packaging) {
@@ -34,7 +39,7 @@ export default function AddedProductCard({ info, products, name, time }) {
 
   return (
     products.length > 0 &&
-    weekdayTime.map((product) => {
+    productsOfTimeOfDay.map((product) => {
       const productData = getProductsById(product.id, products);
       return (
         <div className="AddedProductCard">

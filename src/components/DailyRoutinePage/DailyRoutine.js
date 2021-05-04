@@ -64,9 +64,9 @@ export default function DailyRoutine() {
           <article className="morning-products-list">
             <AddedProductCard
               products={products}
-              time="morning"
-              info={weekdayArray}
-              name={weekday}
+              timeOfTheDay="morning"
+              productsOfTheDay={weekdayArray}
+              nameOfTheWeekday={weekday}
             />
           </article>
         </section>
@@ -75,9 +75,9 @@ export default function DailyRoutine() {
           <article className="evening-products-list">
             <AddedProductCard
               products={products}
-              time="evening"
-              info={weekdayArray}
-              name={weekday}
+              timeOfTheDay="evening"
+              productsOfTheDay={weekdayArray}
+              nameOfTheWeekday={weekday}
             />
           </article>
         </section>
