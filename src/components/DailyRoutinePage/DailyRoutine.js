@@ -35,7 +35,7 @@ export default function DailyRoutine() {
   });
 
   return (
-    <div className="DailyRoutine" key={weekday}>
+    <div className="DailyRoutine">
       <header className="daily-header">
         <div className="daily-headline-wrapper">
           <h1 className="daily-headline">{weekday}</h1>
