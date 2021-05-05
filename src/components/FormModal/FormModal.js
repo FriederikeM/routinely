@@ -10,6 +10,7 @@ import getIndexForWeekday from "../../utility/getIndexForWeekday";
 export default function FormModal({ onCancelAdding, id, name }) {
   const [openingDate, setOpeningDate] = useState("");
   const [indexWeekday, setIndexWeekday] = useState(0);
+  const [tickedTwice, setTickedTwice] = useState(false);
   const [weekRoutine, setWeekRoutine] = useState({
     id: id,
     days: [
@@ -90,13 +91,20 @@ export default function FormModal({ onCancelAdding, id, name }) {
 
   function handleModalFormSubmit(event) {
     event.preventDefault();
-    sendDataToLocalStorage(weekRoutine);
-    onCancelAdding();
+    if (tickedTwice === false) {
+      sendDataToLocalStorage(weekRoutine);
+      onCancelAdding();
+    } else {
+      alert(
+        "Oops, you are trying to add the product to a time when you are already using it, please untick before adding"
+      );
+    }
   }
 
   function checkMorningAddedProducts(name, morningClicked) {
     if (sameProductMorning.length !== 0 && !morningClicked) {
       if (name === sameProductMorning[0].days[indexWeekday].name) {
+        setTickedTwice(true);
         alert(
           `you are already using this product on ${name} morning, please untick`
         );
@@ -107,6 +115,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
   function checkEveningAddedProducts(name, eveningClicked) {
     if (sameProductEvening.length !== 0 && !eveningClicked) {
       if (name === sameProductEvening[0].days[indexWeekday].name) {
+        setTickedTwice(true);
         alert(
           `you are already using this product on ${name} evening, please untick`
         );
