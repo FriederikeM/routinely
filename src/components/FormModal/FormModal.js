@@ -62,6 +62,10 @@ export default function FormModal({ onCancelAdding, id, name }) {
     setOpeningDate(date);
   }
 
+  function sendNameToIndex(name) {
+    const i = getIndexForWeekday(name);
+    setIndexWeekday(i);
+  }
   function handleModalFormSubmit(event) {
     event.preventDefault();
     sendDataToLocalStorage(weekRoutine);

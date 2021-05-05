@@ -9,6 +9,7 @@ export default function Checkbox({
   handleEveningClicked,
   morning,
   evening,
+  sendNameToIndex,
 }) {
   const daySelected = isChecked;
 
@@ -30,6 +31,7 @@ export default function Checkbox({
           className="weekday-checkbox"
           value={name}
           checked={isChecked}
+          onClick={() => sendNameToIndex(name)}
         />
         <label htmlFor={name} className="weekday-label">
           {name}
