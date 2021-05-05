@@ -68,10 +68,22 @@ export default function FormModal({ onCancelAdding, id, name }) {
   const sameProduct = routineData.filter((sameProduct) => {
     return sameProduct.id === id;
   });
+
   function sendNameToIndex(name) {
     const i = getIndexForWeekday(name);
     setIndexWeekday(i);
   }
+
+  const sameProductMorning = sameProduct.filter((productObject) => {
+    const morning = productObject.days[indexWeekday].morning === true;
+    return morning;
+  });
+
+  const sameProductEvening = sameProduct.filter((productObject) => {
+    const evening = productObject.days[indexWeekday].evening === true;
+    return evening;
+  });
+
   function handleModalFormSubmit(event) {
     event.preventDefault();
     sendDataToLocalStorage(weekRoutine);
