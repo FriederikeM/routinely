@@ -168,6 +168,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
                   evening={day.evening}
                   handleMorningClicked={handleMorningClicked}
                   handleEveningClicked={handleEveningClicked}
+                  sendNameToIndex={sendNameToIndex}
                 />
               );
             })}
