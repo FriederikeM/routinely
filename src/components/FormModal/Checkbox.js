@@ -42,7 +42,7 @@ export default function Checkbox({
         <div className="time-of-day">
           <span className="morning">
             <input
-              onChange={() => handleMorningClicked(name)}
+              onChange={() => handleMorningClicked(name, morning)}
               type="checkbox"
               name="morning"
               className="morning-checkbox"
@@ -54,7 +54,7 @@ export default function Checkbox({
           </span>
           <span className="evening">
             <input
-              onChange={() => handleEveningClicked(name)}
+              onChange={() => handleEveningClicked(name, evening)}
               type="checkbox"
               name="evening"
               className="evening-checkbox"
