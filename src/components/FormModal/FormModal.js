@@ -90,6 +90,26 @@ export default function FormModal({ onCancelAdding, id, name }) {
     onCancelAdding();
   }
 
+  function checkMorningAddedProducts(name) {
+    if (sameProductMorning.length !== 0) {
+      if (name === sameProductMorning[0].days[indexWeekday].name) {
+        alert(
+          `you are already using this product on ${name} morning, please untick`
+        );
+      }
+    }
+  }
+
+  function checkEveningAddedProducts(name) {
+    if (sameProductEvening.length !== 0) {
+      if (name === sameProductEvening[0].days[indexWeekday].name) {
+        alert(
+          `you are already using this product on ${name} evening, please untick`
+        );
+      }
+    }
+  }
+
   function handleDayClicked(name) {
     const newCheckedDays = weekRoutine.days.map((day) => {
       if (day.name === name) {
@@ -111,6 +131,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
         return day;
       }
     });
+    checkMorningAddedProducts(name);
     setWeekRoutine({ id: id, days: newMorningChecked, date: openingDate });
   }
 
@@ -123,6 +144,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
         return day;
       }
     });
+    checkEveningAddedProducts(name);
     setWeekRoutine({ id: id, days: newEveningChecked, date: openingDate });
   }
 
