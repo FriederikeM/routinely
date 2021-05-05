@@ -1,11 +1,15 @@
 import "./FormModal.css";
 import Checkbox from "./Checkbox.js";
 import { useState } from "react";
+import {
   getDataFromLocalStorage,
   sendDataToLocalStorage,
+} from "../../utility/localStorage";
+import getIndexForWeekday from "../../utility/getIndexForWeekday";
 
 export default function FormModal({ onCancelAdding, id, name }) {
   const [openingDate, setOpeningDate] = useState("");
+  const [indexWeekday, setIndexWeekday] = useState(0);
   const [weekRoutine, setWeekRoutine] = useState({
     id: id,
     days: [
