@@ -94,8 +94,8 @@ export default function FormModal({ onCancelAdding, id, name }) {
     onCancelAdding();
   }
 
-  function checkMorningAddedProducts(name) {
-    if (sameProductMorning.length !== 0) {
+  function checkMorningAddedProducts(name, morningClicked) {
+    if (sameProductMorning.length !== 0 && !morningClicked) {
       if (name === sameProductMorning[0].days[indexWeekday].name) {
         alert(
           `you are already using this product on ${name} morning, please untick`
@@ -104,8 +104,8 @@ export default function FormModal({ onCancelAdding, id, name }) {
     }
   }
 
-  function checkEveningAddedProducts(name) {
-    if (sameProductEvening.length !== 0) {
+  function checkEveningAddedProducts(name, eveningClicked) {
+    if (sameProductEvening.length !== 0 && !eveningClicked) {
       if (name === sameProductEvening[0].days[indexWeekday].name) {
         alert(
           `you are already using this product on ${name} evening, please untick`
@@ -126,7 +126,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
     setWeekRoutine({ id: id, days: newCheckedDays, date: openingDate });
   }
 
-  function handleMorningClicked(name) {
+  function handleMorningClicked(name, morningClicked) {
     const newMorningChecked = weekRoutine.days.map((day) => {
       if (day.name === name) {
         day.morning = !day.morning;
@@ -135,11 +135,11 @@ export default function FormModal({ onCancelAdding, id, name }) {
         return day;
       }
     });
-    checkMorningAddedProducts(name);
+    checkMorningAddedProducts(name, morningClicked);
     setWeekRoutine({ id: id, days: newMorningChecked, date: openingDate });
   }
 
-  function handleEveningClicked(name) {
+  function handleEveningClicked(name, eveningClicked) {
     const newEveningChecked = weekRoutine.days.map((day) => {
       if (day.name === name) {
         day.evening = !day.evening;
@@ -148,7 +148,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
         return day;
       }
     });
-    checkEveningAddedProducts(name);
+    checkEveningAddedProducts(name, eveningClicked);
     setWeekRoutine({ id: id, days: newEveningChecked, date: openingDate });
   }
 
