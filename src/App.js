@@ -13,11 +13,11 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
+          <Route exact path="/weekly-routine/:weekday">
+            <DailyRoutine />
+          </Route>
           <Route exact path="/weekly-routine">
             <WeeklyRoutine />
-          </Route>
-          <Route exact path="/daily-routine">
-            <DailyRoutine />
           </Route>
           <Route exact path="/products">
             <ProductList />

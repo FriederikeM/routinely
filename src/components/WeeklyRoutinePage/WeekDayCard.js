@@ -1,6 +1,8 @@
 import "./WeekDayCard.css";
 import { HiSun } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import getProductById from "../../utility/getProductById.js";
 
 export default function WeekDayCard({ name, data, products }) {
   let mornings;
@@ -65,13 +67,6 @@ export default function WeekDayCard({ name, data, products }) {
     });
   }
 
-  function getProductsById(id) {
-    const foundProduct = products.filter((product) => {
-      return product.id === id;
-    });
-    return foundProduct[0].name;
-  }
-
   return (
     <div className="WeekDayCard">
       <div className="weekday">
@@ -86,7 +81,7 @@ export default function WeekDayCard({ name, data, products }) {
               {mornings.map((morning) => {
                 return (
                   <li className="product-name-left">
-                    {getProductsById(morning.id)}
+                    {getProductById(morning.id, products).name}
                   </li>
                 );
               })}
@@ -97,14 +92,19 @@ export default function WeekDayCard({ name, data, products }) {
               {evenings.map((evening) => {
                 return (
                   <li className="product-name-right">
-                    {getProductsById(evening.id)}
+                    {getProductById(evening.id, products).name}
                   </li>
                 );
               })}
             </ul>
           </section>
           <div className="see-details-button-wrapper">
-            <button className="see-details-button">See Details</button>
+            <NavLink
+              to={`/weekly-routine/${name}`}
+              className="see-details-button-link"
+            >
+              <button className="see-details-button">See Details</button>
+            </NavLink>
           </div>
         </div>
       </div>

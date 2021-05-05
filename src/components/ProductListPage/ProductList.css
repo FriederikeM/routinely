@@ -10,7 +10,7 @@
   justify-content: space-between;
   padding: 0 0px 10px 15px;
   z-index: 1;
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100vw;
   backdrop-filter: blur(20px);
@@ -21,17 +21,17 @@
 
 @keyframes drop-in {
   from {
-    position: relative;
+    position: fixed;
     top: -200px;
   }
   to {
-    position: relative;
+    position: fixed;
     top: 0;
   }
 }
 
 .main {
-  padding: 110px 10px;
+  padding: 190px 10px;
 }
 
 .filter-wrapper {
@@ -47,4 +47,18 @@
   justify-content: center;
   list-style: none;
   padding: 0;
+}
+
+.not-modal {
+  animation: blurring 300ms ease-in-out backwards;
+  filter: blur(5px);
+}
+
+@keyframes blurring {
+  from {
+    filter: blur(0px);
+  }
+  to {
+    filter: blur(5px);
+  }
 }
