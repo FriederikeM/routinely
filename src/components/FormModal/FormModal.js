@@ -80,13 +80,11 @@ export default function FormModal({ onCancelAdding, id, name }) {
   }
 
   const sameProductMorning = sameProduct.filter((productObject) => {
-    const morning = productObject.days[indexWeekday].morning === true;
-    return morning;
+    return productObject.days[indexWeekday].morning === true;
   });
 
   const sameProductEvening = sameProduct.filter((productObject) => {
-    const evening = productObject.days[indexWeekday].evening === true;
-    return evening;
+    return productObject.days[indexWeekday].evening === true;
   });
 
   function handleModalFormSubmit(event) {
@@ -102,24 +100,28 @@ export default function FormModal({ onCancelAdding, id, name }) {
   }
 
   function checkMorningAddedProducts(name, morningClicked) {
-    if (sameProductMorning.length !== 0 && !morningClicked) {
-      if (name === sameProductMorning[0].days[indexWeekday].name) {
-        setTickedTwice(true);
-        alert(
-          `you are already using this product on ${name} morning, please untick`
-        );
-      }
+    if (
+      sameProductMorning.length !== 0 &&
+      !morningClicked &&
+      name === sameProductMorning[0].days[indexWeekday].name
+    ) {
+      setTickedTwice(true);
+      alert(
+        `you are already using this product on ${name} morning, please untick`
+      );
     }
   }
 
   function checkEveningAddedProducts(name, eveningClicked) {
-    if (sameProductEvening.length !== 0 && !eveningClicked) {
-      if (name === sameProductEvening[0].days[indexWeekday].name) {
-        setTickedTwice(true);
-        alert(
-          `you are already using this product on ${name} evening, please untick`
-        );
-      }
+    if (
+      sameProductEvening.length !== 0 &&
+      !eveningClicked &&
+      name === sameProductEvening[0].days[indexWeekday].name
+    ) {
+      setTickedTwice(true);
+      alert(
+        `you are already using this product on ${name} evening, please untick`
+      );
     }
   }
 
