@@ -51,18 +51,20 @@ export default function DailyRoutine() {
     setShowModal(true);
   }
 
+  function handleCancelAddToRoutine() {
+    setShowModal(false);
+  }
+
   function renderMorningAddedProductCard() {
     return productsMorning.map((product) => {
       const productData = getProductById(product.id, products);
       return (
         <AddedProductCard
-          products={products}
-          timeOfTheDay="morning"
+          allRoutineItems={allRoutineItems}
           name={productData.name}
           date={product.date}
           expirationPeriod={productData.expirationPeriod}
-          packaging={productData.packging}
-          nameOfTheWeekday={weekday}
+          packaging={productData.packaging}
           imgSource={productData.image}
           url={productData.url}
           onEditRoutine={() => handleEditRoutine(product.id)}
@@ -76,13 +78,11 @@ export default function DailyRoutine() {
       const productData = getProductById(product.id, products);
       return (
         <AddedProductCard
-          products={products}
-          timeOfTheDay="evening"
+          allRoutineItems={allRoutineItems}
           name={productData.name}
           date={product.date}
           expirationPeriod={productData.expirationPeriod}
           packaging={productData.packging}
-          nameOfTheWeekday={weekday}
           imgSource={productData.image}
           url={productData.url}
           onEditRoutine={() => handleEditRoutine(product.id)}
@@ -101,21 +101,28 @@ export default function DailyRoutine() {
           <FaArrowLeft />
         </button>
       </header>
-      <main className="daily-main">
-        <section className="morning-products-display">
-          <h2 className="daytime-headline">morning</h2>
-          <article className="morning-products-list">
-            {products.length > 0 && renderMorningAddedProductCard()}
-          </article>
-        </section>
-        <section className="evening-products-display">
-          <h2 className="daytime-headline">evening</h2>
-          <article className="evening-products-list">
-            {products.length > 0 && renderEveningAddedProductCard()}
-          </article>
-        </section>
-        {showModal && <EditingFormModal id={id} />}
-      </main>
+      {allRoutineItems !== [] && (
+        <main className="daily-main">
+          <section className="morning-products-display">
+            <h2 className="daytime-headline">morning</h2>
+            <article className="morning-products-list">
+              {products.length > 0 && renderMorningAddedProductCard()}
+            </article>
+          </section>
+          <section className="evening-products-display">
+            <h2 className="daytime-headline">evening</h2>
+            <article className="evening-products-list">
+              {products.length > 0 && renderEveningAddedProductCard()}
+            </article>
+          </section>
+          {showModal && (
+            <EditingFormModal
+              id={id}
+              onCancelAdding={handleCancelAddToRoutine}
+            />
+          )}
+        </main>
+      )}
     </div>
   );
 }
