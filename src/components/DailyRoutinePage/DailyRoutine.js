@@ -46,7 +46,6 @@ export default function DailyRoutine() {
   });
 
   function handleEditRoutine(id) {
-    console.log("hello");
     setId(id);
     setShowModal(true);
   }
