@@ -102,26 +102,38 @@ export default function FormModal({ onCancelAdding, id, name }) {
   function checkMorningAddedProducts(name, morningClicked) {
     if (
       sameProductMorning.length !== 0 &&
-      !morningClicked &&
+      morningClicked === true &&
       name === sameProductMorning[0].days[indexWeekday].name
     ) {
       setTickedTwice(true);
       alert(
         `you are already using this product on ${name} morning, please untick`
       );
+    } else if (
+      sameProductMorning.length !== 0 &&
+      morningClicked === false &&
+      name === sameProductMorning[0].days[indexWeekday].name
+    ) {
+      setTickedTwice(false);
     }
   }
 
   function checkEveningAddedProducts(name, eveningClicked) {
     if (
       sameProductEvening.length !== 0 &&
-      !eveningClicked &&
+      eveningClicked &&
       name === sameProductEvening[0].days[indexWeekday].name
     ) {
       setTickedTwice(true);
       alert(
         `you are already using this product on ${name} evening, please untick`
       );
+    } else if (
+      sameProductMorning.length !== 0 &&
+      !eveningClicked &&
+      name === sameProductMorning[0].days[indexWeekday].name
+    ) {
+      setTickedTwice(false);
     }
   }
 
@@ -137,29 +149,29 @@ export default function FormModal({ onCancelAdding, id, name }) {
     setWeekRoutine({ id: id, days: newCheckedDays, date: openingDate });
   }
 
-  function handleMorningClicked(name, morningClicked) {
+  function handleMorningClicked(name) {
     const newMorningChecked = weekRoutine.days.map((day) => {
       if (day.name === name) {
         day.morning = !day.morning;
+        checkMorningAddedProducts(name, day.morning);
         return day;
       } else {
         return day;
       }
     });
-    checkMorningAddedProducts(name, morningClicked);
     setWeekRoutine({ id: id, days: newMorningChecked, date: openingDate });
   }
 
-  function handleEveningClicked(name, eveningClicked) {
+  function handleEveningClicked(name) {
     const newEveningChecked = weekRoutine.days.map((day) => {
       if (day.name === name) {
         day.evening = !day.evening;
+        checkEveningAddedProducts(name, day.evening);
         return day;
       } else {
         return day;
       }
     });
-    checkEveningAddedProducts(name, eveningClicked);
     setWeekRoutine({ id: id, days: newEveningChecked, date: openingDate });
   }
 
