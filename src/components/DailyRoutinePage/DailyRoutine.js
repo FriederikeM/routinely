@@ -5,7 +5,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { getDataFromLocalStorage } from "../../utility/localStorage.js";
 import { useEffect, useState } from "react";
 import getIndexForWeekday from "../../utility/getIndexForWeekday";
-import EditingFormModal from "../EditingFormModal/EditingFormModal";
+import FormModal from "../FormModal/FormModal";
 import getProductById from "../../utility/getProductById";
 
 export default function DailyRoutine() {
@@ -113,10 +113,7 @@ export default function DailyRoutine() {
             </article>
           </section>
           {showModal && (
-            <EditingFormModal
-              id={id}
-              onCancelAdding={handleCancelAddToRoutine}
-            />
+            <FormModal id={id} onCancelAdding={handleCancelAddToRoutine} />
           )}
         </main>
       )}
