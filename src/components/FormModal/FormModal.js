@@ -1,7 +1,10 @@
 import "./FormModal.css";
 import Checkbox from "./Checkbox.js";
 import { useState } from "react";
-import { sendDataToLocalStorage } from "../../utility/localStorage";
+import {
+  getDataFromLocalStorage,
+  sendDataToLocalStorage,
+} from "../../utility/localStorage";
 
 export default function FormModal({ onCancelAdding, id, name }) {
   const [openingDate, setOpeningDate] = useState("");
@@ -52,6 +55,12 @@ export default function FormModal({ onCancelAdding, id, name }) {
       },
     ],
     date: openingDate,
+  });
+
+  const routineData = getDataFromLocalStorage();
+
+  const sameProduct = routineData.find((product) => {
+    return product.id === id;
   });
 
   function handleChangeDate(event) {
@@ -113,20 +122,36 @@ export default function FormModal({ onCancelAdding, id, name }) {
           </p>
           <div className="weekday-checkboxes">
             {" "}
-            {weekRoutine.days.map((day, index) => {
-              return (
-                <Checkbox
-                  key={index + day.name}
-                  name={day.name}
-                  handleDayClicked={handleDayClicked}
-                  isChecked={day.isChecked}
-                  morning={day.morning}
-                  evening={day.evening}
-                  handleMorningClicked={handleMorningClicked}
-                  handleEveningClicked={handleEveningClicked}
-                />
-              );
-            })}
+            {sameProduct &&
+              sameProduct.days.map((day, index) => {
+                return (
+                  <Checkbox
+                    key={index + day.name}
+                    name={day.name}
+                    handleDayClicked={handleDayClicked}
+                    isChecked={day.isChecked}
+                    morning={day.morning}
+                    evening={day.evening}
+                    handleMorningClicked={handleMorningClicked}
+                    handleEveningClicked={handleEveningClicked}
+                  />
+                );
+              })}
+            {!sameProduct &&
+              weekRoutine.days.map((day, index) => {
+                return (
+                  <Checkbox
+                    key={index + day.name}
+                    name={day.name}
+                    handleDayClicked={handleDayClicked}
+                    isChecked={day.isChecked}
+                    morning={day.morning}
+                    evening={day.evening}
+                    handleMorningClicked={handleMorningClicked}
+                    handleEveningClicked={handleEveningClicked}
+                  />
+                );
+              })}
           </div>
           <div className="date-choice">
             <label htmlFor="date">
