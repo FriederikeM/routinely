@@ -9,7 +9,6 @@ export default function AddedProductCard({
   imgSource,
   url,
   onEditRoutine,
-  allRoutineItems,
 }) {
   let classForPackaging;
   if (packaging === "not glass bottle") {

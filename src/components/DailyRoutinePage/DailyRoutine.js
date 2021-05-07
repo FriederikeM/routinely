@@ -59,7 +59,6 @@ export default function DailyRoutine() {
       const productData = getProductById(product.id, products);
       return (
         <AddedProductCard
-          allRoutineItems={allRoutineItems}
           name={productData.name}
           date={product.date}
           expirationPeriod={productData.expirationPeriod}
@@ -77,7 +76,6 @@ export default function DailyRoutine() {
       const productData = getProductById(product.id, products);
       return (
         <AddedProductCard
-          allRoutineItems={allRoutineItems}
           name={productData.name}
           date={product.date}
           expirationPeriod={productData.expirationPeriod}
