@@ -1,6 +1,6 @@
 import "./FormModal.css";
 import Checkbox from "./Checkbox.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   getDataFromLocalStorage,
   sendDataToLocalStorage,
@@ -57,11 +57,13 @@ export default function FormModal({ onCancelAdding, id, name }) {
     date: openingDate,
   });
 
+  useEffect(() => {
   const routineData = getDataFromLocalStorage();
-
   const sameProduct = routineData.find((product) => {
     return product.id === id;
   });
+    sameProduct && setWeekRoutine(sameProduct);
+  }, []);
 
   function handleChangeDate(event) {
     const date = event.target.value;
