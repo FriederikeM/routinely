@@ -58,10 +58,10 @@ export default function FormModal({ onCancelAdding, id, name }) {
   });
 
   useEffect(() => {
-  const routineData = getDataFromLocalStorage();
-  const sameProduct = routineData.find((product) => {
-    return product.id === id;
-  });
+    const routineData = getDataFromLocalStorage();
+    const sameProduct = routineData.find((product) => {
+      return product.id === id;
+    });
     sameProduct && setWeekRoutine(sameProduct);
   }, []);
 
@@ -125,19 +125,19 @@ export default function FormModal({ onCancelAdding, id, name }) {
           <div className="weekday-checkboxes">
             {" "}
             {weekRoutine.days.map((day, index) => {
-                return (
-                  <Checkbox
-                    key={index + day.name}
-                    name={day.name}
-                    handleDayClicked={handleDayClicked}
-                    isChecked={day.isChecked}
-                    morning={day.morning}
-                    evening={day.evening}
-                    handleMorningClicked={handleMorningClicked}
-                    handleEveningClicked={handleEveningClicked}
-                  />
-                );
-              })}
+              return (
+                <Checkbox
+                  key={index + day.name}
+                  name={day.name}
+                  handleDayClicked={handleDayClicked}
+                  isChecked={day.isChecked}
+                  morning={day.morning}
+                  evening={day.evening}
+                  handleMorningClicked={handleMorningClicked}
+                  handleEveningClicked={handleEveningClicked}
+                />
+              );
+            })}
           </div>
           <div className="date-choice">
             <label htmlFor="date">
