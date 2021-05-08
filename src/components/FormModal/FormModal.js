@@ -124,23 +124,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
           </p>
           <div className="weekday-checkboxes">
             {" "}
-            {sameProduct &&
-              sameProduct.days.map((day, index) => {
-                return (
-                  <Checkbox
-                    key={index + day.name}
-                    name={day.name}
-                    handleDayClicked={handleDayClicked}
-                    isChecked={day.isChecked}
-                    morning={day.morning}
-                    evening={day.evening}
-                    handleMorningClicked={handleMorningClicked}
-                    handleEveningClicked={handleEveningClicked}
-                  />
-                );
-              })}
-            {!sameProduct &&
-              weekRoutine.days.map((day, index) => {
+            {weekRoutine.days.map((day, index) => {
                 return (
                   <Checkbox
                     key={index + day.name}
