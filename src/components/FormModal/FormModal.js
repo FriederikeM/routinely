@@ -150,6 +150,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
               name="date"
               className="date-input"
               onChange={handleChangeDate}
+              value={weekRoutine.date}
             ></input>
           </div>
           <div className="finish-buttons">
