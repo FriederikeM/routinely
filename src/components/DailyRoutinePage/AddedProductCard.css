@@ -29,6 +29,7 @@
   position: absolute;
   right: -93px;
   bottom: -3px;
+  pointer-events: none;
 }
 
 .smaller-added-image {
@@ -36,6 +37,7 @@
   position: absolute;
   right: -63px;
   bottom: -3px;
+  pointer-events: none;
 }
 
 .added-powder-image {
@@ -44,6 +46,7 @@
   right: -60px;
   bottom: 50px;
   transform: rotate(20deg);
+  pointer-events: none;
 }
 
 .time-details {
@@ -68,6 +71,7 @@
   font-size: 1rem;
   padding: 3px 8px;
   color: var(--color-one);
+  cursor: pointer;
 }
 
 .AddedProductCard p {

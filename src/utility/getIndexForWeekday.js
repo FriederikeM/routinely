@@ -13,7 +13,7 @@ export default function getIndexForWeekday(weekday) {
     case "Thursday":
       i = 3;
       break;
-    case "Firday":
+    case "Friday":
       i = 4;
       break;
     case "Saturday":
