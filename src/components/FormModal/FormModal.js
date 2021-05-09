@@ -88,7 +88,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
         return day;
       }
     });
-    setWeekRoutine({ id: id, days: newCheckedDays, date: openingDate });
+    setWeekRoutine({ id: id, days: newCheckedDays, date: weekRoutine.date });
   }
 
   function handleMorningClicked(name) {
@@ -100,7 +100,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
         return day;
       }
     });
-    setWeekRoutine({ id: id, days: newMorningChecked, date: openingDate });
+    setWeekRoutine({ id: id, days: newMorningChecked, date: weekRoutine.date });
   }
 
   function handleEveningClicked(name) {
@@ -112,7 +112,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
         return day;
       }
     });
-    setWeekRoutine({ id: id, days: newEveningChecked, date: openingDate });
+    setWeekRoutine({ id: id, days: newEveningChecked, date: weekRoutine.date });
   }
 
   return (
