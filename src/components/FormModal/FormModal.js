@@ -1,6 +1,6 @@
 import "./FormModal.css";
 import Checkbox from "./Checkbox.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   getDataFromLocalStorage,
   sendDataToLocalStorage,
@@ -57,11 +57,13 @@ export default function FormModal({ onCancelAdding, id, name }) {
     date: openingDate,
   });
 
-  const routineData = getDataFromLocalStorage();
-
-  const sameProduct = routineData.find((product) => {
-    return product.id === id;
-  });
+  useEffect(() => {
+    const routineData = getDataFromLocalStorage();
+    const sameProduct = routineData.find((product) => {
+      return product.id === id;
+    });
+    sameProduct && setWeekRoutine(sameProduct);
+  }, [id]);
 
   function handleChangeDate(event) {
     const date = event.target.value;
@@ -86,7 +88,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
         return day;
       }
     });
-    setWeekRoutine({ id: id, days: newCheckedDays, date: openingDate });
+    setWeekRoutine({ id: id, days: newCheckedDays, date: weekRoutine.date });
   }
 
   function handleMorningClicked(name) {
@@ -98,7 +100,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
         return day;
       }
     });
-    setWeekRoutine({ id: id, days: newMorningChecked, date: openingDate });
+    setWeekRoutine({ id: id, days: newMorningChecked, date: weekRoutine.date });
   }
 
   function handleEveningClicked(name) {
@@ -110,7 +112,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
         return day;
       }
     });
-    setWeekRoutine({ id: id, days: newEveningChecked, date: openingDate });
+    setWeekRoutine({ id: id, days: newEveningChecked, date: weekRoutine.date });
   }
 
   return (
@@ -122,36 +124,20 @@ export default function FormModal({ onCancelAdding, id, name }) {
           </p>
           <div className="weekday-checkboxes">
             {" "}
-            {sameProduct &&
-              sameProduct.days.map((day, index) => {
-                return (
-                  <Checkbox
-                    key={index + day.name}
-                    name={day.name}
-                    handleDayClicked={handleDayClicked}
-                    isChecked={day.isChecked}
-                    morning={day.morning}
-                    evening={day.evening}
-                    handleMorningClicked={handleMorningClicked}
-                    handleEveningClicked={handleEveningClicked}
-                  />
-                );
-              })}
-            {!sameProduct &&
-              weekRoutine.days.map((day, index) => {
-                return (
-                  <Checkbox
-                    key={index + day.name}
-                    name={day.name}
-                    handleDayClicked={handleDayClicked}
-                    isChecked={day.isChecked}
-                    morning={day.morning}
-                    evening={day.evening}
-                    handleMorningClicked={handleMorningClicked}
-                    handleEveningClicked={handleEveningClicked}
-                  />
-                );
-              })}
+            {weekRoutine.days.map((day, index) => {
+              return (
+                <Checkbox
+                  key={index + day.name}
+                  name={day.name}
+                  handleDayClicked={handleDayClicked}
+                  isChecked={day.isChecked}
+                  morning={day.morning}
+                  evening={day.evening}
+                  handleMorningClicked={handleMorningClicked}
+                  handleEveningClicked={handleEveningClicked}
+                />
+              );
+            })}
           </div>
           <div className="date-choice">
             <label htmlFor="date">
@@ -164,6 +150,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
               name="date"
               className="date-input"
               onChange={handleChangeDate}
+              value={weekRoutine.date}
             ></input>
           </div>
           <div className="finish-buttons">

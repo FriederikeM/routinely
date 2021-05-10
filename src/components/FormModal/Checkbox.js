@@ -14,11 +14,11 @@ export default function Checkbox({
 
   const classForCheckboxAlignment =
     name === "Friday"
-      ? "right"
+      ? "friday-right"
       : name === "Saturday"
-      ? "right"
+      ? "saturday-right"
       : name === "Sunday"
-      ? "right"
+      ? "sunday-right"
       : "left";
   return (
     <div className={`Checkbox ${classForCheckboxAlignment}`}>

@@ -15,6 +15,7 @@ export default function DailyRoutine() {
   const [products, setProducts] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [id, setId] = useState();
+  const [productName, setProductName] = useState("");
 
   useEffect(() => {
     const fetchProducts = () => {
@@ -45,8 +46,9 @@ export default function DailyRoutine() {
     return product.days[i].evening;
   });
 
-  function handleEditRoutine(id) {
+  function handleEditRoutine(id, name) {
     setId(id);
+    setProductName(name);
     setShowModal(true);
   }
 
@@ -65,7 +67,7 @@ export default function DailyRoutine() {
           packaging={productData.packaging}
           imgSource={productData.image}
           url={productData.url}
-          onEditRoutine={() => handleEditRoutine(product.id)}
+          onEditRoutine={() => handleEditRoutine(product.id, productData.name)}
         />
       );
     });
@@ -82,7 +84,7 @@ export default function DailyRoutine() {
           packaging={productData.packging}
           imgSource={productData.image}
           url={productData.url}
-          onEditRoutine={() => handleEditRoutine(product.id)}
+          onEditRoutine={() => handleEditRoutine(product.id, productData.name)}
         />
       );
     });
@@ -113,7 +115,11 @@ export default function DailyRoutine() {
             </article>
           </section>
           {showModal && (
-            <FormModal id={id} onCancelAdding={handleCancelAddToRoutine} />
+            <FormModal
+              id={id}
+              name={productName}
+              onCancelAdding={handleCancelAddToRoutine}
+            />
           )}
         </main>
       )}

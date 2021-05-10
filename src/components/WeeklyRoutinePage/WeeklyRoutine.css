@@ -4,6 +4,22 @@
   position: relative;
 }
 
+.weekly-headline {
+  background-image: linear-gradient(
+    0deg,
+    rgba(204, 168, 169, 0.26),
+    rgba(204, 168, 169, 0.856)
+  );
+  backdrop-filter: blur(5px);
+  text-align: center;
+  padding: 8px 0 15px 0;
+  color: var(--color-two);
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
+  animation: drop-in 500ms ease-in-out;
+}
+
 .weekly-main {
   display: flex;
   flex-direction: row;

@@ -4,22 +4,20 @@
   position: relative;
 }
 
-.daily-headline-wrapper {
-  width: auto;
-}
-
 .daily-headline {
   background-image: linear-gradient(
     0deg,
-    rgba(204, 168, 169, 0.116),
-    rgba(204, 168, 169, 0.781)
+    rgba(204, 168, 169, 0.26),
+    rgba(204, 168, 169, 0.856)
   );
   backdrop-filter: blur(5px);
   text-align: center;
-  padding: 8px 0 15px;
+  padding: 8px 0 15px 0;
   color: var(--color-two);
-  width: 140px;
-  margin-left: 20px;
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
+  animation: drop-in 500ms ease-in-out;
 }
 
 .history-back {
