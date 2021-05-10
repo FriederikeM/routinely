@@ -218,7 +218,7 @@ export default function FormModal({
               cancel
             </button>
             <button type="submit" className="add-product">
-              add
+              {buttonName}
             </button>
           </div>
         </form>
