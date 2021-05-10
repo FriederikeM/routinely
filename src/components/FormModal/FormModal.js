@@ -5,6 +5,8 @@ import {
   getDataFromLocalStorage,
   sendDataToLocalStorage,
 } from "../../utility/localStorage";
+import getIndexForWeekday from "../../utility/getIndexForWeekday";
+import getProductById from "../../utility/getProductById";
 
 export default function FormModal({ onCancelAdding, id, name }) {
   const [openingDate, setOpeningDate] = useState("");
