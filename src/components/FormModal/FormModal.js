@@ -104,6 +104,11 @@ export default function FormModal({
   }
 
   function handleMorningClicked(name) {
+    const i = getIndexForWeekday(name);
+    const checkedMornings = routineData.filter(
+      (product) =>
+        product.days[i].name === name && product.days[i].morning === true
+    );
     const newMorningChecked = weekRoutine.days.map((day) => {
       if (day.name === name) {
         day.morning = !day.morning;
@@ -116,6 +121,11 @@ export default function FormModal({
   }
 
   function handleEveningClicked(name) {
+    const i = getIndexForWeekday(name);
+    const checkedEvenings = routineData.filter(
+      (product) =>
+        product.days[i].name === name && product.days[i].evening === true
+    );
     const newEveningChecked = weekRoutine.days.map((day) => {
       if (day.name === name) {
         day.evening = !day.evening;
