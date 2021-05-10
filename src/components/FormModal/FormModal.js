@@ -112,6 +112,12 @@ export default function FormModal({
 
     const routineIDs = checkedMornings.map((product) => product.id);
     const intersection = routineIDs.filter((id) => conflicts.includes(id));
+
+    const conflictName = intersection.map((id) => {
+      const conflictProduct = getProductById(id, products);
+      return conflictProduct.name;
+    });
+
     const newMorningChecked = weekRoutine.days.map((day) => {
       if (day.name === name) {
         day.morning = !day.morning;
@@ -132,6 +138,11 @@ export default function FormModal({
 
     const routineIDs = checkedEvenings.map((product) => product.id);
     const intersection = routineIDs.filter((id) => conflicts.includes(id));
+
+    const conflictName = intersection.map((id) => {
+      const conflictProduct = getProductById(id, products);
+      return conflictProduct.name;
+    });
     const newEveningChecked = weekRoutine.days.map((day) => {
       if (day.name === name) {
         day.evening = !day.evening;
