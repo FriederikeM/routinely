@@ -63,7 +63,7 @@ export default function FormModal({ onCancelAdding, id, name }) {
       return product.id === id;
     });
     sameProduct && setWeekRoutine(sameProduct);
-  }, []);
+  }, [id]);
 
   function handleChangeDate(event) {
     const date = event.target.value;

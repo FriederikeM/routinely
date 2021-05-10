@@ -16,7 +16,7 @@ export default function ProductCard({
     } else if (packaging === "glass container") {
       setClassForImage("powder");
     }
-  }, [classForImage, packaging]);
+  }, [packaging]);
 
   return (
     <div className="ProductCard">
