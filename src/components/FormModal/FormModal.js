@@ -16,6 +16,8 @@ export default function FormModal({
   products,
 }) {
   const [openingDate, setOpeningDate] = useState("");
+  const [routineData, setRoutineData] = useState([]);
+  const [buttonName, setButtonName] = useState("add");
   const [weekRoutine, setWeekRoutine] = useState({
     id: id,
     days: [
@@ -71,6 +73,8 @@ export default function FormModal({
       return product.id === id;
     });
     sameProduct && setWeekRoutine(sameProduct);
+    sameProduct && setButtonName("edit");
+    setRoutineData(routineData);
   }, [id]);
 
   function handleChangeDate(event) {
