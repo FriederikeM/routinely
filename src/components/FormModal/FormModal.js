@@ -109,6 +109,9 @@ export default function FormModal({
       (product) =>
         product.days[i].name === name && product.days[i].morning === true
     );
+
+    const routineIDs = checkedMornings.map((product) => product.id);
+    const intersection = routineIDs.filter((id) => conflicts.includes(id));
     const newMorningChecked = weekRoutine.days.map((day) => {
       if (day.name === name) {
         day.morning = !day.morning;
@@ -126,6 +129,9 @@ export default function FormModal({
       (product) =>
         product.days[i].name === name && product.days[i].evening === true
     );
+
+    const routineIDs = checkedEvenings.map((product) => product.id);
+    const intersection = routineIDs.filter((id) => conflicts.includes(id));
     const newEveningChecked = weekRoutine.days.map((day) => {
       if (day.name === name) {
         day.evening = !day.evening;
