@@ -8,7 +8,13 @@ import {
 import getIndexForWeekday from "../../utility/getIndexForWeekday";
 import getProductById from "../../utility/getProductById";
 
-export default function FormModal({ onCancelAdding, id, name }) {
+export default function FormModal({
+  onCancelAdding,
+  id,
+  name,
+  conflicts,
+  products,
+}) {
   const [openingDate, setOpeningDate] = useState("");
   const [weekRoutine, setWeekRoutine] = useState({
     id: id,
