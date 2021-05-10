@@ -55,8 +55,8 @@ export default function WeeklyRoutine() {
   return (
     <div className="WeeklyRoutine">
       <header>
-        <div className="headline-wrapper">
-          <h1 className="headline">my week</h1>
+        <div className="weekly-headline-wrapper">
+          <h1 className="weekly-headline">my week</h1>
         </div>
       </header>
       <main className="weekly-main">
