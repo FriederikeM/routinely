@@ -85,12 +85,6 @@ export default function FormModal({
     setOpeningDate(date);
   }
 
-  function handleModalFormSubmit(event) {
-    event.preventDefault();
-    sendDataToLocalStorage(weekRoutine);
-    onCancelAdding();
-  }
-
   function handleDayClicked(name) {
     const newCheckedDays = weekRoutine.days.map((day) => {
       if (day.name === name) {
@@ -172,6 +166,31 @@ export default function FormModal({
         days: newEveningChecked,
         date: weekRoutine.date,
       });
+    }
+  }
+
+  function handleModalFormSubmit(event) {
+    event.preventDefault();
+
+    const noDaysChecked = weekRoutine.days.map((day) => {
+      return day.isChecked === false;
+    });
+    const nothingSelected = noDaysChecked.every((day) => day === true);
+
+    const checkNotSpecified = weekRoutine.days.map((day) => {
+      return (
+        day.isChecked === true && day.morning === false && day.evening === false
+      );
+    });
+    const noUnspecifiedChecks = checkNotSpecified.every(
+      (check) => check === false
+    );
+
+    if (noUnspecifiedChecks === false || nothingSelected === true) {
+      onCancelAdding();
+    } else {
+      sendDataToLocalStorage(weekRoutine);
+      onCancelAdding();
     }
   }
 
