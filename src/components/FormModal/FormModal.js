@@ -118,15 +118,25 @@ export default function FormModal({
       return conflictProduct.name;
     });
 
-    const newMorningChecked = weekRoutine.days.map((day) => {
-      if (day.name === name) {
-        day.morning = !day.morning;
-        return day;
-      } else {
-        return day;
-      }
-    });
-    setWeekRoutine({ id: id, days: newMorningChecked, date: weekRoutine.date });
+    if (intersection.length > 0) {
+      alert(
+        `You are already using ${conflictName} on ${name} morning. These two products have conflicting ingredients`
+      );
+    } else {
+      const newMorningChecked = weekRoutine.days.map((day) => {
+        if (day.name === name) {
+          day.morning = !day.morning;
+          return day;
+        } else {
+          return day;
+        }
+      });
+      setWeekRoutine({
+        id: id,
+        days: newMorningChecked,
+        date: weekRoutine.date,
+      });
+    }
   }
 
   function handleEveningClicked(name) {
@@ -143,15 +153,26 @@ export default function FormModal({
       const conflictProduct = getProductById(id, products);
       return conflictProduct.name;
     });
-    const newEveningChecked = weekRoutine.days.map((day) => {
-      if (day.name === name) {
-        day.evening = !day.evening;
-        return day;
-      } else {
-        return day;
-      }
-    });
-    setWeekRoutine({ id: id, days: newEveningChecked, date: weekRoutine.date });
+
+    if (intersection.length > 0) {
+      alert(
+        `You are already using ${conflictName} on ${name} evening. These two products have conflicting ingredients`
+      );
+    } else {
+      const newEveningChecked = weekRoutine.days.map((day) => {
+        if (day.name === name) {
+          day.evening = !day.evening;
+          return day;
+        } else {
+          return day;
+        }
+      });
+      setWeekRoutine({
+        id: id,
+        days: newEveningChecked,
+        date: weekRoutine.date,
+      });
+    }
   }
 
   return (
