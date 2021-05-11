@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "AHA 30% + BHA 2% Peeling Solution",
-    "contraindications": [2, 3, 4, 5, 8, 18, 20, 26, 27, 28, 39, 40, 41],
+    "conflicts": [2, 3, 4, 5, 8, 18, 20, 26, 27, 28, 39, 40, 41],
     "category": "Exfoliators",
     "tags": ["AHA", "Direct Acid", "Salicylic Acid"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw698fd41b/Images/products/The%20Ordinary/rdn-aha-30pct-bha-2pct-peeling-solution-30ml.png?sw=400&sh=400&sm=fit",
@@ -41,7 +41,7 @@
   {
     "id": 2,
     "name": "Glycolic Acid 7% Toning Solution",
-    "contraindications": [1, 3, 4, 5, 8, 18, 20, 26, 27, 28, 39, 40, 41],
+    "conflicts": [1, 3, 4, 5, 8, 18, 20, 26, 27, 28, 39, 40, 41],
     "category": "Toners",
     "tags": ["AHA", "Direct Acid"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwf3b2660a/Images/products/The%20Ordinary/rdn-glycolic-acid-7pct-toning-solution-240ml.png?sw=400&sh=400&sm=fit",
@@ -98,7 +98,7 @@
   {
     "id": 3,
     "name": "Lactic Acid 10% + HA",
-    "contraindications": [1, 2, 4, 5, 8, 18, 20, 26, 27, 28, 39, 40, 41],
+    "conflicts": [1, 2, 4, 5, 8, 18, 20, 26, 27, 28, 39, 40, 41],
     "category": "Exfoliators",
     "tags": ["AHA", "Direct Acid", "Salicylic Acid"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwc9a2ff3e/Images/products/The%20Ordinary/rdn-lactic-acid-10pct-ha-30ml.png?sw=400&sh=400&sm=fit",
@@ -128,7 +128,7 @@
   {
     "id": 4,
     "name": "Lactic Acid 5% + HA",
-    "contraindications": [1, 2, 3, 5, 8, 18, 20, 26, 27, 28, 39, 40, 41],
+    "conflicts": [1, 2, 3, 5, 8, 18, 20, 26, 27, 28, 39, 40, 41],
     "category": "Exfoliators",
     "tags": ["AHA", "Direct Acid", "Salicylic Acid"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw4a5a6c3b/Images/products/The%20Ordinary/rdn-lactic-acid-5pct-ha-30ml.png?sw=400&sh=400&sm=fit",
@@ -158,7 +158,7 @@
   {
     "id": 5,
     "name": "Mandelic Acid 10% + HA",
-    "contraindications": [1, 2, 3, 4, 8, 18, 20, 26, 27, 28, 39, 40, 41],
+    "conflicts": [1, 2, 3, 4, 8, 18, 20, 26, 27, 28, 39, 40, 41],
     "category": "Exfoliators",
     "tags": ["AHA", "Direct Acid"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw2b6365b7/Images/products/The%20Ordinary/rdn-mandelic10+ha-bottle-30ml.png?sw=400&sh=400&sm=fit",
@@ -186,7 +186,7 @@
   {
     "id": 6,
     "name": "Alpha Arbutin 2% + HA",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Serums",
     "tags": ["Alpha Arbutin", "Hyaluronic Acid"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwc863144a/Images/products/The%20Ordinary/rdn-alpha-arbutin-2pct-ha-30ml.png?sw=400&sh=400&sm=fit",
@@ -213,7 +213,7 @@
   {
     "id": 7,
     "name": "Ascorbic Acid 8% + Alpha Arbutin 2%",
-    "contraindications": [20, 37],
+    "conflicts": [20, 37],
     "category": "Serums",
     "tags": ["Alpha Arbutin", "Antioxidants", "Vitamin C"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw63461017/Images/products/The%20Ordinary/rdn-100pct-AscorbicAcid8+AlphaArbutin2-Product-30ml.png?sw=400&sh=400&sm=fit",
@@ -227,7 +227,7 @@
   {
     "id": 8,
     "name": "Azelaic Acid Suspension 10%",
-    "contraindications": [1, 2, 3, 4, 5, 18, 20, 26, 27, 28, 39, 40, 41],
+    "conflicts": [1, 2, 3, 4, 5, 18, 20, 26, 27, 28, 39, 40, 41],
     "category": "Serums",
     "tags": ["Antioxidants", "Direct Acid"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw12eeb6ee/Images/products/The%20Ordinary/rdn-azelaic-acid-suspension-10pct-30ml.png?sw=400&sh=400&sm=fit",
@@ -259,7 +259,7 @@
   {
     "id": 9,
     "name": "Mineral UV Filters SPF 30 with Antioxidants",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Suncare",
     "tags": ["Antioxidants", "SPF"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw8360c9d7/Images/products/The%20Ordinary/rdn-mineral-uv-filters-spf-30-with-antioxidants-50ml.png?sw=400&sh=400&sm=fit",
@@ -336,7 +336,7 @@
   {
     "id": 10,
     "name": "100% Organic Cold-Pressed Rose Hip Seed Oil",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Face Oils",
     "tags": ["Antioxidants", "Hydrator", "Oil"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw2321b213/Images/products/The%20Ordinary/rdn-100pct-organic-cold-pressed-rose-hip-seed-oil-30ml.png?sw=400&sh=400&sm=fit",
@@ -350,7 +350,7 @@
   {
     "id": 11,
     "name": "Vitamin C Suspension 23% + HA Spheres 2%",
-    "contraindications": [20, 37],
+    "conflicts": [20, 37],
     "category": "Serums",
     "tags": ["Antioxidants", "Vitamin C"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwf0260aa2/Images/products/The%20Ordinary/rdn-vitamin-c-suspension-23pct-ha-spheres-2pct-30ml.png?sw=400&sh=400&sm=fit",
@@ -380,7 +380,7 @@
   {
     "id": 12,
     "name": "Ascorbyl Glucoside Solution 12%",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Serums",
     "tags": ["Antioxidants", "Vitamin C"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwe977afb0/Images/products/The%20Ordinary/rdn-ascorbyl-glucoside-solution-12pct-30ml.png?sw=400&sh=400&sm=fit",
@@ -407,7 +407,7 @@
   {
     "id": 13,
     "name": "Vitamin C Suspension 30% in Silicone",
-    "contraindications": [20, 37],
+    "conflicts": [20, 37],
     "category": "Serums",
     "tags": ["Antioxidants", "Vitamin C"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw23a70cff/Images/products/The%20Ordinary/rdn-vitamin-c-suspension-30pct-in-silicone-30ml.png?sw=400&sh=400&sm=fit",
@@ -426,7 +426,7 @@
   {
     "id": 14,
     "name": "Ascorbyl Tetraisopalmitate Solution 20% in Vitamin F",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Serums",
     "tags": ["Antioxidants", "Oil", "Vitamin C"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw928850a8/Images/products/The%20Ordinary/rdn-ascorbyl-tetraisopalmitate-solution-20pct-in-vitamin-f-30ml.png?sw=400&sh=400&sm=fit",
@@ -448,7 +448,7 @@
   {
     "id": 15,
     "name": "Mineral UV Filters SPF 15 with Antioxidants",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Suncare",
     "tags": ["Antioxidants", "SPF"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwe162a56e/Images/products/The%20Ordinary/rdn-mineral-uv-filters-spf-15-with-antioxidants-50ml.png?sw=400&sh=400&sm=fit",
@@ -525,7 +525,7 @@
   {
     "id": 16,
     "name": "100% Cold-Pressed Virgin Marula Oil",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Face Oils",
     "tags": ["Antioxidants", "Hydrator", "Oil"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw6e1f1fa8/Images/products/The%20Ordinary/rdn-100pct-cold-pressed-virgin-marula-oil-30ml.png?sw=400&sh=400&sm=fit",
@@ -539,7 +539,7 @@
   {
     "id": 17,
     "name": "Resveratrol 3% + Ferulic Acid 3%",
-    "contraindications": [26],
+    "conflicts": [26],
     "category": "Serums",
     "tags": "Antioxidants",
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw5c6f18c3/Images/products/The%20Ordinary/rdn-resveratrol-3pct-ferulic-acid-3pct-30ml.png?sw=400&sh=400&sm=fit",
@@ -553,7 +553,7 @@
   {
     "id": 18,
     "name": "100% L-Ascorbic Acid Powder",
-    "contraindications": [1, 2, 3, 4, 5, 8, 20, 26, 27, 28, 37, 39, 40, 41],
+    "conflicts": [1, 2, 3, 4, 5, 8, 20, 26, 27, 28, 37, 39, 40, 41],
     "category": "Serums",
     "tags": ["Antioxidants", "Vitamin C"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwd334871d/Images/products/The%20Ordinary/rdn-100pct-l-ascorbic-acid-powder-20g.png?sw=400&sh=400&sm=fit",
@@ -567,7 +567,7 @@
   {
     "id": 19,
     "name": "Pycnogenol 5%",
-    "contraindications": [26],
+    "conflicts": [26],
     "category": "Serums",
     "tags": "Antioxidants",
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw36f65e53/Images/products/The%20Ordinary/rdn-Pycnogenol-5pct-15ml.png?sw=400&sh=400&sm=fit",
@@ -581,7 +581,7 @@
   {
     "id": 20,
     "name": "EUK 134 0.1%",
-    "contraindications": [1, 2, 3, 4, 5, 7, 8, 11, 13, 18, 21, 26, 27, 28],
+    "conflicts": [1, 2, 3, 4, 5, 7, 8, 11, 13, 18, 21, 26, 27, 28],
     "category": "Serums",
     "tags": "Antioxidants",
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwebf242ec/Images/products/The%20Ordinary/rdn-euk-134-0-1pct-30ml.png?sw=400&sh=400&sm=fit",
@@ -598,7 +598,7 @@
   {
     "id": 21,
     "name": "Ethylated Ascorbic Acid 15% Solution",
-    "contraindications": [20, 26, 37, 39, 40, 41],
+    "conflicts": [20, 26, 37, 39, 40, 41],
     "category": "Serums",
     "tags": ["Antioxidants", "Vitamin C"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw90d9ef04/Images/products/The%20Ordinary/rdn-100pct-Ethylated-Ascorbic-Acid-15pct-Product-30ml.png?sw=400&sh=400&sm=fit",
@@ -612,7 +612,7 @@
   {
     "id": 22,
     "name": "100% Organic Virgin Chia Seed Oil",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Face Oils",
     "tags": ["Antioxidants", "Hydrator", "Oil"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw8946c9ec/Images/products/The%20Ordinary/rdn-100pct-organic-virgin-chia-seed-oil-30ml.png?sw=400&sh=400&sm=fit",
@@ -626,7 +626,7 @@
   {
     "id": 23,
     "name": "100% Organic Virgin Sea-Buckthorn Fruit Oil",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Face Oils",
     "tags": ["Antioxidants", "Hydrator", "Oil"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw644026cc/Images/products/The%20Ordinary/rdn-100pct-Organic-Virgin-Sea-Buckthorn-Fruit-Oil.png?sw=400&sh=400&sm=fit",
@@ -640,7 +640,7 @@
   {
     "id": 24,
     "name": "B Oil",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Face Oils",
     "tags": ["Antioxidants", "Hydrator", "Oil"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw7141df73/Images/products/The%20Ordinary/rdn-b-oil-30ml.png?sw=400&sh=400&sm=fit",
@@ -674,7 +674,7 @@
   {
     "id": 25,
     "name": "Magnesium Ascorbyl Phosphate 10%",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Serums",
     "tags": ["Antioxidants", "Vitamin C"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwe685a908/Images/products/The%20Ordinary/rdn-magnesium-ascorbyl-phosphate-10pct-30ml.png?sw=400&sh=400&sm=fit",
@@ -705,7 +705,7 @@
   {
     "id": 26,
     "name": "Buffet + Copper Peptides 1%",
-    "contraindications": [1, 2, 3, 4, 5, 8, 17, 18, 19, 20, 21, 27, 28],
+    "conflicts": [1, 2, 3, 4, 5, 8, 17, 18, 19, 20, 21, 27, 28],
     "category": "Serums",
     "tags": ["Copper Peptides", "Peptides"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw35e8e095/Images/products/The%20Ordinary/rdn-buffet-copper-bottle-30ml.png?sw=400&sh=400&sm=fit",
@@ -769,7 +769,7 @@
   {
     "id": 27,
     "name": "Salicylic Acid 2% Masque",
-    "contraindications": [1, 2, 3, 4, 5, 8, 18, 20, 21, 26, 39, 40, 41],
+    "conflicts": [1, 2, 3, 4, 5, 8, 18, 20, 21, 26, 39, 40, 41],
     "category": "Face Masks",
     "tags": ["Direct Acid", "Salicylic Acid"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwf35615e3/Images/products/The%20Ordinary/rdn-salicylic-acid-2pct-masque-50ml.png?sw=400&sh=400&sm=fit",
@@ -803,7 +803,7 @@
   {
     "id": 28,
     "name": "Salicylic Acid 2% Solution",
-    "contraindications": [1, 2, 3, 4, 5, 8, 18, 20, 21, 26, 39, 40, 41],
+    "conflicts": [1, 2, 3, 4, 5, 8, 18, 20, 21, 26, 39, 40, 41],
     "category": "Exfoliators",
     "tags": ["Direct Acid", "Salicylic Acid"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwd946defc/Images/products/The%20Ordinary/rdn-salicylic-acid-2pct-solution-30ml.png?sw=400&sh=400&sm=fit",
@@ -832,7 +832,7 @@
   {
     "id": 29,
     "name": "Natural Moisturizing Factors + HA",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Moisturizers",
     "tags": ["Hyaluronic Acid", "Hydrator"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw2ff47ee4/Images/products/The%20Ordinary/rdn-natural-moisturizing-factors-ha-30ml.png?sw=400&sh=400&sm=fit",
@@ -893,7 +893,7 @@
   {
     "id": 30,
     "name": "Hyaluronic Acid 2% + B5",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Serums",
     "tags": ["Hyaluronic Acid", "Hydrator"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw75298ca0/Images/products/The%20Ordinary/rdn-hyaluronic-acid-2pct-b5-30ml.png?sw=400&sh=400&sm=fit",
@@ -925,7 +925,7 @@
   {
     "id": 31,
     "name": "100% Plant-Derived Squalane",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Serums",
     "tags": ["Hydrator", "Squalane"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw21406b9d/Images/products/The%20Ordinary/rdn-100pct-plant-derived-squalane-30ml.png?sw=400&sh=400&sm=fit",
@@ -939,7 +939,7 @@
   {
     "id": 32,
     "name": "Marine Hyaluronics",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Serums",
     "tags": "Hydrator",
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw2cfa34fb/Images/products/The%20Ordinary/rdn-marine-hyaluronics-30ml.png?sw=400&sh=400&sm=fit",
@@ -987,7 +987,7 @@
   {
     "id": 33,
     "name": "100% Organic Cold-Pressed Moroccan Argan Oil",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Face Oils",
     "tags": ["Hydrator", "Oil"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw64666ad5/Images/products/The%20Ordinary/rdn-100pct-organic-cold-pressed-moroccan-argan-oil-30ml.png?sw=400&sh=400&sm=fit",
@@ -1001,7 +1001,7 @@
   {
     "id": 34,
     "name": "100% Organic Cold-Pressed Borage Seed Oil",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Face Oils",
     "tags": ["Hydrator", "Oil"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw723f8eac/Images/products/The%20Ordinary/rdn-100pct-cold-pressed-borage-seed-oil-30ml.png?sw=400&sh=400&sm=fit",
@@ -1015,7 +1015,7 @@
   {
     "id": 35,
     "name": "Amino Acid + B5",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Serums",
     "tags": "Hydrator",
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwfce76af7/Images/products/The%20Ordinary/rdn-amino-acids-b5-30ml.png?sw=400&sh=400&sm=fit",
@@ -1056,7 +1056,7 @@
   {
     "id": 36,
     "name": "100% Plant-Derived Hemi-Squalane",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Serums",
     "tags": ["Hydrator", "Squalane"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwae110ecb/Images/products/The%20Ordinary/rdn-100pct-plant-derived-hemi-squalane-30ml.png?sw=400&sh=400&sm=fit",
@@ -1070,7 +1070,7 @@
   {
     "id": 37,
     "name": "Niacinamide 10% + Zinc 1%",
-    "contraindications": [7],
+    "conflicts": [7],
     "category": "Serums",
     "tags": "Niacinamide",
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwa53d85c0/Images/products/The%20Ordinary/rdn-niacinamide-10pct-zinc-1pct-30ml.png?sw=400&sh=400&sm=fit",
@@ -1096,7 +1096,7 @@
   {
     "id": 38,
     "name": "100% Niacinamide Powder",
-    "contraindications": [7, 11, 13, 18, 21],
+    "conflicts": [7, 11, 13, 18, 21],
     "category": "Serums",
     "tags": "Niacinamide",
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw59fa75a4/Images/products/The%20Ordinary/rdn-100pct-niacinamide-powder-20g.png?sw=400&sh=400&sm=fit",
@@ -1110,7 +1110,7 @@
   {
     "id": 39,
     "name": "Buffet",
-    "contraindications": [1, 2, 3, 4, 5, 8, 18, 21, 27, 28],
+    "conflicts": [1, 2, 3, 4, 5, 8, 18, 21, 27, 28],
     "category": "Serums",
     "tags": "Peptides",
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw07959458/Images/products/The%20Ordinary/rdn-buffet-30ml.png?sw=400&sh=400&sm=fit",
@@ -1176,7 +1176,7 @@
   {
     "id": 40,
     "name": "Argireline Solution 10%",
-    "contraindications": [1, 2, 3, 4, 5, 8, 18, 21, 27, 28],
+    "conflicts": [1, 2, 3, 4, 5, 8, 18, 21, 27, 28],
     "category": "Serums",
     "tags": "Peptides",
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwfb0e10e1/Images/products/The%20Ordinary/rdn-argireline-solution-10pct-30ml.png?sw=400&sh=400&sm=fit",
@@ -1202,7 +1202,7 @@
   {
     "id": 41,
     "name": "Matrixyl 10% + HA",
-    "contraindications": [1, 2, 3, 4, 5, 8, 18, 21, 27, 28],
+    "conflicts": [1, 2, 3, 4, 5, 8, 18, 21, 27, 28],
     "category": "Serums",
     "tags": "Peptides",
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw79aad991/Images/products/The%20Ordinary/rdn-matrixyl-10pct-ha-30ml.png?sw=400&sh=400&sm=fit",
@@ -1234,7 +1234,7 @@
   {
     "id": 42,
     "name": "Granactive Retinoid 5% in Squalane",
-    "contraindications": [43, 44, 45, 46, 47],
+    "conflicts": [43, 44, 45, 46, 47],
     "category": "Serums",
     "tags": ["Retinoids", "Squalane"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw7668028d/Images/products/The%20Ordinary/rdn-granactive-retinoid-5pct-in-squalane-30ml.png?sw=400&sh=400&sm=fit",
@@ -1259,7 +1259,7 @@
   {
     "id": 43,
     "name": "Granactive Retinoid 2% Emulsion",
-    "contraindications": [42, 44, 45, 46, 47],
+    "conflicts": [42, 44, 45, 46, 47],
     "category": "Serums",
     "tags": "Retinoids",
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw5b2bea4d/Images/products/The%20Ordinary/rdn-granactive-retinoid-2pct-emulsion-30ml.png?sw=400&sh=400&sm=fit",
@@ -1307,7 +1307,7 @@
   {
     "id": 44,
     "name": "Retinol 0.5% in Squalane",
-    "contraindications": [42, 43, 45, 46, 47],
+    "conflicts": [42, 43, 45, 46, 47],
     "category": "Serums",
     "tags": ["Retinoids", "Squalane"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwf5548be1/Images/products/The%20Ordinary/rdn-retinol-0-5pct-in-squalane-30ml.png?sw=400&sh=400&sm=fit",
@@ -1330,7 +1330,7 @@
   {
     "id": 45,
     "name": "Granactive Retinoid 2% in Squalane",
-    "contraindications": [42, 43, 44, 46, 47],
+    "conflicts": [42, 43, 44, 46, 47],
     "category": "Serums",
     "tags": ["Retinoids", "Squalane"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw49a7b7de/Images/products/The%20Ordinary/rdn-granactive-retinoid-2pct-in-squalane-30ml.png?sw=400&sh=400&sm=fit",
@@ -1355,7 +1355,7 @@
   {
     "id": 46,
     "name": "Retinol 1% in Squalane",
-    "contraindications": [42, 43, 44, 45, 47],
+    "conflicts": [42, 43, 44, 45, 47],
     "category": "Serums",
     "tags": "Retinoids",
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwc89b464c/Images/products/The%20Ordinary/rdn-retinol-1pct-in-squalane-30ml.png?sw=400&sh=400&sm=fit",
@@ -1378,7 +1378,7 @@
   {
     "id": 47,
     "name": "Retinol 0.2% in Squalane",
-    "contraindications": [42, 43, 44, 45, 46],
+    "conflicts": [42, 43, 44, 45, 46],
     "category": "Serums",
     "tags": ["Retinoids", "Squalane"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw7ab7bdfd/Images/products/The%20Ordinary/rdn-retinol-0-2pct-in-squalane-30ml.png?sw=400&sh=400&sm=fit",
@@ -1401,7 +1401,7 @@
   {
     "id": 48,
     "name": "Squalane Cleanser",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Cleansers",
     "tags": ["Squalane", "Cleanser"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw6f82b69b/Images/products/The%20Ordinary/rdn-squalane-cleanser-50ml.png?sw=400&sh=400&sm=fit",
@@ -1436,7 +1436,7 @@
   {
     "id": 49,
     "name": "Caffeine Solution 5% + EGCG",
-    "contraindications": [],
+    "conflicts": [],
     "category": "Eye serums",
     "tags": ["EGCG", "Caffeine"],
     "image": "https://theordinary.deciem.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw2e3374bb/Images/products/The%20Ordinary/rdn-caffeine-solution-5pct-egcg-30ml.png?sw=400&sh=400&sm=fit",

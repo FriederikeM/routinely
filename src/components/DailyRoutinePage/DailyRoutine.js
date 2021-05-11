@@ -47,10 +47,10 @@ export default function DailyRoutine() {
     return product.days[i].evening;
   });
 
-  function handleEditRoutine(id, name, contraindications) {
+  function handleEditRoutine(id, name, conflicts) {
     setId(id);
     setProductName(name);
-    setConflicts(contraindications);
+    setConflicts(conflicts);
     setShowModal(true);
   }
 
@@ -73,7 +73,7 @@ export default function DailyRoutine() {
             handleEditRoutine(
               product.id,
               productData.name,
-              productData.contraindications
+              productData.conflicts
             )
           }
         />
@@ -96,7 +96,7 @@ export default function DailyRoutine() {
             handleEditRoutine(
               product.id,
               productData.name,
-              productData.contraindications
+              productData.conflicts
             )
           }
         />
