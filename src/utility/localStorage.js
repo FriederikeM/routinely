@@ -4,16 +4,18 @@ export function getDataFromLocalStorage() {
   return data;
 }
 
-export function sendDataToLocalStorage(items, isNewItem) {
+export function sendDataToLocalStorage(items) {
   const data = getDataFromLocalStorage();
 
-  if (isNewItem) {
-    data.push(items);
-    localStorage.setItem("routine", JSON.stringify(data));
-  } else {
-    const index = data.findIndex((routine) => routine.id === items.id);
-    const newData = [...data.slice(0, index), items, ...data.slice(index + 1)];
+  data.push(items);
+  localStorage.setItem("routine", JSON.stringify(data));
+}
 
-    localStorage.setItem("routine", JSON.stringify(newData));
-  }
+export function editDataInLocalStorage(items) {
+  const data = getDataFromLocalStorage();
+
+  const index = data.findIndex((routine) => routine.id === items.id);
+  const newData = [...data.slice(0, index), items, ...data.slice(index + 1)];
+
+  localStorage.setItem("routine", JSON.stringify(newData));
 }
