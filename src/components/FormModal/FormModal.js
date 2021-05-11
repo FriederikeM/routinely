@@ -176,21 +176,23 @@ export default function FormModal({
   function handleModalFormSubmit(event) {
     event.preventDefault();
 
-    const isNoDayCheckedList = weekRoutine.days.map((day) => {
-      return day.isChecked === false;
-    });
-    const nothingSelected = isNoDayCheckedList.every((day) => day === true);
+    const isNothingSelected = weekRoutine.days
+      .map((day) => {
+        return day.isChecked === false;
+      })
+      .every((day) => day === true);
 
-    const checkNotSpecified = weekRoutine.days.map((day) => {
-      return (
-        day.isChecked === true && day.morning === false && day.evening === false
-      );
-    });
-    const noUnspecifiedChecks = checkNotSpecified.every(
-      (check) => check === false
-    );
+    const isNoUnspecifiedChecks = weekRoutine.days
+      .map((day) => {
+        return (
+          day.isChecked === true &&
+          day.morning === false &&
+          day.evening === false
+        );
+      })
+      .every((check) => check === false);
 
-    if (noUnspecifiedChecks === false || nothingSelected === true) {
+    if (isNoUnspecifiedChecks === false || isNothingSelected === true) {
       onCancelAdding();
     } else {
       sendDataToLocalStorage(weekRoutine, buttonName !== "edit");
