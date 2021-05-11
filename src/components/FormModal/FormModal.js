@@ -98,10 +98,11 @@ export default function FormModal({
   }
 
   function handleMorningClicked(name) {
-    const i = getIndexForWeekday(name);
+    const indexOfWeekday = getIndexForWeekday(name);
     const checkedMornings = routineData.filter(
       (product) =>
-        product.days[i].name === name && product.days[i].morning === true
+        product.days[indexOfWeekday].name === name &&
+        product.days[indexOfWeekday].morning === true
     );
 
     const routineIDs = checkedMornings.map((product) => product.id);
@@ -134,10 +135,11 @@ export default function FormModal({
   }
 
   function handleEveningClicked(name) {
-    const i = getIndexForWeekday(name);
+    const indexOfWeekday = getIndexForWeekday(name);
     const checkedEvenings = routineData.filter(
       (product) =>
-        product.days[i].name === name && product.days[i].evening === true
+        product.days[indexOfWeekday].name === name &&
+        product.days[indexOfWeekday].evening === true
     );
 
     const routineIDs = checkedEvenings.map((product) => product.id);
