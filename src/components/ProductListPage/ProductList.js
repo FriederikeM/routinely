@@ -13,6 +13,7 @@ export default function ProductList() {
   const [showModal, setShowModal] = useState(false);
   const [id, setId] = useState();
   const [productName, setProductName] = useState("");
+  const [conflicts, setConflicts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = () => {
@@ -33,10 +34,11 @@ export default function ProductList() {
     setNameFilter(nameInput);
   }
 
-  function handleAddToRoutine(id, name) {
+  function handleAddToRoutine(id, name, conflicts) {
     setShowModal(true);
     setId(id);
     setProductName(name);
+    setConflicts(conflicts);
   }
 
   function handleCancelAddToRoutine() {
@@ -56,7 +58,7 @@ export default function ProductList() {
         }
       })
       .map((product) => {
-        const { id, name, image, url, packaging } = product;
+        const { id, name, image, url, packaging, conflicts } = product;
         return (
           <li key={id}>
             <ProductCard
@@ -64,7 +66,7 @@ export default function ProductList() {
               image={image}
               url={url}
               packaging={packaging}
-              onAddToRoutine={() => handleAddToRoutine(id, name)}
+              onAddToRoutine={() => handleAddToRoutine(id, name, conflicts)}
             />
           </li>
         );
@@ -93,6 +95,8 @@ export default function ProductList() {
         <FormModal
           id={id}
           name={productName}
+          conflicts={conflicts}
+          products={products}
           onCancelAdding={handleCancelAddToRoutine}
         />
       )}

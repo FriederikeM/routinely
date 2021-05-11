@@ -7,6 +7,13 @@ export function getDataFromLocalStorage() {
 export function sendDataToLocalStorage(items) {
   const data = getDataFromLocalStorage();
 
+  data.push(items);
+  localStorage.setItem("routine", JSON.stringify(data));
+}
+
+export function editDataInLocalStorage(items) {
+  const data = getDataFromLocalStorage();
+
   const index = data.findIndex((routine) => routine.id === items.id);
   const newData = [...data.slice(0, index), items, ...data.slice(index + 1)];
 
