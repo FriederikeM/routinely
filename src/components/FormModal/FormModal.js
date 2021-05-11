@@ -2,6 +2,7 @@ import "./FormModal.css";
 import Checkbox from "./Checkbox.js";
 import { useEffect, useState } from "react";
 import {
+  editDataInLocalStorage,
   getDataFromLocalStorage,
   sendDataToLocalStorage,
 } from "../../utility/localStorage";
@@ -199,8 +200,13 @@ export default function FormModal({
     } else if (isNothingSelected === true) {
       onCancelAdding();
     } else {
-      sendDataToLocalStorage(weekRoutine, buttonName !== "edit");
-      onCancelAdding();
+      if (buttonName !== "edit") {
+        sendDataToLocalStorage(weekRoutine);
+        onCancelAdding();
+      } else {
+        editDataInLocalStorage(weekRoutine);
+        onCancelAdding();
+      }
     }
   }
 
