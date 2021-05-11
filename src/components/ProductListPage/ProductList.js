@@ -34,11 +34,11 @@ export default function ProductList() {
     setNameFilter(nameInput);
   }
 
-  function handleAddToRoutine(id, name, contraindications) {
+  function handleAddToRoutine(id, name, conflicts) {
     setShowModal(true);
     setId(id);
     setProductName(name);
-    setConflicts(contraindications);
+    setConflicts(conflicts);
   }
 
   function handleCancelAddToRoutine() {
@@ -58,7 +58,7 @@ export default function ProductList() {
         }
       })
       .map((product) => {
-        const { id, name, image, url, packaging, contraindications } = product;
+        const { id, name, image, url, packaging, conflicts } = product;
         return (
           <li key={id}>
             <ProductCard
@@ -66,9 +66,7 @@ export default function ProductList() {
               image={image}
               url={url}
               packaging={packaging}
-              onAddToRoutine={() =>
-                handleAddToRoutine(id, name, contraindications)
-              }
+              onAddToRoutine={() => handleAddToRoutine(id, name, conflicts)}
             />
           </li>
         );
