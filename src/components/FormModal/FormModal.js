@@ -174,10 +174,10 @@ export default function FormModal({
   function handleModalFormSubmit(event) {
     event.preventDefault();
 
-    const noDaysChecked = weekRoutine.days.map((day) => {
+    const isNoDayCheckedList = weekRoutine.days.map((day) => {
       return day.isChecked === false;
     });
-    const nothingSelected = noDaysChecked.every((day) => day === true);
+    const nothingSelected = isNoDayCheckedList.every((day) => day === true);
 
     const checkNotSpecified = weekRoutine.days.map((day) => {
       return (
