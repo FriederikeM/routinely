@@ -192,7 +192,11 @@ export default function FormModal({
       })
       .every((check) => check === false);
 
-    if (isNoUnspecifiedChecks === false || isNothingSelected === true) {
+    if (isNoUnspecifiedChecks === false) {
+      alert(
+        "Please specify during which time of the day you want to use the product on the checked days"
+      );
+    } else if (isNothingSelected === true) {
       onCancelAdding();
     } else {
       sendDataToLocalStorage(weekRoutine, buttonName !== "edit");
