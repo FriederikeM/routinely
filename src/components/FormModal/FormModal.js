@@ -189,7 +189,7 @@ export default function FormModal({
     if (noUnspecifiedChecks === false || nothingSelected === true) {
       onCancelAdding();
     } else {
-      sendDataToLocalStorage(weekRoutine);
+      sendDataToLocalStorage(weekRoutine, buttonName !== "edit");
       onCancelAdding();
     }
   }
