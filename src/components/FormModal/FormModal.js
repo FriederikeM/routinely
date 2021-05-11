@@ -99,14 +99,15 @@ export default function FormModal({
 
   function handleMorningClicked(name) {
     const indexOfWeekday = getIndexForWeekday(name);
-    const checkedMornings = routineData.filter(
-      (product) =>
-        product.days[indexOfWeekday].name === name &&
-        product.days[indexOfWeekday].morning === true
-    );
 
-    const routineIDs = checkedMornings.map((product) => product.id);
-    const intersection = routineIDs.filter((id) => conflicts.includes(id));
+    const intersection = routineData
+      .filter(
+        (product) =>
+          product.days[indexOfWeekday].name === name &&
+          product.days[indexOfWeekday].morning === true
+      )
+      .map((product) => product.id)
+      .filter((id) => conflicts.includes(id));
 
     const conflictName = intersection.map((id) => {
       const conflictProduct = getProductById(id, products);
@@ -136,14 +137,15 @@ export default function FormModal({
 
   function handleEveningClicked(name) {
     const indexOfWeekday = getIndexForWeekday(name);
-    const checkedEvenings = routineData.filter(
-      (product) =>
-        product.days[indexOfWeekday].name === name &&
-        product.days[indexOfWeekday].evening === true
-    );
 
-    const routineIDs = checkedEvenings.map((product) => product.id);
-    const intersection = routineIDs.filter((id) => conflicts.includes(id));
+    const intersection = routineData
+      .filter(
+        (product) =>
+          product.days[indexOfWeekday].name === name &&
+          product.days[indexOfWeekday].evening === true
+      )
+      .map((product) => product.id)
+      .filter((id) => conflicts.includes(id));
 
     const conflictName = intersection.map((id) => {
       const conflictProduct = getProductById(id, products);
