@@ -134,21 +134,14 @@ export default function FormModal({
   }
 
   function handleEveningClicked(name) {
-    const indexOfWeekday = getIndexForWeekday(name);
+    const intersection = findConflictingProductIds(
+      name,
+      routineData,
+      "evening",
+      conflicts
+    );
 
-    const intersection = routineData
-      .filter(
-        (product) =>
-          product.days[indexOfWeekday].name === name &&
-          product.days[indexOfWeekday].evening === true
-      )
-      .map((product) => product.id)
-      .filter((id) => conflicts.includes(id));
-
-    const conflictName = intersection.map((id) => {
-      const conflictProduct = getProductById(id, products);
-      return conflictProduct.name;
-    });
+    const conflictName = findConflictProductName(intersection, products);
 
     if (intersection.length > 0) {
       alert(
