@@ -14,6 +14,7 @@ import {
   isNothingSelected,
   isNoUnspecifiedSelected,
 } from "../../utility/isNotSelected";
+import getNewChecks from "../../utility/getNewChecks";
 
 export default function FormModal({
   onCancelAdding,
@@ -93,14 +94,7 @@ export default function FormModal({
   }
 
   function handleDayClicked(name) {
-    const newCheckedDays = weekRoutine.days.map((day) => {
-      if (day.name === name) {
-        day.isChecked = !day.isChecked;
-        return day;
-      } else {
-        return day;
-      }
-    });
+    const newCheckedDays = getNewChecks(weekRoutine, name, "isChecked");
     setWeekRoutine({ id: id, days: newCheckedDays, date: weekRoutine.date });
   }
 
@@ -118,14 +112,7 @@ export default function FormModal({
         `You are already using ${conflictName} on ${name} morning. These two products have conflicting ingredients`
       );
     } else {
-      const newMorningChecked = weekRoutine.days.map((day) => {
-        if (day.name === name) {
-          day.morning = !day.morning;
-          return day;
-        } else {
-          return day;
-        }
-      });
+      const newMorningChecked = getNewChecks(weekRoutine, name, "morning");
       setWeekRoutine({
         id: id,
         days: newMorningChecked,
@@ -148,14 +135,7 @@ export default function FormModal({
         `You are already using ${conflictName} on ${name} evening. These two products have conflicting ingredients`
       );
     } else {
-      const newEveningChecked = weekRoutine.days.map((day) => {
-        if (day.name === name) {
-          day.evening = !day.evening;
-          return day;
-        } else {
-          return day;
-        }
-      });
+      const newEveningChecked = getNewChecks(weekRoutine, name, "evening");
       setWeekRoutine({
         id: id,
         days: newEveningChecked,
