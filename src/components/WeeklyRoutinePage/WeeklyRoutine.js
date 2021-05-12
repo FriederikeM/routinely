@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getDataFromLocalStorage } from "../../utility/localStorage";
 import useProducts from "../../hooks/useProducts";
+import { getProductsCheckedOnThisDay } from "../../utility/getCheckedProducts";
 
 export default function WeeklyRoutine() {
   const [allItems, setAllItems] = useState([]);
@@ -14,33 +15,13 @@ export default function WeeklyRoutine() {
     setAllItems(routine);
   }, []);
 
-  const mondays = allItems.filter((item) => {
-    return item.days[0].isChecked;
-  });
-
-  const tuesdays = allItems.filter((item) => {
-    return item.days[1].isChecked;
-  });
-
-  const wednesdays = allItems.filter((item) => {
-    return item.days[2].isChecked;
-  });
-
-  const thursdays = allItems.filter((item) => {
-    return item.days[3].isChecked;
-  });
-
-  const fridays = allItems.filter((item) => {
-    return item.days[4].isChecked;
-  });
-
-  const saturdays = allItems.filter((item) => {
-    return item.days[5].isChecked;
-  });
-
-  const sundays = allItems.filter((item) => {
-    return item.days[6].isChecked;
-  });
+  const mondays = getProductsCheckedOnThisDay("Monday", allItems);
+  const tuesdays = getProductsCheckedOnThisDay("Tuesday", allItems);
+  const wednesdays = getProductsCheckedOnThisDay("Wednesday", allItems);
+  const thursdays = getProductsCheckedOnThisDay("Thursday", allItems);
+  const fridays = getProductsCheckedOnThisDay("Friday", allItems);
+  const saturdays = getProductsCheckedOnThisDay("Saturday", allItems);
+  const sundays = getProductsCheckedOnThisDay("Sunday", allItems);
 
   return (
     <div className="WeeklyRoutine">
