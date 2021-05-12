@@ -77,26 +77,78 @@ export default function WeekDayCard({ name, data, products }) {
             <FaMoon />
           </div>
           <section className="morning">
-            <ul className="product-name-list">
-              {mornings.map((morning) => {
-                return (
-                  <li className="product-name-left">
-                    {getProductById(morning.id, products).name}
-                  </li>
-                );
-              })}
-            </ul>
+            <DragDropContext onDragEnd={handleOnDragEndMorning}>
+              <Droppable droppableId="product-names">
+                {(provided) => (
+                  <ul
+                    className="product-name-list"
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                  >
+                    {morningProductNames.map((morning, index) => {
+                      return (
+                        <Draggable
+                          key={morning.id}
+                          draggableId={
+                            getProductById(morning.id, products).name
+                          }
+                          index={index}
+                        >
+                          {renderDraggable((provided) => (
+                            <li
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                              ref={provided.innerRef}
+                              className="product-name-left"
+                            >
+                              {getProductById(morning.id, products).name}
+                            </li>
+                          ))}
+                        </Draggable>
+                      );
+                    })}
+                    {provided.placeholder}
+                  </ul>
+                )}
+              </Droppable>
+            </DragDropContext>
           </section>
           <section className="evening">
-            <ul className="product-name-list">
-              {evenings.map((evening) => {
-                return (
-                  <li className="product-name-right">
-                    {getProductById(evening.id, products).name}
-                  </li>
-                );
-              })}
-            </ul>
+            <DragDropContext onDragEnd={handleOnDragEndEvening}>
+              <Droppable droppableId="product-names">
+                {(provided) => (
+                  <ul
+                    className="product-name-list"
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                  >
+                    {eveningProductNames.map((evening, index) => {
+                      return (
+                        <Draggable
+                          key={evening.id}
+                          draggableId={
+                            getProductById(evening.id, products).name
+                          }
+                          index={index}
+                        >
+                          {renderDraggable((provided) => (
+                            <li
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                              ref={provided.innerRef}
+                              className="product-name-right"
+                            >
+                              {getProductById(evening.id, products).name}
+                            </li>
+                          ))}
+                        </Draggable>
+                      );
+                    })}
+                    {provided.placeholder}
+                  </ul>
+                )}
+              </Droppable>
+            </DragDropContext>
           </section>
           <div className="see-details-button-wrapper">
             <NavLink
