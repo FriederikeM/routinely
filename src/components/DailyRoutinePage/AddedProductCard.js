@@ -1,5 +1,6 @@
 import "./AddedProductCard.css";
 import { TiShoppingCart } from "react-icons/ti";
+import { getClassForAddedPackaging } from "../../utility/getClassForPackaging";
 
 export default function AddedProductCard({
   packaging,
@@ -10,12 +11,7 @@ export default function AddedProductCard({
   url,
   onEditRoutine,
 }) {
-  let classForPackaging;
-  if (packaging === "not glass bottle") {
-    classForPackaging = "smaller-added-image";
-  } else if (packaging === "glass container") {
-    classForPackaging = "added-powder-image";
-  }
+  const classForPackaging = getClassForAddedPackaging(packaging, name);
 
   return (
     <div className="AddedProductCard">
