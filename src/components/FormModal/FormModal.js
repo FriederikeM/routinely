@@ -8,6 +8,10 @@ import {
 } from "../../utility/localStorage";
 import getIndexForWeekday from "../../utility/getIndexForWeekday";
 import getProductById from "../../utility/getProductById";
+import {
+  findConflictingProductIds,
+  findConflictProductName,
+} from "../../utility/findConflictingProducts";
 
 export default function FormModal({
   onCancelAdding,
@@ -99,21 +103,14 @@ export default function FormModal({
   }
 
   function handleMorningClicked(name) {
-    const indexOfWeekday = getIndexForWeekday(name);
+    const intersection = findConflictingProductIds(
+      name,
+      routineData,
+      "morning",
+      conflicts
+    );
 
-    const intersection = routineData
-      .filter(
-        (product) =>
-          product.days[indexOfWeekday].name === name &&
-          product.days[indexOfWeekday].morning === true
-      )
-      .map((product) => product.id)
-      .filter((id) => conflicts.includes(id));
-
-    const conflictName = intersection.map((id) => {
-      const conflictProduct = getProductById(id, products);
-      return conflictProduct.name;
-    });
+    const conflictName = findConflictProductName(intersection, products);
 
     if (intersection.length > 0) {
       alert(
