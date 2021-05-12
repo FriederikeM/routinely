@@ -35,6 +35,7 @@ export default function WeekDayCard({ name, data, products }) {
       return sunday.days[6].morning;
     });
   }
+  const [morningProductNames, setMorningProductNames] = useState(mornings);
 
   let evenings;
   if (name === "Monday") {
@@ -66,6 +67,28 @@ export default function WeekDayCard({ name, data, products }) {
       return sunday.days[6].evening;
     });
   }
+  const [eveningProductNames, setEveningProductNames] = useState(evenings);
+
+  function handleOnDragEndMorning(result) {
+    if (!result.destination) return;
+
+    const items = Array.from(morningProductNames);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    setMorningProductNames(items);
+  }
+
+  function handleOnDragEndEvening(result) {
+    if (!result.destination) return;
+
+    const items = Array.from(eveningProductNames);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    setEveningProductNames(items);
+  }
+
 
   return (
     <div className="WeekDayCard">
