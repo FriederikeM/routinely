@@ -7,27 +7,17 @@ import { useEffect, useState } from "react";
 import getIndexForWeekday from "../../utility/getIndexForWeekday";
 import FormModal from "../FormModal/FormModal";
 import getProductById from "../../utility/getProductById";
+import useProducts from "../../hooks/useProducts";
 
 export default function DailyRoutine() {
   const { weekday } = useParams();
   const history = useHistory();
   const [allRoutineItems, setAllRoutineItems] = useState([]);
-  const [products, setProducts] = useState([]);
+  const products = useProducts();
   const [showModal, setShowModal] = useState(false);
   const [id, setId] = useState();
   const [productName, setProductName] = useState("");
   const [conflicts, setConflicts] = useState([]);
-
-  useEffect(() => {
-    const fetchProducts = () => {
-      return fetch("/products.json")
-        .then((response) => response.json())
-        .then((productData) => {
-          setProducts(productData);
-        });
-    };
-    fetchProducts();
-  }, []);
 
   useEffect(() => {
     const routine = getDataFromLocalStorage();
