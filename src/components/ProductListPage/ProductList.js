@@ -6,6 +6,7 @@ import FormModal from "../FormModal/FormModal";
 import "./ProductList.css";
 import { useState } from "react";
 import useProducts from "../../hooks/useProducts";
+import { getProductsFilteredByNameandCategory } from "../../utility/getFilteredProducts";
 
 export default function ProductList() {
   const products = useProducts();
@@ -36,31 +37,25 @@ export default function ProductList() {
   }
 
   function renderProducts() {
-    return products
-      .filter((product) => {
-        return product.category === categoryFilter || categoryFilter === "All";
-      })
-      .filter((product) => {
-        if (nameFilter) {
-          return product.name.toLowerCase().includes(nameFilter.toLowerCase());
-        } else {
-          return true;
-        }
-      })
-      .map((product) => {
-        const { id, name, image, url, packaging, conflicts } = product;
-        return (
-          <li key={id}>
-            <ProductCard
-              name={name}
-              image={image}
-              url={url}
-              packaging={packaging}
-              onAddToRoutine={() => handleAddToRoutine(id, name, conflicts)}
-            />
-          </li>
-        );
-      });
+    const productsFilteredByNameandCategory = getProductsFilteredByNameandCategory(
+      products,
+      categoryFilter,
+      nameFilter
+    );
+    return productsFilteredByNameandCategory.map((product) => {
+      const { id, name, image, url, packaging, conflicts } = product;
+      return (
+        <li key={id}>
+          <ProductCard
+            name={name}
+            image={image}
+            url={url}
+            packaging={packaging}
+            onAddToRoutine={() => handleAddToRoutine(id, name, conflicts)}
+          />
+        </li>
+      );
+    });
   }
 
   const modalShown = showModal ? "not-modal" : "";
