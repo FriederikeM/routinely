@@ -2,7 +2,10 @@ import "./WeekDayCard.css";
 import { HiSun } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { useEffect, useRef, useState } from "react";
 import getProductById from "../../utility/getProductById.js";
+import { createPortal } from "react-dom";
 
 export default function WeekDayCard({ name, data, products }) {
   let mornings;
