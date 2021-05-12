@@ -1,6 +1,6 @@
 import "./AddedProductCard.css";
 import { TiShoppingCart } from "react-icons/ti";
-import { getClassForAddedPackaging } from "../../utility/getClassForPackaging";
+import { getClassForAddedPackaging } from "../../utility/getClassesForSizingAndPositioning";
 
 export default function AddedProductCard({
   packaging,

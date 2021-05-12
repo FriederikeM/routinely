@@ -1,6 +1,6 @@
 import "./ProductCard.css";
 // import { useEffect, useState } from "react";
-import { getClassForListedPackaging } from "../../utility/getClassForPackaging";
+import { getClassForListedPackaging } from "../../utility/getClassesForSizingAndPositioning";
 
 export default function ProductCard({
   name,
