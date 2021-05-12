@@ -32,7 +32,7 @@ export default function DailyRoutine() {
   useEffect(() => {
     const routine = getDataFromLocalStorage();
     setAllRoutineItems(routine);
-  }, [weekday]);
+  }, []);
 
   const i = getIndexForWeekday(weekday);
 
@@ -43,6 +43,7 @@ export default function DailyRoutine() {
   const productsMorning = weekdayArray.filter((product) => {
     return product.days[i].morning;
   });
+
   const productsEvening = weekdayArray.filter((product) => {
     return product.days[i].evening;
   });
