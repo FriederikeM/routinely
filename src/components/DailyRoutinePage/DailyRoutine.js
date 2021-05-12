@@ -20,7 +20,6 @@ export default function DailyRoutine() {
   const [conflicts, setConflicts] = useState([]);
 
   const i = getIndexForWeekday(weekday);
-  console.log(allRoutineItems);
 
   const weekdayArray = allRoutineItems.filter((item) => {
     return item.days[i].isChecked;
