@@ -1,5 +1,4 @@
 import "./ProductCard.css";
-// import { useEffect, useState } from "react";
 import { getClassForListedPackaging } from "../../utility/getClassesForSizingAndPositioning";
 
 export default function ProductCard({
