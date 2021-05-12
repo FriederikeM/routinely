@@ -6,12 +6,14 @@ import {
   getDataFromLocalStorage,
   sendDataToLocalStorage,
 } from "../../utility/localStorage";
-import getIndexForWeekday from "../../utility/getIndexForWeekday";
-import getProductById from "../../utility/getProductById";
 import {
   findConflictingProductIds,
   findConflictProductName,
 } from "../../utility/findConflictingProducts";
+import {
+  isNothingSelected,
+  isNoUnspecifiedSelected,
+} from "../../utility/isNotSelected";
 
 export default function FormModal({
   onCancelAdding,
@@ -109,7 +111,6 @@ export default function FormModal({
       "morning",
       conflicts
     );
-
     const conflictName = findConflictProductName(intersection, products);
 
     if (intersection.length > 0) {
@@ -140,7 +141,6 @@ export default function FormModal({
       "evening",
       conflicts
     );
-
     const conflictName = findConflictProductName(intersection, products);
 
     if (intersection.length > 0) {
@@ -167,27 +167,14 @@ export default function FormModal({
   function handleModalFormSubmit(event) {
     event.preventDefault();
 
-    const isNothingSelected = weekRoutine.days
-      .map((day) => {
-        return day.isChecked === false;
-      })
-      .every((day) => day === true);
-
-    const isNoUnspecifiedChecks = weekRoutine.days
-      .map((day) => {
-        return (
-          day.isChecked === true &&
-          day.morning === false &&
-          day.evening === false
-        );
-      })
-      .every((check) => check === false);
+    const isNothingChecked = isNothingSelected(weekRoutine);
+    const isNoUnspecifiedChecks = isNoUnspecifiedSelected(weekRoutine);
 
     if (isNoUnspecifiedChecks === false) {
       alert(
         "Please specify during which time of the day you want to use the product on the checked days"
       );
-    } else if (isNothingSelected === true) {
+    } else if (isNothingChecked === true) {
       onCancelAdding();
     } else {
       if (buttonName !== "edit") {
