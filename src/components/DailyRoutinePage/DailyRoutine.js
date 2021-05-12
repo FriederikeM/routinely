@@ -2,29 +2,25 @@ import "./DailyRoutine.css";
 import AddedProductCard from "./AddedProductCard.js";
 import { FaArrowLeft } from "react-icons/fa";
 import { useParams, useHistory } from "react-router-dom";
-import { getDataFromLocalStorage } from "../../utility/localStorage.js";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import getIndexForWeekday from "../../utility/getIndexForWeekday";
 import FormModal from "../FormModal/FormModal";
 import getProductById from "../../utility/getProductById";
 import useProducts from "../../hooks/useProducts";
+import useRoutine from "../../hooks/useRoutine";
 
 export default function DailyRoutine() {
   const { weekday } = useParams();
   const history = useHistory();
-  const [allRoutineItems, setAllRoutineItems] = useState([]);
+  const allRoutineItems = useRoutine();
   const products = useProducts();
   const [showModal, setShowModal] = useState(false);
   const [id, setId] = useState();
   const [productName, setProductName] = useState("");
   const [conflicts, setConflicts] = useState([]);
 
-  useEffect(() => {
-    const routine = getDataFromLocalStorage();
-    setAllRoutineItems(routine);
-  }, []);
-
   const i = getIndexForWeekday(weekday);
+  console.log(allRoutineItems);
 
   const weekdayArray = allRoutineItems.filter((item) => {
     return item.days[i].isChecked;
