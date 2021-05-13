@@ -9,18 +9,10 @@ export function getProductsCheckedOnThisDay(weekday, allItems) {
   return checkedProducts;
 }
 
-export function getProductsCheckedOnThisMorning(weekday, data) {
+export function getProductsCheckedOnThisTimeOfDay(weekday, data, timeOfDay) {
   const weekdayIndex = getIndexForWeekday(weekday);
-  const mornings = data.filter((item) => {
-    return item.days[weekdayIndex].morning;
+  const productsOfTimeOfDay = data.filter((item) => {
+    return item.days[weekdayIndex][timeOfDay];
   });
-  return mornings;
-}
-
-export function getProductsCheckedOnThisEvening(weekday, data) {
-  const weekdayIndex = getIndexForWeekday(weekday);
-  const evenings = data.filter((item) => {
-    return item.days[weekdayIndex].evening;
-  });
-  return evenings;
+  return productsOfTimeOfDay;
 }

@@ -3,14 +3,11 @@ import { HiSun } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import getProductById from "../../utility/getProductById.js";
-import {
-  getProductsCheckedOnThisMorning,
-  getProductsCheckedOnThisEvening,
-} from "../../utility/getCheckedProducts";
+import { getProductsCheckedOnThisTimeOfDay } from "../../utility/getCheckedProducts";
 
 export default function WeekDayCard({ name, data, products }) {
-  const mornings = getProductsCheckedOnThisMorning(name, data);
-  const evenings = getProductsCheckedOnThisEvening(name, data);
+  const mornings = getProductsCheckedOnThisTimeOfDay(name, data, "morning");
+  const evenings = getProductsCheckedOnThisTimeOfDay(name, data, "evening");
 
   return (
     <div className="WeekDayCard">
