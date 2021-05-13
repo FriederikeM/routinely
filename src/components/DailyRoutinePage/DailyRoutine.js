@@ -3,11 +3,14 @@ import AddedProductCard from "./AddedProductCard.js";
 import { FaArrowLeft } from "react-icons/fa";
 import { useParams, useHistory } from "react-router-dom";
 import { useState } from "react";
-import getIndexForWeekday from "../../utility/getIndexForWeekday";
 import FormModal from "../FormModal/FormModal";
 import getProductById from "../../utility/getProductById";
 import useProducts from "../../hooks/useProducts";
 import useRoutine from "../../hooks/useRoutine";
+import {
+  getProductsCheckedOnThisDay,
+  getProductsCheckedOnThisTimeOfDay,
+} from "../../utility/getCheckedProducts";
 
 export default function DailyRoutine() {
   const { weekday } = useParams();
@@ -19,19 +22,22 @@ export default function DailyRoutine() {
   const [productName, setProductName] = useState("");
   const [conflicts, setConflicts] = useState([]);
 
-  const i = getIndexForWeekday(weekday);
+  const productsUsedThatDay = getProductsCheckedOnThisDay(
+    weekday,
+    allRoutineItems
+  );
 
-  const weekdayArray = allRoutineItems.filter((item) => {
-    return item.days[i].isChecked;
-  });
+  const productsMorning = getProductsCheckedOnThisTimeOfDay(
+    weekday,
+    productsUsedThatDay,
+    "morning"
+  );
 
-  const productsMorning = weekdayArray.filter((product) => {
-    return product.days[i].morning;
-  });
-
-  const productsEvening = weekdayArray.filter((product) => {
-    return product.days[i].evening;
-  });
+  const productsEvening = getProductsCheckedOnThisTimeOfDay(
+    weekday,
+    productsUsedThatDay,
+    "evening"
+  );
 
   function handleEditRoutine(id, name, conflicts) {
     setId(id);
