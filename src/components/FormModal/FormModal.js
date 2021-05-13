@@ -25,7 +25,7 @@ export default function FormModal({
 }) {
   const [openingDate, setOpeningDate] = useState("");
   const [routineData, setRoutineData] = useState([]);
-  const [buttonName, setButtonName] = useState("add");
+  const [editMode, setEditMode] = useState(false);
   const [weekRoutine, setWeekRoutine] = useState({
     id: id,
     days: [
@@ -81,7 +81,7 @@ export default function FormModal({
       return product.id === id;
     });
     sameProduct && setWeekRoutine(sameProduct);
-    sameProduct && setButtonName("edit");
+    sameProduct && setEditMode(true);
     setRoutineData(routineData);
   }, [id]);
 
@@ -157,7 +157,7 @@ export default function FormModal({
     } else if (isNothingChecked === true) {
       onCancelAdding();
     } else {
-      if (buttonName !== "edit") {
+      if (editMode === false) {
         sendDataToLocalStorage(weekRoutine);
         onCancelAdding();
       } else {
@@ -210,7 +210,7 @@ export default function FormModal({
               cancel
             </button>
             <button type="submit" className="add-product">
-              {buttonName}
+              {editMode ? "edit" : "add"}
             </button>
           </div>
         </form>
