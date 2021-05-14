@@ -31,7 +31,7 @@
 
 .morning-label,
 .evening-label {
-  margin-top: 2px;
   position: relative;
   top: 2px;
+  font-size: 1.1rem;
 }
