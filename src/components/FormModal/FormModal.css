@@ -175,6 +175,20 @@
   flex-direction: column;
   justify-content: space-around;
   gap: 30px;
+  animation: alert-pop-up 800ms ease-in-out;
+}
+
+@keyframes alert-pop-up {
+  from {
+    position: absolute;
+    top: -150px;
+    transform: scale(0);
+  }
+  to {
+    position: absolute;
+    top: 18vh;
+    transform: scale(1);
+  }
 }
 
 .alert-modal-finishing-button-wrapper {
