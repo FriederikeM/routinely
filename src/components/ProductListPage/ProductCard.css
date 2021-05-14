@@ -33,10 +33,10 @@
 
 .ProductCard__headline {
   position: relative;
-  right: 10%;
-  width: 15ch;
+  right: 7%;
+  width: 20ch;
   color: var(--color-seven);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .bottle-image {
@@ -79,12 +79,12 @@
   text-decoration: none;
   color: var(--color-seven);
   border: 2px solid var(--color-seven);
-  padding: 3px 5px;
+  padding: 5px 8px;
   border-radius: 5px;
   background-color: var(--color-four-opaque);
   backdrop-filter: blur(1px);
   background: linear-gradient(145deg, #946c7dd0, #af8095d0);
-  box-shadow: 4px 4px 18px #8b6676, -4px -4px 18px #bd8aa0;
+  box-shadow: 4px 4px 18px #33252b;
 }
 
 .add-to-routine-button {
@@ -93,13 +93,17 @@
   color: var(--color-two-opaque);
   background: linear-gradient(145deg, #ffffff, #c5bfc2);
   box-shadow: 3px 3px 9px var(--color-two-opaque),
-    -3px -3px 9px var(--color-one-opaque);
+    -3px -3px 19px var(--color-one-opaque);
   border: none;
   border-radius: 10px;
-  font-size: 3rem;
+  font-size: 1.7rem;
   line-height: 2rem;
-  padding: 0 5px 10px 6px;
+  width: 45px;
+  height: 45px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .long-name {
@@ -112,8 +116,9 @@
     -3px -3px 9px var(--color-one-opaque);
   border: none;
   border-radius: 10px;
-  font-size: 3rem;
+  font-size: 1.7rem;
   line-height: 2rem;
-  padding: 0 5px 10px 6px;
+  width: 45px;
+  height: 45px;
   cursor: pointer;
 }

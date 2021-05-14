@@ -81,7 +81,7 @@
 .product-name-list {
   list-style: none;
   padding-left: 15px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 .product-name-right {
@@ -90,7 +90,7 @@
   border-radius: 5px;
   text-align: end;
   margin-right: 15px;
-  padding: 3px;
+  padding: 5px 7px 3px;
   box-shadow: inset 4px 4px 8px #bbadade1, inset -4px -4px 8px #fdebeb;
 }
 
@@ -98,7 +98,7 @@
   margin-bottom: 10px;
   background-color: var(--color-twelve-opaque);
   border-radius: 5px;
-  padding: 3px;
+  padding: 5px 7px 3px;
   box-shadow: inset 4px 4px 8px #9d8585, inset -4px -4px 8px #d5b3b5;
 }
 

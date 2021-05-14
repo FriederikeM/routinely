@@ -5,16 +5,16 @@
 .headline {
   color: var(--color-two);
   margin: 20px 0;
-  font-size: 2.5rem;
-  padding-left: 10px;
-  padding-bottom: 5px;
-  width: 185px;
+  font-size: 2.3rem;
+  font-weight: 700;
+  padding: 8px 0 5px 10px;
+  width: 195px;
   background-color: rgba(204, 168, 169, 0.116);
   backdrop-filter: blur(5px);
 }
 
 .headline-wrapper {
-  width: 185px;
+  width: 195px;
   height: 28px;
   position: relative;
   background-color: rgba(204, 168, 169, 0.376);
@@ -24,11 +24,12 @@
   position: absolute;
   top: 222px;
   left: 5px;
-  font-weight: bold;
-  font-size: 1.05rem;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
   z-index: 1;
   text-decoration: none;
-  color: var(--color-seven);
+  color: var(--color-two);
 }
 
 .bottle-one {
@@ -61,11 +62,12 @@
   position: absolute;
   top: 420px;
   right: 5px;
-  font-weight: bold;
-  font-size: 1.05rem;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
   z-index: 1;
   text-decoration: none;
-  color: var(--color-seven);
+  color: var(--color-two);
 }
 
 .bottle-two {
