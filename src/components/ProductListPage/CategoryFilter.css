@@ -5,9 +5,9 @@
 .category-search-bar {
   width: 200px;
   font-size: 1.3rem;
-  border: 2px solid var(--color-three);
+  border: 2px solid var(--color-three-opaque);
   border-radius: 5px;
-  color: var(--color-two);
+  color: var(--color-three);
   padding-bottom: 2px;
   background: var(--color-one-opaque);
   backdrop-filter: blur(1px);

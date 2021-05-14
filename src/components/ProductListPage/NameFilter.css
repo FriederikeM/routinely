@@ -18,7 +18,7 @@
 .name-search-button {
   border-radius: 50%;
   background-color: var(--color-one);
-  border: 2px solid var(--color-three);
+  border: 2px solid var(--color-three-opaque);
   color: var(--color-two);
   backdrop-filter: blur(8px);
   padding: 7px 9px 5px;
