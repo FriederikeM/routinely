@@ -1,56 +1,21 @@
 import "./WeeklyRoutine.css";
 import WeekDayCard from "./WeekDayCard";
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { getDataFromLocalStorage } from "../../utility/localStorage";
+import useProducts from "../../hooks/useProducts";
+import { getProductsCheckedOnThisDay } from "../../utility/getCheckedProducts";
+import useRoutine from "../../hooks/useRoutine";
 
 export default function WeeklyRoutine() {
-  const [allItems, setAllItems] = useState([]);
-  const [products, setProducts] = useState([]);
+  const allRoutineItems = useRoutine();
+  const products = useProducts();
 
-  useEffect(() => {
-    const fetchProducts = () => {
-      return fetch("products.json")
-        .then((response) => response.json())
-        .then((productData) => {
-          setProducts(productData);
-        });
-    };
-    fetchProducts();
-  }, []);
-
-  useEffect(() => {
-    const routine = getDataFromLocalStorage();
-    setAllItems(routine);
-  }, []);
-
-  const mondays = allItems.filter((item) => {
-    return item.days[0].isChecked;
-  });
-
-  const tuesdays = allItems.filter((item) => {
-    return item.days[1].isChecked;
-  });
-
-  const wednesdays = allItems.filter((item) => {
-    return item.days[2].isChecked;
-  });
-
-  const thursdays = allItems.filter((item) => {
-    return item.days[3].isChecked;
-  });
-
-  const fridays = allItems.filter((item) => {
-    return item.days[4].isChecked;
-  });
-
-  const saturdays = allItems.filter((item) => {
-    return item.days[5].isChecked;
-  });
-
-  const sundays = allItems.filter((item) => {
-    return item.days[6].isChecked;
-  });
+  const mondays = getProductsCheckedOnThisDay("Monday", allRoutineItems);
+  const tuesdays = getProductsCheckedOnThisDay("Tuesday", allRoutineItems);
+  const wednesdays = getProductsCheckedOnThisDay("Wednesday", allRoutineItems);
+  const thursdays = getProductsCheckedOnThisDay("Thursday", allRoutineItems);
+  const fridays = getProductsCheckedOnThisDay("Friday", allRoutineItems);
+  const saturdays = getProductsCheckedOnThisDay("Saturday", allRoutineItems);
+  const sundays = getProductsCheckedOnThisDay("Sunday", allRoutineItems);
 
   return (
     <div className="WeeklyRoutine">

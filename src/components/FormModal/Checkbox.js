@@ -1,5 +1,6 @@
 import "./Checkbox.css";
 import { FiMoon, FiSun } from "react-icons/fi";
+import { getClassForWeekdayCheckboxAlignment } from "../../utility/getClassesForSizingAndPositioning";
 
 export default function Checkbox({
   name,
@@ -12,14 +13,8 @@ export default function Checkbox({
 }) {
   const daySelected = isChecked;
 
-  const classForCheckboxAlignment =
-    name === "Friday"
-      ? "friday-right"
-      : name === "Saturday"
-      ? "saturday-right"
-      : name === "Sunday"
-      ? "sunday-right"
-      : "left";
+  const classForCheckboxAlignment = getClassForWeekdayCheckboxAlignment(name);
+
   return (
     <div className={`Checkbox ${classForCheckboxAlignment}`}>
       <div className="weekday">

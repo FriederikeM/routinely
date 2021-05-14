@@ -6,8 +6,15 @@ import {
   getDataFromLocalStorage,
   sendDataToLocalStorage,
 } from "../../utility/localStorage";
-import getIndexForWeekday from "../../utility/getIndexForWeekday";
-import getProductById from "../../utility/getProductById";
+import {
+  findConflictingProductIds,
+  findConflictProductName,
+} from "../../utility/findConflictingProducts";
+import {
+  isNothingSelected,
+  isNoUnspecifiedSelected,
+} from "../../utility/isNotSelected";
+import getNewChecks from "../../utility/getNewChecks";
 
 export default function FormModal({
   onCancelAdding,
@@ -18,7 +25,7 @@ export default function FormModal({
 }) {
   const [openingDate, setOpeningDate] = useState("");
   const [routineData, setRoutineData] = useState([]);
-  const [buttonName, setButtonName] = useState("add");
+  const [editMode, setEditMode] = useState(false);
   const [weekRoutine, setWeekRoutine] = useState({
     id: id,
     days: [
@@ -74,7 +81,7 @@ export default function FormModal({
       return product.id === id;
     });
     sameProduct && setWeekRoutine(sameProduct);
-    sameProduct && setButtonName("edit");
+    sameProduct && setEditMode(true);
     setRoutineData(routineData);
   }, [id]);
 
@@ -87,47 +94,25 @@ export default function FormModal({
   }
 
   function handleDayClicked(name) {
-    const newCheckedDays = weekRoutine.days.map((day) => {
-      if (day.name === name) {
-        day.isChecked = !day.isChecked;
-        return day;
-      } else {
-        return day;
-      }
-    });
+    const newCheckedDays = getNewChecks(weekRoutine, name, "isChecked");
     setWeekRoutine({ id: id, days: newCheckedDays, date: weekRoutine.date });
   }
 
   function handleMorningClicked(name) {
-    const indexOfWeekday = getIndexForWeekday(name);
-
-    const intersection = routineData
-      .filter(
-        (product) =>
-          product.days[indexOfWeekday].name === name &&
-          product.days[indexOfWeekday].morning === true
-      )
-      .map((product) => product.id)
-      .filter((id) => conflicts.includes(id));
-
-    const conflictName = intersection.map((id) => {
-      const conflictProduct = getProductById(id, products);
-      return conflictProduct.name;
-    });
+    const intersection = findConflictingProductIds(
+      name,
+      routineData,
+      "morning",
+      conflicts
+    );
+    const conflictName = findConflictProductName(intersection, products);
 
     if (intersection.length > 0) {
       alert(
         `You are already using ${conflictName} on ${name} morning. These two products have conflicting ingredients`
       );
     } else {
-      const newMorningChecked = weekRoutine.days.map((day) => {
-        if (day.name === name) {
-          day.morning = !day.morning;
-          return day;
-        } else {
-          return day;
-        }
-      });
+      const newMorningChecked = getNewChecks(weekRoutine, name, "morning");
       setWeekRoutine({
         id: id,
         days: newMorningChecked,
@@ -137,35 +122,20 @@ export default function FormModal({
   }
 
   function handleEveningClicked(name) {
-    const indexOfWeekday = getIndexForWeekday(name);
-
-    const intersection = routineData
-      .filter(
-        (product) =>
-          product.days[indexOfWeekday].name === name &&
-          product.days[indexOfWeekday].evening === true
-      )
-      .map((product) => product.id)
-      .filter((id) => conflicts.includes(id));
-
-    const conflictName = intersection.map((id) => {
-      const conflictProduct = getProductById(id, products);
-      return conflictProduct.name;
-    });
+    const intersection = findConflictingProductIds(
+      name,
+      routineData,
+      "evening",
+      conflicts
+    );
+    const conflictName = findConflictProductName(intersection, products);
 
     if (intersection.length > 0) {
       alert(
         `You are already using ${conflictName} on ${name} evening. These two products have conflicting ingredients`
       );
     } else {
-      const newEveningChecked = weekRoutine.days.map((day) => {
-        if (day.name === name) {
-          day.evening = !day.evening;
-          return day;
-        } else {
-          return day;
-        }
-      });
+      const newEveningChecked = getNewChecks(weekRoutine, name, "evening");
       setWeekRoutine({
         id: id,
         days: newEveningChecked,
@@ -177,30 +147,17 @@ export default function FormModal({
   function handleModalFormSubmit(event) {
     event.preventDefault();
 
-    const isNothingSelected = weekRoutine.days
-      .map((day) => {
-        return day.isChecked === false;
-      })
-      .every((day) => day === true);
-
-    const isNoUnspecifiedChecks = weekRoutine.days
-      .map((day) => {
-        return (
-          day.isChecked === true &&
-          day.morning === false &&
-          day.evening === false
-        );
-      })
-      .every((check) => check === false);
+    const isNothingChecked = isNothingSelected(weekRoutine);
+    const isNoUnspecifiedChecks = isNoUnspecifiedSelected(weekRoutine);
 
     if (isNoUnspecifiedChecks === false) {
       alert(
         "Please specify during which time of the day you want to use the product on the checked days"
       );
-    } else if (isNothingSelected === true) {
+    } else if (isNothingChecked === true) {
       onCancelAdding();
     } else {
-      if (buttonName !== "edit") {
+      if (editMode === false) {
         sendDataToLocalStorage(weekRoutine);
         onCancelAdding();
       } else {
@@ -253,7 +210,7 @@ export default function FormModal({
               cancel
             </button>
             <button type="submit" className="add-product">
-              {buttonName}
+              {editMode ? "edit" : "add"}
             </button>
           </div>
         </form>

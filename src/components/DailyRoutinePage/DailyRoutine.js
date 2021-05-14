@@ -2,50 +2,42 @@ import "./DailyRoutine.css";
 import AddedProductCard from "./AddedProductCard.js";
 import { FaArrowLeft } from "react-icons/fa";
 import { useParams, useHistory } from "react-router-dom";
-import { getDataFromLocalStorage } from "../../utility/localStorage.js";
-import { useEffect, useState } from "react";
-import getIndexForWeekday from "../../utility/getIndexForWeekday";
+import { useState } from "react";
 import FormModal from "../FormModal/FormModal";
 import getProductById from "../../utility/getProductById";
+import useProducts from "../../hooks/useProducts";
+import useRoutine from "../../hooks/useRoutine";
+import {
+  getProductsCheckedOnThisDay,
+  getProductsCheckedOnThisTimeOfDay,
+} from "../../utility/getCheckedProducts";
 
 export default function DailyRoutine() {
   const { weekday } = useParams();
   const history = useHistory();
-  const [allRoutineItems, setAllRoutineItems] = useState([]);
-  const [products, setProducts] = useState([]);
+  const allRoutineItems = useRoutine();
+  const products = useProducts();
   const [showModal, setShowModal] = useState(false);
   const [id, setId] = useState();
   const [productName, setProductName] = useState("");
   const [conflicts, setConflicts] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = () => {
-      return fetch("/products.json")
-        .then((response) => response.json())
-        .then((productData) => {
-          setProducts(productData);
-        });
-    };
-    fetchProducts();
-  }, []);
+  const productsUsedThatDay = getProductsCheckedOnThisDay(
+    weekday,
+    allRoutineItems
+  );
 
-  useEffect(() => {
-    const routine = getDataFromLocalStorage();
-    setAllRoutineItems(routine);
-  }, [weekday]);
+  const productsMorning = getProductsCheckedOnThisTimeOfDay(
+    weekday,
+    productsUsedThatDay,
+    "morning"
+  );
 
-  const i = getIndexForWeekday(weekday);
-
-  const weekdayArray = allRoutineItems.filter((item) => {
-    return item.days[i].isChecked;
-  });
-
-  const productsMorning = weekdayArray.filter((product) => {
-    return product.days[i].morning;
-  });
-  const productsEvening = weekdayArray.filter((product) => {
-    return product.days[i].evening;
-  });
+  const productsEvening = getProductsCheckedOnThisTimeOfDay(
+    weekday,
+    productsUsedThatDay,
+    "evening"
+  );
 
   function handleEditRoutine(id, name, conflicts) {
     setId(id);

@@ -8,9 +8,9 @@
 }
 
 .App {
-  background-image: url(./images/bottle-background.png);
-  background-size: 400%;
-  background-position: -400px -40px;
+  background-image: url(./images/bottle-background.svg);
+  background-size: 120%;
+  background-position: -20px -0px;
   background-color: var(--color-one);
   height: 100vh;
   overflow-x: hidden;

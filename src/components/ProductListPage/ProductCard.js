@@ -1,5 +1,5 @@
 import "./ProductCard.css";
-import { useEffect, useState } from "react";
+import { getClassForListedPackaging } from "../../utility/getClassesForSizingAndPositioning";
 
 export default function ProductCard({
   name,
@@ -8,15 +8,7 @@ export default function ProductCard({
   packaging,
   onAddToRoutine,
 }) {
-  const [classForImage, setClassForImage] = useState("");
-
-  useEffect(() => {
-    if (packaging === "not glass bottle") {
-      setClassForImage("smaller-image");
-    } else if (packaging === "glass container") {
-      setClassForImage("powder");
-    }
-  }, [packaging]);
+  const classForPackaging = getClassForListedPackaging(packaging);
 
   return (
     <div className="ProductCard">
@@ -24,7 +16,7 @@ export default function ProductCard({
       <img
         src={image}
         alt={`white product bottle of ${name}`}
-        className={`bottle-image ${classForImage}`}
+        className={`bottle-image ${classForPackaging}`}
       />
       <a href={url} className="details-link" target="_blank" rel="noreferrer">
         details

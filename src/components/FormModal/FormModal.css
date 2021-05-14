@@ -8,6 +8,8 @@
 }
 
 .modal {
+  overflow-y: scroll;
+  overflow-x: hidden;
   position: fixed;
   top: 55px;
   width: 90vw;
