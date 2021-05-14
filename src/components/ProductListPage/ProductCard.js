@@ -1,6 +1,6 @@
 import "./ProductCard.css";
 import { getClassForListedPackaging } from "../../utility/getClassesForSizingAndPositioning";
-
+import { FaPlus } from "react-icons/fa";
 export default function ProductCard({
   name,
   image,
@@ -25,7 +25,7 @@ export default function ProductCard({
         className={name.length > 45 ? "long-name" : "add-to-routine-button"}
         onClick={onAddToRoutine}
       >
-        +
+        <FaPlus />
       </button>
     </div>
   );
