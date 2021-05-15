@@ -15,6 +15,7 @@ import {
   isNoUnspecifiedSelected,
 } from "../../utility/isNotSelected";
 import getNewChecks from "../../utility/getNewChecks";
+import isThisTimeChecked from "../../utility/isThisTimeChecked";
 
 export default function FormModal({
   onCancelAdding,
@@ -24,6 +25,10 @@ export default function FormModal({
   products,
 }) {
   const [openingDate, setOpeningDate] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [conflictName, setConflictName] = useState("");
+  const [clickedWeekdayName, setClickedWeekdayName] = useState("");
+  const [clickedtimeOfTheDay, setClickedTimeOfTheDay] = useState("");
   const [routineData, setRoutineData] = useState([]);
   const [editMode, setEditMode] = useState(false);
   const [weekRoutine, setWeekRoutine] = useState({
@@ -106,11 +111,14 @@ export default function FormModal({
       conflicts
     );
     const conflictName = findConflictProductName(intersection, products);
+    setConflictName(conflictName);
+    setClickedWeekdayName(name);
+    setClickedTimeOfTheDay("morning");
 
-    if (intersection.length > 0) {
-      alert(
-        `You are already using ${conflictName} on ${name} morning. These two products have conflicting ingredients`
-      );
+    const alreadyChecked = isThisTimeChecked(routineData, name, "morning", id);
+
+    if (intersection.length > 0 && alreadyChecked === false) {
+      setShowModal(true);
     } else {
       const newMorningChecked = getNewChecks(weekRoutine, name, "morning");
       setWeekRoutine({
@@ -129,11 +137,14 @@ export default function FormModal({
       conflicts
     );
     const conflictName = findConflictProductName(intersection, products);
+    setConflictName(conflictName);
+    setClickedWeekdayName(name);
+    setClickedTimeOfTheDay("evening");
 
-    if (intersection.length > 0) {
-      alert(
-        `You are already using ${conflictName} on ${name} evening. These two products have conflicting ingredients`
-      );
+    const alreadyChecked = isThisTimeChecked(routineData, name, "evening", id);
+
+    if (intersection.length > 0 && alreadyChecked === false) {
+      setShowModal(true);
     } else {
       const newEveningChecked = getNewChecks(weekRoutine, name, "evening");
       setWeekRoutine({
@@ -167,10 +178,29 @@ export default function FormModal({
     }
   }
 
+  function handleAddAnywayClicked() {
+    const newEveningChecked = getNewChecks(
+      weekRoutine,
+      clickedWeekdayName,
+      clickedtimeOfTheDay
+    );
+    setWeekRoutine({
+      id: id,
+      days: newEveningChecked,
+      date: weekRoutine.date,
+    });
+    setShowModal(false);
+  }
+
+  const classForAlertShown = showModal ? "background-blur" : "";
+
   return (
     <div className="FormModal">
-      <article className="modal">
-        <form className="routine-info-form" onSubmit={handleModalFormSubmit}>
+      <article className={`modal `}>
+        <form
+          className={`routine-info-form ${classForAlertShown}`}
+          onSubmit={handleModalFormSubmit}
+        >
           <p className="day-question">
             Which days would you like to add {name} to?
           </p>
@@ -214,6 +244,32 @@ export default function FormModal({
             </button>
           </div>
         </form>
+        {showModal && (
+          <div className="alert-modal">
+            <p className="alert-message">
+              You are already using{" "}
+              <em>
+                {[
+                  conflictName.slice(0, -1).join(", "),
+                  conflictName.slice(-1)[0],
+                ].join(conflictName.length < 2 ? "" : " and ")}
+              </em>{" "}
+              on {clickedWeekdayName} {clickedtimeOfTheDay}. These products have
+              conflicting ingredients
+            </p>
+            <div className="alert-modal-finishing-button-wrapper">
+              <button className="add-anyway" onClick={handleAddAnywayClicked}>
+                add anyway
+              </button>
+              <button
+                className="cancel-alert"
+                onClick={() => setShowModal(false)}
+              >
+                cancel
+              </button>
+            </div>
+          </div>
+        )}
       </article>
     </div>
   );

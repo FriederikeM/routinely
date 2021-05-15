@@ -8,7 +8,7 @@
   );
   backdrop-filter: blur(3px);
   border-radius: 35px;
-  margin: 0 15px 80px 15px;
+  margin: 0 15px 50px 15px;
   position: relative;
   border: 1px solid var(--color-two-opaque);
   animation: fade-in 1s ease-in-out backwards;
@@ -16,6 +16,11 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-end;
+  transition: 300ms ease-in-out;
+}
+
+.ProductCard:hover {
+  transform: translateY(-20px);
 }
 
 @keyframes fade-in {
@@ -31,12 +36,12 @@
   }
 }
 
-.ProductCard__headline {
+.ProductCard-headline {
   position: relative;
-  right: 10%;
-  width: 15ch;
+  right: 7%;
+  width: 20ch;
   color: var(--color-seven);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .bottle-image {
@@ -77,14 +82,20 @@
   position: relative;
   right: 25%;
   text-decoration: none;
-  color: var(--color-seven);
-  border: 2px solid var(--color-seven);
-  padding: 3px 5px;
+  color: var(--color-one);
+  border: 2px solid var(--color-one);
+  padding: 5px 8px;
   border-radius: 5px;
   background-color: var(--color-four-opaque);
   backdrop-filter: blur(1px);
   background: linear-gradient(145deg, #946c7dd0, #af8095d0);
-  box-shadow: 4px 4px 18px #8b6676, -4px -4px 18px #bd8aa0;
+  box-shadow: 4px 4px 18px #33252b;
+  transition: 100ms ease-in-out;
+}
+
+.details-link:hover {
+  transform: translateY(3px);
+  box-shadow: none;
 }
 
 .add-to-routine-button {
@@ -93,13 +104,22 @@
   color: var(--color-two-opaque);
   background: linear-gradient(145deg, #ffffff, #c5bfc2);
   box-shadow: 3px 3px 9px var(--color-two-opaque),
-    -3px -3px 9px var(--color-one-opaque);
+    -3px -3px 19px var(--color-one-opaque);
   border: none;
   border-radius: 10px;
-  font-size: 3rem;
+  font-size: 1.7rem;
   line-height: 2rem;
-  padding: 0 5px 10px 6px;
+  width: 45px;
+  height: 45px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 300ms ease-in-out;
+}
+
+.add-to-routine-button:hover {
+  transform: rotate(180deg);
 }
 
 .long-name {
@@ -112,8 +132,9 @@
     -3px -3px 9px var(--color-one-opaque);
   border: none;
   border-radius: 10px;
-  font-size: 3rem;
+  font-size: 1.7rem;
   line-height: 2rem;
-  padding: 0 5px 10px 6px;
+  width: 45px;
+  height: 45px;
   cursor: pointer;
 }

@@ -13,3 +13,10 @@
   color: var(--color-two);
   margin-right: 15px;
 }
+
+.calendar:hover,
+.calendar:hover > .weekly-routine-link {
+  background-color: var(--color-two);
+  color: var(--color-one);
+  box-shadow: none;
+}

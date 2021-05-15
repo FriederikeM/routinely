@@ -1,6 +1,9 @@
 export function getClassForAddedPackaging(packaging, name) {
   let classForPackaging;
-  if (packaging === "not glass bottle") {
+  if (
+    packaging === "not glass bottle" ||
+    name === "Glycolic Acid 7% Toning Solution"
+  ) {
     classForPackaging = "smaller-added-image";
   } else if (
     name === "100% Niacinamide Powder" ||

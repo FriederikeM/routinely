@@ -38,6 +38,7 @@ export default function AddedProductCard({
         src={imgSource}
         alt="product bottle"
         className={`added-bottle-image ${classForPackaging}`}
+        loading="lazy"
       ></img>
     </div>
   );

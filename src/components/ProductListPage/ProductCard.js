@@ -1,6 +1,6 @@
 import "./ProductCard.css";
 import { getClassForListedPackaging } from "../../utility/getClassesForSizingAndPositioning";
-
+import { FaPlus } from "react-icons/fa";
 export default function ProductCard({
   name,
   image,
@@ -12,11 +12,12 @@ export default function ProductCard({
 
   return (
     <div className="ProductCard">
-      <h5 className="ProductCard__headline">{name}</h5>
+      <h5 className="ProductCard-headline">{name}</h5>
       <img
         src={image}
         alt={`white product bottle of ${name}`}
         className={`bottle-image ${classForPackaging}`}
+        loading="lazy"
       />
       <a href={url} className="details-link" target="_blank" rel="noreferrer">
         details
@@ -25,7 +26,7 @@ export default function ProductCard({
         className={name.length > 45 ? "long-name" : "add-to-routine-button"}
         onClick={onAddToRoutine}
       >
-        +
+        <FaPlus />
       </button>
     </div>
   );

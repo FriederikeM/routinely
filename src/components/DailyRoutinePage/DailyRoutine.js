@@ -50,6 +50,8 @@ export default function DailyRoutine() {
     setShowModal(false);
   }
 
+  const modalShown = showModal ? "not-modal" : "";
+
   function renderMorningAddedProductCard() {
     return productsMorning.map((product) => {
       const productData = getProductById(product.id, products);
@@ -98,38 +100,40 @@ export default function DailyRoutine() {
 
   return (
     <div className="DailyRoutine">
-      <header className="daily-header">
-        <div className="daily-headline-wrapper">
-          <h1 className="daily-headline">{weekday}</h1>
-        </div>
-        <button className="history-back" onClick={() => history.goBack()}>
-          <FaArrowLeft />
-        </button>
-      </header>
-      {allRoutineItems !== [] && (
-        <main className="daily-main">
-          <section className="morning-products-display">
-            <h2 className="daytime-headline">morning</h2>
-            <article className="morning-products-list">
-              {products.length > 0 && renderMorningAddedProductCard()}
-            </article>
-          </section>
-          <section className="evening-products-display">
-            <h2 className="daytime-headline">evening</h2>
-            <article className="evening-products-list">
-              {products.length > 0 && renderEveningAddedProductCard()}
-            </article>
-          </section>
-          {showModal && (
-            <FormModal
-              conflicts={conflicts}
-              id={id}
-              name={productName}
-              products={products}
-              onCancelAdding={handleCancelAddToRoutine}
-            />
-          )}
-        </main>
+      <div className={modalShown}>
+        <header className="daily-header">
+          <div className="daily-headline-wrapper">
+            <h1 className="daily-headline">{weekday}</h1>
+          </div>
+          <button className="history-back" onClick={() => history.goBack()}>
+            <FaArrowLeft />
+          </button>
+        </header>
+        {allRoutineItems !== [] && (
+          <main className="daily-main">
+            <section className="morning-products-display">
+              <h2 className="daytime-headline">Morning</h2>
+              <article className="morning-products-list">
+                {products.length > 0 && renderMorningAddedProductCard()}
+              </article>
+            </section>
+            <section className="evening-products-display">
+              <h2 className="daytime-headline">Evening</h2>
+              <article className="evening-products-list">
+                {products.length > 0 && renderEveningAddedProductCard()}
+              </article>
+            </section>
+          </main>
+        )}
+      </div>
+      {showModal && (
+        <FormModal
+          conflicts={conflicts}
+          id={id}
+          name={productName}
+          products={products}
+          onCancelAdding={handleCancelAddToRoutine}
+        />
       )}
     </div>
   );

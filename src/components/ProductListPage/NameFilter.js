@@ -17,6 +17,7 @@ export default function NameFilter({ onNameFilterChange }) {
         placeholder="Search for a product"
         aria-label="name search input"
         className="name-search-bar"
+        autoComplete="off"
         onChange={handleNameFilterChange}
       />
       <div

@@ -3,13 +3,18 @@
 }
 
 .category-search-bar {
-  width: 200px;
+  width: 270px;
   font-size: 1.3rem;
-  border: 2px solid var(--color-three);
+  border: 2px solid var(--color-three-opaque);
   border-radius: 5px;
   color: var(--color-two);
   padding-bottom: 2px;
   background: var(--color-one-opaque);
   backdrop-filter: blur(1px);
   cursor: pointer;
+  box-shadow: 2px 2px 12px rgb(170, 170, 170);
+}
+
+.category-search-bar:focus {
+  border: 2px solid var(--color-two);
 }

@@ -1,9 +1,10 @@
+import "./ProductList.css";
+
 import NameFilter from "./NameFilter";
 import CalendarButton from "./CalendarButton";
 import ProductCard from "./ProductCard";
 import CategoryFilter from "./CategoryFilter";
 import FormModal from "../FormModal/FormModal";
-import "./ProductList.css";
 import { useState } from "react";
 import useProducts from "../../hooks/useProducts";
 import { getProductsFilteredByNameandCategory } from "../../utility/getFilteredProducts";
@@ -70,6 +71,7 @@ export default function ProductList() {
               onCategoryFilterChange={handleCategoryFilterChange}
             />
           </div>
+          <h1 className="products-headline">Products</h1>
           <CalendarButton />
         </header>
         <main className="main">

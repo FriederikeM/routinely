@@ -21,7 +21,7 @@ export default function WeeklyRoutine() {
     <div className="WeeklyRoutine">
       <header>
         <div className="weekly-headline-wrapper">
-          <h1 className="weekly-headline">my week</h1>
+          <h1 className="weekly-headline">My Week</h1>
         </div>
       </header>
       <main className="weekly-main">

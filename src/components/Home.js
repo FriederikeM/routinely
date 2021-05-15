@@ -1,26 +1,28 @@
 import "./Home.css";
-import bottleOne from "../images/bottle-one.png";
-import bottleTwo from "../images/bottle-two.png";
+import bottleOne from "../images/orange-bottle.svg";
+import bottleTwo from "../images/purple-bottle.svg";
 import { NavLink } from "react-router-dom";
 
 export default function Home() {
   return (
     <div className="Home">
-      <div className="headline-wrapper">
+      <header className="headline-wrapper">
         <h1 className="headline">routinely</h1>
-      </div>
-      <div className="bottle-wrapper-one">
-        <NavLink to="/products" className="product-link">
-          Check out all products
+      </header>
+      <main className="home-main">
+        <NavLink to="/products">
+          <div className="bottle-wrapper-one">
+            <p className="product-link">Check out all products</p>
+            <img src={bottleOne} alt="bottle" className="bottle-one" />
+          </div>
         </NavLink>
-        <img src={bottleOne} alt="bottle" className="bottle-one" />
-      </div>
-      <div className="bottle-wrapper-two">
-        <NavLink to="/weekly-routine" className="routine-link">
-          View your weekly routine
+        <NavLink to="/weekly-routine">
+          <div className="bottle-wrapper-two">
+            <p className="routine-link">View your weekly routine</p>
+            <img src={bottleTwo} alt="bottle" className="bottle-two" />
+          </div>
         </NavLink>
-        <img src={bottleTwo} alt="bottle" className="bottle-two" />
-      </div>
+      </main>
     </div>
   );
 }

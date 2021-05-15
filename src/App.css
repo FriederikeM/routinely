@@ -1,5 +1,5 @@
 @import "color.css";
-
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
 *,
 ::after,
 ::before {
@@ -8,9 +8,10 @@
 }
 
 .App {
+  font-family: "Comfortaa", cursive;
   background-image: url(./images/bottle-background.svg);
-  background-size: 120%;
-  background-position: -20px -0px;
+  background-size: cover;
+  background-position: center;
   background-color: var(--color-one);
   height: 100vh;
   overflow-x: hidden;

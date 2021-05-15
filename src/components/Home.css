@@ -3,56 +3,76 @@
 }
 
 .headline {
-  color: var(--color-two);
-  margin: 20px 0;
-  font-size: 2.5rem;
-  padding-left: 10px;
-  padding-bottom: 5px;
-  width: 185px;
-  background-color: rgba(204, 168, 169, 0.116);
-  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0;
+  z-index: 1;
+  font-size: 3rem;
+  position: relative;
+  top: 0;
+  width: 100vw;
+  backdrop-filter: blur(8px);
+  background-image: linear-gradient(
+    0deg,
+    rgba(204, 168, 169, 0.26),
+    rgba(204, 168, 169, 0.856)
+  );
+  animation: headline-drop-in 800ms ease-in-out;
+  color: var(--color-one);
 }
 
-.headline-wrapper {
-  width: 185px;
-  height: 28px;
-  position: relative;
-  background-color: rgba(204, 168, 169, 0.376);
+@keyframes headline-drop-in {
+  from {
+    top: -80px;
+  }
+  to {
+    top: 0;
+  }
 }
 
 .product-link {
   position: absolute;
   top: 222px;
   left: 5px;
-  font-weight: bold;
-  font-size: 1.05rem;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
   z-index: 1;
   text-decoration: none;
-  color: var(--color-seven);
+  color: var(--color-two);
 }
 
 .bottle-one {
   width: 120px;
   transform: rotate(90deg);
-  opacity: 0.7;
+  opacity: 0.9;
   position: absolute;
   top: 55px;
   left: 50px;
 }
 
+.product-link:hover + .bottle-one,
+.bottle-one:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.bottle-wrapper-one:hover > .product-link {
+  color: var(--color-five);
+}
+
 .bottle-wrapper-one {
   animation: slide-in-left 900ms cubic-bezier(0.8, 0.02, 0.54, 1.53) backwards;
   position: relative;
-  top: -80px;
+  top: -20px;
 }
 
 @keyframes slide-in-left {
   from {
-    top: -80px;
     left: -300px;
   }
   to {
-    top: -80px;
     left: 5px;
   }
 }
@@ -61,36 +81,128 @@
   position: absolute;
   top: 420px;
   right: 5px;
-  font-weight: bold;
-  font-size: 1.05rem;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
   z-index: 1;
   text-decoration: none;
-  color: var(--color-seven);
+  color: var(--color-two);
 }
 
 .bottle-two {
   width: 120px;
   transform: rotate(270deg);
-  opacity: 0.8;
+  opacity: 0.9;
   position: absolute;
   top: 250px;
   right: 70px;
+}
+
+.routine-link:hover + .bottle-two,
+.bottle-two:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.bottle-wrapper-two:hover > .routine-link {
+  color: var(--color-three);
 }
 
 .bottle-wrapper-two {
   animation: slide-in-right 900ms 500ms cubic-bezier(0.44, -0.07, 0.67, 1.5)
     backwards;
   position: relative;
-  top: -80px;
+  top: 50px;
 }
 
 @keyframes slide-in-right {
   from {
-    top: -80px;
     left: 310px;
   }
   to {
-    top: -80px;
     left: 5px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .home-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bottle-wrapper-one {
+    position: relative;
+    top: -80px;
+    right: 60px;
+    height: 250px;
+    animation: slide-in-left 1.3s 200ms cubic-bezier(0.44, -0.07, 0.67, 1.5)
+      backwards;
+  }
+
+  @keyframes slide-in-left {
+    from {
+      right: 1500px;
+    }
+    to {
+      right: 60px;
+    }
+  }
+
+  .bottle-wrapper-two {
+    position: relative;
+    top: -60px;
+    right: -60px;
+    height: 250px;
+    animation: slide-in-right 1.3s 200ms cubic-bezier(0.44, -0.07, 0.67, 1.3)
+      backwards;
+  }
+
+  @keyframes slide-in-right {
+    from {
+      right: -1500px;
+    }
+    to {
+      right: -60px;
+    }
+  }
+
+  .bottle-one {
+    width: 200px;
+    transform: rotate(90deg);
+    opacity: 0.9;
+  }
+
+  .bottle-two {
+    position: absolute;
+    top: 40px;
+    width: 200px;
+    transform: rotate(270deg);
+    opacity: 0.9;
+  }
+
+  .product-link {
+    position: absolute;
+    letter-spacing: 1px;
+    font-size: 1.9rem;
+    width: 500px;
+    top: 333px;
+    left: -137px;
+    z-index: 10;
+    text-decoration: none;
+    color: var(--color-one);
+  }
+
+  .routine-link {
+    position: absolute;
+    letter-spacing: 1px;
+    font-size: 1.9rem;
+    width: 500px;
+    top: 320px;
+    left: -298px;
+    z-index: 10;
+    text-decoration: none;
+    color: var(--color-one);
   }
 }
