@@ -17,6 +17,7 @@ export default function ProductCard({
         src={image}
         alt={`white product bottle of ${name}`}
         className={`bottle-image ${classForPackaging}`}
+        loading="lazy"
       />
       <a href={url} className="details-link" target="_blank" rel="noreferrer">
         details
