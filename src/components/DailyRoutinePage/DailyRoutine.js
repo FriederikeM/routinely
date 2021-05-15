@@ -112,13 +112,13 @@ export default function DailyRoutine() {
         {allRoutineItems !== [] && (
           <main className="daily-main">
             <section className="morning-products-display">
-              <h2 className="daytime-headline">morning</h2>
+              <h2 className="daytime-headline">Morning</h2>
               <article className="morning-products-list">
                 {products.length > 0 && renderMorningAddedProductCard()}
               </article>
             </section>
             <section className="evening-products-display">
-              <h2 className="daytime-headline">evening</h2>
+              <h2 className="daytime-headline">Evening</h2>
               <article className="evening-products-list">
                 {products.length > 0 && renderEveningAddedProductCard()}
               </article>
