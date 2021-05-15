@@ -34,6 +34,14 @@
   top: 10px;
   z-index: 1;
   box-shadow: 0 5px 20px 1px var(--color-five-opaque-dark);
+  transition: all 300ms ease-in-out;
+}
+
+.history-back:hover {
+  background-color: var(--color-two);
+  color: var(--color-one-opaque);
+  cursor: pointer;
+  box-shadow: none;
 }
 
 .daily-main {

@@ -136,6 +136,11 @@
   color: var(--color-nine);
   box-shadow: 6px 6px 12px #87969b, -6px -6px 12px #d4dee2;
   background: linear-gradient(145deg, var(--color-one), rgb(204, 204, 204));
+  transition: all 200ms ease-in-out;
+}
+
+.quit-modal:hover {
+  background: linear-gradient(145deg, rgb(204, 204, 204), var(--color-one));
 }
 
 .add-product {
@@ -145,8 +150,16 @@
     var(--color-nine)
   );
   box-shadow: 6px 6px 12px #87969b, -6px -6px 12px #d4dee2;
+  transition: all 200ms ease-in-out;
 }
 
+.add-product:hover:hover {
+  background: linear-gradient(
+    145deg,
+    var(--color-nine),
+    var(--color-nine-opaque)
+  );
+}
 .background-blur {
   filter: blur(3px);
 }
@@ -219,6 +232,7 @@
     var(--color-nine-dark)
   );
   box-shadow: 6px 6px 12px #212729ec, -3px -3px 20px 0px #dce2e4fd;
+  transition: all 300ms ease-in-out;
 }
 
 .add-anyway {
@@ -228,4 +242,15 @@
     var(--color-two-dark)
   );
   box-shadow: 6px 6px 12px #3d122a, -6px -6px 22px #f8d2e7;
+  transition: all 300ms ease-in-out;
+}
+
+.add-anyway:hover,
+.cancel-alert:hover,
+.add-product:hover,
+.quit-modal:hover {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
 }
