@@ -10,8 +10,8 @@
 .App {
   font-family: "Comfortaa", cursive;
   background-image: url(./images/bottle-background.svg);
-  background-size: 120%;
-  background-position: -20px -0px;
+  background-size: cover;
+  background-position: center;
   background-color: var(--color-one);
   height: 100vh;
   overflow-x: hidden;
