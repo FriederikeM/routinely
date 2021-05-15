@@ -12,7 +12,7 @@ export default function ProductCard({
 
   return (
     <div className="ProductCard">
-      <h5 className="ProductCard__headline">{name}</h5>
+      <h5 className="ProductCard-headline">{name}</h5>
       <img
         src={image}
         alt={`white product bottle of ${name}`}
