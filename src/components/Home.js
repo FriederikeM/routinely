@@ -1,6 +1,6 @@
 import "./Home.css";
-import bottleOne from "../images/bottle-one.png";
-import bottleTwo from "../images/bottle-two.png";
+import bottleOne from "../images/orange-bottle.svg";
+import bottleTwo from "../images/purple-bottle.svg";
 import { NavLink } from "react-router-dom";
 
 export default function Home() {
