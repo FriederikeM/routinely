@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import ProductList from "./components/ProductListPage/ProductList";
 import WeeklyRoutine from "./components/WeeklyRoutinePage/WeeklyRoutine.js";
 import DailyRoutine from "./components/DailyRoutinePage/DailyRoutine.js";
+import SingleProduct from "./components/SingleProductPage/SingleProduct.js";
 
 function App() {
   return (
@@ -21,6 +22,12 @@ function App() {
           </Route>
           <Route exact path="/products">
             <ProductList />
+          </Route>
+          <Route exact path="/products/:single-product">
+            <SingleProduct />
+          </Route>
+          <Route path="*">
+            <h2>Nothing to see here 👀 Please go back</h2>
           </Route>
         </Switch>
       </div>
