@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/products">
             <ProductList />
           </Route>
-          <Route exact path="/products/:single-product">
+          <Route exact path="/products/:singleProduct">
             <SingleProduct />
           </Route>
           <Route path="*">
