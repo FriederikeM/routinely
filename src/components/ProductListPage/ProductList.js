@@ -48,6 +48,7 @@ export default function ProductList() {
       return (
         <li key={id}>
           <ProductCard
+            id={id}
             name={name}
             image={image}
             url={url}
