@@ -180,7 +180,7 @@
   border-radius: 15px;
   border: 1px solid var(--color-three-opaque);
   padding: 20px 10px 5px;
-  position: absolute;
+  position: fixed;
   top: 18vh;
   left: 5vw;
   filter: none important!;

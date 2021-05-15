@@ -1,6 +1,6 @@
 .DailyRoutine {
   display: grid;
-  grid-template-rows: [header] 100px [main] auto;
+  grid-template-rows: 100px auto;
   position: relative;
 }
 
@@ -10,10 +10,10 @@
     rgba(204, 168, 169, 0.26),
     rgba(204, 168, 169, 0.856)
   );
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
+  color: var(--color-one);
   text-align: center;
-  padding: 8px 0 15px 0;
-  color: var(--color-two);
+  padding: 15px 0;
   position: fixed;
   width: 100vw;
   z-index: 1;
@@ -45,6 +45,7 @@
 }
 
 .daily-main {
+  padding-top: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;

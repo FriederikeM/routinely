@@ -13,7 +13,7 @@
 }
 
 .NameFilter:hover {
-  border: 2px solid var(--color-three);
+  border: 2px solid var(--color-two);
 }
 
 .name-search-bar {
@@ -37,7 +37,7 @@
 }
 
 .NameFilter:focus-within {
-  width: 230px;
+  width: 270px;
   border: 2px solid var(--color-two);
 }
 
