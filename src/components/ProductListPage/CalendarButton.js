@@ -4,7 +4,7 @@ import "./CalendarButton.css";
 
 export default function CalendarButton() {
   return (
-    <div className="IconButton">
+    <div className="CalendarButton">
       <NavLink to="/weekly-routine" className="weekly-routine-link">
         <ImCalendar className="calendar" />
       </NavLink>
