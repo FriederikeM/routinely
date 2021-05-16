@@ -1,0 +1,270 @@
+@media only screen and (max-width: 375px) {
+  .SingleProduct {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 350px 70px auto;
+    background-color: var(--color-one-opaque);
+  }
+
+  .single-product-image {
+    display: block;
+    margin: 0 auto;
+    background-color: var(--color-three-opaque);
+    backdrop-filter: blur(2px);
+    width: 100%;
+    position: relative;
+    top: -60px;
+    border-radius: 0 0 35px 35px;
+    padding-bottom: 30px;
+    animation: image-drop-in 600ms ease-in-out backwards;
+  }
+
+  @keyframes image-drop-in {
+    from {
+      top: -500px;
+    }
+    to {
+      top: -60px;
+    }
+  }
+
+  .toner-image {
+    width: 100%;
+    padding: 60px 30px 10px 30px;
+  }
+
+  .single-product-name {
+    padding: 20px 0 30px;
+    text-align: center;
+    animation: info-fade-in 600ms ease-in-out;
+  }
+
+  .single-product-info {
+    margin: 0 15px;
+    animation: info-fade-in 600ms ease-in-out;
+  }
+
+  @keyframes info-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .single-product-refrigeration {
+    margin-bottom: 20px;
+  }
+
+  .single-product-refrigeration-icon {
+    margin-right: 3px;
+  }
+
+  .single-product-refrigeration-text {
+    padding: 3px;
+    background-color: var(--color-one-opaque);
+    border-radius: 3px;
+  }
+
+  .single-product-time {
+    margin-bottom: 20px;
+  }
+
+  .single-product-time-icon {
+    position: relative;
+    top: 3px;
+    margin-right: 3px;
+  }
+
+  .single-product-time-text {
+    padding: 3px;
+    background-color: var(--color-one-opaque);
+    border-radius: 3px;
+  }
+
+  .single-product-ingredients {
+    margin: 30px 0;
+  }
+
+  .single-product-ingredients > h4 {
+    padding: 3px;
+    background-color: var(--color-one-opaque);
+    border-radius: 3px;
+    width: 100%;
+    display: inline;
+  }
+
+  .single-product-ingredients-list {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    background-color: var(--color-one-opaque);
+    backdrop-filter: blur(3px);
+    padding: 5px;
+    border-radius: 5px;
+    line-height: 1.4;
+  }
+
+  .single-product-back-button {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    color: var(--color-two);
+    border: 2px solid var(--color-two);
+    border-radius: 6px;
+    font-size: 1.2rem;
+    padding: 8px 8px 3px 8px;
+    background-color: var(--color-one-opaque);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+    box-shadow: 0 5px 20px 1px var(--color-five-opaque-dark);
+    transition: all 300ms ease-in-out;
+    animation: unfold 1s ease-in-out;
+  }
+
+  @keyframes unfold {
+    from {
+      right: 3000px;
+    }
+    to {
+      right: 15px;
+    }
+  }
+  .single-product-back-button:hover {
+    background-color: var(--color-two);
+    color: var(--color-one-opaque);
+    cursor: pointer;
+    box-shadow: none;
+  }
+}
+
+@media only screen and (min-width: 376px) {
+  .SingleProduct {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 350px 70px auto;
+    background-color: var(--color-three-opaque);
+    backdrop-filter: blur(4px);
+  }
+
+  .single-product-image {
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+    position: relative;
+    top: -60px;
+    padding-bottom: 30px;
+    animation: info-fade-in 600ms ease-in-out backwards;
+  }
+
+  .toner-image {
+    width: 400px;
+    padding: 60px 30px 10px 30px;
+  }
+
+  .single-product-name {
+    padding: 25px 0;
+    background-color: var(--color-six-opaque);
+    text-align: center;
+    animation: info-fade-in 600ms ease-in-out;
+  }
+
+  .single-product-info {
+    padding: 25px;
+    background-color: var(--color-four-opaque);
+    animation: info-fade-in 600ms ease-in-out;
+  }
+
+  @keyframes info-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .single-product-refrigeration {
+    margin-bottom: 20px;
+  }
+
+  .single-product-refrigeration-icon {
+    margin-right: 3px;
+  }
+
+  .single-product-refrigeration-text {
+    padding: 3px;
+    background-color: var(--color-four-opaque);
+    border-radius: 3px;
+  }
+
+  .single-product-time {
+    margin-bottom: 20px;
+  }
+
+  .single-product-time-icon {
+    position: relative;
+    top: 3px;
+    margin-right: 3px;
+  }
+
+  .single-product-time-text {
+    padding: 3px;
+    background-color: var(--color-four-opaque);
+    border-radius: 3px;
+  }
+
+  .single-product-ingredients {
+    margin: 30px 0;
+  }
+
+  .single-product-ingredients > h4 {
+    padding: 3px;
+    background-color: var(--color-four-opaque);
+    border-radius: 3px;
+    width: 100%;
+    display: inline;
+  }
+
+  .single-product-ingredients-list {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    background-color: var(--color-four-opaque);
+
+    padding: 5px;
+    border-radius: 5px;
+    line-height: 1.4;
+  }
+
+  .single-product-back-button {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    color: var(--color-two);
+    border: 2px solid var(--color-two);
+    border-radius: 6px;
+    font-size: 1.2rem;
+    padding: 8px 8px 3px 8px;
+    background-color: var(--color-one-opaque);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+    box-shadow: 0 5px 20px 1px var(--color-five-opaque-dark);
+    transition: all 300ms ease-in-out;
+    animation: unfold 1s ease-in-out;
+  }
+
+  @keyframes unfold {
+    from {
+      right: 3000px;
+    }
+    to {
+      right: 15px;
+    }
+  }
+  .single-product-back-button:hover {
+    background-color: var(--color-two);
+    color: var(--color-one-opaque);
+    cursor: pointer;
+    box-shadow: none;
+  }
+}
