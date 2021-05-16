@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
 import { getProductsCheckedOnThisDay } from "../../utility/getCheckedProducts";
 import useRoutine from "../../hooks/useRoutine";
+import bottleRow from "../../images/bottle-row.svg";
+import dropper from "../../images/dropper.svg";
 
 export default function WeeklyRoutine() {
   const allRoutineItems = useRoutine();
