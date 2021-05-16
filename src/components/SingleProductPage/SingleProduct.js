@@ -1,3 +1,4 @@
+import "./SingleProduct.css";
 import { useParams, useHistory } from "react-router";
 import useProducts from "../../hooks/useProducts";
 import getProductById from "../../utility/getProductById";
