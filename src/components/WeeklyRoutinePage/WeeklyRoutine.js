@@ -69,6 +69,13 @@ export default function WeeklyRoutine() {
             )}
           </div>
         )}
+        {allRoutineItems.length === 0 && (
+          <div>
+            <h3 className="empty-slogan">Looks empty around here...</h3>
+            <img src={dropper} alt="dropper" className="dropper" />
+            <img src={bottleRow} alt="bottle row" className="bottle-row" />
+          </div>
+        )}
         <NavLink
           to="/products"
           className={`add-button-weekly ${classForEmptyRoutineButton}`}
