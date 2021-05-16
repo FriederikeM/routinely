@@ -19,8 +19,13 @@ export default function WeeklyRoutine() {
   const saturdays = getProductsCheckedOnThisDay("Saturday", allRoutineItems);
   const sundays = getProductsCheckedOnThisDay("Sunday", allRoutineItems);
 
+  const classForEmptyRoutineButton =
+    allRoutineItems.length === 0 ? "empty-routine-button" : "";
+  const classForEmptyRoutineBackground =
+    allRoutineItems.length === 0 ? "empty-routine-background" : "";
+
   return (
-    <div className="WeeklyRoutine">
+    <div className={`WeeklyRoutine ${classForEmptyRoutineBackground}`}>
       <header>
         <div className="weekly-headline-wrapper">
           <h1 className="weekly-headline">My Week</h1>
@@ -64,7 +69,10 @@ export default function WeeklyRoutine() {
             )}
           </div>
         )}
-        <NavLink to="/products" className="add-button-weekly">
+        <NavLink
+          to="/products"
+          className={`add-button-weekly ${classForEmptyRoutineButton}`}
+        >
           +
         </NavLink>
       </main>
