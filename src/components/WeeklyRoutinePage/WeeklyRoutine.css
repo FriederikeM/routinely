@@ -2,6 +2,7 @@
   display: grid;
   grid-template-rows: 100px auto;
   position: relative;
+  overflow-x: hidden;
 }
 
 .weekly-headline {
@@ -57,5 +58,74 @@
   to {
     opacity: 1;
     bottom: 20px;
+  }
+}
+
+.empty-routine-background {
+  background-color: var(--color-one);
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.empty-slogan {
+  text-align: center;
+  transform: translateX(12%);
+}
+
+.dropper {
+  width: 290px;
+  position: relative;
+  left: -53px;
+  bottom: 35px;
+}
+
+.bottle-row {
+  width: 2920px;
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+}
+
+.empty-routine-button {
+  position: relative;
+  animation: none;
+  bottom: -235px;
+  right: 141px;
+  border: none;
+  background-color: transparent;
+  color: var(--color-three);
+  font-size: 70px;
+  font-weight: lighter;
+  backdrop-filter: none;
+}
+
+.empty-routine-button:hover {
+  transform: none;
+  color: var(--color-nine);
+}
+
+@media only screen and (min-height: 750px) {
+  .dropper {
+    width: 290px;
+    position: relative;
+    left: -53px;
+    bottom: -45px;
+  }
+
+  .empty-routine-button {
+    bottom: -310px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .empty-slogan {
+    transform: none;
+  }
+  .dropper {
+    left: -90px;
+  }
+  .empty-routine-button {
+    bottom: 187px;
+    right: -4px;
   }
 }
