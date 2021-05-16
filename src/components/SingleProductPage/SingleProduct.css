@@ -1,7 +1,8 @@
 @media only screen and (max-width: 375px) {
   .SingleProduct {
     display: grid;
-    height: 100%;
+    min-height: 100%;
+    height: auto;
     grid-template-rows: 350px 70px auto;
     background-color: var(--color-one-opaque);
   }
@@ -54,11 +55,13 @@
   }
 
   .single-product-refrigeration {
-    margin-bottom: 20px;
+    margin: 0 20px 20px 0;
   }
 
   .single-product-refrigeration-icon {
     margin-right: 3px;
+    position: relative;
+    top: 2px;
   }
 
   .single-product-refrigeration-text {
@@ -81,6 +84,19 @@
     padding: 3px;
     background-color: var(--color-one-opaque);
     border-radius: 3px;
+  }
+
+  .single-product-goal-list {
+    margin-top: 25px;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    max-width: 85vw;
+  }
+
+  .single-product-goal-list > li {
+    margin-top: 5px;
+    background-color: var(--color-one-opaque);
+    border-radius: 5px;
   }
 
   .single-product-ingredients {
@@ -130,6 +146,7 @@
       right: 15px;
     }
   }
+
   .single-product-back-button:hover {
     background-color: var(--color-two);
     color: var(--color-one-opaque);
@@ -141,7 +158,8 @@
 @media only screen and (min-width: 376px) {
   .SingleProduct {
     display: grid;
-    height: 100%;
+    min-height: 100%;
+    height: auto;
     grid-template-rows: 350px 70px auto;
     background-color: var(--color-three-opaque);
     backdrop-filter: blur(4px);
@@ -164,14 +182,15 @@
 
   .single-product-name {
     padding: 25px 0;
-    background-color: var(--color-six-opaque);
+    backdrop-filter: blur(1px);
     text-align: center;
     animation: info-fade-in 600ms ease-in-out;
+    color: var(--color-one);
   }
 
   .single-product-info {
     padding: 25px;
-    background-color: var(--color-four-opaque);
+    background-color: var(--color-one-more-opaque);
     animation: info-fade-in 600ms ease-in-out;
   }
 
@@ -185,11 +204,13 @@
   }
 
   .single-product-refrigeration {
-    margin-bottom: 20px;
+    margin: 0 20px 20px 0;
   }
 
   .single-product-refrigeration-icon {
     margin-right: 3px;
+    position: relative;
+    top: 2px;
   }
 
   .single-product-refrigeration-text {
@@ -214,6 +235,22 @@
     border-radius: 3px;
   }
 
+  .single-product-goal-list {
+    margin-top: 25px;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    max-width: 85vw;
+    background-color: var(--color-four-opaque);
+    padding: 10px 10px 10px 25px;
+    border-radius: 5px;
+    margin-left: 25px;
+    max-width: 350px;
+  }
+
+  .single-product-goal-list > li {
+    margin-top: 5px;
+  }
+
   .single-product-ingredients {
     margin: 30px 0;
   }
@@ -230,22 +267,22 @@
     margin-top: 10px;
     font-size: 0.8rem;
     background-color: var(--color-four-opaque);
-
     padding: 5px;
     border-radius: 5px;
     line-height: 1.4;
   }
 
   .single-product-back-button {
-    position: fixed;
-    right: 15px;
+    position: sticky;
     bottom: 15px;
+    right: 15px;
     color: var(--color-two);
-    border: 2px solid var(--color-two);
+    border: none;
+    max-height: 40px;
     border-radius: 6px;
     font-size: 1.2rem;
     padding: 8px 8px 3px 8px;
-    background-color: var(--color-one-opaque);
+    background-color: var(--color-nine);
     backdrop-filter: blur(3px);
     z-index: 1;
     box-shadow: 0 5px 20px 1px var(--color-five-opaque-dark);
@@ -261,9 +298,10 @@
       right: 15px;
     }
   }
+
   .single-product-back-button:hover {
     background-color: var(--color-two);
-    color: var(--color-one-opaque);
+    color: var(--color-nine);
     cursor: pointer;
     box-shadow: none;
   }
