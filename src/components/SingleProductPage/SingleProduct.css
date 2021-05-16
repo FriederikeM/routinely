@@ -69,6 +69,7 @@
     padding: 3px;
     background-color: var(--color-one-opaque);
     border-radius: 3px;
+    margin-left: 3px;
   }
 
   .single-product-time {
@@ -85,6 +86,7 @@
     padding: 3px;
     background-color: var(--color-one-opaque);
     border-radius: 3px;
+    margin-left: 3px;
   }
 
   .single-product-goal-list {
@@ -220,6 +222,7 @@
     padding: 3px;
     background-color: var(--color-four-opaque);
     border-radius: 3px;
+    margin-left: 3px;
   }
 
   .single-product-time {
@@ -236,6 +239,7 @@
     padding: 3px;
     background-color: var(--color-four-opaque);
     border-radius: 3px;
+    margin-left: 3px;
   }
 
   .single-product-goal-list {
