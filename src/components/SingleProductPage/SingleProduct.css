@@ -186,9 +186,11 @@
     text-align: center;
     animation: info-fade-in 600ms ease-in-out;
     color: var(--color-one);
+    box-shadow: inset 0 8px 30px rgba(255, 218, 218, 0.664);
   }
 
   .single-product-info {
+    box-shadow: inset 2px 12px 32px rgb(144, 121, 121);
     padding: 25px;
     background-color: var(--color-one-more-opaque);
     animation: info-fade-in 600ms ease-in-out;
@@ -285,9 +287,10 @@
     background-color: var(--color-nine);
     backdrop-filter: blur(3px);
     z-index: 1;
-    box-shadow: 0 5px 20px 1px var(--color-five-opaque-dark);
     transition: all 300ms ease-in-out;
     animation: unfold 1s ease-in-out;
+    box-shadow: inset 0 3px 8px #cbeef3, inset 0 -3px 8px #607174,
+      0 15px 20px 1px var(--color-five-opaque-dark);
   }
 
   @keyframes unfold {
@@ -303,6 +306,6 @@
     background-color: var(--color-two);
     color: var(--color-nine);
     cursor: pointer;
-    box-shadow: none;
+    box-shadow: inset 2px 3px 8px #2f0a1e, inset -2px -3px 8px #d3589b;
   }
 }
