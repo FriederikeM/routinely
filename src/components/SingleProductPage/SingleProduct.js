@@ -12,7 +12,14 @@ export default function SingleProduct() {
 
   if (products.length !== 0) {
     const productInfo = getProductById(Number(singleProductId), products);
-    const { name, image, ingredients, time, refrigeration } = productInfo;
+    const {
+      name,
+      image,
+      ingredients,
+      time,
+      refrigeration,
+      goals,
+    } = productInfo;
 
     const classForTonerImage =
       name === "Glycolic Acid 7% Toning Solution" ? "toner-image" : "";
@@ -26,23 +33,28 @@ export default function SingleProduct() {
         <h3 className="single-product-name">{name}</h3>
         <div className="single-product-info">
           {refrigeration && (
-            <p className="single-product-refrigeration">
+            <span className="single-product-refrigeration">
               <span className="single-product-refrigeration-icon">
                 <FaRegSnowflake />
               </span>{" "}
               <span className="single-product-refrigeration-text">
                 Please refrigerate{" "}
               </span>
-            </p>
+            </span>
           )}
           {time.length > 0 && (
-            <p className="single-product-time">
+            <span className="single-product-time">
               <span className="single-product-time-icon">
                 <BsFillClockFill />
               </span>{" "}
               <span className="single-product-time-text">{time}</span>
-            </p>
+            </span>
           )}
+          <ul className="single-product-goal-list">
+            {goals.map((goal) => {
+              return <li>{goal}</li>;
+            })}
+          </ul>
           <div className="single-product-ingredients">
             <h4>Ingredients</h4>
             <p className="single-product-ingredients-list">
