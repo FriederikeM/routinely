@@ -1,10 +1,11 @@
 import "./ProductCard.css";
 import { getClassForListedPackaging } from "../../utility/getClassesForSizingAndPositioning";
 import { FaPlus } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 export default function ProductCard({
   name,
   image,
-  url,
+  id,
   packaging,
   onAddToRoutine,
 }) {
@@ -19,9 +20,9 @@ export default function ProductCard({
         className={`bottle-image ${classForPackaging}`}
         loading="lazy"
       />
-      <a href={url} className="details-link" target="_blank" rel="noreferrer">
+      <NavLink to={`/products/${id}`} className="details-link">
         details
-      </a>
+      </NavLink>
       <button
         className={name.length > 45 ? "long-name" : "add-to-routine-button"}
         onClick={onAddToRoutine}
