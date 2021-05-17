@@ -27,12 +27,12 @@ export default function Form({
             <Checkbox
               key={index + day.name}
               name={day.name}
-              handleDayClicked={onDayClicked}
+              onDayClicked={onDayClicked}
               isChecked={day.isChecked}
               morning={day.morning}
               evening={day.evening}
-              handleMorningClicked={onMorningClicked}
-              handleEveningClicked={onEveningClicked}
+              onMorningClicked={onMorningClicked}
+              onEveningClicked={onEveningClicked}
             />
           );
         })}
