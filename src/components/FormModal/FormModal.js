@@ -1,5 +1,4 @@
 import "./FormModal.css";
-import Checkbox from "./Checkbox.js";
 import { useEffect, useState } from "react";
 import {
   editDataInLocalStorage,
@@ -16,6 +15,7 @@ import {
 } from "../../utility/isNotSelected";
 import getNewChecks from "../../utility/getNewChecks";
 import isThisTimeChecked from "../../utility/isThisTimeChecked";
+import Form from "./Form";
 
 export default function FormModal({
   onCancelAdding,
@@ -197,53 +197,18 @@ export default function FormModal({
   return (
     <div className="FormModal">
       <article className={`modal `}>
-        <form
-          className={`routine-info-form ${classForAlertShown}`}
-          onSubmit={handleModalFormSubmit}
-        >
-          <p className="day-question">
-            Which days would you like to add {name} to?
-          </p>
-          <div className="weekday-checkboxes">
-            {" "}
-            {weekRoutine.days.map((day, index) => {
-              return (
-                <Checkbox
-                  key={index + day.name}
-                  name={day.name}
-                  handleDayClicked={handleDayClicked}
-                  isChecked={day.isChecked}
-                  morning={day.morning}
-                  evening={day.evening}
-                  handleMorningClicked={handleMorningClicked}
-                  handleEveningClicked={handleEveningClicked}
-                />
-              );
-            })}
-          </div>
-          <div className="date-choice">
-            <label htmlFor="date">
-              When did you open this product?{" "}
-              <span className="optional">(optional)</span>
-            </label>
-            <input
-              type="date"
-              id="date"
-              name="date"
-              className="date-input"
-              onChange={handleChangeDate}
-              value={weekRoutine.date}
-            ></input>
-          </div>
-          <div className="finish-buttons">
-            <button className="quit-modal" onClick={onCancelAdding}>
-              cancel
-            </button>
-            <button type="submit" className="add-product">
-              {editMode ? "edit" : "add"}
-            </button>
-          </div>
-        </form>
+        <Form
+          classForAlertShown={classForAlertShown}
+          onModalFormSubmit={handleModalFormSubmit}
+          name={name}
+          weekRoutine={weekRoutine}
+          onDayClicked={handleDayClicked}
+          onMorningClicked={handleMorningClicked}
+          onEveningClicked={handleEveningClicked}
+          onChangeDate={handleChangeDate}
+          onCancelAdding={onCancelAdding}
+          editMode={editMode}
+        />
         {showModal && (
           <div className="alert-modal">
             <p className="alert-message">
