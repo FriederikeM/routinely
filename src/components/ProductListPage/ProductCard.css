@@ -25,12 +25,10 @@
 
 @keyframes fade-in {
   from {
-    width: 230px;
     height: 160px;
     opacity: 0;
   }
   to {
-    width: 270px;
     height: 200px;
     opacity: 1;
   }
