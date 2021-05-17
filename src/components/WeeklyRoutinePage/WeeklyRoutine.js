@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
 import { getProductsCheckedOnThisDay } from "../../utility/getCheckedProducts";
 import useRoutine from "../../hooks/useRoutine";
+import bottleRow from "../../images/bottle-row.svg";
+import dropper from "../../images/dropper.svg";
 
 export default function WeeklyRoutine() {
   const allRoutineItems = useRoutine();
@@ -17,8 +19,13 @@ export default function WeeklyRoutine() {
   const saturdays = getProductsCheckedOnThisDay("Saturday", allRoutineItems);
   const sundays = getProductsCheckedOnThisDay("Sunday", allRoutineItems);
 
+  const classForEmptyRoutineButton =
+    allRoutineItems.length === 0 ? "empty-routine-button" : "";
+  const classForEmptyRoutineBackground =
+    allRoutineItems.length === 0 ? "empty-routine-background" : "";
+
   return (
-    <div className="WeeklyRoutine">
+    <div className={`WeeklyRoutine ${classForEmptyRoutineBackground}`}>
       <header>
         <div className="weekly-headline-wrapper">
           <h1 className="weekly-headline">My Week</h1>
@@ -62,7 +69,17 @@ export default function WeeklyRoutine() {
             )}
           </div>
         )}
-        <NavLink to="/products" className="add-button-weekly">
+        {allRoutineItems.length === 0 && (
+          <div>
+            <h3 className="empty-slogan">Looks empty around here...</h3>
+            <img src={dropper} alt="dropper" className="dropper" />
+            <img src={bottleRow} alt="bottle row" className="bottle-row" />
+          </div>
+        )}
+        <NavLink
+          to="/products"
+          className={`add-button-weekly ${classForEmptyRoutineButton}`}
+        >
           +
         </NavLink>
       </main>
