@@ -21,7 +21,7 @@ export default function WeekDayCard({ name, data, products }) {
           <ul className="product-name-list">
             {mornings.map((morning) => {
               return (
-                <li className="product-name-left">
+                <li className="product-name-left" key={morning.id}>
                   {getProductById(morning.id, products).name}
                 </li>
               );
@@ -32,7 +32,7 @@ export default function WeekDayCard({ name, data, products }) {
           <ul className="product-name-list">
             {evenings.map((evening) => {
               return (
-                <li className="product-name-right">
+                <li className="product-name-right" key={evening.id}>
                   {getProductById(evening.id, products).name}
                 </li>
               );
