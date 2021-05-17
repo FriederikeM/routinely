@@ -16,6 +16,7 @@ import {
 import getNewChecks from "../../utility/getNewChecks";
 import isThisTimeChecked from "../../utility/isThisTimeChecked";
 import Form from "./Form";
+import AlertModal from "./AlertModal";
 
 export default function FormModal({
   onCancelAdding,
@@ -210,30 +211,13 @@ export default function FormModal({
           editMode={editMode}
         />
         {showModal && (
-          <div className="alert-modal">
-            <p className="alert-message">
-              You are already using{" "}
-              <em>
-                {[
-                  conflictName.slice(0, -1).join(", "),
-                  conflictName.slice(-1)[0],
-                ].join(conflictName.length < 2 ? "" : " and ")}
-              </em>{" "}
-              on {clickedWeekdayName} {clickedtimeOfTheDay}. These products have
-              conflicting ingredients
-            </p>
-            <div className="alert-modal-finishing-button-wrapper">
-              <button className="add-anyway" onClick={handleAddAnywayClicked}>
-                add anyway
-              </button>
-              <button
-                className="cancel-alert"
-                onClick={() => setShowModal(false)}
-              >
-                cancel
-              </button>
-            </div>
-          </div>
+          <AlertModal
+            conflictName={conflictName}
+            clickedWeekdayName={clickedWeekdayName}
+            clickedTimeOfTheDay={clickedTimeOfTheDay}
+            onAddAnywayClicked={handleAddAnywayClicked}
+            onCancelAlertModal={() => setShowModal(false)}
+          />
         )}
       </article>
     </div>
