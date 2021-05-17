@@ -28,7 +28,7 @@ export default function FormModal({
   const [showModal, setShowModal] = useState(false);
   const [conflictName, setConflictName] = useState("");
   const [clickedWeekdayName, setClickedWeekdayName] = useState("");
-  const [clickedtimeOfTheDay, setClickedTimeOfTheDay] = useState("");
+  const [clickedTimeOfTheDay, setClickedTimeOfTheDay] = useState("");
   const [routineData, setRoutineData] = useState([]);
   const [editMode, setEditMode] = useState(false);
   const [weekRoutine, setWeekRoutine] = useState({
@@ -182,7 +182,7 @@ export default function FormModal({
     const newEveningChecked = getNewChecks(
       weekRoutine,
       clickedWeekdayName,
-      clickedtimeOfTheDay
+      clickedTimeOfTheDay
     );
     setWeekRoutine({
       id: id,
