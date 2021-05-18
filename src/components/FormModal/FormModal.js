@@ -205,15 +205,14 @@ export default function FormModal({
 
     editDataInLocalStorage(conflictingProduct);
 
+    const newTimeOfDayChecked = getNewChecks(
       weekRoutine,
       clickedWeekdayName,
       clickedTimeOfTheDay
     );
-    setWeekRoutine({
-      id: id,
-      days: newEveningChecked,
-      date: weekRoutine.date,
-    });
+
+    setWeekRoutine({ id: id, days: newTimeOfDayChecked, date: openingDate });
+
     setShowModal(false);
   }
 
