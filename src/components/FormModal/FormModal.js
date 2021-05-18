@@ -197,7 +197,7 @@ export default function FormModal({
 
   return (
     <div className="FormModal">
-      <article className={`modal `}>
+      <article className="modal">
         <Form
           classForAlertShown={classForAlertShown}
           onModalFormSubmit={handleModalFormSubmit}
