@@ -185,11 +185,7 @@ export default function FormModal({
     }
   }
 
-  function handleProductSwap(
-    conflictId,
-    clickedTimeOfTheDay,
-    clickedWeekdayName
-  ) {
+  function handleProductSwap() {
     let conflictingProduct = routineData.find(
       (product) => product.id === conflictId[0]
     );
