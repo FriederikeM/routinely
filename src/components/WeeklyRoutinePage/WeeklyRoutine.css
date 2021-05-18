@@ -44,6 +44,7 @@
   cursor: pointer;
   animation: button-up 800ms cubic-bezier(0.8, 0.02, 0.54, 1.83) 800ms backwards;
   transition: transform 300ms ease-in-out;
+  z-index: 5;
 }
 
 .add-button-weekly:hover {
@@ -97,6 +98,7 @@
   font-size: 70px;
   font-weight: lighter;
   backdrop-filter: none;
+  z-index: 5;
 }
 
 .empty-routine-button:hover {
