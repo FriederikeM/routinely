@@ -235,6 +235,7 @@ export default function FormModal({
         />
         {showModal && (
           <AlertModal
+            conflictId={conflictId}
             conflictName={conflictName}
             clickedWeekdayName={clickedWeekdayName}
             clickedTimeOfTheDay={clickedTimeOfTheDay}
