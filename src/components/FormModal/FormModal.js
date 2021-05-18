@@ -1,6 +1,6 @@
 import "./FormModal.css";
 import { useEffect, useState } from "react";
-import {
+import removeProductFromLocalStorage, {
   editDataInLocalStorage,
   getDataFromLocalStorage,
   sendDataToLocalStorage,
