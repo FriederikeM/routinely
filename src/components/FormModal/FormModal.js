@@ -169,7 +169,10 @@ export default function FormModal({
       alert(
         "Please specify during which time of the day you want to use the product on the checked days"
       );
-    } else if (isNothingChecked === true) {
+    } else if (isNothingChecked === true && editMode === false) {
+      onCancelAdding();
+    } else if (isNothingChecked === true && editMode === true) {
+      removeProductFromLocalStorage(weekRoutine);
       onCancelAdding();
     } else {
       if (editMode === false) {
