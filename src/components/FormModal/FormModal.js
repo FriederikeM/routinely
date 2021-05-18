@@ -6,9 +6,9 @@ import {
   sendDataToLocalStorage,
 } from "../../utility/localStorage";
 import {
-  findConflictingProductIds,
+  findConflictingProductId,
   findConflictProductName,
-} from "../../utility/findConflictingProducts";
+} from "../../utility/findConflictingProduct";
 import {
   isNothingSelected,
   isNoUnspecifiedSelected,
@@ -105,7 +105,7 @@ export default function FormModal({
   }
 
   function handleMorningClicked(name) {
-    const intersection = findConflictingProductIds(
+    const intersection = findConflictingProductId(
       name,
       routineData,
       "morning",
@@ -131,7 +131,7 @@ export default function FormModal({
   }
 
   function handleEveningClicked(name) {
-    const intersection = findConflictingProductIds(
+    const intersection = findConflictingProductId(
       name,
       routineData,
       "evening",
