@@ -1,15 +1,10 @@
 export default function AlertModal({
   conflictName,
-  conflictId,
   clickedWeekdayName,
   clickedTimeOfTheDay,
   onProductSwapClicked,
   onCancelAlertModal,
 }) {
-  function handleSwapProducts() {
-    onProductSwapClicked(conflictId, clickedTimeOfTheDay, clickedWeekdayName);
-  }
-
   return (
     <div className="alert-modal">
       <p className="alert-message">
@@ -18,7 +13,7 @@ export default function AlertModal({
         Would you like to swap these two products?
       </p>
       <div className="alert-modal-finishing-button-wrapper">
-        <button className="add-anyway" onClick={handleSwapProducts}>
+        <button className="add-anyway" onClick={onProductSwapClicked}>
           swap products
         </button>
         <button className="cancel-alert" onClick={onCancelAlertModal}>
