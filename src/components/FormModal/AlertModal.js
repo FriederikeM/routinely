@@ -14,7 +14,7 @@ export default function AlertModal({
       </p>
       <div className="alert-modal-finishing-button-wrapper">
         <button className="add-anyway" onClick={onProductSwapClicked}>
-          swap products
+          swap
         </button>
         <button className="cancel-alert" onClick={onCancelAlertModal}>
           cancel
