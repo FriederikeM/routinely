@@ -56,21 +56,23 @@ export default function DailyRoutine() {
     return productsMorning.map((product) => {
       const productData = getProductById(product.id, products);
       return (
-        <AddedProductCard
-          name={productData.name}
-          date={product.date}
-          expirationPeriod={productData.expirationPeriod}
-          packaging={productData.packaging}
-          imgSource={productData.image}
-          url={productData.url}
-          onEditRoutine={() =>
-            handleEditRoutine(
-              product.id,
-              productData.name,
-              productData.conflicts
-            )
-          }
-        />
+        <li className="added-product-list-item" key={product.id}>
+          <AddedProductCard
+            name={productData.name}
+            date={product.date}
+            expirationPeriod={productData.expirationPeriod}
+            packaging={productData.packaging}
+            imgSource={productData.image}
+            url={productData.url}
+            onEditRoutine={() =>
+              handleEditRoutine(
+                product.id,
+                productData.name,
+                productData.conflicts
+              )
+            }
+          />
+        </li>
       );
     });
   }
@@ -79,21 +81,23 @@ export default function DailyRoutine() {
     return productsEvening.map((product) => {
       const productData = getProductById(product.id, products);
       return (
-        <AddedProductCard
-          name={productData.name}
-          date={product.date}
-          expirationPeriod={productData.expirationPeriod}
-          packaging={productData.packging}
-          imgSource={productData.image}
-          url={productData.url}
-          onEditRoutine={() =>
-            handleEditRoutine(
-              product.id,
-              productData.name,
-              productData.conflicts
-            )
-          }
-        />
+        <li className="added-product-list-item" key={product.id}>
+          <AddedProductCard
+            name={productData.name}
+            date={product.date}
+            expirationPeriod={productData.expirationPeriod}
+            packaging={productData.packging}
+            imgSource={productData.image}
+            url={productData.url}
+            onEditRoutine={() =>
+              handleEditRoutine(
+                product.id,
+                productData.name,
+                productData.conflicts
+              )
+            }
+          />
+        </li>
       );
     });
   }
@@ -113,15 +117,15 @@ export default function DailyRoutine() {
           <main className="daily-main">
             <section className="morning-products-display">
               <h2 className="daytime-headline">Morning</h2>
-              <article className="morning-products-list">
+              <ul className="morning-products-list">
                 {products.length > 0 && renderMorningAddedProductCard()}
-              </article>
+              </ul>
             </section>
             <section className="evening-products-display">
               <h2 className="daytime-headline">Evening</h2>
-              <article className="evening-products-list">
+              <ul className="evening-products-list">
                 {products.length > 0 && renderEveningAddedProductCard()}
-              </article>
+              </ul>
             </section>
           </main>
         )}

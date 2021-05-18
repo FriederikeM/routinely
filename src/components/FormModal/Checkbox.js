@@ -5,9 +5,9 @@ import { getClassForWeekdayCheckboxAlignment } from "../../utility/getClassesFor
 export default function Checkbox({
   name,
   isChecked,
-  handleDayClicked,
-  handleMorningClicked,
-  handleEveningClicked,
+  onDayClicked,
+  onMorningClicked,
+  onEveningClicked,
   morning,
   evening,
 }) {
@@ -19,7 +19,7 @@ export default function Checkbox({
     <div className={`Checkbox ${classForCheckboxAlignment}`}>
       <div className="weekday">
         <input
-          onChange={() => handleDayClicked(name)}
+          onChange={() => onDayClicked(name)}
           type="checkbox"
           name={name}
           className="weekday-checkbox"
@@ -35,7 +35,7 @@ export default function Checkbox({
         <div className="time-of-day">
           <span className="morning">
             <input
-              onChange={() => handleMorningClicked(name)}
+              onChange={() => onMorningClicked(name)}
               type="checkbox"
               name="morning"
               className="morning-checkbox"
@@ -47,7 +47,7 @@ export default function Checkbox({
           </span>
           <span className="evening">
             <input
-              onChange={() => handleEveningClicked(name)}
+              onChange={() => onEveningClicked(name)}
               type="checkbox"
               name="evening"
               className="evening-checkbox"

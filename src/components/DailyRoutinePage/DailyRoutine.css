@@ -64,4 +64,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 0;
+}
+
+.added-product-list-item {
+  list-style: none;
 }

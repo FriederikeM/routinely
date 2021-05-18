@@ -1,5 +1,4 @@
 import "./FormModal.css";
-import Checkbox from "./Checkbox.js";
 import { useEffect, useState } from "react";
 import {
   editDataInLocalStorage,
@@ -16,6 +15,8 @@ import {
 } from "../../utility/isNotSelected";
 import getNewChecks from "../../utility/getNewChecks";
 import isThisTimeChecked from "../../utility/isThisTimeChecked";
+import Form from "./Form";
+import AlertModal from "./AlertModal";
 
 export default function FormModal({
   onCancelAdding,
@@ -28,7 +29,7 @@ export default function FormModal({
   const [showModal, setShowModal] = useState(false);
   const [conflictName, setConflictName] = useState("");
   const [clickedWeekdayName, setClickedWeekdayName] = useState("");
-  const [clickedtimeOfTheDay, setClickedTimeOfTheDay] = useState("");
+  const [clickedTimeOfTheDay, setClickedTimeOfTheDay] = useState("");
   const [routineData, setRoutineData] = useState([]);
   const [editMode, setEditMode] = useState(false);
   const [weekRoutine, setWeekRoutine] = useState({
@@ -182,7 +183,7 @@ export default function FormModal({
     const newEveningChecked = getNewChecks(
       weekRoutine,
       clickedWeekdayName,
-      clickedtimeOfTheDay
+      clickedTimeOfTheDay
     );
     setWeekRoutine({
       id: id,
@@ -196,79 +197,27 @@ export default function FormModal({
 
   return (
     <div className="FormModal">
-      <article className={`modal `}>
-        <form
-          className={`routine-info-form ${classForAlertShown}`}
-          onSubmit={handleModalFormSubmit}
-        >
-          <p className="day-question">
-            Which days would you like to add {name} to?
-          </p>
-          <div className="weekday-checkboxes">
-            {" "}
-            {weekRoutine.days.map((day, index) => {
-              return (
-                <Checkbox
-                  key={index + day.name}
-                  name={day.name}
-                  handleDayClicked={handleDayClicked}
-                  isChecked={day.isChecked}
-                  morning={day.morning}
-                  evening={day.evening}
-                  handleMorningClicked={handleMorningClicked}
-                  handleEveningClicked={handleEveningClicked}
-                />
-              );
-            })}
-          </div>
-          <div className="date-choice">
-            <label htmlFor="date">
-              When did you open this product?{" "}
-              <span className="optional">(optional)</span>
-            </label>
-            <input
-              type="date"
-              id="date"
-              name="date"
-              className="date-input"
-              onChange={handleChangeDate}
-              value={weekRoutine.date}
-            ></input>
-          </div>
-          <div className="finish-buttons">
-            <button className="quit-modal" onClick={onCancelAdding}>
-              cancel
-            </button>
-            <button type="submit" className="add-product">
-              {editMode ? "edit" : "add"}
-            </button>
-          </div>
-        </form>
+      <article className="modal">
+        <Form
+          classForAlertShown={classForAlertShown}
+          onModalFormSubmit={handleModalFormSubmit}
+          name={name}
+          weekRoutine={weekRoutine}
+          onDayClicked={handleDayClicked}
+          onMorningClicked={handleMorningClicked}
+          onEveningClicked={handleEveningClicked}
+          onChangeDate={handleChangeDate}
+          onCancelAdding={onCancelAdding}
+          editMode={editMode}
+        />
         {showModal && (
-          <div className="alert-modal">
-            <p className="alert-message">
-              You are already using{" "}
-              <em>
-                {[
-                  conflictName.slice(0, -1).join(", "),
-                  conflictName.slice(-1)[0],
-                ].join(conflictName.length < 2 ? "" : " and ")}
-              </em>{" "}
-              on {clickedWeekdayName} {clickedtimeOfTheDay}. These products have
-              conflicting ingredients
-            </p>
-            <div className="alert-modal-finishing-button-wrapper">
-              <button className="add-anyway" onClick={handleAddAnywayClicked}>
-                add anyway
-              </button>
-              <button
-                className="cancel-alert"
-                onClick={() => setShowModal(false)}
-              >
-                cancel
-              </button>
-            </div>
-          </div>
+          <AlertModal
+            conflictName={conflictName}
+            clickedWeekdayName={clickedWeekdayName}
+            clickedTimeOfTheDay={clickedTimeOfTheDay}
+            onAddAnywayClicked={handleAddAnywayClicked}
+            onCancelAlertModal={() => setShowModal(false)}
+          />
         )}
       </article>
     </div>

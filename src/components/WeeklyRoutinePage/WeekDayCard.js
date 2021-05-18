@@ -2,8 +2,8 @@ import "./WeekDayCard.css";
 import { HiSun } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import getProductById from "../../utility/getProductById.js";
 import { getProductsCheckedOnThisTimeOfDay } from "../../utility/getCheckedProducts";
+import TimeOfDayProducts from "./TimeOfDayProducts";
 
 export default function WeekDayCard({ name, data, products }) {
   const mornings = getProductsCheckedOnThisTimeOfDay(name, data, "morning");
@@ -18,26 +18,18 @@ export default function WeekDayCard({ name, data, products }) {
           <FaMoon />
         </div>
         <section className="morning">
-          <ul className="product-name-list">
-            {mornings.map((morning) => {
-              return (
-                <li className="product-name-left">
-                  {getProductById(morning.id, products).name}
-                </li>
-              );
-            })}
-          </ul>
+          <TimeOfDayProducts
+            products={mornings}
+            productDB={products}
+            className="product-name-left"
+          />
         </section>
         <section className="evening">
-          <ul className="product-name-list">
-            {evenings.map((evening) => {
-              return (
-                <li className="product-name-right">
-                  {getProductById(evening.id, products).name}
-                </li>
-              );
-            })}
-          </ul>
+          <TimeOfDayProducts
+            products={evenings}
+            productDB={products}
+            className="product-name-right"
+          />
         </section>
         <div className="see-details-button-wrapper">
           <NavLink
