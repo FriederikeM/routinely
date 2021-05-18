@@ -1,3 +1,5 @@
+import "./AlertModal.css";
+
 export default function AlertModal({
   conflictName,
   clickedWeekdayName,
@@ -13,7 +15,7 @@ export default function AlertModal({
         Would you like to swap these two products?
       </p>
       <div className="alert-modal-finishing-button-wrapper">
-        <button className="add-anyway" onClick={onProductSwapClicked}>
+        <button className="swap-product" onClick={onProductSwapClicked}>
           swap
         </button>
         <button className="cancel-alert" onClick={onCancelAlertModal}>
