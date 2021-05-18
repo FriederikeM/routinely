@@ -19,3 +19,13 @@ export function editDataInLocalStorage(items) {
 
   localStorage.setItem("routine", JSON.stringify(newData));
 }
+
+export default function removeProductFromLocalStorage(bla) {
+  const data = getDataFromLocalStorage();
+
+  const newProducts = data.filter((newProduct) => {
+    return newProduct.id !== bla.id;
+  });
+
+  localStorage.setItem("routine", JSON.stringify(newProducts));
+}
