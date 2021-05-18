@@ -239,7 +239,7 @@ export default function FormModal({
             conflictName={conflictName}
             clickedWeekdayName={clickedWeekdayName}
             clickedTimeOfTheDay={clickedTimeOfTheDay}
-            onAddAnywayClicked={handleAddAnywayClicked}
+            onProductSwapClicked={handleProductSwap}
             onCancelAlertModal={() => setShowModal(false)}
           />
         )}
