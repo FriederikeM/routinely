@@ -27,6 +27,7 @@ export default function FormModal({
 }) {
   const [openingDate, setOpeningDate] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [conflictId, setConflictId] = useState();
   const [conflictName, setConflictName] = useState("");
   const [clickedWeekdayName, setClickedWeekdayName] = useState("");
   const [clickedTimeOfTheDay, setClickedTimeOfTheDay] = useState("");
@@ -111,6 +112,7 @@ export default function FormModal({
       "morning",
       conflicts
     );
+    setConflictId(intersection);
     const conflictName = findConflictProductName(intersection, products);
     setConflictName(conflictName);
     setClickedWeekdayName(name);
@@ -137,6 +139,7 @@ export default function FormModal({
       "evening",
       conflicts
     );
+    setConflictId(intersection);
     const conflictName = findConflictProductName(intersection, products);
     setConflictName(conflictName);
     setClickedWeekdayName(name);
