@@ -1,7 +1,7 @@
 import getIndexForWeekday from "./getIndexForWeekday";
 import getProductById from "./getProductById";
 
-export function findConflictingProductIds(
+export function findConflictingProductId(
   name,
   routineData,
   timeOfDay,
