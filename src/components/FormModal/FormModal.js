@@ -182,8 +182,29 @@ export default function FormModal({
     }
   }
 
-  function handleAddAnywayClicked() {
-    const newEveningChecked = getNewChecks(
+  function handleProductSwap(
+    conflictId,
+    clickedTimeOfTheDay,
+    clickedWeekdayName
+  ) {
+    let conflictingProduct = routineData.find(
+      (product) => product.id === conflictId[0]
+    );
+
+    const newConflictingTimeOfDayChecked = getNewChecks(
+      conflictingProduct,
+      clickedWeekdayName,
+      clickedTimeOfTheDay
+    );
+
+    conflictingProduct = {
+      id: conflictId[0],
+      days: newConflictingTimeOfDayChecked,
+      date: conflictingProduct.date,
+    };
+
+    editDataInLocalStorage(conflictingProduct);
+
       weekRoutine,
       clickedWeekdayName,
       clickedTimeOfTheDay
