@@ -15,7 +15,7 @@ export function findConflictingProductId(
         product.days[indexOfWeekday][timeOfDay] === true
     )
     .map((product) => product.id)
-    .filter((id) => conflicts.includes(id));
+    .find((id) => conflicts.includes(id));
   return conflictingProduct;
 }
 
