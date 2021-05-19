@@ -1,14 +1,14 @@
 import "./FormModal.css";
 import { useEffect, useState } from "react";
-import {
+import removeProductFromLocalStorage, {
   editDataInLocalStorage,
   getDataFromLocalStorage,
   sendDataToLocalStorage,
 } from "../../utility/localStorage";
 import {
-  findConflictingProductIds,
+  findConflictingProductId,
   findConflictProductName,
-} from "../../utility/findConflictingProducts";
+} from "../../utility/findConflictingProduct";
 import {
   isNothingSelected,
   isNoUnspecifiedSelected,
@@ -27,6 +27,7 @@ export default function FormModal({
 }) {
   const [openingDate, setOpeningDate] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [conflictId, setConflictId] = useState();
   const [conflictName, setConflictName] = useState("");
   const [clickedWeekdayName, setClickedWeekdayName] = useState("");
   const [clickedTimeOfTheDay, setClickedTimeOfTheDay] = useState("");
@@ -105,12 +106,13 @@ export default function FormModal({
   }
 
   function handleMorningClicked(name) {
-    const intersection = findConflictingProductIds(
+    const intersection = findConflictingProductId(
       name,
       routineData,
       "morning",
       conflicts
     );
+    setConflictId(intersection);
     const conflictName = findConflictProductName(intersection, products);
     setConflictName(conflictName);
     setClickedWeekdayName(name);
@@ -118,7 +120,7 @@ export default function FormModal({
 
     const alreadyChecked = isThisTimeChecked(routineData, name, "morning", id);
 
-    if (intersection.length > 0 && alreadyChecked === false) {
+    if (intersection && alreadyChecked === false) {
       setShowModal(true);
     } else {
       const newMorningChecked = getNewChecks(weekRoutine, name, "morning");
@@ -131,12 +133,13 @@ export default function FormModal({
   }
 
   function handleEveningClicked(name) {
-    const intersection = findConflictingProductIds(
+    const intersection = findConflictingProductId(
       name,
       routineData,
       "evening",
       conflicts
     );
+    setConflictId(intersection);
     const conflictName = findConflictProductName(intersection, products);
     setConflictName(conflictName);
     setClickedWeekdayName(name);
@@ -144,7 +147,7 @@ export default function FormModal({
 
     const alreadyChecked = isThisTimeChecked(routineData, name, "evening", id);
 
-    if (intersection.length > 0 && alreadyChecked === false) {
+    if (intersection && alreadyChecked === false) {
       setShowModal(true);
     } else {
       const newEveningChecked = getNewChecks(weekRoutine, name, "evening");
@@ -166,7 +169,10 @@ export default function FormModal({
       alert(
         "Please specify during which time of the day you want to use the product on the checked days"
       );
-    } else if (isNothingChecked === true) {
+    } else if (isNothingChecked === true && editMode === false) {
+      onCancelAdding();
+    } else if (isNothingChecked === true && editMode === true) {
+      removeProductFromLocalStorage(weekRoutine);
       onCancelAdding();
     } else {
       if (editMode === false) {
@@ -179,17 +185,33 @@ export default function FormModal({
     }
   }
 
-  function handleAddAnywayClicked() {
-    const newEveningChecked = getNewChecks(
+  function handleProductSwap() {
+    let conflictingProduct = routineData.find(
+      (product) => product.id === conflictId
+    );
+
+    const newConflictingTimeOfDayChecked = getNewChecks(
+      conflictingProduct,
+      clickedWeekdayName,
+      clickedTimeOfTheDay
+    );
+
+    conflictingProduct = {
+      id: conflictId,
+      days: newConflictingTimeOfDayChecked,
+      date: conflictingProduct.date,
+    };
+
+    editDataInLocalStorage(conflictingProduct);
+
+    const newTimeOfDayChecked = getNewChecks(
       weekRoutine,
       clickedWeekdayName,
       clickedTimeOfTheDay
     );
-    setWeekRoutine({
-      id: id,
-      days: newEveningChecked,
-      date: weekRoutine.date,
-    });
+
+    setWeekRoutine({ id: id, days: newTimeOfDayChecked, date: openingDate });
+
     setShowModal(false);
   }
 
@@ -212,10 +234,11 @@ export default function FormModal({
         />
         {showModal && (
           <AlertModal
+            conflictId={conflictId}
             conflictName={conflictName}
             clickedWeekdayName={clickedWeekdayName}
             clickedTimeOfTheDay={clickedTimeOfTheDay}
-            onAddAnywayClicked={handleAddAnywayClicked}
+            onProductSwapClicked={handleProductSwap}
             onCancelAlertModal={() => setShowModal(false)}
           />
         )}

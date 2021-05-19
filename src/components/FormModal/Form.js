@@ -1,3 +1,4 @@
+import "./Form.css";
 import Checkbox from "./Checkbox";
 
 export default function Form({

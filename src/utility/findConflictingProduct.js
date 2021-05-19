@@ -1,7 +1,7 @@
 import getIndexForWeekday from "./getIndexForWeekday";
 import getProductById from "./getProductById";
 
-export function findConflictingProductIds(
+export function findConflictingProductId(
   name,
   routineData,
   timeOfDay,
@@ -15,14 +15,13 @@ export function findConflictingProductIds(
         product.days[indexOfWeekday][timeOfDay] === true
     )
     .map((product) => product.id)
-    .filter((id) => conflicts.includes(id));
+    .find((id) => conflicts.includes(id));
   return conflictingProduct;
 }
 
 export function findConflictProductName(intersection, products) {
-  const conflictName = intersection.map((id) => {
-    const conflictProduct = getProductById(id, products);
+  if (intersection) {
+    const conflictProduct = getProductById(intersection, products);
     return conflictProduct.name;
-  });
-  return conflictName;
+  }
 }
