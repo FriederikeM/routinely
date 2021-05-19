@@ -187,7 +187,7 @@ export default function FormModal({
 
   function handleProductSwap() {
     let conflictingProduct = routineData.find(
-      (product) => product.id === conflictId[0]
+      (product) => product.id === conflictId
     );
 
     const newConflictingTimeOfDayChecked = getNewChecks(
@@ -197,7 +197,7 @@ export default function FormModal({
     );
 
     conflictingProduct = {
-      id: conflictId[0],
+      id: conflictId,
       days: newConflictingTimeOfDayChecked,
       date: conflictingProduct.date,
     };
