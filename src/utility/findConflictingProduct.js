@@ -20,9 +20,8 @@ export function findConflictingProductId(
 }
 
 export function findConflictProductName(intersection, products) {
-  const conflictName = intersection.map((id) => {
-    const conflictProduct = getProductById(id, products);
+  if (intersection) {
+    const conflictProduct = getProductById(intersection, products);
     return conflictProduct.name;
-  });
-  return conflictName;
+  }
 }
