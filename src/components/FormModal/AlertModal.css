@@ -9,15 +9,13 @@
   backdrop-filter: blur(10px);
   z-index: 100;
   text-align: center;
-  height: auto;
-  width: 80vw;
   border-radius: 15px;
   border: 1px solid var(--color-three-opaque);
   padding: 20px 10px 5px;
   position: fixed;
   top: 18vh;
-  left: 5vw;
-  filter: none important!;
+  left: 8vw;
+  right: 8vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -27,12 +25,12 @@
 
 @keyframes alert-pop-up {
   from {
-    position: absolute;
+    position: fixed;
     top: -150px;
     transform: scale(0);
   }
   to {
-    position: absolute;
+    position: fixed;
     top: 18vh;
     transform: scale(1);
   }
@@ -89,7 +87,7 @@
 
 @media only screen and (min-width: 500px) {
   .alert-modal {
-    width: 80%;
-    left: 11%;
+    right: 15%;
+    left: 15%;
   }
 }
