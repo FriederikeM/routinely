@@ -120,7 +120,7 @@ export default function FormModal({
 
     const alreadyChecked = isThisTimeChecked(routineData, name, "morning", id);
 
-    if (intersection.length > 0 && alreadyChecked === false) {
+    if (intersection && alreadyChecked === false) {
       setShowModal(true);
     } else {
       const newMorningChecked = getNewChecks(weekRoutine, name, "morning");
@@ -147,7 +147,7 @@ export default function FormModal({
 
     const alreadyChecked = isThisTimeChecked(routineData, name, "evening", id);
 
-    if (intersection.length > 0 && alreadyChecked === false) {
+    if (intersection && alreadyChecked === false) {
       setShowModal(true);
     } else {
       const newEveningChecked = getNewChecks(weekRoutine, name, "evening");
