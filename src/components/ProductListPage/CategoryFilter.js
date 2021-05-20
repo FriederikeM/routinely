@@ -1,4 +1,9 @@
 import "./CategoryFilter.css";
+import PropTypes from "prop-types";
+
+CategoryFilter.propTypes = {
+  onCategoryFilterChange: PropTypes.func,
+};
 
 export default function CategoryFilter({ onCategoryFilterChange }) {
   function handleCategoryFilterClick(event) {

@@ -1,5 +1,10 @@
 import "./NameFilter.css";
 import { FaSearch } from "react-icons/fa";
+import PropTypes from "prop-types";
+
+NameFilter.propTypes = {
+  onNameFilterChange: PropTypes.func,
+};
 
 export default function NameFilter({ onNameFilterChange }) {
   function handleNameFilterChange(event) {

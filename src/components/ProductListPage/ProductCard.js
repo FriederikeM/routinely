@@ -2,6 +2,16 @@ import "./ProductCard.css";
 import { getClassForListedPackaging } from "../../utility/getClassesForSizingAndPositioning";
 import { FaPlus } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
+
+ProductCard.propTypes = {
+  name: PropTypes.string,
+  image: PropTypes.string,
+  id: PropTypes.number,
+  packaging: PropTypes.string,
+  onAddToRoutine: PropTypes.func,
+};
+
 export default function ProductCard({
   name,
   image,
