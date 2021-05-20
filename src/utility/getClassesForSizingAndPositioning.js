@@ -10,6 +10,8 @@ export function getClassForAddedPackaging(packaging, name) {
     name === "100% L-Ascorbic Acid Powder"
   ) {
     classForPackaging = "added-powder-image";
+  } else {
+    classForPackaging = "";
   }
   return classForPackaging;
 }
@@ -20,6 +22,8 @@ export function getClassForListedPackaging(packaging) {
     classForPackaging = "smaller-image";
   } else if (packaging === "glass container") {
     classForPackaging = "powder";
+  } else {
+    classForPackaging = "";
   }
   return classForPackaging;
 }
@@ -32,8 +36,15 @@ export function getClassForWeekdayCheckboxAlignment(name) {
     classForWeekdayCheckboxAlignment = "saturday-right";
   } else if (name === "Sunday") {
     classForWeekdayCheckboxAlignment = "sunday-right";
-  } else {
+  } else if (
+    name === "Monday" ||
+    name === "Tuesday" ||
+    name === "Wendesday" ||
+    name === "Thursday"
+  ) {
     classForWeekdayCheckboxAlignment = "left";
+  } else {
+    classForWeekdayCheckboxAlignment = "";
   }
 
   return classForWeekdayCheckboxAlignment;
