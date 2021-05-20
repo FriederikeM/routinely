@@ -104,12 +104,13 @@ export default function FormModal({
   }
 
   function handleMorningClicked(name) {
-    const intersection = findConflictingProductId(
+    const conflictingId = findConflictingProductId(
       name,
       routineData,
       "morning",
       conflicts
     );
+    setConflictId(conflictingId);
     const conflictName = getProductById(conflictingId, products).name;
     setConflictName(conflictName);
     setClickedWeekdayName(name);
@@ -117,7 +118,7 @@ export default function FormModal({
 
     const alreadyChecked = isThisTimeChecked(routineData, name, "morning", id);
 
-    if (intersection && alreadyChecked === false) {
+    if (conflictingId && alreadyChecked === false) {
       setShowModal(true);
     } else {
       const newMorningChecked = getNewChecks(weekRoutine, name, "morning");
@@ -130,12 +131,13 @@ export default function FormModal({
   }
 
   function handleEveningClicked(name) {
-    const intersection = findConflictingProductId(
+    const conflictingId = findConflictingProductId(
       name,
       routineData,
       "evening",
       conflicts
     );
+    setConflictId(conflictingId);
     const conflictName = getProductById(conflictingId, products).name;
     setConflictName(conflictName);
     setClickedWeekdayName(name);
@@ -143,7 +145,7 @@ export default function FormModal({
 
     const alreadyChecked = isThisTimeChecked(routineData, name, "evening", id);
 
-    if (intersection && alreadyChecked === false) {
+    if (conflictingId && alreadyChecked === false) {
       setShowModal(true);
     } else {
       const newEveningChecked = getNewChecks(weekRoutine, name, "evening");
