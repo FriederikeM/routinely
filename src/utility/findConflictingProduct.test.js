@@ -62,7 +62,7 @@ test("gives back undefined if the array of conflicts doesn't include an id of th
   const conflicts = [3, 4];
   const userCheckedDay = "Monday";
   const userCheckedTimeOfDay = "morning";
-  // WHEN I call findConflictingProductId with all these element
+  // WHEN I call findConflictingProductId with all these arguments
   const result = findConflictingProductId(
     userCheckedDay,
     productsArray,
