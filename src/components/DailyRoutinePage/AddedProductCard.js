@@ -1,6 +1,16 @@
 import "./AddedProductCard.css";
 import { TiShoppingCart } from "react-icons/ti";
 import { getClassForAddedPackaging } from "../../utility/getClassesForSizingAndPositioning";
+import PropTypes from "prop-types";
+
+AddedProductCard.propTypes = {
+  packging: PropTypes.string,
+  name: PropTypes.string,
+  date: PropTypes.string,
+  expirationPeriod: PropTypes.string,
+  url: PropTypes.string,
+  onEditRoutine: PropTypes.func,
+};
 
 export default function AddedProductCard({
   packaging,
