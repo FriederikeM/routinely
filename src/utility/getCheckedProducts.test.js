@@ -5,7 +5,7 @@ import {
 
 // Checked on day
 
-test("gives back an array of products all checked on the same day", () => {
+test("gives back an array of products, which are checked on the same day", () => {
   // GIVEN the name of a weekday and an array of products from LS
   const weekdayName = "Monday";
   const productsArray = [
