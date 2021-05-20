@@ -6,7 +6,7 @@ import {
 
 // Added products
 
-test("gives back the name of the class an image should have depending on which packaging it has", () => {
+test("gives back the name of a class", () => {
   // GIVEN a string representing the type of packaging and a string representing the name of a product
   const packaging = "not glass bottle";
   const productName = "AHA + BHA";
@@ -18,7 +18,7 @@ test("gives back the name of the class an image should have depending on which p
   expect(result).toBe(expected);
 });
 
-test("gives back an empty string if the packging isn't not glass bottle and the name isn't 100% Niacinamide Powder or 100% L-Ascorbic Acid Powder", () => {
+test("gives back an empty string if the packging isn't 'not glass bottle' and the name isn't '100% Niacinamide Powder' or '100% L-Ascorbic Acid Powder'", () => {
   // GIVEN a string representing the type of packaging and a string representing the name of a product
   const packaging = "glass bottle";
   const productName = "AHA + BHA";
