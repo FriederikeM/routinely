@@ -5,10 +5,7 @@ import removeProductFromLocalStorage, {
   getDataFromLocalStorage,
   sendDataToLocalStorage,
 } from "../../utility/localStorage";
-import {
-  findConflictingProductId,
-  findConflictProductName,
-} from "../../utility/findConflictingProduct";
+import { findConflictingProductId } from "../../utility/findConflictingProduct";
 import {
   isNothingSelected,
   isNoUnspecifiedSelected,
@@ -17,6 +14,7 @@ import getNewChecks from "../../utility/getNewChecks";
 import isThisTimeChecked from "../../utility/isThisTimeChecked";
 import Form from "./Form";
 import AlertModal from "./AlertModal";
+import getProductById from "../../utility/getProductById";
 
 export default function FormModal({
   onCancelAdding,
@@ -112,8 +110,7 @@ export default function FormModal({
       "morning",
       conflicts
     );
-    setConflictId(intersection);
-    const conflictName = findConflictProductName(intersection, products);
+    const conflictName = getProductById(conflictingId, products).name;
     setConflictName(conflictName);
     setClickedWeekdayName(name);
     setClickedTimeOfTheDay("morning");
@@ -139,8 +136,7 @@ export default function FormModal({
       "evening",
       conflicts
     );
-    setConflictId(intersection);
-    const conflictName = findConflictProductName(intersection, products);
+    const conflictName = getProductById(conflictingId, products).name;
     setConflictName(conflictName);
     setClickedWeekdayName(name);
     setClickedTimeOfTheDay("evening");
