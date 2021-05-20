@@ -1,5 +1,4 @@
 import { getProductsFilteredByNameandCategory } from "./getFilteredProducts";
-//import products from "./products-mock.json";
 
 test("gives back array of products filtered by category", () => {
   // GIVEN i have an array of products
