@@ -45,11 +45,13 @@ test("gives back an integer that represents the id of a conflicting product when
   ];
 
   const conflicts = [1, 3, 4];
+  const userCheckedDay = "Monday";
+  const userCheckedTimeOfDay = "morning";
   // WHEN I call findConflictingProductId with all these elements
   const result = findConflictingProductId(
-    "Monday",
+    userCheckedDay,
     productsArray,
-    "morning",
+    userCheckedTimeOfDay,
     conflicts
   );
   // THEN I should receive an integer representing the id of the product that has already been checked that day
@@ -98,11 +100,13 @@ test("gives back undefined if the array of conflicts doesn't include an id of th
   ];
 
   const conflicts = [3, 4];
+  const userCheckedDay = "Monday";
+  const userCheckedTimeOfDay = "morning";
   // WHEN I call findConflictingProductId with all these element
   const result = findConflictingProductId(
-    "Monday",
+    userCheckedDay,
     productsArray,
-    "morning",
+    userCheckedTimeOfDay,
     conflicts
   );
   // THEN I should receive undefined
