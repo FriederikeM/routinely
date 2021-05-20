@@ -1,5 +1,4 @@
 import getIndexForWeekday from "./getIndexForWeekday";
-import getProductById from "./getProductById";
 
 export function findConflictingProductId(
   weekdayName,
@@ -17,11 +16,4 @@ export function findConflictingProductId(
     .map((product) => product.id)
     .find((id) => conflicts.includes(id));
   return conflictingProduct;
-}
-
-export function findConflictProductName(conflictId, products) {
-  if (conflictId) {
-    const conflictProduct = getProductById(conflictId, products);
-    return conflictProduct.name;
-  }
 }
