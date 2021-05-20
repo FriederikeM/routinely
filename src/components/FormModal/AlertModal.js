@@ -1,4 +1,13 @@
 import "./AlertModal.css";
+import PropTypes from "prop-types";
+
+AlertModal.propTypes = {
+  conflictName: PropTypes.string,
+  clickedWeekdayName: PropTypes.string,
+  clickedTimeOfTheDay: PropTypes.string,
+  onProductSwapClicked: PropTypes.func,
+  onCancelAlertModal: PropTypes.func,
+};
 
 export default function AlertModal({
   conflictName,

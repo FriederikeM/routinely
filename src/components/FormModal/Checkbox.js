@@ -1,6 +1,17 @@
 import "./Checkbox.css";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { getClassForWeekdayCheckboxAlignment } from "../../utility/getClassesForSizingAndPositioning";
+import PropTypes from "prop-types";
+
+Checkbox.propTypes = {
+  name: PropTypes.string,
+  isChecked: PropTypes.bool,
+  onDayClicked: PropTypes.func,
+  onMorningClicked: PropTypes.func,
+  onEveningClicked: PropTypes.func,
+  morning: PropTypes.bool,
+  evening: PropTypes.bool,
+};
 
 export default function Checkbox({
   name,

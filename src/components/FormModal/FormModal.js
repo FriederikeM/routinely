@@ -15,6 +15,15 @@ import isThisTimeChecked from "../../utility/isThisTimeChecked";
 import Form from "./Form";
 import AlertModal from "./AlertModal";
 import getProductById from "../../utility/getProductById";
+import PropTypes from "prop-types";
+
+FormModal.propTypes = {
+  onCancelAdding: PropTypes.func,
+  id: PropTypes.number,
+  name: PropTypes.string,
+  conflicts: PropTypes.array,
+  products: PropTypes.array,
+};
 
 export default function FormModal({
   onCancelAdding,

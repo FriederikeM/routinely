@@ -1,5 +1,19 @@
 import "./Form.css";
 import Checkbox from "./Checkbox";
+import PropTypes from "prop-types";
+
+Form.propTypes = {
+  classForAlertShown: PropTypes.string,
+  onModalFormSubmit: PropTypes.func,
+  name: PropTypes.string,
+  weekRoutine: PropTypes.object,
+  onDayClicked: PropTypes.func,
+  onMorningClicked: PropTypes.func,
+  onEveningClicked: PropTypes.func,
+  onChangeDate: PropTypes.func,
+  onCancelAdding: PropTypes.func,
+  editMode: PropTypes.bool,
+};
 
 export default function Form({
   classForAlertShown,
