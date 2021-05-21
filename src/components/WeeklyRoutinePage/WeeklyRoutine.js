@@ -12,7 +12,7 @@ export default function WeeklyRoutine() {
   const products = useProducts();
 
   /**
-   * arrays of products (objcts) that are used on the day indicated by the array name and the first function agrument
+   * arrays of products (objects) that are used on the day indicated by the array name and the first function agrument
    * @type {array<object>}
    */
 
