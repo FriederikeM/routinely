@@ -21,6 +21,11 @@ export default function AddedProductCard({
   url,
   onEditRoutine,
 }) {
+  /**
+   * class that will be added to image depending on what type of packaging and name the product has
+   * @type {string}
+   */
+
   const classForPackaging = getClassForAddedPackaging(packaging, name);
 
   return (
