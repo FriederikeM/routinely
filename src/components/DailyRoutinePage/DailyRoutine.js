@@ -99,7 +99,7 @@ export default function DailyRoutine() {
        * @property {string} name - product name
        * @property {string} expirationPeriod - time the product lasts once opened
        * @property {string} packaging - type of container the product comes in
-       * @property {string} image - product image
+       * @property {string} image - product image link
        * @property {string} url - url that leads to the official product page where you can buy it
        * @property {array<number>} conflicts - array of ids (numbers) of products that have conflicting ingredients with the products that is being edited
        */
@@ -140,7 +140,7 @@ export default function DailyRoutine() {
        * @property {string} name - product name
        * @property {string} expirationPeriod - time the product lasts once opened
        * @property {string} packaging - type of container the product comes in
-       * @property {string} image - product image
+       * @property {string} image - product image link
        * @property {string} url - url that leads to the official product page where you can buy it
        * @property {array<number>} conflicts - array of ids (numbers) of products that have conflicting ingredients with the products that is being edited
        */

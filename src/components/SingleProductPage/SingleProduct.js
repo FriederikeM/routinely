@@ -14,8 +14,23 @@ export default function SingleProduct() {
     return <p>loading</p>;
   }
 
+  /**
+   * @type {object}
+   * @property {string} name - product name
+   * @property {string} image - product image link
+   * @property {array<string>} ingredients - product ingredients
+   * @property {string} time - info at what time of day this product should preferably be used
+   * @property {array<string>} goals - description of which skin conditions this products helps with
+   * @property {boolean} refrigeration - info about whether or not this product should be kept in the refrigerator
+   */
+
   const productInfo = getProductById(Number(singleProductId), products);
   const { name, image, ingredients, time, refrigeration, goals } = productInfo;
+
+  /**
+   * name of class depending on whether or not it is a specific product for better layout styling
+   * @type {string}
+   */
 
   const classForTonerImage = Number(singleProductId) === 2 ? "toner-image" : "";
 
