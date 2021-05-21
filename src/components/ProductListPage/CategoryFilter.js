@@ -2,7 +2,7 @@ import "./CategoryFilter.css";
 import PropTypes from "prop-types";
 
 CategoryFilter.propTypes = {
-  onCategoryFilterChange: PropTypes.func,
+  onCategoryFilterChange: PropTypes.func.isRequired,
 };
 
 export default function CategoryFilter({ onCategoryFilterChange }) {

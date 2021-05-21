@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import PropTypes from "prop-types";
 
 NameFilter.propTypes = {
-  onNameFilterChange: PropTypes.func,
+  onNameFilterChange: PropTypes.func.isRequired,
 };
 
 export default function NameFilter({ onNameFilterChange }) {
