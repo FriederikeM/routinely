@@ -107,21 +107,19 @@ export default function DailyRoutine() {
        */
 
       const productInfo = getProductById(morningProduct.id, products);
+      const { name, expirationPeriod, packaging, image, url, conflicts } =
+        productInfo;
       return (
         <li className="added-product-list-item" key={morningProduct.id}>
           <AddedProductCard
-            name={productInfo.name}
+            name={name}
             date={morningProduct.date}
-            expirationPeriod={productInfo.expirationPeriod}
-            packaging={productInfo.packaging}
-            imgSource={productInfo.image}
-            url={productInfo.url}
+            expirationPeriod={expirationPeriod}
+            packaging={packaging}
+            imgSource={image}
+            url={url}
             onEditRoutine={() =>
-              handleEditRoutine(
-                morningProduct.id,
-                productInfo.name,
-                productInfo.conflicts
-              )
+              handleEditRoutine(morningProduct.id, name, conflicts)
             }
           />
         </li>

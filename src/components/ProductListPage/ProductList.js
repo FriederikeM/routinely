@@ -63,9 +63,15 @@ export default function ProductList() {
 
   /**
    * @type {function}
-   * @returns ProductCard with all relevant information
+   * returns a product card that holds all needed information about the product,
+   * given by a database and filtered by name and category
+   * maps over the filtered array to display all products the user wants to see
    */
   function renderProducts() {
+    /**
+     * list of products pulled from database filtered by name and category
+     * @type {array<object>}
+     */
     const productsFilteredByNameandCategory =
       getProductsFilteredByNameandCategory(
         products,
@@ -73,6 +79,16 @@ export default function ProductList() {
         nameFilter
       );
     return productsFilteredByNameandCategory.map((product) => {
+      /**
+       * @type {object}
+       * @property {number} id - product id
+       * @property {string} name - product name
+       * @property {string} image - product image link
+       * @property {string} url - url that leads to the official product page where you can buy it
+       * @property {string} packaging - type of container the product comes in
+       * @property {array<number>} conflicts - array of ids (numbers) of products that have conflicting ingredients with the products that is being edited
+       */
+
       const { id, name, image, url, packaging, conflicts } = product;
       return (
         <li key={id}>
@@ -89,6 +105,10 @@ export default function ProductList() {
     });
   }
 
+  /**
+   * name for class the blurs the background if the modal is shown
+   * @type {string}
+   */
   const modalShown = showModal ? "not-modal" : "";
 
   return (
