@@ -5,10 +5,10 @@ import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
 ProductCard.propTypes = {
-  name: PropTypes.isRequired,
-  image: PropTypes.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  packaging: PropTypes.isRequired,
+  packaging: PropTypes.string.isRequired,
   onAddToRoutine: PropTypes.func.isRequired,
 };
 
