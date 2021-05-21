@@ -120,8 +120,11 @@ export default function FormModal({
       conflicts
     );
     setConflictId(conflictingId);
-    const conflictName = getProductById(conflictingId, products).name;
-    setConflictName(conflictName);
+
+    if (conflictId) {
+      const conflictName = getProductById(conflictingId, products).name;
+      setConflictName(conflictName);
+    }
     setClickedWeekdayName(name);
     setClickedTimeOfTheDay("morning");
 
@@ -147,8 +150,11 @@ export default function FormModal({
       conflicts
     );
     setConflictId(conflictingId);
-    const conflictName = getProductById(conflictingId, products).name;
-    setConflictName(conflictName);
+
+    if (conflictId) {
+      const conflictName = getProductById(conflictingId, products).name;
+      setConflictName(conflictName);
+    }
     setClickedWeekdayName(name);
     setClickedTimeOfTheDay("evening");
 
