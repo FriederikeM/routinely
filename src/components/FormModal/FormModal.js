@@ -5,7 +5,10 @@ import removeProductFromLocalStorage, {
   getDataFromLocalStorage,
   sendDataToLocalStorage,
 } from "../../utility/localStorage";
-import { findConflictingProductId } from "../../utility/findConflictingProduct";
+import {
+  findConflictingProductId,
+  findConflictProductName,
+} from "../../utility/findConflictingProduct";
 import {
   isNothingSelected,
   isNoUnspecifiedSelected,
@@ -168,7 +171,7 @@ export default function FormModal({
      */
     console.log(conflictId);
 
-    const conflictName = getProductById(conflictingId, products).name;
+    const conflictName = findConflictProductName(conflictingId, products);
     setConflictName(conflictName);
     console.log(conflictName);
 
@@ -219,7 +222,7 @@ export default function FormModal({
     setConflictId(conflictingId);
     console.log(conflictId);
 
-    const conflictName = getProductById(conflictingId, products).name;
+    const conflictName = findConflictProductName(conflictingId, products);
     setConflictName(conflictName);
     console.log(conflictName);
 
