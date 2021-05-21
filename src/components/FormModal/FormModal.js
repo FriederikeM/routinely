@@ -166,11 +166,12 @@ export default function FormModal({
      * the name of the product that has conflict with the product that is currently displayed
      * @type {string}
      */
+    console.log(conflictId);
 
-    if (conflictId) {
-      const conflictName = getProductById(conflictingId, products).name;
-      setConflictName(conflictName);
-    }
+    const conflictName = getProductById(conflictingId, products).name;
+    setConflictName(conflictName);
+    console.log(conflictName);
+
     setClickedWeekdayName(name);
     setClickedTimeOfTheDay("morning");
 
@@ -216,11 +217,12 @@ export default function FormModal({
       conflicts
     );
     setConflictId(conflictingId);
+    console.log(conflictId);
 
-    if (conflictId) {
-      const conflictName = getProductById(conflictingId, products).name;
-      setConflictName(conflictName);
-    }
+    const conflictName = getProductById(conflictingId, products).name;
+    setConflictName(conflictName);
+    console.log(conflictName);
+
     setClickedWeekdayName(name);
     setClickedTimeOfTheDay("evening");
 

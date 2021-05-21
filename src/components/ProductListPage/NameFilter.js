@@ -7,6 +7,12 @@ NameFilter.propTypes = {
 };
 
 export default function NameFilter({ onNameFilterChange }) {
+  /**
+   * function gets value of the text input and calls function in ProductList with value as argument
+   * @type {function}
+   * @param {change} event
+   */
+
   function handleNameFilterChange(event) {
     event.preventDefault();
     const nameFilterValue = event.target.value;

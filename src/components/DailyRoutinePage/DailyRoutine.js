@@ -87,8 +87,10 @@ export default function DailyRoutine() {
 
   /**
    * @type {function}
-   * returns a product card that holds all needed information about the product, some given by a database (productInfo) and some given by the user (productsMorning)
-   * maps over the productsMorning array to display all products that are used during the morning of the day specified by useParams
+   * returns a product card that holds all needed information about the product,
+   * some given by a database (productInfo) and some given by the user (productsMorning)
+   * maps over the productsMorning array to display all products that are used during
+   * the morning of the day specified by useParams
    */
 
   function renderMorningAddedProductCard() {

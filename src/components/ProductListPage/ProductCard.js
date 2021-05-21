@@ -19,6 +19,10 @@ export default function ProductCard({
   packaging,
   onAddToRoutine,
 }) {
+  /**
+   * name for class depending on packaging, so the image can be manipulated for best layout design
+   * @type {string}
+   */
   const classForPackaging = getClassForListedPackaging(packaging);
 
   return (
