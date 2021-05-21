@@ -90,14 +90,33 @@ export default function FormModal({
   });
 
   useEffect(() => {
+    /**
+     * an array of products (objects) that the user has added to their weekly routine and that gets retrieved from Local Storage
+     * @type {array<object>}
+     */
     const routineData = getDataFromLocalStorage();
+
+    /**
+     * an object that contains the info of the product that was clicked, if it had already been added to the weekly routine
+     * @type {object}
+     * @property {number} id - product id
+     * @property {array<object>} days - array of days (object) with properties: name, isChecked, morning, evening
+     * @property {string} date - date when the user opened the product or empty string if info wasn't given
+     */
     const sameProduct = routineData.find((product) => {
       return product.id === id;
     });
+
     sameProduct && setWeekRoutine(sameProduct);
     sameProduct && setEditMode(true);
     setRoutineData(routineData);
   }, [id]);
+
+  /**
+   * function that updates state for openingDate and weekRoutine when the user changes the date input
+   * @type {function}
+   * @param {change} event
+   */
 
   function handleChangeDate(event) {
     const date = event.target.value;
@@ -107,12 +126,31 @@ export default function FormModal({
     setOpeningDate(date);
   }
 
+  /**
+   * function that updates the weekRoutine state when a user checks the day that is indicated as a parameter and toggles the checkbox being checked or not
+   * @type {function}
+   * @param {string} name
+   */
+
   function handleDayClicked(name) {
     const newCheckedDays = getNewChecks(weekRoutine, name, "isChecked");
     setWeekRoutine({ id: id, days: newCheckedDays, date: weekRoutine.date });
   }
 
+  /**
+   * function that handles when the morning of the day (indicated by name) is clicked
+   * it finds out if a conflicting product has already been checked on that day in the
+   * morning and then updates the conflictId and conflictName state accordingly
+   * as well as the state of the day and timeOfDay to when the product was clicked (e.g. monday morning)
+   * @type {function}
+   * @param {string} name
+   */
+
   function handleMorningClicked(name) {
+    /**
+     * an integer representing the id of a product that is already used that day and at that time of day and that should not be used simultaneously with the currently displayed product
+     * @type {number}
+     */
     const conflictingId = findConflictingProductId(
       name,
       routineData,
@@ -120,13 +158,32 @@ export default function FormModal({
       conflicts
     );
     setConflictId(conflictingId);
-    const conflictName = getProductById(conflictingId, products).name;
-    setConflictName(conflictName);
+
+    /**
+     * the name of the product that has conflict with the product that is currently displayed
+     * @type {string}
+     */
+    if (conflictId) {
+      const conflictName = getProductById(conflictingId, products).name;
+      setConflictName(conflictName);
+    }
     setClickedWeekdayName(name);
     setClickedTimeOfTheDay("morning");
 
+    /**
+     * variable that says whether or not the checkbox that I am clicking is checked or unchecked
+     * @type {boolean}
+     */
     const alreadyChecked = isThisTimeChecked(routineData, name, "morning", id);
 
+    /**
+     * if there is a conflicting product (represented by conflictingId)
+     * AND if the checkbox I am clicking was previously unchecked (alreadyChecked is false)
+     * the alert modal will pop up
+     * if there is no conflicting product OR if there is one but I am
+     * unchecking the checkbox (alreadyChecked is true) the modal will not show up
+     * instead the changes will be stored in the weekRoutine useState
+     */
     if (conflictingId && alreadyChecked === false) {
       setShowModal(true);
     } else {
@@ -138,6 +195,12 @@ export default function FormModal({
       });
     }
   }
+
+  /**
+   * function does the same as the function above, but for when the evening is clicked
+   * @type {function}
+   * @param {string} name
+   */
 
   function handleEveningClicked(name) {
     const conflictingId = findConflictingProductId(
