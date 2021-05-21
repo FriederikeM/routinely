@@ -94,6 +94,7 @@ export default function FormModal({
      * an array of products (objects) that the user has added to their weekly routine and that gets retrieved from Local Storage
      * @type {array<object>}
      */
+
     const routineData = getDataFromLocalStorage();
 
     /**
@@ -103,6 +104,7 @@ export default function FormModal({
      * @property {array<object>} days - array of days (object) with properties: name, isChecked, morning, evening
      * @property {string} date - date when the user opened the product or empty string if info wasn't given
      */
+
     const sameProduct = routineData.find((product) => {
       return product.id === id;
     });
@@ -151,6 +153,7 @@ export default function FormModal({
      * an integer representing the id of a product that is already used that day and at that time of day and that should not be used simultaneously with the currently displayed product
      * @type {number}
      */
+
     const conflictingId = findConflictingProductId(
       name,
       routineData,
@@ -163,6 +166,7 @@ export default function FormModal({
      * the name of the product that has conflict with the product that is currently displayed
      * @type {string}
      */
+
     if (conflictId) {
       const conflictName = getProductById(conflictingId, products).name;
       setConflictName(conflictName);
@@ -174,6 +178,7 @@ export default function FormModal({
      * variable that says whether or not the checkbox that I am clicking is checked or unchecked
      * @type {boolean}
      */
+
     const alreadyChecked = isThisTimeChecked(routineData, name, "morning", id);
 
     /**
@@ -184,6 +189,7 @@ export default function FormModal({
      * unchecking the checkbox (alreadyChecked is true) the modal will not show up
      * instead the changes will be stored in the weekRoutine useState
      */
+
     if (conflictingId && alreadyChecked === false) {
       setShowModal(true);
     } else {
@@ -210,8 +216,11 @@ export default function FormModal({
       conflicts
     );
     setConflictId(conflictingId);
-    const conflictName = getProductById(conflictingId, products).name;
-    setConflictName(conflictName);
+
+    if (conflictId) {
+      const conflictName = getProductById(conflictingId, products).name;
+      setConflictName(conflictName);
+    }
     setClickedWeekdayName(name);
     setClickedTimeOfTheDay("evening");
 
@@ -229,11 +238,41 @@ export default function FormModal({
     }
   }
 
+  /**
+   * function sends weekRoutine to Local Storage
+   * IF days have been checked AND time of the day hase been checked
+   * if nothing has been checked, the modal just closes when the user submits
+   * if only the day is checked and not the time of day, the user gets alerted
+   * @type {function}
+   * @param {submit} event
+   */
+
   function handleModalFormSubmit(event) {
     event.preventDefault();
 
+    /**
+     * variable that is true if the user hasn't checked ANY checkboxes
+     * @type {boolean}
+     */
+
     const isNothingChecked = isNothingSelected(weekRoutine);
+
+    /**
+     * variable that is false if the user has checked a day, but has not specified the time of day
+     * @type {boolean}
+     */
+
     const isNoUnspecifiedChecks = isNoUnspecifiedSelected(weekRoutine);
+
+    /**
+     * if the user checks a day, but not the time of day, they get alerted
+     * if all days are unchecked and the user hasn't already added this product to their routine (editMode is false)
+     * submitting will only make the modal disappear and nothing gets sent to Local Storage
+     * if the user has already added this product to their routine before (editMode is true)
+     * and now unchecks everything (isNothingChecked is true) the product gets removed from localStorage
+     * if the user checks boxes for a new product and submits, it gets sent to LocalStorage
+     * if the user checks boxes for a previously added product, the object in LocalStorage gets updated
+     */
 
     if (isNoUnspecifiedChecks === false) {
       alert(
@@ -255,17 +294,40 @@ export default function FormModal({
     }
   }
 
+  /**
+   * function removes (previously added) conflicting product from
+   * the day and time of day and adds the current product instead
+   * the modal then disappears
+   * @type {function}
+   */
+
   function handleProductSwap() {
+    /**
+     * product object with the info of when it is being used (days and times of day)
+     * @type {object}
+     */
+
     let conflictingProduct = routineData.find(
       (product) => product.id === conflictId
     );
+
+    /**
+     * a list of days that indicate on which day and time of day the conflicting product was or wasn't checked
+     * @type {array<object>}
+     */
 
     const newConflictingTimeOfDayChecked = getNewChecks(
       conflictingProduct,
       clickedWeekdayName,
       clickedTimeOfTheDay
     );
-
+    /**
+     * Update variable with clicked day and time of day no longer checked in order to remove the conflicting product
+     * @type {object}
+     * @property {number} id - id of the conflicting product
+     * @property {array<object>} days - array of days (objects) with info about checked and not checked
+     * @property {string} date - date the product was opened or empty string
+     */
     conflictingProduct = {
       id: conflictId,
       days: newConflictingTimeOfDayChecked,
@@ -273,6 +335,11 @@ export default function FormModal({
     };
 
     editDataInLocalStorage(conflictingProduct);
+
+    /**
+     * a list of days that indicate on which day and time of day the currently clicked product was or wasn't checked
+     * @type {array<object>}
+     */
 
     const newTimeOfDayChecked = getNewChecks(
       weekRoutine,
@@ -284,6 +351,11 @@ export default function FormModal({
 
     setShowModal(false);
   }
+
+  /**
+   * name for class that blurs background when the AlertModal is shown
+   * @type {string}
+   */
 
   const classForAlertShown = showModal ? "background-blur" : "";
 
