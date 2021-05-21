@@ -2,11 +2,11 @@ import "./AlertModal.css";
 import PropTypes from "prop-types";
 
 AlertModal.propTypes = {
-  conflictName: PropTypes.string,
-  clickedWeekdayName: PropTypes.string,
-  clickedTimeOfTheDay: PropTypes.string,
-  onProductSwapClicked: PropTypes.func,
-  onCancelAlertModal: PropTypes.func,
+  conflictName: PropTypes.string.isRequired,
+  clickedWeekdayName: PropTypes.string.isRequired,
+  clickedTimeOfTheDay: PropTypes.string.isRequired,
+  onProductSwapClicked: PropTypes.func.isRequired,
+  onCancelAlertModal: PropTypes.func.isRequired,
 };
 
 export default function AlertModal({

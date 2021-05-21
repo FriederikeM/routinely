@@ -18,11 +18,11 @@ import getProductById from "../../utility/getProductById";
 import PropTypes from "prop-types";
 
 FormModal.propTypes = {
-  onCancelAdding: PropTypes.func,
-  id: PropTypes.number,
-  name: PropTypes.string,
-  conflicts: PropTypes.array,
-  products: PropTypes.array,
+  onCancelAdding: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  conflicts: PropTypes.array.isRequired,
+  products: PropTypes.array.isRequired,
 };
 
 export default function FormModal({

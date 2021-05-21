@@ -3,16 +3,16 @@ import Checkbox from "./Checkbox";
 import PropTypes from "prop-types";
 
 Form.propTypes = {
-  classForAlertShown: PropTypes.string,
-  onModalFormSubmit: PropTypes.func,
-  name: PropTypes.string,
-  weekRoutine: PropTypes.object,
-  onDayClicked: PropTypes.func,
-  onMorningClicked: PropTypes.func,
-  onEveningClicked: PropTypes.func,
-  onChangeDate: PropTypes.func,
-  onCancelAdding: PropTypes.func,
-  editMode: PropTypes.bool,
+  classForAlertShown: PropTypes.string.isRequired,
+  onModalFormSubmit: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  weekRoutine: PropTypes.object.isRequired,
+  onDayClicked: PropTypes.func.isRequired,
+  onMorningClicked: PropTypes.func.isRequired,
+  onEveningClicked: PropTypes.func.isRequired,
+  onChangeDate: PropTypes.func.isRequired,
+  onCancelAdding: PropTypes.func.isRequired,
+  editMode: PropTypes.bool.isRequired,
 };
 
 export default function Form({

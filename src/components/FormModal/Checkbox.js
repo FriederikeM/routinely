@@ -4,13 +4,13 @@ import { getClassForWeekdayCheckboxAlignment } from "../../utility/getClassesFor
 import PropTypes from "prop-types";
 
 Checkbox.propTypes = {
-  name: PropTypes.string,
-  isChecked: PropTypes.bool,
-  onDayClicked: PropTypes.func,
-  onMorningClicked: PropTypes.func,
-  onEveningClicked: PropTypes.func,
-  morning: PropTypes.bool,
-  evening: PropTypes.bool,
+  name: PropTypes.string.isRequired,
+  isChecked: PropTypes.bool.isRequired,
+  onDayClicked: PropTypes.func.isRequired,
+  onMorningClicked: PropTypes.func.isRequired,
+  onEveningClicked: PropTypes.func.isRequired,
+  morning: PropTypes.bool.isRequired,
+  evening: PropTypes.bool.isRequired,
 };
 
 export default function Checkbox({
