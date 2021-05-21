@@ -4,6 +4,13 @@ import { FaMoon } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { getProductsCheckedOnThisTimeOfDay } from "../../utility/getCheckedProducts";
 import TimeOfDayProducts from "./TimeOfDayProducts";
+import PropTypes from "prop-types";
+
+WeekDayCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  data: PropTypes.array.isRequired,
+  products: PropTypes.array.isRequired,
+};
 
 export default function WeekDayCard({ name, data, products }) {
   const mornings = getProductsCheckedOnThisTimeOfDay(name, data, "morning");

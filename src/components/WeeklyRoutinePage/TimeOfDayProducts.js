@@ -1,5 +1,12 @@
 import "./TimeOfDayProducts.css";
 import getProductById from "../../utility/getProductById";
+import PropTypes from "prop-types";
+
+TimeOfDayProducts.propTypes = {
+  products: PropTypes.array.isRequired,
+  productDB: PropTypes.array.isRequired,
+  className: PropTypes.string.isRequired,
+};
 
 export default function TimeOfDayProducts({ products, productDB, className }) {
   return (
