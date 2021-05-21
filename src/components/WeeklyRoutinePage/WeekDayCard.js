@@ -7,9 +7,9 @@ import TimeOfDayProducts from "./TimeOfDayProducts";
 import PropTypes from "prop-types";
 
 WeekDayCard.propTypes = {
-  name: PropTypes.string,
-  data: PropTypes.array,
-  products: PropTypes.array,
+  name: PropTypes.string.isRequired,
+  data: PropTypes.array.isRequired,
+  products: PropTypes.array.isRequired,
 };
 
 export default function WeekDayCard({ name, data, products }) {

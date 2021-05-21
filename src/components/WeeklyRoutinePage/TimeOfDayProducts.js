@@ -3,9 +3,9 @@ import getProductById from "../../utility/getProductById";
 import PropTypes from "prop-types";
 
 TimeOfDayProducts.propTypes = {
-  products: PropTypes.array,
-  productDB: PropTypes.array,
-  className: PropTypes.string,
+  products: PropTypes.array.isRequired,
+  productDB: PropTypes.array.isRequired,
+  className: PropTypes.string.isRequired,
 };
 
 export default function TimeOfDayProducts({ products, productDB, className }) {
