@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/SingleProductPage/SingleProduct.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/SingleProductPage/SingleProduct.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import "./SingleProduct.css";
+import { useParams, useHistory } from "react-router";
+import useProducts from "../../hooks/useProducts";
+import getProductById from "../../utility/getProductById";
+import { FaRegSnowflake, FaArrowLeft } from "react-icons/fa";
+import { BsFillClockFill } from "react-icons/bs";
+
+export default function SingleProduct() {
+  const { singleProductId } = useParams();
+  const products = useProducts();
+  const history = useHistory();
+
+  if (products.length === 0) {
+    return &lt;p>loading&lt;/p>;
+  }
+
+  /**
+   * @type {object}
+   * @property {string} name - product name
+   * @property {string} image - product image link
+   * @property {array&lt;string>} ingredients - product ingredients
+   * @property {string} time - info at what time of day this product should preferably be used
+   * @property {array&lt;string>} goals - description of which skin conditions this products helps with
+   * @property {boolean} refrigeration - info about whether or not this product should be kept in the refrigerator
+   */
+
+  const productInfo = getProductById(Number(singleProductId), products);
+  const { name, image, ingredients, time, refrigeration, goals } = productInfo;
+
+  /**
+   * name of class depending on whether or not it is a specific product for better layout styling
+   * @type {string}
+   */
+
+  const classForTonerImage = Number(singleProductId) === 2 ? "toner-image" : "";
+
+  return (
+    &lt;div className="SingleProduct">
+      &lt;img
+        src={image}
+        alt={productInfo}
+        className={`single-product-image ${classForTonerImage}`}
+      />
+      &lt;h3 className="single-product-name">{name}&lt;/h3>
+      &lt;div className="single-product-info">
+        {refrigeration &amp;&amp; (
+          &lt;span className="single-product-refrigeration">
+            &lt;span className="single-product-refrigeration-icon">
+              &lt;FaRegSnowflake />
+            &lt;/span>
+            &lt;span className="single-product-refrigeration-text">
+              Please refrigerate
+            &lt;/span>
+          &lt;/span>
+        )}
+        {time.length > 0 &amp;&amp; (
+          &lt;span className="single-product-time">
+            &lt;span className="single-product-time-icon">
+              &lt;BsFillClockFill />
+            &lt;/span>
+            &lt;span className="single-product-time-text">{time}&lt;/span>
+          &lt;/span>
+        )}
+        &lt;ul className="single-product-goal-list">
+          {goals.map((goal, index) => {
+            return &lt;li key={index}>{goal}&lt;/li>;
+          })}
+        &lt;/ul>
+        &lt;div className="single-product-ingredients">
+          &lt;h4>Ingredients&lt;/h4>
+          &lt;p className="single-product-ingredients-list">
+            {[
+              ingredients.slice(0, -1).join(", "),
+              ingredients.slice(-1)[0],
+            ].join(ingredients.length &lt; 2 ? " " : " and ")}
+          &lt;/p>
+        &lt;/div>
+      &lt;/div>
+      &lt;button
+        className="single-product-back-button"
+        onClick={() => history.goBack()}
+      >
+        &lt;FaArrowLeft />
+      &lt;/button>
+    &lt;/div>
+  );
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#editDataInLocalStorage">editDataInLocalStorage</a></li><li><a href="global.html#findConflictingProductId">findConflictingProductId</a></li><li><a href="global.html#findConflictProductName">findConflictProductName</a></li><li><a href="global.html#getClassForAddedPackaging">getClassForAddedPackaging</a></li><li><a href="global.html#getClassForListedPackaging">getClassForListedPackaging</a></li><li><a href="global.html#getClassForWeekdayCheckboxAlignment">getClassForWeekdayCheckboxAlignment</a></li><li><a href="global.html#getDataFromLocalStorage">getDataFromLocalStorage</a></li><li><a href="global.html#getProductsCheckedOnThisDay">getProductsCheckedOnThisDay</a></li><li><a href="global.html#getProductsCheckedOnThisTimeOfDay">getProductsCheckedOnThisTimeOfDay</a></li><li><a href="global.html#getProductsFilteredByNameandCategory">getProductsFilteredByNameandCategory</a></li><li><a href="global.html#sendDataToLocalStorage">sendDataToLocalStorage</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sat May 22 2021 11:52:53 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

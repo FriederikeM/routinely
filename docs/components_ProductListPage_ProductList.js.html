@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/ProductListPage/ProductList.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/ProductListPage/ProductList.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import "./ProductList.css";
+
+import NameFilter from "./NameFilter";
+import CalendarButton from "./CalendarButton";
+import ProductCard from "./ProductCard";
+import CategoryFilter from "./CategoryFilter";
+import FormModal from "../FormModal/FormModal";
+import { useState } from "react";
+import useProducts from "../../hooks/useProducts";
+import { getProductsFilteredByNameandCategory } from "../../utility/getFilteredProducts";
+
+export default function ProductList() {
+  const products = useProducts();
+  const [categoryFilter, setCategoryFilter] = useState("All");
+  const [nameFilter, setNameFilter] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [id, setId] = useState();
+  const [productName, setProductName] = useState("");
+  const [conflicts, setConflicts] = useState([]);
+  /**
+   * when category is selected categoryFilter useState gets set to the value of the selected option
+   * @type {function}
+   * @param {string} categorySelected
+   */
+
+  function handleCategoryFilterChange(categorySelected) {
+    setCategoryFilter(categorySelected);
+  }
+
+  /**
+   * when name is typed into input, nameFilter useState gets set to the value of the input
+   * @type {function}
+   * @param {string} nameInput
+   */
+
+  function handleNameFilterChange(nameInput) {
+    setNameFilter(nameInput);
+  }
+
+  /**
+   * when plus button is clicked, modal pops up and th id, productName and conflicts useState get updated
+   * @type {function}
+   * @param {number} id - product id
+   * @param {string} name - product name
+   * @param {array&lt;number>} conflicts - list of ids from products that conflict with the clicked product
+   */
+
+  function handleAddToRoutine(id, name, conflicts) {
+    setShowModal(true);
+    setId(id);
+    setProductName(name);
+    setConflicts(conflicts);
+  }
+
+  /**
+   * when cancel is clicked, modal disappears
+   * @type {function}
+   */
+
+  function handleCancelAddToRoutine() {
+    setShowModal(false);
+  }
+
+  /**
+   * @type {function}
+   * returns a product card that holds all needed information about the product,
+   * given by a database and filtered by name and category
+   * maps over the filtered array to display all products the user wants to see
+   */
+  function renderProducts() {
+    /**
+     * list of products pulled from database filtered by name and category
+     * @type {array&lt;object>}
+     */
+    const productsFilteredByNameandCategory =
+      getProductsFilteredByNameandCategory(
+        products,
+        categoryFilter,
+        nameFilter
+      );
+    return productsFilteredByNameandCategory.map((product) => {
+      /**
+       * @type {object}
+       * @property {number} id - product id
+       * @property {string} name - product name
+       * @property {string} image - product image link
+       * @property {string} url - url that leads to the official product page where you can buy it
+       * @property {string} packaging - type of container the product comes in
+       * @property {array&lt;number>} conflicts - array of ids (numbers) of products that have conflicting ingredients with the products that is being edited
+       */
+
+      const { id, name, image, url, packaging, conflicts } = product;
+      return (
+        &lt;li key={id}>
+          &lt;ProductCard
+            id={id}
+            name={name}
+            image={image}
+            url={url}
+            packaging={packaging}
+            onAddToRoutine={() => handleAddToRoutine(id, name, conflicts)}
+          />
+        &lt;/li>
+      );
+    });
+  }
+
+  /**
+   * name for class the blurs the background if the modal is shown
+   * @type {string}
+   */
+  const modalShown = showModal ? "not-modal" : "";
+
+  return (
+    &lt;div className="ProductList">
+      &lt;div className={`wrapper ${modalShown}`}>
+        &lt;header className="header">
+          &lt;div className="filter-wrapper">
+            &lt;NameFilter onNameFilterChange={handleNameFilterChange} />
+            &lt;CategoryFilter
+              onCategoryFilterChange={handleCategoryFilterChange}
+            />
+          &lt;/div>
+          &lt;h1 className="products-headline">Products&lt;/h1>
+          &lt;CalendarButton />
+        &lt;/header>
+        &lt;main className="main">
+          &lt;ul className="product-ul">{renderProducts()}&lt;/ul>
+        &lt;/main>
+      &lt;/div>
+      {showModal &amp;&amp; (
+        &lt;FormModal
+          id={id}
+          name={productName}
+          conflicts={conflicts}
+          products={products}
+          onCancelAdding={handleCancelAddToRoutine}
+        />
+      )}
+    &lt;/div>
+  );
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#editDataInLocalStorage">editDataInLocalStorage</a></li><li><a href="global.html#findConflictingProductId">findConflictingProductId</a></li><li><a href="global.html#findConflictProductName">findConflictProductName</a></li><li><a href="global.html#getClassForAddedPackaging">getClassForAddedPackaging</a></li><li><a href="global.html#getClassForListedPackaging">getClassForListedPackaging</a></li><li><a href="global.html#getClassForWeekdayCheckboxAlignment">getClassForWeekdayCheckboxAlignment</a></li><li><a href="global.html#getDataFromLocalStorage">getDataFromLocalStorage</a></li><li><a href="global.html#getProductsCheckedOnThisDay">getProductsCheckedOnThisDay</a></li><li><a href="global.html#getProductsCheckedOnThisTimeOfDay">getProductsCheckedOnThisTimeOfDay</a></li><li><a href="global.html#getProductsFilteredByNameandCategory">getProductsFilteredByNameandCategory</a></li><li><a href="global.html#sendDataToLocalStorage">sendDataToLocalStorage</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sat May 22 2021 11:52:53 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

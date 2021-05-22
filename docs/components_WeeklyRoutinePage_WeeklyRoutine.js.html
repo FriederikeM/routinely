@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/WeeklyRoutinePage/WeeklyRoutine.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/WeeklyRoutinePage/WeeklyRoutine.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import "./WeeklyRoutine.css";
+import WeekDayCard from "./WeekDayCard";
+import { NavLink } from "react-router-dom";
+import useProducts from "../../hooks/useProducts";
+import { getProductsCheckedOnThisDay } from "../../utility/getCheckedProducts";
+import useRoutine from "../../hooks/useRoutine";
+import bottleRow from "../../images/bottle-row.svg";
+import dropper from "../../images/dropper.svg";
+
+export default function WeeklyRoutine() {
+  const allRoutineItems = useRoutine();
+  const products = useProducts();
+
+  /**
+   * arrays of products (objects) that are used on the day indicated by the array name and the first function agrument
+   * @type {array&lt;object>}
+   */
+
+  const mondays = getProductsCheckedOnThisDay("Monday", allRoutineItems);
+  const tuesdays = getProductsCheckedOnThisDay("Tuesday", allRoutineItems);
+  const wednesdays = getProductsCheckedOnThisDay("Wednesday", allRoutineItems);
+  const thursdays = getProductsCheckedOnThisDay("Thursday", allRoutineItems);
+  const fridays = getProductsCheckedOnThisDay("Friday", allRoutineItems);
+  const saturdays = getProductsCheckedOnThisDay("Saturday", allRoutineItems);
+  const sundays = getProductsCheckedOnThisDay("Sunday", allRoutineItems);
+
+  /**
+   * class that changes the button/background depending on whether or not the user has added any products to their routine
+   * @type {string}
+   */
+  const classForEmptyRoutineButton =
+    allRoutineItems.length === 0 ? "empty-routine-button" : "";
+  const classForEmptyRoutineBackground =
+    allRoutineItems.length === 0 ? "empty-routine-background" : "";
+
+  return (
+    &lt;div className={`WeeklyRoutine ${classForEmptyRoutineBackground}`}>
+      &lt;header>
+        &lt;div className="weekly-headline-wrapper">
+          &lt;h1 className="weekly-headline">My Week&lt;/h1>
+        &lt;/div>
+      &lt;/header>
+      &lt;main className="weekly-main">
+        {products.length > 0 &amp;&amp; (
+          &lt;div>
+            {mondays.length > 0 &amp;&amp; (
+              &lt;WeekDayCard name="Monday" data={mondays} products={products} />
+            )}
+            {tuesdays.length > 0 &amp;&amp; (
+              &lt;WeekDayCard name="Tuesday" data={tuesdays} products={products} />
+            )}
+            {wednesdays.length > 0 &amp;&amp; (
+              &lt;WeekDayCard
+                name="Wednesday"
+                data={wednesdays}
+                products={products}
+              />
+            )}
+            {thursdays.length > 0 &amp;&amp; (
+              &lt;WeekDayCard
+                name="Thursday"
+                data={thursdays}
+                products={products}
+              />
+            )}
+            {fridays.length > 0 &amp;&amp; (
+              &lt;WeekDayCard name="Friday" data={fridays} products={products} />
+            )}
+            {saturdays.length > 0 &amp;&amp; (
+              &lt;WeekDayCard
+                name="Saturday"
+                data={saturdays}
+                products={products}
+              />
+            )}
+            {sundays.length > 0 &amp;&amp; (
+              &lt;WeekDayCard name="Sunday" data={sundays} products={products} />
+            )}
+          &lt;/div>
+        )}
+        {allRoutineItems.length === 0 &amp;&amp; (
+          &lt;div>
+            &lt;h3 className="empty-slogan">Looks empty around here...&lt;/h3>
+            &lt;img src={dropper} alt="dropper" className="dropper" />
+            &lt;img src={bottleRow} alt="bottle row" className="bottle-row" />
+          &lt;/div>
+        )}
+        &lt;NavLink
+          to="/products"
+          className={`add-button-weekly ${classForEmptyRoutineButton}`}
+        >
+          +
+        &lt;/NavLink>
+      &lt;/main>
+    &lt;/div>
+  );
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#editDataInLocalStorage">editDataInLocalStorage</a></li><li><a href="global.html#findConflictingProductId">findConflictingProductId</a></li><li><a href="global.html#findConflictProductName">findConflictProductName</a></li><li><a href="global.html#getClassForAddedPackaging">getClassForAddedPackaging</a></li><li><a href="global.html#getClassForListedPackaging">getClassForListedPackaging</a></li><li><a href="global.html#getClassForWeekdayCheckboxAlignment">getClassForWeekdayCheckboxAlignment</a></li><li><a href="global.html#getDataFromLocalStorage">getDataFromLocalStorage</a></li><li><a href="global.html#getProductsCheckedOnThisDay">getProductsCheckedOnThisDay</a></li><li><a href="global.html#getProductsCheckedOnThisTimeOfDay">getProductsCheckedOnThisTimeOfDay</a></li><li><a href="global.html#getProductsFilteredByNameandCategory">getProductsFilteredByNameandCategory</a></li><li><a href="global.html#sendDataToLocalStorage">sendDataToLocalStorage</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sat May 22 2021 11:52:53 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

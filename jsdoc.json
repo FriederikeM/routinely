@@ -5,12 +5,12 @@
     "excludePattern": "(node_modules/|docs)"
   },
   "plugins": ["plugins/markdown"],
-  "templates": {
-    "cleverLinks": true,
-    "monospaceLinks": true
-  },
+
   "opts": {
+    "encoding": "utf8",
+    "readme": "./readme.md",
+    "destination": "docs/",
     "recurse": true,
-    "destination": "./docs/"
+    "verbose": true
   }
 }
