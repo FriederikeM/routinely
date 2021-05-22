@@ -17,7 +17,6 @@ import getNewChecks from "../../utility/getNewChecks";
 import isThisTimeChecked from "../../utility/isThisTimeChecked";
 import Form from "./Form";
 import AlertModal from "./AlertModal";
-import getProductById from "../../utility/getProductById";
 import PropTypes from "prop-types";
 
 FormModal.propTypes = {
