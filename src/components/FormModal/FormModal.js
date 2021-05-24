@@ -124,6 +124,12 @@ export default function FormModal({
       removeCheckedTimeOfDay(weekRoutine, "morning");
     }
 
+    const dayNotCheckedButEveningChecked =
+      isDayUncheckedButEveningChecked(weekRoutine);
+
+    if (dayNotCheckedButEveningChecked === true) {
+      removeCheckedTimeOfDay(weekRoutine, "evening");
+    }
   }
 
   function handleMorningClicked(name) {
