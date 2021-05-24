@@ -1,0 +1,7 @@
+{
+  "extends": ["plugin:cypress/recommended"],
+
+  "rules": {
+    "cypress/no-unnecessary-waiting": "no error"
+  }
+}
