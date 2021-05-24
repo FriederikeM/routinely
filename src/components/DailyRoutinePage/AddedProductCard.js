@@ -21,7 +21,7 @@ export default function AddedProductCard({
   url,
   onEditRoutine,
 }) {
-  const classForPackaging = getClassForAddedPackaging(packaging, name);
+  const classForPackaging = getClassForAddedPackaging(packaging);
 
   return (
     <div className="AddedProductCard">
