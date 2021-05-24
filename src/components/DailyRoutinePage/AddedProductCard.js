@@ -4,7 +4,7 @@ import { getClassForAddedPackaging } from "../../utility/getClassesForSizingAndP
 import PropTypes from "prop-types";
 
 AddedProductCard.propTypes = {
-  packging: PropTypes.string.isRequired,
+  packaging: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   date: PropTypes.string,
   expirationPeriod: PropTypes.string.isRequired,
