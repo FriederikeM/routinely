@@ -116,6 +116,14 @@ export default function FormModal({
   function handleDayClicked(name) {
     const newCheckedDays = getNewChecks(weekRoutine, name, "isChecked");
     setWeekRoutine({ id: id, days: newCheckedDays, date: weekRoutine.date });
+
+    const dayNotCheckedButMorningChecked =
+      isDayUncheckedButMorningChecked(weekRoutine);
+
+    if (dayNotCheckedButMorningChecked === true) {
+      removeCheckedTimeOfDay(weekRoutine, "morning");
+    }
+
   }
 
   function handleMorningClicked(name) {
