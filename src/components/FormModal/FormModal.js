@@ -14,7 +14,11 @@ import {
   isNoUnspecifiedSelected,
 } from "../../utility/isNotSelected";
 import getNewChecks from "../../utility/getNewChecks";
-import isThisTimeChecked from "../../utility/isThisTimeChecked";
+import isThisTimeChecked, {
+  isDayUncheckedButMorningChecked,
+  isDayUncheckedButEveningChecked,
+  removeCheckedTimeOfDay,
+} from "../../utility/isThisTimeChecked";
 import Form from "./Form";
 import AlertModal from "./AlertModal";
 import PropTypes from "prop-types";
