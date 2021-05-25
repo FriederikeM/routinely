@@ -86,7 +86,7 @@ export default function DailyRoutine() {
             name={productData.name}
             date={product.date}
             expirationPeriod={productData.expirationPeriod}
-            packaging={productData.packging}
+            packaging={productData.packaging}
             imgSource={productData.image}
             url={productData.url}
             onEditRoutine={() =>

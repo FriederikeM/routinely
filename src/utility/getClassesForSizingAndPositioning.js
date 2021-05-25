@@ -1,14 +1,8 @@
-export function getClassForAddedPackaging(packaging, name) {
+export function getClassForAddedPackaging(packaging) {
   let classForPackaging;
-  if (
-    packaging === "not glass bottle" ||
-    name === "Glycolic Acid 7% Toning Solution"
-  ) {
+  if (packaging === "not glass bottle") {
     classForPackaging = "smaller-added-image";
-  } else if (
-    name === "100% Niacinamide Powder" ||
-    name === "100% L-Ascorbic Acid Powder"
-  ) {
+  } else if (packaging === "glass container") {
     classForPackaging = "added-powder-image";
   } else {
     classForPackaging = "";

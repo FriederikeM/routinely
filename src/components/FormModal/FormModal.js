@@ -14,7 +14,11 @@ import {
   isNoUnspecifiedSelected,
 } from "../../utility/isNotSelected";
 import getNewChecks from "../../utility/getNewChecks";
-import isThisTimeChecked from "../../utility/isThisTimeChecked";
+import isThisTimeChecked, {
+  isDayUncheckedButMorningChecked,
+  isDayUncheckedButEveningChecked,
+  removeCheckedTimeOfDay,
+} from "../../utility/isThisTimeChecked";
 import Form from "./Form";
 import AlertModal from "./AlertModal";
 import PropTypes from "prop-types";
@@ -112,6 +116,20 @@ export default function FormModal({
   function handleDayClicked(name) {
     const newCheckedDays = getNewChecks(weekRoutine, name, "isChecked");
     setWeekRoutine({ id: id, days: newCheckedDays, date: weekRoutine.date });
+
+    const dayNotCheckedButMorningChecked =
+      isDayUncheckedButMorningChecked(weekRoutine);
+
+    if (dayNotCheckedButMorningChecked === true) {
+      removeCheckedTimeOfDay(weekRoutine, "morning");
+    }
+
+    const dayNotCheckedButEveningChecked =
+      isDayUncheckedButEveningChecked(weekRoutine);
+
+    if (dayNotCheckedButEveningChecked === true) {
+      removeCheckedTimeOfDay(weekRoutine, "evening");
+    }
   }
 
   function handleMorningClicked(name) {
@@ -247,7 +265,6 @@ export default function FormModal({
         />
         {showModal && (
           <AlertModal
-            conflictId={conflictId}
             conflictName={conflictName}
             clickedWeekdayName={clickedWeekdayName}
             clickedTimeOfTheDay={clickedTimeOfTheDay}
