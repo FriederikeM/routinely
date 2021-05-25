@@ -1,7 +1,8 @@
 import "./Checkbox.css";
-import { FiMoon, FiSun } from "react-icons/fi";
+
 import { getClassForWeekdayCheckboxAlignment } from "../../utility/getClassesForSizingAndPositioning";
 import PropTypes from "prop-types";
+import TimeOfDayCheckbox from "./TimeOfDayCheckbox";
 
 Checkbox.propTypes = {
   name: PropTypes.string.isRequired,
@@ -44,30 +45,18 @@ export default function Checkbox({
 
       {daySelected && (
         <div className="time-of-day">
-          <span className="morning">
-            <input
-              onChange={() => onMorningClicked(name)}
-              type="checkbox"
-              name="morning"
-              className="morning-checkbox"
-              checked={morning}
-            />
-            <label htmlFor="morning" className="morning-label">
-              <FiSun />
-            </label>
-          </span>
-          <span className="evening">
-            <input
-              onChange={() => onEveningClicked(name)}
-              type="checkbox"
-              name="evening"
-              className="evening-checkbox"
-              checked={evening}
-            />
-            <label htmlFor="evening" className="evening-label">
-              <FiMoon />
-            </label>
-          </span>
+          <TimeOfDayCheckbox
+            onChange={onTimeOfDayClicked}
+            weekdayName={name}
+            timeOfDay="morning"
+            checked={morning}
+          />
+          <TimeOfDayCheckbox
+            onChange={onTimeOfDayClicked}
+            weekdayName={name}
+            timeOfDay="evening"
+            checked={evening}
+          />
         </div>
       )}
     </div>
