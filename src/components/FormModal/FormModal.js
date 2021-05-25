@@ -181,10 +181,10 @@ export default function FormModal({
     if (conflictingId && alreadyChecked === false) {
       setShowModal(true);
     } else {
-      const newEveningChecked = getNewChecks(weekRoutine, name, timeOfDay);
+      const newTimeOfDayChecked = getNewChecks(weekRoutine, name, timeOfDay);
       setWeekRoutine({
         id: id,
-        days: newEveningChecked,
+        days: newTimeOfDayChecked,
         date: weekRoutine.date,
       });
     }
