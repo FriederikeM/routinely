@@ -8,8 +8,7 @@ Checkbox.propTypes = {
   name: PropTypes.string.isRequired,
   isChecked: PropTypes.bool.isRequired,
   onDayClicked: PropTypes.func.isRequired,
-  onMorningClicked: PropTypes.func.isRequired,
-  onEveningClicked: PropTypes.func.isRequired,
+  onTimeOfDayClicked: PropTypes.func.isRequired,
   morning: PropTypes.bool.isRequired,
   evening: PropTypes.bool.isRequired,
 };
@@ -18,8 +17,7 @@ export default function Checkbox({
   name,
   isChecked,
   onDayClicked,
-  onMorningClicked,
-  onEveningClicked,
+  onTimeOfDayClicked,
   morning,
   evening,
 }) {
