@@ -16,7 +16,6 @@ export function isDayUncheckedButMorningChecked(weekRoutine) {
       return day.isChecked === false && day.morning === true;
     })
     .some((day) => day === true);
-  console.log(morningChecked);
   return morningChecked;
 }
 
@@ -26,7 +25,6 @@ export function isDayUncheckedButEveningChecked(weekRoutine) {
       return day.isChecked === false && day.evening === true;
     })
     .some((day) => day === true);
-  console.log(eveningChecked);
   return eveningChecked;
 }
 
@@ -39,7 +37,7 @@ export function removeCheckedTimeOfDay(weekRoutine, timeOfDay) {
     (day) => day === true
   );
 
-  const bla = weekRoutine.days.map((day, index) => {
+  const newTimeOfDayChecked = weekRoutine.days.map((day, index) => {
     if (index === timeOfDayCheckedIndex) {
       day[timeOfDay] = !day[timeOfDay];
       return day;
@@ -48,5 +46,5 @@ export function removeCheckedTimeOfDay(weekRoutine, timeOfDay) {
     }
   });
 
-  return bla;
+  return newTimeOfDayChecked;
 }
