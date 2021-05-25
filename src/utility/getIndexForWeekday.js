@@ -1,3 +1,10 @@
+/**
+ * function receives the name of a weakday and returns the corresponding index
+ * @type {function}
+ * @param {string} weekday - name of the weekday
+ * @returns {number} - index of the weekday
+ */
+
 export default function getIndexForWeekday(weekday) {
   let i;
   switch (weekday) {

@@ -1,3 +1,11 @@
+/**
+ * function gives back a class depending on the packaging of a product
+ * @type {function}
+ * @param {string} packaging - product packaging ("glass bottle", "not glass bottle", "glass container")
+ * @param {string} name - product name ("100% Niacinamide Powder" or "100% L-Ascorbic Acid Powder")
+ * @returns {string} - name of class that gets applied to image for better design layout
+ */
+
 export function getClassForAddedPackaging(packaging) {
   let classForPackaging;
   if (packaging === "not glass bottle") {
@@ -10,6 +18,13 @@ export function getClassForAddedPackaging(packaging) {
   return classForPackaging;
 }
 
+/**
+ * function gives back a class depending on the packaging of a product
+ * @type {function}
+ * @param {string} packaging - product packaging ("glass bottle", "not glass bottle", "glass container")
+ * @returns {string} - name of class that gets applied to image for better design layout
+ */
+
 export function getClassForListedPackaging(packaging) {
   let classForPackaging;
   if (packaging === "not glass bottle") {
@@ -21,6 +36,13 @@ export function getClassForListedPackaging(packaging) {
   }
   return classForPackaging;
 }
+
+/**
+ * function gives back a class depending on the name of the day in order to be able to position checkboxes within a grid
+ * @type {function}
+ * @param {string} name - product name ("100% Niacinamide Powder" or "100% L-Ascorbic Acid Powder")
+ * @returns {string} - name of class that gets applied to divs containing a day's checkboxes
+ */
 
 export function getClassForWeekdayCheckboxAlignment(name) {
   let classForWeekdayCheckboxAlignment;

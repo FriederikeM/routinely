@@ -52,24 +52,30 @@ export default function DailyRoutine() {
 
   const modalShown = showModal ? "not-modal" : "";
 
+  /**
+   * @type {function}
+   * returns a product card that holds all needed information about the product,
+   * some given by a database (productInfo) and some given by the user (productsMorning)
+   * maps over the productsMorning array to display all products that are used during
+   * the morning of the day specified by useParams
+   */
+
   function renderMorningAddedProductCard() {
-    return productsMorning.map((product) => {
-      const productData = getProductById(product.id, products);
+    return productsMorning.map((morningProduct) => {
+      const productInfo = getProductById(morningProduct.id, products);
+      const { name, expirationPeriod, packaging, image, url, conflicts } =
+        productInfo;
       return (
-        <li className="added-product-list-item" key={product.id}>
+        <li className="added-product-list-item" key={morningProduct.id}>
           <AddedProductCard
-            name={productData.name}
-            date={product.date}
-            expirationPeriod={productData.expirationPeriod}
-            packaging={productData.packaging}
-            imgSource={productData.image}
-            url={productData.url}
+            name={name}
+            date={morningProduct.date}
+            expirationPeriod={expirationPeriod}
+            packaging={packaging}
+            imgSource={image}
+            url={url}
             onEditRoutine={() =>
-              handleEditRoutine(
-                product.id,
-                productData.name,
-                productData.conflicts
-              )
+              handleEditRoutine(morningProduct.id, name, conflicts)
             }
           />
         </li>
@@ -77,24 +83,29 @@ export default function DailyRoutine() {
     });
   }
 
+  /**
+   * @type {function}
+   * returns a product card that holds all needed information about the product,
+   * some given by a database (productInfo) and some given by the user (productsEvening)
+   * maps over the productsEvening array to display all products that are used during the
+   * evening of the day specified by useParams
+   */
   function renderEveningAddedProductCard() {
-    return productsEvening.map((product) => {
-      const productData = getProductById(product.id, products);
+    return productsEvening.map((eveningProduct) => {
+      const productInfo = getProductById(eveningProduct.id, products);
+      const { name, expirationPeriod, packaging, image, url, conflicts } =
+        productInfo;
       return (
-        <li className="added-product-list-item" key={product.id}>
+        <li className="added-product-list-item" key={eveningProduct.id}>
           <AddedProductCard
-            name={productData.name}
-            date={product.date}
-            expirationPeriod={productData.expirationPeriod}
-            packaging={productData.packaging}
-            imgSource={productData.image}
-            url={productData.url}
+            name={name}
+            date={eveningProduct.date}
+            expirationPeriod={expirationPeriod}
+            packaging={packaging}
+            imgSource={image}
+            url={url}
             onEditRoutine={() =>
-              handleEditRoutine(
-                product.id,
-                productData.name,
-                productData.conflicts
-              )
+              handleEditRoutine(eveningProduct.id, name, conflicts)
             }
           />
         </li>

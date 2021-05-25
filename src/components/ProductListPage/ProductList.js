@@ -37,12 +37,19 @@ export default function ProductList() {
     setShowModal(false);
   }
 
+  /**
+   * @type {function}
+   * returns a product card that holds all needed information about the product,
+   * given by a database and filtered by name and category
+   * maps over the filtered array to display all products the user wants to see
+   */
   function renderProducts() {
-    const productsFilteredByNameandCategory = getProductsFilteredByNameandCategory(
-      products,
-      categoryFilter,
-      nameFilter
-    );
+    const productsFilteredByNameandCategory =
+      getProductsFilteredByNameandCategory(
+        products,
+        categoryFilter,
+        nameFilter
+      );
     return productsFilteredByNameandCategory.map((product) => {
       const { id, name, image, url, packaging, conflicts } = product;
       return (

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/DailyRoutinePage/DailyRoutine.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/DailyRoutinePage/DailyRoutine.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import "./DailyRoutine.css";
+import AddedProductCard from "./AddedProductCard.js";
+import { FaArrowLeft } from "react-icons/fa";
+import { useParams, useHistory } from "react-router-dom";
+import { useState } from "react";
+import FormModal from "../FormModal/FormModal";
+import getProductById from "../../utility/getProductById";
+import useProducts from "../../hooks/useProducts";
+import useRoutine from "../../hooks/useRoutine";
+import {
+  getProductsCheckedOnThisDay,
+  getProductsCheckedOnThisTimeOfDay,
+} from "../../utility/getCheckedProducts";
+
+export default function DailyRoutine() {
+  const { weekday } = useParams();
+  const history = useHistory();
+  const allRoutineItems = useRoutine();
+  const products = useProducts();
+  const [showModal, setShowModal] = useState(false);
+  const [id, setId] = useState();
+  const [productName, setProductName] = useState("");
+  const [conflicts, setConflicts] = useState([]);
+
+  /**
+   * Array of products that are used on the day that is determined by the useParams
+   * @type {array&lt;object>}
+   */
+
+  const productsUsedThatDay = getProductsCheckedOnThisDay(
+    weekday,
+    allRoutineItems
+  );
+
+  /**
+   * Array of products that are used in the morning on the day that is determined by the useParams
+   * @type {array&lt;object>}
+   */
+
+  const productsMorning = getProductsCheckedOnThisTimeOfDay(
+    weekday,
+    productsUsedThatDay,
+    "morning"
+  );
+
+  /**
+   * Array of products that are used in the evening on the day that is determined by the useParams
+   * @type {array&lt;object>}
+   */
+
+  const productsEvening = getProductsCheckedOnThisTimeOfDay(
+    weekday,
+    productsUsedThatDay,
+    "evening"
+  );
+
+  /**
+   * updates useStates for the id, name and conflicts and also makes the modal show up, by setting the respective state to true
+   * @type {function}
+   * @param {number} id - id of the product that is being edited
+   * @param {string} name - name of the product that is being edited
+   * @param {array} conflicts - array of ids (numbers) of products that have conflicting ingredients with the products that is being edited
+   */
+
+  function handleEditRoutine(id, name, conflicts) {
+    setId(id);
+    setProductName(name);
+    setConflicts(conflicts);
+    setShowModal(true);
+  }
+
+  /**
+   * makes the modal disappear by setting the showModal state to false
+   * @type {function}
+   */
+
+  function handleCancelAddToRoutine() {
+    setShowModal(false);
+  }
+
+  /**
+   * class that is being added to everything outside the modal to blur the background when modal shows up
+   * @type {string}
+   */
+
+  const modalShown = showModal ? "not-modal" : "";
+
+  /**
+   * @type {function}
+   * returns a product card that holds all needed information about the product,
+   * some given by a database (productInfo) and some given by the user (productsMorning)
+   * maps over the productsMorning array to display all products that are used during
+   * the morning of the day specified by useParams
+   */
+
+  function renderMorningAddedProductCard() {
+    return productsMorning.map((morningProduct) => {
+      /**
+       * @type {object}
+       * @property {number} id - product id
+       * @property {string} name - product name
+       * @property {string} expirationPeriod - time the product lasts once opened
+       * @property {string} packaging - type of container the product comes in
+       * @property {string} image - product image link
+       * @property {string} url - url that leads to the official product page where you can buy it
+       * @property {array&lt;number>} conflicts - array of ids (numbers) of products that have conflicting ingredients with the products that is being edited
+       */
+
+      const productInfo = getProductById(morningProduct.id, products);
+      const { name, expirationPeriod, packaging, image, url, conflicts } =
+        productInfo;
+      return (
+        &lt;li className="added-product-list-item" key={morningProduct.id}>
+          &lt;AddedProductCard
+            name={name}
+            date={morningProduct.date}
+            expirationPeriod={expirationPeriod}
+            packaging={packaging}
+            imgSource={image}
+            url={url}
+            onEditRoutine={() =>
+              handleEditRoutine(morningProduct.id, name, conflicts)
+            }
+          />
+        &lt;/li>
+      );
+    });
+  }
+
+  /**
+   * @type {function}
+   * returns a product card that holds all needed information about the product, some given by a database (productInfo) and some given by the user (productsEvening)
+   * maps over the productsEvening array to display all products that are used during the evening of the day specified by useParams
+   */
+  function renderEveningAddedProductCard() {
+    return productsEvening.map((eveningProduct) => {
+      /**
+       * @type {object}
+       * @property {number} id - product id
+       * @property {string} name - product name
+       * @property {string} expirationPeriod - time the product lasts once opened
+       * @property {string} packaging - type of container the product comes in
+       * @property {string} image - product image link
+       * @property {string} url - url that leads to the official product page where you can buy it
+       * @property {array&lt;number>} conflicts - array of ids (numbers) of products that have conflicting ingredients with the products that is being edited
+       */
+      const productInfo = getProductById(eveningProduct.id, products);
+      return (
+        &lt;li className="added-product-list-item" key={eveningProduct.id}>
+          &lt;AddedProductCard
+            name={productInfo.name}
+            date={eveningProduct.date}
+            expirationPeriod={productInfo.expirationPeriod}
+            packaging={productInfo.packging}
+            imgSource={productInfo.image}
+            url={productInfo.url}
+            onEditRoutine={() =>
+              handleEditRoutine(
+                eveningProduct.id,
+                productInfo.name,
+                productInfo.conflicts
+              )
+            }
+          />
+        &lt;/li>
+      );
+    });
+  }
+
+  return (
+    &lt;div className="DailyRoutine">
+      &lt;div className={modalShown}>
+        &lt;header className="daily-header">
+          &lt;div className="daily-headline-wrapper">
+            &lt;h1 className="daily-headline">{weekday}&lt;/h1>
+          &lt;/div>
+          &lt;button className="history-back" onClick={() => history.goBack()}>
+            &lt;FaArrowLeft />
+          &lt;/button>
+        &lt;/header>
+        {allRoutineItems !== [] &amp;&amp; (
+          &lt;main className="daily-main">
+            &lt;section className="morning-products-display">
+              &lt;h2 className="daytime-headline">Morning&lt;/h2>
+              &lt;ul className="morning-products-list">
+                {products.length > 0 &amp;&amp; renderMorningAddedProductCard()}
+              &lt;/ul>
+            &lt;/section>
+            &lt;section className="evening-products-display">
+              &lt;h2 className="daytime-headline">Evening&lt;/h2>
+              &lt;ul className="evening-products-list">
+                {products.length > 0 &amp;&amp; renderEveningAddedProductCard()}
+              &lt;/ul>
+            &lt;/section>
+          &lt;/main>
+        )}
+      &lt;/div>
+      {showModal &amp;&amp; (
+        &lt;FormModal
+          conflicts={conflicts}
+          id={id}
+          name={productName}
+          products={products}
+          onCancelAdding={handleCancelAddToRoutine}
+        />
+      )}
+    &lt;/div>
+  );
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#editDataInLocalStorage">editDataInLocalStorage</a></li><li><a href="global.html#findConflictingProductId">findConflictingProductId</a></li><li><a href="global.html#findConflictProductName">findConflictProductName</a></li><li><a href="global.html#getClassForAddedPackaging">getClassForAddedPackaging</a></li><li><a href="global.html#getClassForListedPackaging">getClassForListedPackaging</a></li><li><a href="global.html#getClassForWeekdayCheckboxAlignment">getClassForWeekdayCheckboxAlignment</a></li><li><a href="global.html#getDataFromLocalStorage">getDataFromLocalStorage</a></li><li><a href="global.html#getProductsCheckedOnThisDay">getProductsCheckedOnThisDay</a></li><li><a href="global.html#getProductsCheckedOnThisTimeOfDay">getProductsCheckedOnThisTimeOfDay</a></li><li><a href="global.html#getProductsFilteredByNameandCategory">getProductsFilteredByNameandCategory</a></li><li><a href="global.html#sendDataToLocalStorage">sendDataToLocalStorage</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sat May 22 2021 11:52:53 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
