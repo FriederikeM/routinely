@@ -6,12 +6,6 @@ CategoryFilter.propTypes = {
 };
 
 export default function CategoryFilter({ onCategoryFilterChange }) {
-  /**
-   * function gets value of the selected option and calls function in ProductList with value as argument
-   * @type {function}
-   * @param {change} event
-   */
-
   function handleCategoryFilterClick(event) {
     const categoryFilterValue = event.target.value;
     onCategoryFilterChange(categoryFilterValue);

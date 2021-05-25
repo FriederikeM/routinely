@@ -11,11 +11,6 @@ export default function WeeklyRoutine() {
   const allRoutineItems = useRoutine();
   const products = useProducts();
 
-  /**
-   * arrays of products (objects) that are used on the day indicated by the array name and the first function agrument
-   * @type {array<object>}
-   */
-
   const mondays = getProductsCheckedOnThisDay("Monday", allRoutineItems);
   const tuesdays = getProductsCheckedOnThisDay("Tuesday", allRoutineItems);
   const wednesdays = getProductsCheckedOnThisDay("Wednesday", allRoutineItems);
@@ -24,10 +19,6 @@ export default function WeeklyRoutine() {
   const saturdays = getProductsCheckedOnThisDay("Saturday", allRoutineItems);
   const sundays = getProductsCheckedOnThisDay("Sunday", allRoutineItems);
 
-  /**
-   * class that changes the button/background depending on whether or not the user has added any products to their routine
-   * @type {string}
-   */
   const classForEmptyRoutineButton =
     allRoutineItems.length === 0 ? "empty-routine-button" : "";
   const classForEmptyRoutineBackground =

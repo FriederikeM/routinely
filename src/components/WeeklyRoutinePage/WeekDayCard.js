@@ -13,15 +13,7 @@ WeekDayCard.propTypes = {
 };
 
 export default function WeekDayCard({ name, data, products }) {
-  /**
-   * an array of products (objects) that is used in the morning of that day (day is indicated by name)
-   * @type {array<object>}
-   */
   const mornings = getProductsCheckedOnThisTimeOfDay(name, data, "morning");
-  /**
-   * an array of products (objects) that is used in the evening of that day (day is indicated by name)
-   * @type {array<object>}
-   */
   const evenings = getProductsCheckedOnThisTimeOfDay(name, data, "evening");
 
   return (

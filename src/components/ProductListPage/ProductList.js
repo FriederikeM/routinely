@@ -17,33 +17,14 @@ export default function ProductList() {
   const [id, setId] = useState();
   const [productName, setProductName] = useState("");
   const [conflicts, setConflicts] = useState([]);
-  /**
-   * when category is selected categoryFilter useState gets set to the value of the selected option
-   * @type {function}
-   * @param {string} categorySelected
-   */
 
   function handleCategoryFilterChange(categorySelected) {
     setCategoryFilter(categorySelected);
   }
 
-  /**
-   * when name is typed into input, nameFilter useState gets set to the value of the input
-   * @type {function}
-   * @param {string} nameInput
-   */
-
   function handleNameFilterChange(nameInput) {
     setNameFilter(nameInput);
   }
-
-  /**
-   * when plus button is clicked, modal pops up and th id, productName and conflicts useState get updated
-   * @type {function}
-   * @param {number} id - product id
-   * @param {string} name - product name
-   * @param {array<number>} conflicts - list of ids from products that conflict with the clicked product
-   */
 
   function handleAddToRoutine(id, name, conflicts) {
     setShowModal(true);
@@ -51,11 +32,6 @@ export default function ProductList() {
     setProductName(name);
     setConflicts(conflicts);
   }
-
-  /**
-   * when cancel is clicked, modal disappears
-   * @type {function}
-   */
 
   function handleCancelAddToRoutine() {
     setShowModal(false);
@@ -68,10 +44,6 @@ export default function ProductList() {
    * maps over the filtered array to display all products the user wants to see
    */
   function renderProducts() {
-    /**
-     * list of products pulled from database filtered by name and category
-     * @type {array<object>}
-     */
     const productsFilteredByNameandCategory =
       getProductsFilteredByNameandCategory(
         products,
@@ -79,16 +51,6 @@ export default function ProductList() {
         nameFilter
       );
     return productsFilteredByNameandCategory.map((product) => {
-      /**
-       * @type {object}
-       * @property {number} id - product id
-       * @property {string} name - product name
-       * @property {string} image - product image link
-       * @property {string} url - url that leads to the official product page where you can buy it
-       * @property {string} packaging - type of container the product comes in
-       * @property {array<number>} conflicts - array of ids (numbers) of products that have conflicting ingredients with the products that is being edited
-       */
-
       const { id, name, image, url, packaging, conflicts } = product;
       return (
         <li key={id}>
@@ -105,10 +67,6 @@ export default function ProductList() {
     });
   }
 
-  /**
-   * name for class the blurs the background if the modal is shown
-   * @type {string}
-   */
   const modalShown = showModal ? "not-modal" : "";
 
   return (

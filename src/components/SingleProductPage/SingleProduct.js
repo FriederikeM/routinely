@@ -27,11 +27,6 @@ export default function SingleProduct() {
   const productInfo = getProductById(Number(singleProductId), products);
   const { name, image, ingredients, time, refrigeration, goals } = productInfo;
 
-  /**
-   * name of class depending on whether or not it is a specific product for better layout styling
-   * @type {string}
-   */
-
   const classForTonerImage = Number(singleProductId) === 2 ? "toner-image" : "";
 
   return (

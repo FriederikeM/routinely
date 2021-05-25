@@ -96,20 +96,7 @@ export default function FormModal({
   });
 
   useEffect(() => {
-    /**
-     * an array of products (objects) that the user has added to their weekly routine and that gets retrieved from Local Storage
-     * @type {array<object>}
-     */
-
     const routineData = getDataFromLocalStorage();
-
-    /**
-     * an object that contains the info of the product that was clicked, if it had already been added to the weekly routine
-     * @type {object}
-     * @property {number} id - product id
-     * @property {array<object>} days - array of days (object) with properties: name, isChecked, morning, evening
-     * @property {string} date - date when the user opened the product or empty string if info wasn't given
-     */
 
     const sameProduct = routineData.find((product) => {
       return product.id === id;
@@ -120,12 +107,6 @@ export default function FormModal({
     setRoutineData(routineData);
   }, [id]);
 
-  /**
-   * function that updates state for openingDate and weekRoutine when the user changes the date input
-   * @type {function}
-   * @param {change} event
-   */
-
   function handleChangeDate(event) {
     const date = event.target.value;
     const newWeekRoutine = weekRoutine;
@@ -135,7 +116,9 @@ export default function FormModal({
   }
 
   /**
-   * function that updates the weekRoutine state when a user checks the day that is indicated as a parameter and toggles the checkbox being checked or not
+   * function that updates the weekRoutine state when a user checks the day that
+   * is indicated as a parameter and toggles the checkbox being checked or not
+   * it also removes the morning and evening checks, when user unchecks the day
    * @type {function}
    * @param {string} name
    */
@@ -169,11 +152,6 @@ export default function FormModal({
    */
 
   function handleMorningClicked(name) {
-    /**
-     * an integer representing the id of a product that is already used that day and at that time of day and that should not be used simultaneously with the currently displayed product
-     * @type {number}
-     */
-
     const conflictingId = findConflictingProductId(
       name,
       routineData,
@@ -181,11 +159,6 @@ export default function FormModal({
       conflicts
     );
     setConflictId(conflictingId);
-
-    /**
-     * the name of the product that has conflict with the product that is currently displayed
-     * @type {string}
-     */
 
     const conflictName = findConflictProductName(conflictingId, products);
     setConflictName(conflictName);
@@ -268,17 +241,7 @@ export default function FormModal({
   function handleModalFormSubmit(event) {
     event.preventDefault();
 
-    /**
-     * variable that is true if the user hasn't checked ANY checkboxes
-     * @type {boolean}
-     */
-
     const isNothingChecked = isNothingSelected(weekRoutine);
-
-    /**
-     * variable that is false if the user has checked a day, but has not specified the time of day
-     * @type {boolean}
-     */
 
     const isNoUnspecifiedChecks = isNoUnspecifiedSelected(weekRoutine);
 
@@ -321,26 +284,20 @@ export default function FormModal({
 
   function handleProductSwap() {
     /**
-     * product object with the info of when it is being used (days and times of day)
-     * @type {object}
+     * Conflicting product
      */
-
     let conflictingProduct = routineData.find(
       (product) => product.id === conflictId
     );
-
-    /**
-     * a list of days that indicate on which day and time of day the conflicting product was or wasn't checked
-     * @type {array<object>}
-     */
 
     const newConflictingTimeOfDayChecked = getNewChecks(
       conflictingProduct,
       clickedWeekdayName,
       clickedTimeOfTheDay
     );
+
     /**
-     * Update variable with clicked day and time of day no longer checked in order to remove the conflicting product
+     * Updated variable with clicked day and time of day no longer checked in order to remove the conflicting product
      * @type {object}
      * @property {number} id - id of the conflicting product
      * @property {array<object>} days - array of days (objects) with info about checked and not checked
@@ -355,10 +312,8 @@ export default function FormModal({
     editDataInLocalStorage(conflictingProduct);
 
     /**
-     * a list of days that indicate on which day and time of day the currently clicked product was or wasn't checked
-     * @type {array<object>}
+     * Current product
      */
-
     const newTimeOfDayChecked = getNewChecks(
       weekRoutine,
       clickedWeekdayName,
@@ -369,11 +324,6 @@ export default function FormModal({
 
     setShowModal(false);
   }
-
-  /**
-   * name for class that blurs background when the AlertModal is shown
-   * @type {string}
-   */
 
   const classForAlertShown = showModal ? "background-blur" : "";
 
