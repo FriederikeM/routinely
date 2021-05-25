@@ -30,8 +30,8 @@
   position: relative;
   box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
   display: grid;
-  grid-template-columns: [left] minmax(178.125px, 360px) [right] minmax(
-      178.125px,
+  grid-template-columns: [left] minmax(166.25px, 360px) [right] minmax(
+      166.25px,
       360px
     );
   grid-template-rows: auto, auto auto;
