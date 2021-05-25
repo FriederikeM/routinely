@@ -149,13 +149,14 @@ export default function FormModal({
    * as well as the state of the day and timeOfDay to when the product was clicked (e.g. monday morning)
    * @type {function}
    * @param {string} name
+   * @param {string} timeOfDay
    */
 
-  function handleMorningClicked(name) {
+  function handleTimeOfDayClicked(name, timeOfDay) {
     const conflictingId = findConflictingProductId(
       name,
       routineData,
-      "morning",
+      timeOfDay,
       conflicts
     );
     setConflictId(conflictingId);
@@ -164,14 +165,9 @@ export default function FormModal({
     setConflictName(conflictName);
 
     setClickedWeekdayName(name);
-    setClickedTimeOfTheDay("morning");
+    setClickedTimeOfTheDay(timeOfDay);
 
-    /**
-     * variable that says whether or not the checkbox that I am clicking is checked or unchecked
-     * @type {boolean}
-     */
-
-    const alreadyChecked = isThisTimeChecked(routineData, name, "morning", id);
+    const alreadyChecked = isThisTimeChecked(routineData, name, timeOfDay, id);
 
     /**
      * if there is a conflicting product (represented by conflictingId)
@@ -185,42 +181,7 @@ export default function FormModal({
     if (conflictingId && alreadyChecked === false) {
       setShowModal(true);
     } else {
-      const newMorningChecked = getNewChecks(weekRoutine, name, "morning");
-      setWeekRoutine({
-        id: id,
-        days: newMorningChecked,
-        date: weekRoutine.date,
-      });
-    }
-  }
-
-  /**
-   * function does the same as the function above, but for when the evening is clicked
-   * @type {function}
-   * @param {string} name
-   */
-
-  function handleEveningClicked(name) {
-    const conflictingId = findConflictingProductId(
-      name,
-      routineData,
-      "evening",
-      conflicts
-    );
-    setConflictId(conflictingId);
-
-    const conflictName = findConflictProductName(conflictingId, products);
-    setConflictName(conflictName);
-
-    setClickedWeekdayName(name);
-    setClickedTimeOfTheDay("evening");
-
-    const alreadyChecked = isThisTimeChecked(routineData, name, "evening", id);
-
-    if (conflictingId && alreadyChecked === false) {
-      setShowModal(true);
-    } else {
-      const newEveningChecked = getNewChecks(weekRoutine, name, "evening");
+      const newEveningChecked = getNewChecks(weekRoutine, name, timeOfDay);
       setWeekRoutine({
         id: id,
         days: newEveningChecked,
@@ -336,8 +297,7 @@ export default function FormModal({
           name={name}
           weekRoutine={weekRoutine}
           onDayClicked={handleDayClicked}
-          onMorningClicked={handleMorningClicked}
-          onEveningClicked={handleEveningClicked}
+          onTimeOfDayClicked={handleTimeOfDayClicked}
           onChangeDate={handleChangeDate}
           onCancelAdding={onCancelAdding}
           editMode={editMode}
