@@ -28,6 +28,13 @@ export default function isThisTimeChecked(
   }
 }
 
+/**
+ * function receives a product and checks if the day is unchecked but the morning is checked
+ * @type {function}
+ * @param {object} weekRoutine - the product that the user is currently adding or editing
+ * @returns true, if there are days where the morning is checked but the day is not
+ */
+
 export function isDayUncheckedButMorningChecked(weekRoutine) {
   const morningChecked = weekRoutine.days
     .map((day) => {
@@ -36,6 +43,13 @@ export function isDayUncheckedButMorningChecked(weekRoutine) {
     .some((day) => day === true);
   return morningChecked;
 }
+
+/**
+ * function receives a product and checks if the day is unchecked but the evening is checked
+ * @type {function}
+ * @param {object} weekRoutine - the product that the user is currently adding or editing
+ * @returns true, if there are days where the evening is checked but the day is not
+ */
 
 export function isDayUncheckedButEveningChecked(weekRoutine) {
   const eveningChecked = weekRoutine.days
@@ -46,6 +60,14 @@ export function isDayUncheckedButEveningChecked(weekRoutine) {
   return eveningChecked;
 }
 
+/**
+ * function receives a product, finds the days where the morning/evenign is checked but the day isn't
+ * then unchecks the morning/evening
+ * @type {function}
+ * @param {object} weekRoutine
+ * @param {string} timeOfDay
+ * @returns the new days array with the unchecked morning/evening
+ */
 export function removeCheckedTimeOfDay(weekRoutine, timeOfDay) {
   const timeOfDayChecked = weekRoutine.days.map((day) => {
     return day.isChecked === false && day[timeOfDay] === true;
