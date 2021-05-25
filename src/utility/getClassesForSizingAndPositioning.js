@@ -1,23 +1,16 @@
 /**
- * function gives back a class depending on the packaging or the name of a product
- * function is using both parameters as using only packaging would not get the desired result
+ * function gives back a class depending on the packaging of a product
  * @type {function}
  * @param {string} packaging - product packaging ("glass bottle", "not glass bottle", "glass container")
  * @param {string} name - product name ("100% Niacinamide Powder" or "100% L-Ascorbic Acid Powder")
  * @returns {string} - name of class that gets applied to image for better design layout
  */
 
-export function getClassForAddedPackaging(packaging, name) {
+export function getClassForAddedPackaging(packaging) {
   let classForPackaging;
-  if (
-    packaging === "not glass bottle" ||
-    name === "Glycolic Acid 7% Toning Solution"
-  ) {
+  if (packaging === "not glass bottle") {
     classForPackaging = "smaller-added-image";
-  } else if (
-    name === "100% Niacinamide Powder" ||
-    name === "100% L-Ascorbic Acid Powder"
-  ) {
+  } else if (packaging === "glass container") {
     classForPackaging = "added-powder-image";
   } else {
     classForPackaging = "";

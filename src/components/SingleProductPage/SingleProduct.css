@@ -280,7 +280,7 @@
   }
 
   .single-product-back-button {
-    position: sticky;
+    position: fixed;
     bottom: 15px;
     right: 15px;
     color: var(--color-two);

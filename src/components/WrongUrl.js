@@ -1,21 +1,19 @@
-import { useHistory } from "react-router";
+import { NavLink } from "react-router-dom";
 import "./WrongUrl.css";
 
 export default function WrongUrl() {
-  const history = useHistory();
   return (
     <div className="WrongUrl">
       <article className="wrong-url-message">
         <div className="wrong-url-text">
           <h3>Ooops, nothing to see here! 👀</h3>
-          <p>Check if you typed in the correct URL</p>
         </div>
-        <button
-          className="wrong-url-history-back-button"
-          onClick={() => history.goBack()}
-        >
-          Go back
-        </button>
+        <div className="redirect">
+          <h3>Did you want to...</h3>
+          <NavLink to="/products">check out all the products</NavLink>
+          <h4>Or maybe...</h4>
+          <NavLink to="/weekly-routine">take a look at your routine</NavLink>
+        </div>
       </article>
     </div>
   );

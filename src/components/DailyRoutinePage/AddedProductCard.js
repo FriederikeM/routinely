@@ -26,7 +26,7 @@ export default function AddedProductCard({
    * @type {string}
    */
 
-  const classForPackaging = getClassForAddedPackaging(packaging, name);
+  const classForPackaging = getClassForAddedPackaging(packaging);
 
   return (
     <div className="AddedProductCard">
