@@ -21,6 +21,7 @@ import isThisTimeChecked, {
 import Form from "./Form";
 import AlertModal from "./AlertModal";
 import PropTypes from "prop-types";
+import WarnModal from "./WarnModal";
 
 FormModal.propTypes = {
   onCancelAdding: PropTypes.func.isRequired,
@@ -39,6 +40,7 @@ export default function FormModal({
 }) {
   const [openingDate, setOpeningDate] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [showWarning, setShowWarning] = useState(false);
   const [conflictId, setConflictId] = useState();
   const [conflictName, setConflictName] = useState("");
   const [clickedWeekdayName, setClickedWeekdayName] = useState("");
@@ -220,9 +222,7 @@ export default function FormModal({
      */
 
     if (isNoUnspecifiedChecks === false) {
-      alert(
-        "Please specify during which time of the day you want to use the product on the checked days"
-      );
+      setShowWarning(true);
     } else if (isNothingChecked === true && editMode === false) {
       onCancelAdding();
     } else if (isNothingChecked === true && editMode === true) {
@@ -289,7 +289,11 @@ export default function FormModal({
     setShowModal(false);
   }
 
-  const classForAlertShown = showModal ? "background-blur" : "";
+  function handleCloseWarnClicked() {
+    setShowWarning(false);
+  }
+
+  const classForAlertShown = showModal || showWarning ? "background-blur" : "";
 
   return (
     <div className="FormModal">
@@ -313,6 +317,9 @@ export default function FormModal({
             onProductSwapClicked={handleProductSwap}
             onCancelAlertModal={() => setShowModal(false)}
           />
+        )}
+        {showWarning && (
+          <WarnModal onCloseWarnClicked={handleCloseWarnClicked} />
         )}
       </article>
     </div>
