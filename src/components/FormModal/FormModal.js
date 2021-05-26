@@ -15,9 +15,8 @@ import {
 } from "../../utility/isNotSelected";
 import getNewChecks from "../../utility/getNewChecks";
 import isThisTimeChecked, {
-  isDayUncheckedButMorningChecked,
-  isDayUncheckedButEveningChecked,
   removeCheckedTimeOfDay,
+  isDayUncheckedButTimeOfDayChecked,
 } from "../../utility/isThisTimeChecked";
 import Form from "./Form";
 import AlertModal from "./AlertModal";
@@ -127,15 +126,19 @@ export default function FormModal({
     const newCheckedDays = getNewChecks(weekRoutine, name, "isChecked");
     setWeekRoutine({ id: id, days: newCheckedDays, date: weekRoutine.date });
 
-    const dayNotCheckedButMorningChecked =
-      isDayUncheckedButMorningChecked(weekRoutine);
+    const dayNotCheckedButMorningChecked = isDayUncheckedButTimeOfDayChecked(
+      weekRoutine,
+      "morning"
+    );
 
     if (dayNotCheckedButMorningChecked === true) {
       removeCheckedTimeOfDay(weekRoutine, "morning");
     }
 
-    const dayNotCheckedButEveningChecked =
-      isDayUncheckedButEveningChecked(weekRoutine);
+    const dayNotCheckedButEveningChecked = isDayUncheckedButTimeOfDayChecked(
+      weekRoutine,
+      "evening"
+    );
 
     if (dayNotCheckedButEveningChecked === true) {
       removeCheckedTimeOfDay(weekRoutine, "evening");
