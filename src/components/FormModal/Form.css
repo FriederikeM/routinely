@@ -122,3 +122,9 @@
 .background-blur {
   filter: blur(3px);
 }
+
+@media only screen and (min-width: 400px) {
+  .weekday-checkboxes {
+    left: 12%;
+  }
+}
