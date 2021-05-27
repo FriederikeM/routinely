@@ -33,6 +33,7 @@ FormModal.propTypes = {
 
 export default function FormModal({
   onCancelAdding,
+  onEditRoutine,
   id,
   name,
   conflicts,
@@ -237,6 +238,7 @@ export default function FormModal({
         onCancelAdding();
       }
     }
+    onEditRoutine();
   }
 
   /**
