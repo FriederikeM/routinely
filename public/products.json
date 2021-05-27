@@ -552,7 +552,7 @@
       "Phenoxyethanol",
       "Chlorphenesin"
     ],
-    "expirationPeriod": "12 months ?",
+    "expirationPeriod": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-mineral-uv-filters-spf-15-with-antioxidants-50ml.html",
     "refrigeration": false,
@@ -825,7 +825,7 @@
       "Phenoxyethanol",
       "Chlorphenesin"
     ],
-    "expirationPeriod": "?",
+    "expirationPeriod": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-buffet-copper-peptides-1pct-30ml.html",
     "refrigeration": false,
@@ -894,7 +894,7 @@
       "1,2-hexanediol",
       "Caprylyl Glycol"
     ],
-    "expirationPeriod": "?",
+    "expirationPeriod": "12 months",
     "time": ["am", "pm"],
     "url": "https://theordinary.deciem.com/de/rdn-salicylic-acid-2pct-solution-30ml.html",
     "refrigeration": false,
@@ -1441,7 +1441,7 @@
       "Rosmarinus Officinalis (Rosemary) Leaf Extract",
       "Hydroxymethoxyphenyl Decanone"
     ],
-    "expirationPeriod": "6 months",
+    "expirationPeriod": "3 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-granactive-retinoid-2pct-in-squalane-30ml.html",
     "refrigeration": true,
@@ -1469,7 +1469,7 @@
       "Hydroxymethoxyphenyl Decanone",
       "BHT"
     ],
-    "expirationPeriod": "3 months ?",
+    "expirationPeriod": "3 months",
     "time": ["pm"],
     "url": "https://theordinary.deciem.com/de/rdn-retinol-1pct-in-squalane-30ml.html",
     "refrigeration": true,
