@@ -15,7 +15,7 @@ import {
 export default function DailyRoutine() {
   const { weekday } = useParams();
   const history = useHistory();
-  const allRoutineItems = useRoutine();
+  const { allRoutineItems, syncRoutine } = useRoutine();
   const products = useProducts();
   const [showModal, setShowModal] = useState(false);
   const [id, setId] = useState();
@@ -48,6 +48,10 @@ export default function DailyRoutine() {
 
   function handleCancelAddToRoutine() {
     setShowModal(false);
+  }
+
+  function submitEditRoutine() {
+    syncRoutine();
   }
 
   const modalShown = showModal ? "not-modal" : "";
@@ -148,6 +152,7 @@ export default function DailyRoutine() {
           name={productName}
           products={products}
           onCancelAdding={handleCancelAddToRoutine}
+          onEditRoutine={submitEditRoutine}
         />
       )}
     </div>

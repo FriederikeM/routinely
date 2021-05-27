@@ -22,7 +22,7 @@
   position: relative;
   left: 9%;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 70px 70px 70px 70px;
   min-height: 200px;
 }
@@ -121,4 +121,10 @@
 }
 .background-blur {
   filter: blur(3px);
+}
+
+@media only screen and (min-width: 400px) {
+  .weekday-checkboxes {
+    left: 12%;
+  }
 }

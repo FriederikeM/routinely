@@ -8,8 +8,7 @@ Form.propTypes = {
   name: PropTypes.string.isRequired,
   weekRoutine: PropTypes.object.isRequired,
   onDayClicked: PropTypes.func.isRequired,
-  onMorningClicked: PropTypes.func.isRequired,
-  onEveningClicked: PropTypes.func.isRequired,
+  onTimeOfDayClicked: PropTypes.func.isRequired,
   onChangeDate: PropTypes.func.isRequired,
   onCancelAdding: PropTypes.func.isRequired,
   editMode: PropTypes.bool.isRequired,
@@ -21,8 +20,7 @@ export default function Form({
   name,
   weekRoutine,
   onDayClicked,
-  onMorningClicked,
-  onEveningClicked,
+  onTimeOfDayClicked,
   onChangeDate,
   onCancelAdding,
   editMode,
@@ -46,8 +44,7 @@ export default function Form({
               isChecked={day.isChecked}
               morning={day.morning}
               evening={day.evening}
-              onMorningClicked={onMorningClicked}
-              onEveningClicked={onEveningClicked}
+              onTimeOfDayClicked={onTimeOfDayClicked}
             />
           );
         })}

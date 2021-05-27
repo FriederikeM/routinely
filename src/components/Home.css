@@ -65,7 +65,7 @@
 .bottle-wrapper-one {
   animation: slide-in-left 900ms cubic-bezier(0.8, 0.02, 0.54, 1.53) backwards;
   position: relative;
-  top: -20px;
+  top: -50px;
 }
 
 @keyframes slide-in-left {
@@ -112,7 +112,7 @@
   animation: slide-in-right 900ms 500ms cubic-bezier(0.44, -0.07, 0.67, 1.5)
     backwards;
   position: relative;
-  top: 50px;
+  top: -50px;
 }
 
 @keyframes slide-in-right {

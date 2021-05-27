@@ -8,7 +8,7 @@ import bottleRow from "../../images/bottle-row.svg";
 import dropper from "../../images/dropper.svg";
 
 export default function WeeklyRoutine() {
-  const allRoutineItems = useRoutine();
+  const { allRoutineItems } = useRoutine();
   const products = useProducts();
 
   const mondays = getProductsCheckedOnThisDay("Monday", allRoutineItems);
