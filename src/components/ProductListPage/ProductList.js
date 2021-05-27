@@ -93,6 +93,7 @@ export default function ProductList() {
           conflicts={conflicts}
           products={products}
           onCancelAdding={handleCancelAddToRoutine}
+          onEditRoutine={() => {}}
         />
       )}
     </div>
