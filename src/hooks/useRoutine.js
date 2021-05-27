@@ -9,9 +9,15 @@ import { getDataFromLocalStorage } from "../utility/localStorage";
 
 export default function useRoutine() {
   const [allRoutineItems, setAllRoutineItems] = useState([]);
+
   useEffect(() => {
+    syncRoutine();
+  }, []);
+
+  function syncRoutine() {
     const routine = getDataFromLocalStorage();
     setAllRoutineItems(routine);
-  }, []);
-  return allRoutineItems;
+  }
+
+  return { allRoutineItems, syncRoutine };
 }
