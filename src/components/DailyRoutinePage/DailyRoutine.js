@@ -54,7 +54,7 @@ export default function DailyRoutine() {
     syncRoutine();
   }
 
-  const modalShown = showModal ? "not-modal" : "";
+  const modalShown = showModal ? "daily-not-modal" : "";
 
   /**
    * @type {function}
@@ -119,7 +119,7 @@ export default function DailyRoutine() {
 
   return (
     <div className="DailyRoutine">
-      <div className={modalShown}>
+      <div>
         <header className="daily-header">
           <div className="daily-headline-wrapper">
             <h1 className="daily-headline">{weekday}</h1>
@@ -129,7 +129,7 @@ export default function DailyRoutine() {
           </button>
         </header>
         {allRoutineItems !== [] && (
-          <main className="daily-main">
+          <main className={`daily-main ${modalShown}`}>
             <section className="morning-products-display">
               <h2 className="daytime-headline">Morning</h2>
               <ul className="morning-products-list">

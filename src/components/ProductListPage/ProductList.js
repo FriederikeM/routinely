@@ -71,7 +71,7 @@ export default function ProductList() {
 
   return (
     <div className="ProductList">
-      <div className={`wrapper ${modalShown}`}>
+      <div className="wrapper">
         <header className="header">
           <div className="filter-wrapper">
             <NameFilter onNameFilterChange={handleNameFilterChange} />
@@ -82,7 +82,7 @@ export default function ProductList() {
           <h1 className="products-headline">Products</h1>
           <CalendarButton />
         </header>
-        <main className="main">
+        <main className={`main ${modalShown}`}>
           <ul className="product-ul">{renderProducts()}</ul>
         </main>
       </div>
