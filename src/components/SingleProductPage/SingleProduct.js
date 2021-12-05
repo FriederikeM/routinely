@@ -53,7 +53,7 @@ export default function SingleProduct() {
             <span className="single-product-time-icon">
               <BsFillClockFill />
             </span>
-            <span className="single-product-time-text">{time}</span>
+            <span className="single-product-time-text">{time.join(", ")}</span>
           </span>
         )}
         <ul className="single-product-goal-list">
