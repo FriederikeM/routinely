@@ -2,7 +2,7 @@ import "./AlertModal.css";
 import PropTypes from "prop-types";
 
 AlertModal.propTypes = {
-  conflictName: PropTypes.string.isRequired,
+  conflictNames: PropTypes.array.isRequired,
   clickedWeekdayName: PropTypes.string.isRequired,
   clickedTimeOfTheDay: PropTypes.string.isRequired,
   onProductSwapClicked: PropTypes.func.isRequired,
@@ -10,7 +10,7 @@ AlertModal.propTypes = {
 };
 
 export default function AlertModal({
-  conflictName,
+  conflictNames,
   clickedWeekdayName,
   clickedTimeOfTheDay,
   onProductSwapClicked,
@@ -19,9 +19,15 @@ export default function AlertModal({
   return (
     <div className="alert-modal">
       <p className="alert-message">
-        You are already using <em>{conflictName}</em> on {clickedWeekdayName}{" "}
-        {clickedTimeOfTheDay}. These products have conflicting ingredients.
-        Would you like to swap these two products?
+        You are already using{" "}
+        <em>
+          {[
+            conflictNames.slice(0, -1).join(", "),
+            conflictNames.slice(-1)[0],
+          ].join(conflictNames.length < 2 ? "" : " and ")}
+        </em>{" "}
+        on {clickedWeekdayName} {clickedTimeOfTheDay}. These products have
+        conflicting ingredients. Would you like to swap these products?
       </p>
       <div className="alert-modal-finishing-button-wrapper">
         <button className="swap-product" onClick={onProductSwapClicked}>

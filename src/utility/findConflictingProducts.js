@@ -12,22 +12,22 @@ import getProductById from "./getProductById";
  * @param {array<object>} conflicts
  * @returns {number}
  */
-export function findConflictingProductId(
+export function findConflictingProductsIds(
   weekdayName,
   routineData,
   timeOfDay,
   conflicts
 ) {
   const indexOfWeekday = getIndexForWeekday(weekdayName);
-  const conflictingProduct = routineData
+  const conflictingProducts = routineData
     .filter(
       (product) =>
         product.days[indexOfWeekday].name === weekdayName &&
         product.days[indexOfWeekday][timeOfDay] === true
     )
     .map((product) => product.id)
-    .find((id) => conflicts.includes(id));
-  return conflictingProduct;
+    .filter((id) => conflicts.includes(id));
+  return conflictingProducts;
 }
 
 /**
@@ -38,9 +38,12 @@ export function findConflictingProductId(
  * @returns {string}
  */
 
-export function findConflictProductName(conflictId, products) {
-  if (conflictId) {
-    const conflictProduct = getProductById(conflictId, products);
-    return conflictProduct.name;
+export function findConflictProductName(conflictIds, products) {
+  if (!!conflictIds.length) {
+    const conflictName = conflictIds.map((id) => {
+      const conflictProduct = getProductById(id, products);
+      return conflictProduct.name;
+    });
+    return conflictName;
   }
 }

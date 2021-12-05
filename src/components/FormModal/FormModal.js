@@ -6,9 +6,9 @@ import removeProductFromLocalStorage, {
   sendDataToLocalStorage,
 } from "../../utility/localStorage";
 import {
-  findConflictingProductId,
+  findConflictingProductsIds,
   findConflictProductName,
-} from "../../utility/findConflictingProduct";
+} from "../../utility/findConflictingProducts";
 import {
   isNothingSelected,
   isNoUnspecifiedSelected,
@@ -42,8 +42,8 @@ export default function FormModal({
   const [openingDate, setOpeningDate] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
-  const [conflictId, setConflictId] = useState();
-  const [conflictName, setConflictName] = useState("");
+  const [conflictIds, setConflictIds] = useState([]);
+  const [conflictNames, setConflictNames] = useState([]);
   const [clickedWeekdayName, setClickedWeekdayName] = useState("");
   const [clickedTimeOfTheDay, setClickedTimeOfTheDay] = useState("");
   const [routineData, setRoutineData] = useState([]);
@@ -159,16 +159,16 @@ export default function FormModal({
    */
 
   function handleTimeOfDayClicked(name, timeOfDay) {
-    const conflictingId = findConflictingProductId(
+    const conflictingIds = findConflictingProductsIds(
       name,
       routineData,
       timeOfDay,
       conflicts
     );
-    setConflictId(conflictingId);
+    setConflictIds(conflictingIds);
 
-    const conflictName = findConflictProductName(conflictingId, products);
-    setConflictName(conflictName);
+    const conflictName = findConflictProductName(conflictingIds, products);
+    setConflictNames(conflictName);
 
     setClickedWeekdayName(name);
     setClickedTimeOfTheDay(timeOfDay);
@@ -184,7 +184,7 @@ export default function FormModal({
      * instead the changes will be stored in the weekRoutine useState
      */
 
-    if (conflictingId && alreadyChecked === false) {
+    if (!!conflictingIds.length && alreadyChecked === false) {
       setShowModal(true);
     } else {
       const newTimeOfDayChecked = getNewChecks(weekRoutine, name, timeOfDay);
@@ -252,30 +252,29 @@ export default function FormModal({
     /**
      * Conflicting product
      */
-    let conflictingProduct = routineData.find(
-      (product) => product.id === conflictId
+    let conflictingProducts = routineData.filter((product) =>
+      conflictIds.includes(product.id)
     );
 
-    const newConflictingTimeOfDayChecked = getNewChecks(
-      conflictingProduct,
-      clickedWeekdayName,
-      clickedTimeOfTheDay
-    );
-
-    /**
-     * Updated variable with clicked day and time of day no longer checked in order to remove the conflicting product
-     * @type {object}
-     * @property {number} id - id of the conflicting product
-     * @property {array<object>} days - array of days (objects) with info about checked and not checked
-     * @property {string} date - date the product was opened or empty string
-     */
-    conflictingProduct = {
-      id: conflictId,
-      days: newConflictingTimeOfDayChecked,
-      date: conflictingProduct.date,
-    };
-
-    editDataInLocalStorage(conflictingProduct);
+    conflictingProducts.forEach((conflictingProduct) => {
+      const newConflictingTimeOfDayChecked = getNewChecks(
+        conflictingProduct,
+        clickedWeekdayName,
+        clickedTimeOfTheDay
+      );
+      /**
+       * Updated variable with clicked day and time of day no longer checked in order to remove the conflicting product
+       * @type {object}
+       * @property {number} id - id of the conflicting product
+       * @property {array<object>} days - array of days (objects) with info about checked and not checked
+       * @property {string} date - date the product was opened or empty string
+       */
+      const updatedConflictingProduct = {
+        ...conflictingProduct,
+        days: newConflictingTimeOfDayChecked,
+      };
+      editDataInLocalStorage(updatedConflictingProduct);
+    });
 
     /**
      * Current product
@@ -313,7 +312,7 @@ export default function FormModal({
         />
         {showModal && (
           <AlertModal
-            conflictName={conflictName}
+            conflictNames={conflictNames}
             clickedWeekdayName={clickedWeekdayName}
             clickedTimeOfTheDay={clickedTimeOfTheDay}
             onProductSwapClicked={handleProductSwap}
