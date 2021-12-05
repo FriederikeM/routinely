@@ -32,6 +32,6 @@
 .morning-label,
 .evening-label {
   position: relative;
-  top: 2px;
+  top: 4px;
   font-size: 1.1rem;
 }

@@ -27,9 +27,8 @@ export default function Checkbox({
 
   return (
     <div className={`Checkbox ${classForCheckboxAlignment}`}>
-      <div className="weekday">
+      <div onClick={() => onDayClicked(name)} className="weekday">
         <input
-          onChange={() => onDayClicked(name)}
           type="checkbox"
           name={name}
           className="weekday-checkbox"

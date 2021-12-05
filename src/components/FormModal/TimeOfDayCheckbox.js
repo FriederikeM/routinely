@@ -7,20 +7,17 @@ export default function TimeOfDayCheckbox({
   checked,
 }) {
   return (
-    <span className="morning">
+    <span
+      onClick={() => onChange(weekdayName, timeOfDay)}
+      className={`${timeOfDay}`}
+    >
       <input
-        onChange={() => onChange(weekdayName, timeOfDay)}
         type="checkbox"
         name={timeOfDay}
-        className={
-          timeOfDay === "morning" ? "morning-checkbox" : "evening-checkbox"
-        }
+        className={`${timeOfDay}-checkbox`}
         checked={checked}
       />
-      <label
-        htmlFor={timeOfDay}
-        className={timeOfDay === "morning" ? "morning-label" : "evening-label"}
-      >
+      <label htmlFor={timeOfDay} className={`${timeOfDay}-label`}>
         {timeOfDay === "morning" ? <FiSun /> : <FiMoon />}
       </label>
     </span>
