@@ -7,14 +7,14 @@ const randomProduct = chance.integer({ min: 0, max: 48 });
 
 describe("Navigate to products page, choose a product, add it, then navigate to daily page and edit the product", () => {
   it("finds the link to the product page, clicks it and gets directed there", () => {
-    cy.visit("http://localhost:4000");
+    cy.visit("http://localhost:3000");
     cy.get(".product-link").click();
     cy.url().should("include", "/products");
   });
 
   it("Picks out a random product to add to the routine", () => {
     cy.get("ul>li").eq(randomProduct).find("button").click();
-    cy.get(".wrapper").should("have.class", "not-modal");
+    cy.get(".main").should("have.class", "not-modal");
   });
 
   it("Chooses a day of the week and the time of day", () => {
@@ -33,13 +33,13 @@ describe("Navigate to products page, choose a product, add it, then navigate to 
 
   it("Adds the product to the routine, goes to daily routine and edits product", () => {
     cy.get(".add-product").click();
-    cy.get(".wrapper").should("not.have.class", "not-modal");
+    cy.get(".main").should("not.have.class", "not-modal");
     cy.get(".weekly-routine-link").click();
     cy.url().should("contain", "/weekly-routine");
     cy.get("button").click();
     cy.url().should("contain", "/weekly-routine/Tuesday");
     cy.get(".edit-button").eq(1).click();
-    cy.get("div").children().should("have.class", "not-modal");
+    cy.get("div").children().should("have.class", "daily-not-modal");
     cy.get(".morning-checkbox").uncheck();
     cy.get(".morning-checkbox").should("not.be.checked");
     cy.get(".evening-checkbox").uncheck();

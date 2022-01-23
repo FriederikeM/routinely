@@ -8,7 +8,7 @@ const randomCheckbox = chance.integer({ min: 0, max: 6 });
 
 describe("Navigate to products page and add a product to routine, then navigate to routine page", () => {
   it("finds the link to the product page, clicks it and gets directed there", () => {
-    cy.visit("http://localhost:4000");
+    cy.visit("http://localhost:3000");
     cy.get(".product-link").click();
     cy.url().should("include", "/products");
   });
