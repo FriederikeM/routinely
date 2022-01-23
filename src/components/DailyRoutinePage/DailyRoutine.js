@@ -11,6 +11,7 @@ import {
   getProductsCheckedOnThisDay,
   getProductsCheckedOnThisTimeOfDay,
 } from "../../utility/getCheckedProducts";
+import React from "react";
 
 export default function DailyRoutine() {
   const { weekday } = useParams();

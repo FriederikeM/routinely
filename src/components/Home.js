@@ -2,6 +2,7 @@ import "./Home.css";
 import bottleOne from "../images/orange-bottle.svg";
 import bottleTwo from "../images/purple-bottle.svg";
 import { NavLink } from "react-router-dom";
+import React from "react";
 
 export default function Home() {
   return (

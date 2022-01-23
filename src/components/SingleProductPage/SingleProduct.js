@@ -4,6 +4,7 @@ import useProducts from "../../hooks/useProducts";
 import getProductById from "../../utility/getProductById";
 import { FaRegSnowflake, FaArrowLeft } from "react-icons/fa";
 import { BsFillClockFill } from "react-icons/bs";
+import React from "react";
 
 export default function SingleProduct() {
   const { singleProductId } = useParams();

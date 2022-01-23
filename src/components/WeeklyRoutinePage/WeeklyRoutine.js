@@ -6,6 +6,7 @@ import { getProductsCheckedOnThisDay } from "../../utility/getCheckedProducts";
 import useRoutine from "../../hooks/useRoutine";
 import bottleRow from "../../images/bottle-row.svg";
 import dropper from "../../images/dropper.svg";
+import React from "react";
 
 export default function WeeklyRoutine() {
   const { allRoutineItems } = useRoutine();

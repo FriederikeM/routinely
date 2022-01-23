@@ -1,6 +1,7 @@
 import "./TimeOfDayProducts.css";
 import getProductById from "../../utility/getProductById";
 import PropTypes from "prop-types";
+import React from "react";
 
 TimeOfDayProducts.propTypes = {
   products: PropTypes.array.isRequired,

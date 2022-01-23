@@ -22,6 +22,7 @@ import Form from "./Form";
 import AlertModal from "./AlertModal";
 import PropTypes from "prop-types";
 import WarnModal from "./WarnModal";
+import React from "react";
 
 FormModal.propTypes = {
   onCancelAdding: PropTypes.func.isRequired,

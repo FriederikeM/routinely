@@ -1,4 +1,5 @@
 import "./WarnModal.css";
+import React from "react";
 
 export default function WarnModal({ onCloseWarnClicked }) {
   return (

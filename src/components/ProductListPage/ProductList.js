@@ -8,6 +8,7 @@ import FormModal from "../FormModal/FormModal";
 import { useState } from "react";
 import useProducts from "../../hooks/useProducts";
 import { getProductsFilteredByNameandCategory } from "../../utility/getFilteredProducts";
+import React from "react";
 
 export default function ProductList() {
   const products = useProducts();

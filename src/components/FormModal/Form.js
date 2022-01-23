@@ -1,6 +1,7 @@
 import "./Form.css";
 import Checkbox from "./Checkbox";
 import PropTypes from "prop-types";
+import React from "react";
 
 Form.propTypes = {
   classForAlertShown: PropTypes.string.isRequired,
