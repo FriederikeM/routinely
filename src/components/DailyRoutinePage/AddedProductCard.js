@@ -2,6 +2,7 @@ import "./AddedProductCard.css";
 import { TiShoppingCart } from "react-icons/ti";
 import { getClassForAddedPackaging } from "../../utility/getClassesForSizingAndPositioning";
 import PropTypes from "prop-types";
+import React from "react";
 
 AddedProductCard.propTypes = {
   packaging: PropTypes.string.isRequired,
@@ -35,7 +36,7 @@ export default function AddedProductCard({
         <a
           href={url}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="shopping-link"
         >
           <TiShoppingCart className="shopping-cart-icon" />{" "}

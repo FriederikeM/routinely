@@ -3,6 +3,7 @@ import "./Checkbox.css";
 import { getClassForWeekdayCheckboxAlignment } from "../../utility/getClassesForSizingAndPositioning";
 import PropTypes from "prop-types";
 import TimeOfDayCheckbox from "./TimeOfDayCheckbox";
+import React from "react";
 
 Checkbox.propTypes = {
   name: PropTypes.string.isRequired,

@@ -3,6 +3,7 @@ import { getClassForListedPackaging } from "../../utility/getClassesForSizingAnd
 import { FaPlus } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
+import React from "react";
 
 ProductCard.propTypes = {
   name: PropTypes.string.isRequired,

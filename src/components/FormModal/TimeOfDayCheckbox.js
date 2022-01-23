@@ -1,4 +1,5 @@
 import { FiMoon, FiSun } from "react-icons/fi";
+import React from "react";
 
 export default function TimeOfDayCheckbox({
   onChange,

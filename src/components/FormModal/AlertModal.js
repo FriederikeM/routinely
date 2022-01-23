@@ -1,5 +1,6 @@
 import "./AlertModal.css";
 import PropTypes from "prop-types";
+import React from "react";
 
 AlertModal.propTypes = {
   conflictNames: PropTypes.array.isRequired,

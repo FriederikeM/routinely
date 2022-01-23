@@ -6,6 +6,7 @@ import WeeklyRoutine from "./components/WeeklyRoutinePage/WeeklyRoutine.js";
 import DailyRoutine from "./components/DailyRoutinePage/DailyRoutine.js";
 import SingleProduct from "./components/SingleProductPage/SingleProduct.js";
 import WrongUrl from "./components/WrongUrl";
+import React from "react";
 
 function App() {
   return (

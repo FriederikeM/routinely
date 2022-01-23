@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { getProductsCheckedOnThisTimeOfDay } from "../../utility/getCheckedProducts";
 import TimeOfDayProducts from "./TimeOfDayProducts";
 import PropTypes from "prop-types";
+import React from "react";
 
 WeekDayCard.propTypes = {
   name: PropTypes.string.isRequired,

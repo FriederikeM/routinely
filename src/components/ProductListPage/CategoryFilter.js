@@ -1,5 +1,6 @@
 import "./CategoryFilter.css";
 import PropTypes from "prop-types";
+import React from "react";
 
 CategoryFilter.propTypes = {
   onCategoryFilterChange: PropTypes.func.isRequired,
